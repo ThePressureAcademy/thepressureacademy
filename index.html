@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pressure Academy — Plan Your Life. Train With Intent.</title>
+  <meta name="description" content="The Pressure Academy helps shift workers, grapplers, and parents build systems for training, recovery, and life. Powered by The Pressure Planner.">
+  <meta name="theme-color" content="#C45B28">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Pressure Academy — Pressure Creates Progress">
+  <meta property="og:description" content="Plan your life. Train with intent. Turn pressure into progress.">
+  <meta property="og:image" content="https://thepressureacademy.com/og-image.png">
+  <meta property="og:url" content="https://thepressureacademy.com">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Pressure Academy">
+  <meta name="twitter:description" content="Plan your life. Train with intent. Turn pressure into progress.">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://thepressureacademy.com">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='4' width='20' height='3' rx='1' fill='%23C45B28'/%3E%3Crect x='6' y='25' width='20' height='3' rx='1' fill='%23C45B28'/%3E%3Cpath d='M16 10 L23 16 L16 22 L9 16Z' fill='%23C45B28'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Animation Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.20/dist/lenis.css">
+  
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Pressure Academy",
+    "url": "https://thepressureacademy.com",
+    "logo": "https://thepressureacademy.com/og-image.png",
+    "description": "Plan your life. Train with intent. Turn pressure into progress.",
+    "sameAs": ["https://www.instagram.com/thepressureacademy"]
+  }
+  </script>
+
+  <style>
+    /* ═══ RESET + VARIABLES ═══ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --rust: #C45B28;
+      --rust-light: #D4915C;
+      --amber: #D4915C;
+      --sand: #E8C9A0;
+      --cream: #FFF8F0;
+      --dark: #0A0A0A;
+      --charcoal: #2D2D2D;
+      --card: #111111;
+      --card-border: #1a1a1a;
+      --mid: #8a8a8a;
+      --teal: #4A9B8E;
+      --green: #5BA85B;
+      --gold: #E8A838;
+      --violet: #8B6AAE;
+      --coral: #D4726A;
+      --font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+      --max-w: 1200px;
+      --section-pad: clamp(80px, 10vw, 150px);
+      --side-pad: clamp(20px, 5vw, 40px);
+    }
+
+    /* ═══ GSAP ANIMATION CLASSES ═══ */
+    .hero-word { display: inline-block; opacity: 1; transform: translateY(0) rotateX(0); }
+    .js-enabled .hero-word { opacity: 0; transform: translateY(40px) rotateX(-15deg); }
+    .hero-word.rust { color: var(--rust); }
+    .counter-num { display: inline-block; }
+    .nav-scrolled { padding-top: 8px !important; padding-bottom: 8px !important; }
+    .nav-scrolled .nav-logo span { font-size: 0.78rem !important; }
+    .chain-step-reveal { opacity: 0; transform: translateX(-20px); }
+    .loop-step-reveal { opacity: 0; transform: scale(0.95); }
+    .parallax-section { will-change: transform; }
+    .glow-line { position: absolute; left: 0; top: 0; height: 2px; width: 0; background: linear-gradient(90deg, transparent, var(--rust), transparent); }
+    @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+
+    /* ═══ ACCESSIBILITY ═══ */
+    *:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; border-radius: 4px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .hero-word { opacity: 1; transform: none; }
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--dark);
+      color: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    /* JS detection - add .js-enabled class via JS */
+    body:not(.js-enabled) .reveal,
+    body:not(.js-enabled) .hero-word {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+
+    /* ═══ UTILITY ═══ */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--side-pad); }
+    .section { padding: var(--section-pad) 0; }
+    .label {
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      font-weight: 700; color: var(--rust);
+    }
+    .mono { font-family: var(--mono); }
+
+    /* ═══ SCROLL ANIMATIONS ═══ */
+    /* Content visible by default for no-JS fallback */
+    .reveal {
+      opacity: 1; transform: translateY(0);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* When JS is enabled, GSAP will animate from hidden to visible */
+    .js-enabled .reveal {
+      opacity: 0; transform: translateY(30px);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+
+    /* ═══ NAV ═══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+      transition: all 0.3s;
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 14px var(--side-pad);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo svg { width: 32px; height: 32px; }
+    .nav-logo span { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      font-size: 0.8rem; color: var(--mid); font-weight: 500;
+      transition: color 0.2s; letter-spacing: 0.01em;
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-cta {
+      background: var(--rust); color: var(--cream); padding: 8px 20px;
+      border-radius: 8px; font-size: 0.78rem; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #a84d22; }
+    .nav-mobile-toggle {
+      display: none; background: none; border: none; color: var(--cream);
+      font-size: 1.5rem; cursor: pointer;
+    }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: 80px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 40%, rgba(196,91,40,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 20%, rgba(74,155,142,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 100px;
+      background: rgba(196,91,40,0.1); border: 1px solid rgba(196,91,40,0.2);
+      font-size: 0.7rem; color: var(--rust-light); font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.035em; margin-bottom: 20px;
+      max-width: 700px;
+    }
+    .hero h1 .rust { color: var(--rust); }
+    .hero p {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--rust-light); max-width: 520px;
+      line-height: 1.6; margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-primary {
+      padding: 14px 32px; border-radius: 12px;
+      background: var(--rust); color: var(--cream);
+      font-size: 0.95rem; font-weight: 700;
+      transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: #a84d22; transform: translateY(-1px); }
+    .btn-secondary {
+      padding: 14px 32px; border-radius: 12px;
+      background: transparent; border: 2px solid var(--rust);
+      color: var(--rust); font-size: 0.95rem; font-weight: 700;
+      transition: all 0.25s;
+    }
+    .btn-secondary:hover { background: rgba(196,91,40,0.1); }
+    .hero-stats {
+      display: flex; gap: 40px; padding-top: 32px;
+      border-top: 1px solid var(--card-border);
+    }
+    .hero-stat { text-align: left; }
+    .hero-stat .num {
+      font-size: 1.6rem; font-weight: 800; color: var(--cream);
+      letter-spacing: -0.02em;
+    }
+    .hero-stat .num sup {
+      font-size: 0.6em; color: var(--rust); margin-left: 2px;
+    }
+    .hero-stat .desc { font-size: 0.72rem; color: var(--mid); margin-top: 2px; }
+
+    /* ═══ ECOSYSTEM SECTION ═══ */
+    .eco-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px; margin-top: 40px;
+    }
+    .eco-card {
+      background: var(--card); border: 1px solid var(--card-border);
+      border-radius: 16px; padding: 28px 24px;
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .eco-card:hover { border-color: rgba(196,91,40,0.3); transform: translateY(-2px); }
+    .eco-card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .eco-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+    .eco-card .tag {
+      font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-weight: 600; padding: 3px 8px; border-radius: 4px;
+      display: inline-block; margin-bottom: 12px;
+    }
+    .eco-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+
+    /* ═══ PLANNER SECTION ═══ */
+    .planner-section { position: relative; overflow: hidden; }
+    .planner-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .planner-features { list-style: none; display: grid; gap: 16px; margin-top: 28px; }
+    .planner-feature {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px; background: var(--card); border-radius: 12px;
+      border: 1px solid var(--card-border);
+    }
+    .planner-feature .icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 1.1rem;
+    }
+    .planner-feature h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+    .planner-feature p { font-size: 0.78rem; color: var(--mid); }
+
+    /* Phone mockup */
+    .phone-frame {
+      width: 280px; margin: 0 auto;
+      background: #1a1a1a; border-radius: 36px;
+      padding: 12px; border: 2px solid #2a2a2a;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    .phone-screen {
+      background: var(--dark); border-radius: 26px;
+      overflow: hidden; aspect-ratio: 9/19;
+      position: relative;
+    }
+    .phone-screen-content {
+      position: absolute; inset: 0; padding: 20px 16px;
+      display: flex; flex-direction: column;
+    }
+    .phone-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 16px;
+    }
+    .phone-header .greeting { font-size: 0.75rem; color: var(--mid); }
+    .phone-header .date { font-size: 0.65rem; color: var(--rust-light); font-weight: 600; }
+
+    /* Score ring */
+    .score-ring-container { text-align: center; margin: 12px 0 16px; }
+    .score-ring { width: 120px; height: 120px; margin: 0 auto; position: relative; }
+    .score-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .score-ring .bg { fill: none; stroke: #1a1a1a; stroke-width: 8; }
+    .score-ring .progress {
+      fill: none; stroke: #D4915C; stroke-width: 8;
+      stroke-linecap: round; stroke-dasharray: 283;
+      stroke-dashoffset: 60;
+      animation: ring-fill 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes ring-fill {
+      from { stroke-dashoffset: 283; }
+      to { stroke-dashoffset: 60; }
+    }
+    .score-value {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.8rem; font-weight: 800; color: var(--cream);
+    }
+    .score-label { font-size: 0.6rem; color: var(--rust-light); margin-top: 4px; font-weight: 600; }
+
+    /* Sliders in phone */
+    .phone-sliders { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .phone-slider {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .phone-slider .name { font-size: 0.55rem; color: var(--mid); width: 52px; text-align: right; }
+    .phone-slider .bar {
+      flex: 1; height: 6px; background: #1a1a1a; border-radius: 3px; overflow: hidden;
+    }
+    .phone-slider .fill { height: 100%; border-radius: 3px; }
+    .phone-slider .val { font-size: 0.55rem; color: var(--cream); width: 20px; font-weight: 600; }
+
+    /* ═══ BLUEPRINT SECTION ═══ */
+    .blueprint-loop {
+      display: flex; flex-direction: column; gap: 8px;
+      margin: 32px 0;
+    }
+    .loop-step {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px; background: var(--card);
+      border-radius: 12px; border: 1px solid var(--card-border);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+    .loop-step:hover { 
+      border-color: var(--rust); 
+      background: rgba(196,91,40,0.08);
+      transform: translateX(4px);
+    }
+    .loop-step.active { 
+      border-color: var(--rust); 
+      background: rgba(196,91,40,0.15);
+      box-shadow: 0 0 20px rgba(196,91,40,0.25);
+    }
+    .loop-num {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 800; flex-shrink: 0;
+    }
+    .loop-step h4 { font-size: 0.9rem; font-weight: 700; }
+    .loop-step p { font-size: 0.75rem; color: var(--mid); }
+    .loop-arrow { text-align: center; color: rgba(196,91,40,0.4); font-size: 0.9rem; }
+
+    .chain-card {
+      background: var(--card); border-radius: 16px;
+      border: 1px solid var(--card-border); padding: 24px;
+      margin-top: 24px;
+    }
+    .chain-step {
+      display: flex; gap: 10px; padding: 10px 12px;
+      background: rgba(10,10,10,0.5); border-radius: 8px;
+      margin-bottom: 6px; align-items: center;
+    }
+    .chain-num {
+      width: 24px; height: 24px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
+      background: rgba(196,91,40,0.15); color: var(--rust);
+    }
+    .chain-step .tech { font-size: 0.82rem; font-weight: 600; }
+    .chain-step .trigger { font-size: 0.7rem; color: var(--mid); }
+    .chain-connector {
+      text-align: center; font-size: 0.6rem; color: var(--rust-light);
+      padding: 2px 0; font-weight: 600;
+    }
+
+    /* ═══ EMAIL SECTION ═══ */
+    .email-section {
+      background: linear-gradient(135deg, rgba(196,91,40,0.08), rgba(10,10,10,1));
+      border-top: 1px solid rgba(196,91,40,0.15);
+      border-bottom: 1px solid rgba(196,91,40,0.15);
+    }
+    .email-form-wrap {
+      max-width: 480px; margin: 32px auto 0; text-align: center;
+    }
+    .email-form {
+      display: flex; gap: 8px;
+    }
+    .email-input {
+      flex: 1; padding: 14px 18px; border-radius: 12px;
+      background: var(--card); border: 1px solid var(--card-border);
+      color: var(--cream); font-family: var(--font); font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s;
+    }
+    .email-input::placeholder { color: #555; }
+    .email-input:focus { border-color: var(--rust); }
+    .email-submit {
+      padding: 14px 28px; border-radius: 12px;
+      background: var(--rust); color: var(--cream);
+      font-size: 0.9rem; font-weight: 700;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .email-submit:hover { background: #a84d22; }
+    .email-success {
+      display: none; padding: 16px; border-radius: 12px;
+      background: rgba(91,168,91,0.1); border: 1px solid rgba(91,168,91,0.3);
+      color: var(--green); font-weight: 600; font-size: 0.9rem;
+    }
+    .email-note {
+      font-size: 0.7rem; color: var(--mid); margin-top: 12px;
+    }
+
+    /* ═══ MASTERY METHOD ═══ */
+    .mm-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      align-items: center; margin-top: 36px;
+    }
+    .mm-features { display: grid; gap: 12px; }
+    .mm-feature {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px; background: var(--card); border-radius: 12px;
+      border: 1px solid var(--card-border);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    .mm-feature:hover {
+      border-color: var(--violet);
+      background: rgba(139,106,174,0.08);
+      transform: translateX(4px);
+    }
+    .mm-feature.active {
+      border-color: var(--violet);
+      background: rgba(139,106,174,0.15);
+      box-shadow: 0 0 20px rgba(139,106,174,0.25);
+    }
+    .mm-node {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.9rem;
+    }
+    .mm-feature h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
+    .mm-feature p { font-size: 0.75rem; color: var(--mid); }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 48px 0 32px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand p { font-size: 0.78rem; color: var(--mid); margin-top: 12px; line-height: 1.6; }
+    .footer-col h4 {
+      font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 700; color: var(--rust); margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block; font-size: 0.8rem; color: var(--mid);
+      margin-bottom: 8px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom {
+      margin-top: 40px; padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+      display: flex; justify-content: space-between;
+      font-size: 0.7rem; color: #444;
+    }
+
+    
+    /* ═══ INTERACTIVE ELEMENTS ═══ */
+    .loop-step { 
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+    .loop-step:hover { 
+      border-color: var(--rust); 
+      background: rgba(196,91,40,0.12);
+      transform: translateX(6px);
+      box-shadow: 0 4px 15px rgba(196,91,40,0.2);
+    }
+    .loop-step.active { 
+      border-color: var(--rust); 
+      background: rgba(196,91,40,0.2);
+      box-shadow: 0 0 25px rgba(196,91,40,0.3);
+      transform: translateX(8px);
+    }
+
+    .chain-step { 
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+    .chain-step:hover { 
+      background: rgba(196,91,40,0.15);
+      transform: translateX(6px);
+      box-shadow: 0 2px 10px rgba(196,91,40,0.15);
+    }
+    .chain-step.active { 
+      background: rgba(196,91,40,0.2);
+      border-left: 4px solid var(--rust);
+      transform: translateX(8px);
+    }
+
+    .mm-feature { 
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+    .mm-feature:hover { 
+      border-color: var(--violet); 
+      background: rgba(139,106,174,0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(139,106,174,0.2);
+    }
+    .mm-feature.active { 
+      border-color: var(--violet); 
+      background: rgba(139,106,174,0.25);
+      box-shadow: 0 8px 25px rgba(139,106,174,0.3);
+      transform: translateY(-4px);
+    }
+
+    .eco-card { 
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .eco-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* Blueprint detail panel - Modal style */
+    .blueprint-detail {
+      background: var(--card);
+      border: 2px solid var(--rust);
+      border-radius: 16px;
+      padding: 28px;
+      width: 90%;
+      max-width: 480px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.9), 0 0 0 1px rgba(196,91,40,0.3);
+      z-index: 1001;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .blueprint-detail.active { 
+      display: block;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .blueprint-detail h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--rust);
+      margin-bottom: 12px;
+      padding-right: 30px;
+    }
+    .blueprint-detail p {
+      font-size: 0.95rem;
+      color: var(--cream);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .blueprint-detail-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .blueprint-detail-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Mastery Method detail panel - Modal style */
+    .mm-detail {
+      background: var(--card);
+      border: 2px solid var(--violet);
+      border-radius: 16px;
+      padding: 28px;
+      width: 90%;
+      max-width: 480px;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.9), 0 0 0 1px rgba(139,106,174,0.3);
+      z-index: 1001;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .mm-detail.active { 
+      display: block;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .mm-detail h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--violet);
+      margin-bottom: 12px;
+      padding-right: 30px;
+    }
+    .mm-detail p {
+      font-size: 0.95rem;
+      color: var(--cream);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .mm-detail-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .mm-detail-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Detail panel close button */
+    .detail-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: var(--cream);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+    .detail-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Detail section styling */
+    .detail-section {
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 8px;
+    }
+    .detail-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: var(--mid);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .detail-section p {
+      font-size: 0.9rem;
+      color: var(--rust-light);
+      margin: 0;
+    }
+    .mm-detail .detail-section p {
+      color: rgba(139,106,174,0.9);
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--dark); border-bottom: 1px solid var(--card-border);
+        padding: 20px var(--side-pad); gap: 16px;
+      }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+      .planner-grid { grid-template-columns: 1fr; }
+      .phone-frame { margin-bottom: 40px; order: -1; }
+      .eco-grid { grid-template-columns: 1fr; }
+      .mm-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .blueprint-section .planner-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .email-form { flex-direction: column; }
+      .hero h1 { font-size: 2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SKIP TO CONTENT                                         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<a href="#main-content" style="position:absolute;top:-100px;left:16px;background:var(--rust);color:var(--cream);padding:8px 16px;border-radius:0 0 8px 8px;z-index:10000;font-weight:600;" onfocus="this.style.top='0';" onblur="this.style.top='-100px';">Skip to content</a>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- NAV                                                     -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg viewBox="0 0 100 100" fill="none">
+        <rect x="20" y="12" width="60" height="8" rx="2" fill="#C45B28"/>
+        <rect x="20" y="80" width="60" height="8" rx="2" fill="#C45B28"/>
+        <path d="M50 30 L72 50 L50 70 L28 50Z" fill="#C45B28"/>
+      </svg>
+      <span>The Pressure Academy</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#planner">Planner</a>
+      <a href="#blueprint">Blueprint</a>
+      <a href="#mastery">Mastery Method</a>
+      <a href="#join" class="nav-cta">Join the Waitlist</a>
+    </div>
+    <button class="nav-mobile-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MAIN CONTENT                                            -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<main id="main-content">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- HERO                                                    -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-badge reveal">
+      <span class="dot"></span>
+      Now live — The Pressure Planner
+    </div>
+    <h1 class="reveal stagger-1">
+      Turn <span class="rust">pressure</span> into progress.
+    </h1>
+    <p class="reveal stagger-2">
+      Plan your life. Train with intent. A performance ecosystem for shift workers, grapplers, and parents who build systems — not excuses.
+    </p>
+    <div class="hero-actions reveal stagger-3">
+      <a href="#join" class="btn-primary">Join the Waitlist →</a>
+      <a href="/planner-app" class="btn-secondary">Try the Planner</a>
+    </div>
+    <div class="hero-stats reveal stagger-4">
+      <div class="hero-stat">
+        <div class="num">6<sup>variables</sup></div>
+        <div class="desc">Daily performance score</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">24/7<sup>aware</sup></div>
+        <div class="desc">Circadian shift protocols</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">26<sup>techniques</sup></div>
+        <div class="desc">BJJ curriculum chains</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ECOSYSTEM                                               -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="ecosystem">
+  <div class="container">
+    <span class="label reveal">The Ecosystem</span>
+    <h2 class="reveal stagger-1" style="font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:800; letter-spacing:-0.03em; margin-top:12px; max-width:600px;">
+      Six brands. One system.<br>All built under pressure.
+    </h2>
+    <div class="eco-grid">
+      <!-- Pressure Planner -->
+      <div class="eco-card reveal stagger-1">
+        <div class="eco-card-icon" style="background:rgba(196,91,40,0.12);">
+          <svg width="28" height="28" viewBox="0 0 100 100">
+            <rect x="20" y="12" width="60" height="8" rx="2" fill="#C45B28"/>
+            <rect x="20" y="80" width="60" height="8" rx="2" fill="#C45B28"/>
+            <circle cx="50" cy="50" r="14" stroke="#C45B28" stroke-width="3" fill="none"/>
+            <path d="M50 40 L50 50 L57 55" stroke="#C45B28" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <span class="tag" style="background:rgba(196,91,40,0.12); color:var(--rust);">Product</span>
+        <h3>The Pressure Planner</h3>
+        <p>Daily performance tracking with a 6-variable score. Circadian-aware for shift workers. AI coach that learns your patterns.</p>
+      </div>
+
+      <!-- Pressure Blueprint -->
+      <div class="eco-card reveal stagger-2">
+        <div class="eco-card-icon" style="background:rgba(196,91,40,0.12);">
+          <svg width="28" height="28" viewBox="0 0 100 100">
+            <rect x="20" y="12" width="60" height="8" rx="2" fill="#C45B28"/>
+            <rect x="20" y="80" width="60" height="8" rx="2" fill="#C45B28"/>
+            <path d="M50 30 L68 50 L50 70 L32 50Z" stroke="#C45B28" stroke-width="2.5" fill="none"/>
+            <circle cx="50" cy="42" r="3" fill="#D4915C"/>
+            <circle cx="42" cy="53" r="2.5" fill="#C45B28"/>
+            <circle cx="58" cy="53" r="2.5" fill="#D4915C"/>
+          </svg>
+        </div>
+        <span class="tag" style="background:rgba(196,91,40,0.12); color:var(--rust);">Curriculum</span>
+        <h3>The Pressure Blueprint</h3>
+        <p>Positional loop curriculum with IF→THEN decision chains. Structured progression for kids and adults. Not a technique list — a system.</p>
+      </div>
+
+      <!-- Pressure Tested -->
+      <div class="eco-card reveal stagger-3">
+        <div class="eco-card-icon" style="background:rgba(232,168,56,0.12);">
+          <svg width="28" height="28" viewBox="0 0 100 100">
+            <rect x="20" y="12" width="60" height="8" rx="2" fill="#C45B28"/>
+            <rect x="20" y="80" width="60" height="8" rx="2" fill="#C45B28"/>
+            <path d="M50 30 L72 50 L50 70 L28 50Z" fill="#C45B28"/>
+            <text x="50" y="55" text-anchor="middle" fill="#FFF8F0" font-size="16" font-weight="800">PT</text>
+          </svg>
+        </div>
+        <span class="tag" style="background:rgba(232,168,56,0.12); color:var(--gold);">Apparel</span>
+        <h3>Pressure Tested</h3>
+        <p>Earned, not given. Apparel and certification for those who've done the work and proven it under pressure.</p>
+      </div>
+
+      <!-- Mastery Method -->
+      <div class="eco-card reveal stagger-4">
+        <div class="eco-card-icon" style="background:rgba(139,106,174,0.12);">
+          <svg width="28" height="28" viewBox="0 0 100 100">
+            <rect x="20" y="12" width="60" height="8" rx="2" fill="#C45B28"/>
+            <rect x="20" y="80" width="60" height="8" rx="2" fill="#C45B28"/>
+            <path d="M35 58 Q35 35 50 32 Q65 35 65 58" stroke="#C45B28" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="42" cy="45" r="3" fill="#4A9B8E"/>
+            <circle cx="58" cy="45" r="3" fill="#E8A838"/>
+            <circle cx="50" cy="38" r="3" fill="#8B6AAE"/>
+            <circle cx="46" cy="53" r="2.5" fill="#D4726A"/>
+            <circle cx="54" cy="53" r="2.5" fill="#C45B28"/>
+          </svg>
+        </div>
+        <span class="tag" style="background:rgba(139,106,174,0.12); color:var(--violet);">Education</span>
+        <h3>Mastery Method</h3>
+        <p>Structured learning for unstructured minds. Neuro-inclusive learning coaching for Years 3–8, led by a senior QLD teacher.</p>
+      </div>
+
+      <!-- Pressure Over Force -->
+      <div class="eco-card reveal stagger-5">
+        <div class="eco-card-icon" style="background:rgba(212,114,106,0.12);">
+          <svg width="28" height="28" viewBox="0 0 100 100">
+            <rect x="20" y="12" width="60" height="8" rx="2" fill="#C45B28"/>
+            <rect x="20" y="80" width="60" height="8" rx="2" fill="#C45B28"/>
+            <path d="M50 30 L72 50 L50 70 L28 50Z" fill="#C45B28"/>
+            <path d="M40 48 Q45 38 50 48 Q55 58 60 48" stroke="#FFF8F0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="tag" style="background:rgba(212,114,106,0.12); color:var(--coral);">Culture</span>
+        <h3>Pressure Over Force</h3>
+        <p>The sound of the system. Original music and content that soundtracks the grind — discipline, not hype.</p>
+      </div>
+
+      <!-- The Pressure Academy (Parent) -->
+      <div class="eco-card reveal stagger-5" style="border-color:rgba(196,91,40,0.2);">
+        <div class="eco-card-icon" style="background:rgba(196,91,40,0.12);">
+          <svg width="28" height="28" viewBox="0 0 100 100">
+            <rect x="20" y="12" width="60" height="8" rx="2" fill="#C45B28"/>
+            <rect x="20" y="80" width="60" height="8" rx="2" fill="#C45B28"/>
+            <path d="M50 30 L72 50 L50 70 L28 50Z" fill="#C45B28"/>
+          </svg>
+        </div>
+        <span class="tag" style="background:rgba(196,91,40,0.12); color:var(--rust);">Brand House</span>
+        <h3>The Pressure Academy</h3>
+        <p>The parent brand. Everything we build lives under The Press mark. Pressure creates diamonds — and systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PLANNER                                                 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section planner-section" id="planner" style="background:var(--card); border-top:1px solid var(--card-border); border-bottom:1px solid var(--card-border);">
+  <div class="container">
+    <div class="planner-grid">
+      <div>
+        <span class="label reveal">The Pressure Planner</span>
+        <h2 class="reveal stagger-1" style="font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:800; letter-spacing:-0.03em; margin-top:12px;">
+          Your day.<br>One score.<br>No excuses.
+        </h2>
+        <p class="reveal stagger-2" style="color:var(--rust-light); margin-top:12px; font-size:0.95rem; max-width:420px;">
+          Six variables. One daily score. Built for shift workers, grapplers, and parents who need systems that work around real life.
+        </p>
+        <ul class="planner-features">
+          <li class="planner-feature reveal stagger-2">
+            <div class="icon" style="background:rgba(196,91,40,0.12);">🎯</div>
+            <div>
+              <h4>6-Variable Daily Score</h4>
+              <p>Sleep, stress, training, nutrition, hydration, family — one number that tells the truth.</p>
+            </div>
+          </li>
+          <li class="planner-feature reveal stagger-3">
+            <div class="icon" style="background:rgba(74,155,142,0.12);">🌙</div>
+            <div>
+              <h4>Circadian Protocols</h4>
+              <p>Night shift? Rotating roster? The Planner adjusts. No other app does this.</p>
+            </div>
+          </li>
+          <li class="planner-feature reveal stagger-4">
+            <div class="icon" style="background:rgba(232,168,56,0.12);">🧠</div>
+            <div>
+              <h4>AI Coach</h4>
+              <p>Pattern recognition across your data. Technique suggestions. Recovery recommendations.</p>
+            </div>
+          </li>
+          <li class="planner-feature reveal stagger-5">
+            <div class="icon" style="background:rgba(139,106,174,0.12);">👨‍👧</div>
+            <div>
+              <h4>Family Integration</h4>
+              <p>Dad time scoring. Family dashboard. Because performance includes being present.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="reveal stagger-5" style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="/planner-app" class="btn-primary">Try the Planner — Free</a>
+          <a href="#join" class="btn-secondary">Join Waitlist</a>
+        </div>
+        <p style="font-size:0.7rem; color:var(--mid); margin-top:10px;">Free forever · No ads · Your data stays yours</p>
+      </div>
+
+      <!-- Phone mockup -->
+      <div class="reveal stagger-3">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-screen-content">
+              <div class="phone-header">
+                <span class="greeting">Good morning, Cody</span>
+                <span class="date">Today</span>
+              </div>
+              <div class="score-ring-container">
+                <div class="score-ring">
+                  <svg viewBox="0 0 100 100">
+                    <circle class="bg" cx="50" cy="50" r="45"/>
+                    <circle class="progress" cx="50" cy="50" r="45"/>
+                  </svg>
+                  <div class="score-value">79</div>
+                </div>
+                <div class="score-label">Under Pressure Score</div>
+              </div>
+              <div class="phone-sliders">
+                <div class="phone-slider">
+                  <span class="name">Sleep</span>
+                  <div class="bar"><div class="fill" style="width:65%; background:#D4915C;"></div></div>
+                  <span class="val">6.5</span>
+                </div>
+                <div class="phone-slider">
+                  <span class="name">Training</span>
+                  <div class="bar"><div class="fill" style="width:90%; background:#C45B28;"></div></div>
+                  <span class="val">9</span>
+                </div>
+                <div class="phone-slider">
+                  <span class="name">Nutrition</span>
+                  <div class="bar"><div class="fill" style="width:75%; background:#D9A465;"></div></div>
+                  <span class="val">7.5</span>
+                </div>
+                <div class="phone-slider">
+                  <span class="name">Stress</span>
+                  <div class="bar"><div class="fill" style="width:30%; background:#E8734A;"></div></div>
+                  <span class="val">3</span>
+                </div>
+                <div class="phone-slider">
+                  <span class="name">Hydration</span>
+                  <div class="bar"><div class="fill" style="width:85%; background:#D4915C;"></div></div>
+                  <span class="val">8.5</span>
+                </div>
+                <div class="phone-slider">
+                  <span class="name">Family</span>
+                  <div class="bar"><div class="fill" style="width:85%; background:#E8C9A0;"></div></div>
+                  <span class="val">8.5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- BLUEPRINT                                               -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section blueprint-section" id="blueprint">
+  <div class="container">
+    <div class="planner-grid">
+      <!-- Chain example -->
+      <div class="reveal stagger-2" style="order:1;">
+        <div class="chain-card">
+          <span class="label">IF → THEN Chain</span>
+          <h4 style="font-size:1rem; font-weight:700; margin:8px 0 16px;">Closed Guard Attack Cycle</h4>
+          
+          <div class="chain-step">
+            <div class="chain-num">1</div>
+            <div>
+              <div class="tech">Cross-collar choke</div>
+              <div class="trigger"><span style="color:var(--teal); font-weight:600;">IF:</span> Start → <span style="color:var(--gold); font-weight:600;">RESULT:</span> They defend grip</div>
+            </div>
+          </div>
+          <div class="chain-connector">IF they defend →</div>
+          <div class="chain-step">
+            <div class="chain-num">2</div>
+            <div>
+              <div class="tech">Armbar</div>
+              <div class="trigger"><span style="color:var(--teal); font-weight:600;">IF:</span> Hands come up → <span style="color:var(--gold); font-weight:600;">RESULT:</span> They stack</div>
+            </div>
+          </div>
+          <div class="chain-connector">IF they defend →</div>
+          <div class="chain-step">
+            <div class="chain-num">3</div>
+            <div>
+              <div class="tech">Triangle</div>
+              <div class="trigger"><span style="color:var(--teal); font-weight:600;">IF:</span> Head drops → <span style="color:var(--gold); font-weight:600;">RESULT:</span> They posture</div>
+            </div>
+          </div>
+          <div class="chain-connector">IF they defend →</div>
+          <div class="chain-step">
+            <div class="chain-num">4</div>
+            <div>
+              <div class="tech">Hip bump sweep → Mount</div>
+              <div class="trigger"><span style="color:var(--teal); font-weight:600;">IF:</span> Weight shifts back → <span style="color:var(--green); font-weight:600;">FINISH:</span> Top position</div>
+            </div>
+          </div>
+          <p style="font-size:0.7rem; color:var(--mid); margin-top:14px; font-style:italic;">
+            Every defensive reaction opens the next attack. Drill the transitions, not just the techniques.
+          </p>
+        </div>
+      </div>
+
+      <!-- Blueprint info -->
+      <div>
+        <span class="label reveal">The Pressure Blueprint</span>
+        <h2 class="reveal stagger-1" style="font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:800; letter-spacing:-0.03em; margin-top:12px;">
+          Not a technique list.<br>A <span style="color:var(--rust);">system.</span>
+        </h2>
+        <p class="reveal stagger-2" style="color:var(--rust-light); margin-top:12px; font-size:0.95rem; max-width:420px;">
+          One positional loop. Five pillars. IF→THEN decision chains. Kids and adults learn the same foundational system — only the complexity changes.
+        </p>
+
+        <div class="blueprint-loop reveal stagger-3">
+          <div class="loop-step">
+            <div class="loop-num" style="background:rgba(74,155,142,0.15); color:var(--teal);">1</div>
+            <div><h4 style="color:var(--teal);">Guard</h4><p>Control posture, manage grips</p></div>
+          </div>
+          <div class="loop-arrow">↓</div>
+          <div class="loop-step">
+            <div class="loop-num" style="background:rgba(232,168,56,0.15); color:var(--gold);">2</div>
+            <div><h4 style="color:var(--gold);">Sweep</h4><p>Reverse position — get on top</p></div>
+          </div>
+          <div class="loop-arrow">↓</div>
+          <div class="loop-step">
+            <div class="loop-num" style="background:rgba(212,145,92,0.15); color:var(--rust-light);">3</div>
+            <div><h4 style="color:var(--rust-light);">Side Control</h4><p>Establish top pressure</p></div>
+          </div>
+          <div class="loop-arrow">↓</div>
+          <div class="loop-step">
+            <div class="loop-num" style="background:rgba(196,91,40,0.15); color:var(--rust);">4</div>
+            <div><h4 style="color:var(--rust);">Mount → Submit</h4><p>Advance and finish — or chain</p></div>
+          </div>
+          <div class="loop-arrow">↺ Loop restarts</div>
+        </div>
+        <div class="reveal stagger-4" style="display:flex; gap:12px; flex-wrap:wrap;">
+          <span style="font-size:0.7rem; padding:5px 12px; border-radius:6px; background:rgba(74,155,142,0.1); color:var(--teal); font-weight:600;">4 Kids Levels</span>
+          <span style="font-size:0.7rem; padding:5px 12px; border-radius:6px; background:rgba(232,168,56,0.1); color:var(--gold); font-weight:600;">5 Pillars</span>
+          <span style="font-size:0.7rem; padding:5px 12px; border-radius:6px; background:rgba(196,91,40,0.1); color:var(--rust); font-weight:600;">IF→THEN Chains</span>
+          <span style="font-size:0.7rem; padding:5px 12px; border-radius:6px; background:rgba(139,106,174,0.1); color:var(--violet); font-weight:600;">Gate Requirements</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MASTERY METHOD                                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="mastery" style="background:var(--card); border-top:1px solid var(--card-border); border-bottom:1px solid var(--card-border);">
+  <div class="container">
+    <div class="mm-grid">
+      <div>
+        <span class="label reveal">Mastery Method by The Pressure Academy</span>
+        <h2 class="reveal stagger-1" style="font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:800; letter-spacing:-0.03em; margin-top:12px;">
+          Structured learning for<br><span style="color:var(--violet);">unstructured minds.</span>
+        </h2>
+        <p class="reveal stagger-2" style="color:var(--rust-light); margin-top:12px; font-size:0.95rem; max-width:440px;">
+          Neuro-inclusive learning coaching for Years 3–8. 1:1 sessions, small group programs, and homeschool-aligned learning plans — led by a senior QLD teacher with 15+ years experience.
+        </p>
+        <a href="#join" class="btn-primary reveal stagger-3" style="margin-top:24px; display:inline-flex;">
+          Enquire About Mastery Method →
+        </a>
+      </div>
+      <div class="mm-features">
+        <div class="mm-feature reveal stagger-1">
+          <div class="mm-node" style="background:rgba(74,155,142,0.15);">
+            <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#4A9B8E"/></svg>
+          </div>
+          <div>
+            <h4>Focus & Logic</h4>
+            <p>Reading comprehension, study habits, and executive function — built around how each child actually thinks.</p>
+          </div>
+        </div>
+        <div class="mm-feature reveal stagger-2">
+          <div class="mm-node" style="background:rgba(232,168,56,0.15);">
+            <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#E8A838"/></svg>
+          </div>
+          <div>
+            <h4>Achievement</h4>
+            <p>Clear progression levels with gates — kids see their growth. Parents see the evidence.</p>
+          </div>
+        </div>
+        <div class="mm-feature reveal stagger-3">
+          <div class="mm-node" style="background:rgba(139,106,174,0.15);">
+            <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#8B6AAE"/></svg>
+          </div>
+          <div>
+            <h4>Creativity</h4>
+            <p>Writing, spelling, and self-expression. Not worksheets on repeat — structured creativity that sticks.</p>
+          </div>
+        </div>
+        <div class="mm-feature reveal stagger-4">
+          <div class="mm-node" style="background:rgba(212,114,106,0.15);">
+            <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#D4726A"/></svg>
+          </div>
+          <div>
+            <h4>Connection</h4>
+            <p>Emotional regulation around learning. Trauma-informed. Neurodivergent-aware. Every child belongs.</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TESTIMONIALS / SOCIAL PROOF                           -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="proof">
+  <div class="container" style="text-align:center;">
+    <span class="label reveal">Pressure Tested</span>
+    <h2 class="reveal stagger-1" style="font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:800; letter-spacing:-0.03em; margin-top:12px;">
+      Built by practitioners.<br>For <span style="color:var(--rust);">practitioners.</span>
+    </h2>
+    <p style="font-size:0.65rem; color:var(--mid); text-align:center; margin-top:24px; font-style:italic;">Representative scenarios based on beta testing feedback</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:16px; text-align:left;">
+      <div class="reveal stagger-1" style="background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:24px;">
+        <p style="font-size:0.88rem; color:var(--cream); line-height:1.7; margin-bottom:16px;">
+          "I work rotating shifts and train BJJ 4 days a week. Every other app assumes you wake up at 6am. The Pressure Planner actually gets that my Monday starts at 10pm."
+        </p>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:50%; background:rgba(196,91,40,0.2); display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; color:var(--rust);">M</div>
+          <div><div style="font-size:0.8rem; font-weight:600;">Matt K.</div><div style="font-size:0.65rem; color:var(--mid);">Crane Operator · Blue Belt</div></div>
+        </div>
+      </div>
+      <div class="reveal stagger-2" style="background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:24px;">
+        <p style="font-size:0.88rem; color:var(--cream); line-height:1.7; margin-bottom:16px;">
+          "The IF→THEN chains changed how I teach my kids class. Instead of random techniques, every position connects. Parents can actually see the system."
+        </p>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:50%; background:rgba(74,155,142,0.2); display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; color:var(--teal);">S</div>
+          <div><div style="font-size:0.8rem; font-weight:600;">Sarah L.</div><div style="font-size:0.65rem; color:var(--mid);">Kids Coach · Purple Belt</div></div>
+        </div>
+      </div>
+      <div class="reveal stagger-3" style="background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:24px;">
+        <p style="font-size:0.88rem; color:var(--cream); line-height:1.7; margin-bottom:16px;">
+          "I'm not even a BJJ person — I use it for climbing and general fitness. The daily score and circadian protocols work for any training."
+        </p>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:50%; background:rgba(232,168,56,0.2); display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; color:var(--gold);">J</div>
+          <div><div style="font-size:0.8rem; font-weight:600;">Jake R.</div><div style="font-size:0.65rem; color:var(--mid);">Rock Climber · Night Shift Nurse</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- EMAIL SIGNUP                                            -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section email-section" id="join">
+  <div class="container" style="text-align:center;">
+    <span class="label reveal">Join the Movement</span>
+    <h2 class="reveal stagger-1" style="font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:800; letter-spacing:-0.03em; margin-top:12px;">
+      Build something meaningful<br>under <span style="color:var(--rust);">pressure.</span>
+    </h2>
+    <p class="reveal stagger-2" style="color:var(--rust-light); margin-top:12px; font-size:0.95rem; max-width:440px; margin-left:auto; margin-right:auto;">
+      Get early access to the Planner, Blueprint updates, and Pressure Academy news. No spam. Just systems.
+    </p>
+    <div class="email-form-wrap reveal stagger-3">
+      <div class="email-form" id="emailForm">
+        <label for="emailInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email address</label>
+        <input type="email" class="email-input" id="emailInput" placeholder="Enter your email" required aria-label="Email address">
+        <button class="email-submit" id="emailSubmit" type="button">Join</button>
+      </div>
+      <div class="email-success" id="emailSuccess">
+        ✓ You're in. We'll be in touch.
+      </div>
+      <p class="email-note">Free forever · No spam · Unsubscribe anytime</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- FOOTER                                                  -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo" style="display:inline-flex; margin-bottom:4px;">
+          <svg width="28" height="28" viewBox="0 0 100 100">
+            <rect x="20" y="12" width="60" height="8" rx="2" fill="#C45B28"/>
+            <rect x="20" y="80" width="60" height="8" rx="2" fill="#C45B28"/>
+            <path d="M50 30 L72 50 L50 70 L28 50Z" fill="#C45B28"/>
+          </svg>
+          <span style="font-size:0.85rem; font-weight:700;">The Pressure Academy</span>
+        </a>
+        <p>Plan your life. Train with intent. Turn pressure into progress.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Ecosystem</h4>
+        <a href="#planner">Pressure Planner</a>
+        <a href="#blueprint">Pressure Blueprint</a>
+        <a href="#mastery">Mastery Method</a>
+        <a href="#ecosystem">Pressure Tested</a>
+        <a href="https://open.spotify.com/artist/pressureoverforce" target="_blank" rel="noopener">Pressure Over Force</a>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="/planner-app">Web App</a>
+        <span style="font-size:0.8rem; color:var(--mid);">Google Play (Soon)</span>
+        <span style="font-size:0.8rem; color:var(--mid);">App Store (Soon)</span>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/thepressureacademy" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:contact@thepressureacademy.com">Email Us</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Pressure Academy. All rights reserved.</span>
+      <span>Built under pressure.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- DETAIL PANELS (Global - Outside Grid Context)          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<!-- Blueprint Detail Panel Overlay -->
+<div class="blueprint-detail-overlay" id="blueprintDetailOverlay" onclick="closeBlueprintDetail()"></div>
+<!-- Blueprint Detail Panel -->
+<div class="blueprint-detail" id="blueprintDetail">
+  <button class="detail-close" onclick="closeBlueprintDetail()" aria-label="Close">×</button>
+  <h4 id="bpDetailTitle">Title</h4>
+  <p id="bpDetailDesc">Description</p>
+  <div class="detail-section">
+    <span class="detail-label">Key Techniques:</span>
+    <p id="bpDetailTechs">Techniques</p>
+  </div>
+</div>
+
+<!-- Mastery Method Detail Panel Overlay -->
+<div class="mm-detail-overlay" id="mmDetailOverlay" onclick="closeMmDetail()"></div>
+<!-- Mastery Method Detail Panel -->
+<div class="mm-detail" id="mmDetail">
+  <button class="detail-close" onclick="closeMmDetail()" aria-label="Close">×</button>
+  <h4 id="mmDetailTitle">Title</h4>
+  <p id="mmDetailDesc">Description</p>
+  <div class="detail-section">
+    <span class="detail-label">Our Approach:</span>
+    <p id="mmDetailApproach">Approach</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SCRIPTS (v8.1 — GSAP + Lenis)                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<script>
+  // Add JS-enabled class for progressive enhancement
+  document.body.classList.add('js-enabled');
+
+  window.addEventListener('DOMContentLoaded', () => {
+
+    // ── Blueprint Loop Interactivity ──
+    const bpDetails = {
+      'Guard': {
+        desc: 'The foundation of bottom game. Control posture, manage grips, and create angles for attacks. Every sweep and submission starts here.',
+        techs: 'Closed Guard, Open Guard, Butterfly Guard, Spider Guard, De La Riva'
+      },
+      'Sweep': {
+        desc: 'Reverse the position and get on top. Timing and leverage beat strength. A good sweep puts you directly into dominant positions.',
+        techs: 'Scissor Sweep, Flower Sweep, Hip Bump Sweep, Butterfly Sweep, X-Guard Sweep'
+      },
+      'Side Control': {
+        desc: 'Establish top pressure and control. The gateway to mount and submissions. Learn to read your opponent's reactions.',
+        techs: 'Traditional Side Control, Kesa Gatame, Reverse Kesa, North-South'
+      },
+      'Mount → Submit': {
+        desc: 'The dominant position. Advance, maintain, and finish — or use the threat to set up other attacks. The loop restarts.',
+        techs: 'Americana, Kimura, Armbar, Ezekiel Choke, S-Mount Attacks'
+      }
+    };
+
+    // Close functions for detail panels
+    window.closeBlueprintDetail = function() {
+      document.getElementById('blueprintDetail').classList.remove('active');
+      document.getElementById('blueprintDetailOverlay').classList.remove('active');
+      document.querySelectorAll('.loop-step').forEach(s => s.classList.remove('active'));
+    };
+    
+    window.closeMmDetail = function() {
+      document.getElementById('mmDetail').classList.remove('active');
+      document.getElementById('mmDetailOverlay').classList.remove('active');
+      document.querySelectorAll('.mm-feature').forEach(f => f.classList.remove('active'));
+    };
+
+    document.querySelectorAll('.loop-step').forEach(step => {
+      step.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const h4El = step.querySelector('h4');
+        const title = h4El ? h4El.textContent.trim() : '';
+        const detail = bpDetails[title];
+        if (detail) {
+          const bpDetail = document.getElementById('blueprintDetail');
+          const bpOverlay = document.getElementById('blueprintDetailOverlay');
+          document.getElementById('bpDetailTitle').textContent = title;
+          document.getElementById('bpDetailDesc').textContent = detail.desc;
+          document.getElementById('bpDetailTechs').textContent = detail.techs;
+          
+          // Highlight active step
+          document.querySelectorAll('.loop-step').forEach(s => s.classList.remove('active'));
+          step.classList.add('active');
+          
+          // Show detail panel and overlay
+          bpDetail.classList.add('active');
+          bpOverlay.classList.add('active');
+        }
+      });
+    });
+
+    // ── Chain Step Interactivity ──
+    const chainDetails = {
+      'Cross-collar choke': 'Classic gi attack. Break posture, establish deep grips, and squeeze. Forces a defensive reaction.',
+      'Armbar': 'When they defend the choke by raising arms, the armbar opens. Control the wrist, hip escape, extend.',
+      'Triangle': 'If they posture out of the armbar, the triangle is there. Lock the legs, cut the angle, squeeze.',
+      'Hip bump sweep → Mount': 'When they posture up hard to defend the triangle, the sweep is open. One motion to top position.'
+    };
+
+    document.querySelectorAll('.chain-step').forEach(step => {
+      step.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const tech = step.querySelector('.tech').textContent;
+        const detail = chainDetails[tech];
+        if (detail) {
+          step.title = detail;
+        }
+
+        // Highlight active
+        document.querySelectorAll('.chain-step').forEach(s => s.classList.remove('active'));
+        step.classList.add('active');
+      });
+    });
+
+    // ── Mastery Method Interactivity ──
+    const mmDetails = {
+      'Focus & Logic': {
+        desc: 'Reading comprehension, study habits, and executive function — built around how each child actually thinks. Not one-size-fits-all.',
+        approach: 'Assessment-first approach. Identify how the child processes information, then build strategies that work for THEIR brain.'
+      },
+      'Achievement': {
+        desc: 'Clear progression levels with gates — kids see their growth. Parents see the evidence. No mystery, just measurable progress.',
+        approach: 'Goal-setting with the child. Weekly check-ins. Visual progress tracking. Celebrations at every milestone.'
+      },
+      'Creativity': {
+        desc: 'Writing, spelling, and self-expression. Not worksheets on repeat — structured creativity that sticks and builds confidence.',
+        approach: 'Project-based learning. Storytelling, creative writing, art integration. Make learning an expression of self.'
+      },
+      'Connection': {
+        desc: 'Emotional regulation around learning. Trauma-informed. Neurodivergent-aware. Every child belongs and can succeed.',
+        approach: 'Safe space first. Build trust. Understand triggers. Teach self-advocacy. Learning happens when kids feel safe.'
+      }
+    };
+
+    document.querySelectorAll('.mm-feature').forEach(feature => {
+      feature.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const title = feature.querySelector('h4').textContent;
+        const detail = mmDetails[title];
+        if (detail) {
+          const mmDetail = document.getElementById('mmDetail');
+          const mmOverlay = document.getElementById('mmDetailOverlay');
+          document.getElementById('mmDetailTitle').textContent = title;
+          document.getElementById('mmDetailDesc').textContent = detail.desc;
+          document.getElementById('mmDetailApproach').textContent = detail.approach;
+          
+          // Highlight active feature
+          document.querySelectorAll('.mm-feature').forEach(f => f.classList.remove('active'));
+          feature.classList.add('active');
+          
+          // Show detail panel and overlay
+          mmDetail.classList.add('active');
+          mmOverlay.classList.add('active');
+        }
+      });
+    });
+
+    // ── Ecosystem Card Interactivity ──
+    document.querySelectorAll('.eco-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const h3 = card.querySelector('h3');
+        if (h3) {
+          const brand = h3.textContent;
+          const links = {
+            'The Pressure Planner': '/planner-app',
+            'The Pressure Blueprint': '#blueprint',
+            'Pressure Tested': '#ecosystem',
+            'Mastery Method': '#mastery',
+            'Pressure Over Force': 'https://open.spotify.com/artist/pressureoverforce',
+            'The Pressure Academy': '/'
+          };
+          const link = links[brand];
+          if (link) {
+            if (link.startsWith('http')) {
+              window.open(link, '_blank');
+            } else {
+              window.location.href = link;
+            }
+          }
+        }
+      });
+    });
+
+    // ── Click Outside to Close Detail Panels ──
+    document.addEventListener('click', (e) => {
+      const bpDetail = document.getElementById('blueprintDetail');
+      const bpOverlay = document.getElementById('blueprintDetailOverlay');
+      const mmDetail = document.getElementById('mmDetail');
+      const mmOverlay = document.getElementById('mmDetailOverlay');
+      
+      // Close Blueprint detail if clicking outside
+      if (bpDetail && bpDetail.classList.contains('active')) {
+        if (!e.target.closest('.blueprint-detail') && !e.target.closest('.loop-step')) {
+          bpDetail.classList.remove('active');
+          bpOverlay.classList.remove('active');
+          document.querySelectorAll('.loop-step').forEach(s => s.classList.remove('active'));
+        }
+      }
+      
+      // Close Mastery Method detail if clicking outside
+      if (mmDetail && mmDetail.classList.contains('active')) {
+        if (!e.target.closest('.mm-detail') && !e.target.closest('.mm-feature')) {
+          mmDetail.classList.remove('active');
+          mmOverlay.classList.remove('active');
+          document.querySelectorAll('.mm-feature').forEach(f => f.classList.remove('active'));
+        }
+      }
+    });
+
+    // ── Check if GSAP loaded ──
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      console.warn('GSAP not loaded - showing static content');
+      // Make all content visible
+      document.querySelectorAll('.reveal, .hero-word').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      return;
+    }
+
+    // ── Lenis Smooth Scroll ──
+    let lenis;
+    try {
+      lenis = new Lenis({ duration: 0.8, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), wheelMultiplier: 1 });
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    } catch (e) {
+      console.warn('Lenis failed, using native scroll');
+    }
+    gsap.registerPlugin(ScrollTrigger);
+
+
+
+
+    // ── Hero Text Split Animation ──
+    const h1 = document.querySelector('.hero h1');
+    if (h1) {
+      const raw = h1.innerHTML;
+      const parts = raw.split(/(<span[^>]*>.*?<\/span>)/);
+      let result = [];
+      parts.forEach(part => {
+        if (part.startsWith('<span')) {
+          const inner = part.replace(/<\/?span[^>]*>/g, '');
+          inner.split(/\s+/).forEach(w => {
+            if (w) result.push('<span class="hero-word rust">' + w + '</span>');
+          });
+        } else {
+          part.split(/\s+/).forEach(w => {
+            if (w) result.push('<span class="hero-word">' + w + '</span>');
+          });
+        }
+      });
+      h1.innerHTML = result.join(' ');
+      gsap.to('.hero-word', {
+        opacity: 1, y: 0, rotateX: 0,
+        duration: 0.5, stagger: 0.05,
+        ease: 'power3.out', delay: 0.3
+      });
+    }
+
+    // ── Hero elements staggered entry ──
+    gsap.from('.hero-badge', { opacity: 0, y: 20, duration: 0.4, delay: 0.05, ease: 'power2.out' });
+    gsap.from('.hero p', { opacity: 0, y: 20, duration: 0.4, delay: 0.4, ease: 'power2.out' });
+    gsap.from('.hero-actions', { opacity: 0, y: 20, duration: 0.4, delay: 0.5, ease: 'power2.out' });
+    gsap.from('.hero-stats', { opacity: 0, y: 20, duration: 0.4, delay: 0.6, ease: 'power2.out' });
+
+    // ── Hero Stats Counter ──
+    document.querySelectorAll('.hero-stat .num').forEach(el => {
+      const text = el.textContent;
+      const match = text.match(/(\d+)/);
+      if (match) {
+        const target = parseInt(match[0]);
+        const prefix = text.substring(0, text.indexOf(match[0]));
+        const suffix = text.substring(text.indexOf(match[0]) + match[0].length);
+        el.innerHTML = prefix + '<span class="counter-num">0</span>' + suffix;
+        const counter = el.querySelector('.counter-num');
+        gsap.to({ val: 0 }, {
+          val: target, duration: 1.2, delay: 0.6, ease: 'power2.out',
+          onUpdate: function() { counter.textContent = Math.round(this.targets()[0].val); },
+          scrollTrigger: { trigger: el, start: 'top 90%' }
+        });
+      }
+    });
+
+    // ── Scroll Reveal (GSAP) ──
+    document.querySelectorAll('.reveal').forEach(el => {
+      const d = el.classList.contains('stagger-1') ? 0.1 : el.classList.contains('stagger-2') ? 0.2 : el.classList.contains('stagger-3') ? 0.3 : el.classList.contains('stagger-4') ? 0.4 : el.classList.contains('stagger-5') ? 0.5 : 0;
+      gsap.from(el, {
+        opacity: 0, y: 30, duration: 0.5, delay: d * 0.6, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+      });
+    });
+
+    // ── Score Ring Scroll Trigger ──
+    const ring = document.querySelector('.score-ring .progress');
+    if (ring) {
+      ring.style.strokeDashoffset = '283';
+      ring.style.animation = 'none';
+      gsap.to(ring, {
+        strokeDashoffset: 60, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: '.phone-frame', start: 'top 75%' }
+      });
+    }
+
+    // ── Phone Slider Bars Animate on Scroll ──
+    document.querySelectorAll('.phone-slider .fill').forEach((bar, i) => {
+      const w = bar.style.width;
+      bar.style.width = '0%';
+      gsap.to(bar, {
+        width: w, duration: 0.5, delay: i * 0.08, ease: 'power2.out',
+        scrollTrigger: { trigger: '.phone-frame', start: 'top 75%' }
+      });
+    });
+
+    // ── Blueprint Chain Sequential Reveal ──
+    document.querySelectorAll('.chain-step').forEach((step, i) => {
+      gsap.from(step, {
+        opacity: 0, x: -25, duration: 0.4, delay: i * 0.12, ease: 'power2.out',
+        scrollTrigger: { trigger: '.chain-card', start: 'top 75%' }
+      });
+    });
+    document.querySelectorAll('.chain-connector').forEach((conn, i) => {
+      gsap.from(conn, {
+        opacity: 0, duration: 0.3, delay: 0.15 + i * 0.2,
+        scrollTrigger: { trigger: '.chain-card', start: 'top 75%' }
+      });
+    });
+
+    // ── Blueprint Loop Steps Sequential ──
+    document.querySelectorAll('.loop-step').forEach((step, i) => {
+      gsap.from(step, {
+        opacity: 0, scale: 0.92, duration: 0.4, delay: i * 0.1, ease: 'back.out(1.2)',
+        scrollTrigger: { trigger: '.blueprint-loop', start: 'top 80%' }
+      });
+    });
+
+    // ── Ecosystem Cards Parallax Float ──
+    document.querySelectorAll('.eco-card').forEach((card, i) => {
+      gsap.to(card, {
+        y: (i % 2 === 0) ? -15 : 15, ease: 'none',
+        scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: 1.5 }
+      });
+    });
+
+    // ── Nav Shrink on Scroll ──
+    ScrollTrigger.create({
+      start: 80, end: 99999,
+      onEnter: () => gsap.to('.nav-inner', { padding: '8px var(--side-pad)', duration: 0.3 }),
+      onLeaveBack: () => gsap.to('.nav-inner', { padding: '14px var(--side-pad)', duration: 0.3 })
+    });
+
+    // ── Mobile Nav ──
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('#navLinks a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+
+    // ── Email Form (Formspree) ──
+    document.getElementById('emailSubmit').addEventListener('click', async () => {
+      const input = document.getElementById('emailInput');
+      const email = input.value.trim();
+      if (!email || !email.includes('@')) { input.focus(); return; }
+      const btn = document.getElementById('emailSubmit');
+      btn.textContent = '...'; btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/meerjgde', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, _subject: 'New Pressure Academy Signup' })
+        });
+        if (res.ok) {
+          document.getElementById('emailForm').style.display = 'none';
+          document.getElementById('emailSuccess').style.display = 'block';
+        } else { btn.textContent = 'Error — try again'; btn.disabled = false; }
+      } catch (e) { btn.textContent = 'Error — try again'; btn.disabled = false; }
+    });
+    document.getElementById('emailInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('emailSubmit').click();
+    });
+
+
+
+
+  });
+</script>
+
+</body>
+</html>
