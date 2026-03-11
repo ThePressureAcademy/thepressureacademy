@@ -1,4 +1,4 @@
-# CROSS-AI ALIGNMENT v3.2 — The Pressure Academy
+#v3.2 — The Pressure Academy
 
 **Version:** 3.2 | **Date:** 7 March 2026 |
 **Owner:** Cody Raymond (Business Director)
