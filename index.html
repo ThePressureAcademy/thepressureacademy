@@ -1750,9 +1750,21 @@
 
   function boot() {
     console.log('[TPA] Booting The Pressure Academy v8.2...');
+    document.body.classList.add('js-enabled');
     initInteractivity();  // ALWAYS runs — no dependencies
     initAnimations();      // TRIES to run — gracefully degrades
     console.log('[TPA] Boot complete');
   }
 
   // Fire on DOMContentLoaded, or immediately if already loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+
+})();
+</script>
+
+</body>
+</html>
