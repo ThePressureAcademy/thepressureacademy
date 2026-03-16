@@ -136,7 +136,33 @@
       100% { box-shadow: 0 0 0 0 rgba(91,168,91,0); }
     }
 
-    .section {
+
+    
+@keyframes interactiveBorderPulse {
+  0%, 100% {
+    box-shadow:
+      0 18px 36px rgba(0,0,0,0.30),
+      0 0 0 1px rgba(255,248,240,0.08) inset,
+      0 0 0 1px rgba(196,91,40,0.18),
+      0 0 18px rgba(196,91,40,0.14),
+      0 0 34px rgba(255,248,240,0.04);
+  }
+  50% {
+    box-shadow:
+      0 24px 46px rgba(0,0,0,0.34),
+      0 0 0 1px rgba(255,248,240,0.16) inset,
+      0 0 0 1px rgba(255,248,240,0.18),
+      0 0 28px rgba(196,91,40,0.22),
+      0 0 48px rgba(255,248,240,0.08);
+  }
+}
+
+@keyframes borderSweep {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.section {
       position: relative;
       padding: var(--section-space) 0;
       scroll-margin-top: calc(var(--nav-h) + 18px);
@@ -749,7 +775,12 @@
       grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: 18px;
     }
-    .feature-grid { grid-auto-rows: 1fr; }
+    .feature-grid {
+      grid-auto-rows: 1fr;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
 
     .eco-wrap {
       display: grid;
@@ -909,11 +940,49 @@
       line-height: 1.45;
     }
     .eco-detail {
+      --eco-accent: rgba(196,91,40,0.34);
+      --eco-glow: rgba(196,91,40,0.16);
+      --eco-bg: radial-gradient(circle at 14% 10%, rgba(196,91,40,0.12), transparent 34%);
       padding: 24px;
       display: grid;
       gap: 16px;
       align-self: start;
       min-height: 100%;
+      position: relative;
+      transition: border-color 0.22s var(--ease), box-shadow 0.22s var(--ease), background 0.22s var(--ease);
+      background: var(--eco-bg), linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.018));
+      border-color: var(--eco-accent);
+      box-shadow: 0 22px 46px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.03) inset, 0 0 28px var(--eco-glow);
+    }
+    .eco-detail[data-brand-active="planner"] {
+      --eco-accent: rgba(196,91,40,0.34);
+      --eco-glow: rgba(196,91,40,0.18);
+      --eco-bg: radial-gradient(circle at 14% 10%, rgba(196,91,40,0.14), transparent 34%);
+    }
+    .eco-detail[data-brand-active="blueprint"] {
+      --eco-accent: rgba(212,145,92,0.34);
+      --eco-glow: rgba(212,145,92,0.18);
+      --eco-bg: radial-gradient(circle at 14% 10%, rgba(212,145,92,0.14), transparent 34%);
+    }
+    .eco-detail[data-brand-active="pressure-tested"] {
+      --eco-accent: rgba(196,91,40,0.28);
+      --eco-glow: rgba(196,91,40,0.16);
+      --eco-bg: radial-gradient(circle at 14% 10%, rgba(196,91,40,0.10), transparent 34%);
+    }
+    .eco-detail[data-brand-active="mastery"] {
+      --eco-accent: rgba(74,155,142,0.34);
+      --eco-glow: rgba(74,155,142,0.18);
+      --eco-bg: radial-gradient(circle at 14% 10%, rgba(74,155,142,0.14), transparent 34%);
+    }
+    .eco-detail[data-brand-active="pressure-over-force"] {
+      --eco-accent: rgba(139,106,174,0.34);
+      --eco-glow: rgba(139,106,174,0.18);
+      --eco-bg: radial-gradient(circle at 14% 10%, rgba(139,106,174,0.14), transparent 34%);
+    }
+    .eco-detail[data-brand-active="academy"] {
+      --eco-accent: rgba(255,248,240,0.18);
+      --eco-glow: rgba(255,248,240,0.08);
+      --eco-bg: radial-gradient(circle at 14% 10%, rgba(255,248,240,0.10), transparent 34%);
     }
     .eco-meta {
       display: flex;
@@ -932,8 +1001,8 @@
 
     .planner-shell {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 24px;
+      grid-template-columns: minmax(320px, 0.92fr) minmax(440px, 1.08fr);
+      gap: 26px;
       align-items: start;
     }
     .planner-card {
@@ -942,35 +1011,256 @@
       gap: 18px;
     }
     .feature-card {
-      grid-column: span 3;
-      padding: 18px;
-      border-radius: 18px;
+      grid-column: auto;
+      min-width: 0;
+      padding: 22px;
+      border-radius: 22px;
       border: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.02);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.018));
       display: grid;
-      gap: 10px;
+      gap: 12px;
       height: 100%;
       align-content: start;
+      min-height: 190px;
     }
+    .feature-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    .feature-kicker span:last-child { opacity: 0.9; }
     .feature-card h3 {
       margin: 0;
-      font-size: 1rem;
-      letter-spacing: -0.02em;
+      font-size: 1.08rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      max-width: 18ch;
     }
-    .feature-card p { margin: 0; color: var(--muted-2); }
+    .feature-card p {
+      margin: 0;
+      color: var(--muted-2);
+      line-height: 1.5;
+      max-width: 28ch;
+    }
     .feature-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
       background: rgba(196,91,40,0.1);
       border: 1px solid rgba(196,91,40,0.18);
       color: var(--rust-2);
       font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
     }
 
-    .planner-demo {
+
+.feature-card,
+.slider-row,
+.eco-node,
+.proof-card,
+.funnel-card,
+.loop-node,
+.chain-step,
+.shift-pill,
+.proof-filter,
+.tab-btn,
+.path-pill,
+.auto-btn,
+.planner-quick button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 0.22s var(--ease), border-color 0.22s var(--ease), box-shadow 0.22s var(--ease), background 0.22s var(--ease), opacity 0.22s var(--ease), filter 0.22s var(--ease);
+  --lift-transform: translateY(-3px);
+}
+.eco-node { --lift-transform: translate(-50%, -50%) translateY(-4px) scale(1.01); }
+.loop-node { --lift-transform: translate(-50%, -50%) translateY(-3px) scale(1.01); }
+.chain-step { --lift-transform: translateY(-3px) scale(1.01); }
+.shift-pill,
+.proof-filter,
+.tab-btn,
+.path-pill,
+.auto-btn,
+.planner-quick button { --lift-transform: translateY(-1px); }
+
+.feature-card::before,
+.slider-row::before,
+.eco-node::before,
+.proof-card::before,
+.funnel-card::before,
+.loop-node::before,
+.chain-step::before,
+.shift-pill::before,
+.proof-filter::before,
+.tab-btn::before,
+.path-pill::before,
+.auto-btn::before,
+.planner-quick button::before {
+  content: '';
+  position: absolute;
+  inset: -18%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,248,240,0.14), rgba(212,145,92,0.18) 26%, rgba(196,91,40,0.10) 42%, transparent 68%);
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(18px);
+  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+  pointer-events: none;
+  z-index: -1;
+}
+.feature-card::after,
+.slider-row::after,
+.eco-node::after,
+.proof-card::after,
+.funnel-card::after,
+.loop-node::after,
+.chain-step::after,
+.shift-pill::after,
+.proof-filter::after,
+.tab-btn::after,
+.path-pill::after,
+.auto-btn::after,
+.planner-quick button::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,248,240,0.96), rgba(232,168,56,0.82), rgba(212,145,92,0.96), rgba(255,248,240,0.76));
+  background-size: 200% 200%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s var(--ease);
+}
+.feature-card:hover,
+.feature-card:focus-within,
+.slider-row:hover,
+.slider-row:focus-within,
+.eco-node:hover,
+.eco-node:focus-within,
+.proof-card:hover,
+.proof-card:focus-within,
+.funnel-card:hover,
+.funnel-card:focus-within,
+.loop-node:hover,
+.loop-node:focus-visible,
+.chain-step:hover,
+.chain-step:focus-visible,
+.shift-pill:hover,
+.shift-pill:focus-visible,
+.proof-filter:hover,
+.proof-filter:focus-visible,
+.tab-btn:hover,
+.tab-btn:focus-visible,
+.path-pill:hover,
+.path-pill:focus-visible,
+.auto-btn:hover,
+.auto-btn:focus-visible,
+.planner-quick button:hover,
+.planner-quick button:focus-visible,
+.eco-node.active,
+.loop-node.active,
+.chain-step.active,
+.shift-pill.active,
+.proof-filter.active,
+.tab-btn.active,
+.path-pill.active,
+.auto-btn.active,
+.planner-quick button.active,
+.funnel-card.active {
+  border-color: rgba(255,248,240,0.22);
+  transform: var(--lift-transform);
+  animation: interactiveBorderPulse 2.3s ease-in-out infinite;
+}
+.feature-card:hover::before,
+.feature-card:focus-within::before,
+.slider-row:hover::before,
+.slider-row:focus-within::before,
+.eco-node:hover::before,
+.eco-node:focus-within::before,
+.proof-card:hover::before,
+.proof-card:focus-within::before,
+.funnel-card:hover::before,
+.funnel-card:focus-within::before,
+.loop-node:hover::before,
+.loop-node:focus-visible::before,
+.chain-step:hover::before,
+.chain-step:focus-visible::before,
+.shift-pill:hover::before,
+.shift-pill:focus-visible::before,
+.proof-filter:hover::before,
+.proof-filter:focus-visible::before,
+.tab-btn:hover::before,
+.tab-btn:focus-visible::before,
+.path-pill:hover::before,
+.path-pill:focus-visible::before,
+.auto-btn:hover::before,
+.auto-btn:focus-visible::before,
+.planner-quick button:hover::before,
+.planner-quick button:focus-visible::before,
+.eco-node.active::before,
+.loop-node.active::before,
+.chain-step.active::before,
+.shift-pill.active::before,
+.proof-filter.active::before,
+.tab-btn.active::before,
+.path-pill.active::before,
+.auto-btn.active::before,
+.planner-quick button.active::before,
+.funnel-card.active::before {
+  opacity: 0.9;
+  transform: scale(1);
+}
+.feature-card:hover::after,
+.feature-card:focus-within::after,
+.slider-row:hover::after,
+.slider-row:focus-within::after,
+.eco-node:hover::after,
+.eco-node:focus-within::after,
+.proof-card:hover::after,
+.proof-card:focus-within::after,
+.funnel-card:hover::after,
+.funnel-card:focus-within::after,
+.loop-node:hover::after,
+.loop-node:focus-visible::after,
+.chain-step:hover::after,
+.chain-step:focus-visible::after,
+.shift-pill:hover::after,
+.shift-pill:focus-visible::after,
+.proof-filter:hover::after,
+.proof-filter:focus-visible::after,
+.tab-btn:hover::after,
+.tab-btn:focus-visible::after,
+.path-pill:hover::after,
+.path-pill:focus-visible::after,
+.auto-btn:hover::after,
+.auto-btn:focus-visible::after,
+.planner-quick button:hover::after,
+.planner-quick button:focus-visible::after,
+.eco-node.active::after,
+.loop-node.active::after,
+.chain-step.active::after,
+.shift-pill.active::after,
+.proof-filter.active::after,
+.tab-btn.active::after,
+.path-pill.active::after,
+.auto-btn.active::after,
+.planner-quick button.active::after,
+.funnel-card.active::after {
+  opacity: 1;
+  animation: borderSweep 2.8s linear infinite;
+}
+
+.planner-demo {
       padding: 22px;
       display: grid;
       gap: 18px;
@@ -997,37 +1287,50 @@
     }
     .planner-grid {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: minmax(0, 1fr) 300px;
       gap: 18px;
       align-items: start;
     }
     .slider-group {
       display: grid;
       gap: 14px;
+      min-width: 0;
     }
     .slider-row {
       display: grid;
-      gap: 8px;
-      padding: 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.02);
+      gap: 10px;
+      padding: 16px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.018));
       border: 1px solid rgba(255,255,255,0.06);
+      min-width: 0;
+      overflow: hidden;
     }
     .slider-head {
       display: flex;
       justify-content: space-between;
       gap: 12px;
       align-items: center;
+      min-width: 0;
     }
     .slider-head strong { font-size: 0.92rem; }
-    .slider-head span { font-family: 'JetBrains Mono', monospace; color: var(--rust-2); font-size: 0.86rem; }
+    .slider-head span {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--rust-2);
+      font-size: 0.86rem;
+      text-align: right;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
     .slider-meta {
       display: grid;
       gap: 4px;
       font-size: 0.76rem;
       color: var(--muted);
       line-height: 1.35;
+      min-width: 0;
     }
+    .slider-meta span { overflow-wrap: anywhere; }
     .slider-scale {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.68rem;
@@ -1393,15 +1696,28 @@
       align-content: start;
     }
     .funnel-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
       display: grid;
       place-items: center;
-      background: rgba(196,91,40,0.1);
-      border: 1px solid rgba(196,91,40,0.18);
-      color: var(--rust-2);
-      font-weight: 800;
+      background: linear-gradient(180deg, rgba(196,91,40,0.16), rgba(196,91,40,0.06));
+      border: 1px solid rgba(196,91,40,0.22);
+      box-shadow: inset 0 1px 0 rgba(255,248,240,0.10);
+    }
+    .funnel-icon img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: block;
+    }
+    .funnel-kicker {
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-top: -2px;
     }
     .funnel-form {
       display: grid;
@@ -1687,6 +2003,7 @@
       .proof-grid .proof-card,
       .funnel-card,
       .feature-card { grid-column: span 12; }
+      .feature-grid { grid-template-columns: 1fr; }
       .eco-map {
         min-height: auto;
         padding: 20px;
@@ -1701,6 +2018,7 @@
         top: auto !important;
         width: 100%;
         transform: none;
+        --lift-transform: translateY(-2px);
       }
       .loop-stage,
       .chain-stage { min-height: auto; padding: 18px; }
@@ -1717,12 +2035,14 @@
         position: relative;
         width: 100%;
         transform: none;
+        --lift-transform: translateY(-2px);
       }
       .chain-step {
         position: relative;
         left: auto !important;
         top: auto !important;
         width: 100%;
+        --lift-transform: translateY(-2px);
       }
       .chain-stage {
         display: grid;
@@ -2021,7 +2341,7 @@
 <button class="eco-node" data-brand="blueprint" data-paths="grappler,parent" type="button">
 <div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Blueprint logo" class="eco-logo" src="assets/logos/Pressure_Blueprint_Mark.svg"/></span><span class="eco-node-label"><small>Curriculum</small></span></div>
 <strong>Pressure Blueprint</strong>
-<p>Positional loops and IF→THEN teaching logic.</p>
+<p>Positional loops and IF→THEN logic.</p>
 </button>
 <button class="eco-node" data-brand="pressure-tested" data-paths="grappler,shift-worker,parent" type="button">
 <div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Tested logo" class="eco-logo" src="assets/logos/Pressure_Tested_Mark.svg"/></span><span class="eco-node-label"><small>Apparel</small></span></div>
@@ -2036,7 +2356,7 @@
 <button class="eco-node" data-brand="pressure-over-force" data-paths="grappler,parent,shift-worker" type="button">
 <div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Over Force logo" class="eco-logo" src="assets/logos/Pressure_Over_Force_Mark.svg"/></span><span class="eco-node-label"><small>Culture</small></span></div>
 <strong>Pressure Over Force</strong>
-<p>Music, content, and the emotional engine of the brand.</p>
+<p>Music, content, and the emotional engine.</p>
 </button>
 <button class="eco-node" data-brand="academy" data-paths="all" type="button">
 <div class="eco-node-header"><span class="eco-logo-wrap"><img alt="The Academy logo" class="eco-logo" src="assets/logos/TPA_House_Mark.svg"/></span><span class="eco-node-label"><small>Brand House</small></span></div>
@@ -2044,7 +2364,7 @@
 <p>The strategic wrapper that gives the rest coherence.</p>
 </button>
 </div>
-<aside class="eco-detail reveal" id="ecoDetailPanel">
+<aside class="eco-detail reveal" data-brand-active="planner" id="ecoDetailPanel">
 <div class="kicker" id="ecoKicker">Product</div>
 <h3 id="ecoTitle">Pressure Planner</h3>
 <p id="ecoDesc">Daily performance tracking with a six-variable score, circadian-aware recommendations, and family-aware reality built into the logic.</p>
@@ -2073,24 +2393,24 @@
 <div class="planner-card reveal">
 <div class="feature-grid">
 <article class="feature-card">
-<div class="feature-icon">6</div>
-<h3>6-variable daily score</h3>
-<p>Sleep, training, nutrition, stress, hydration, and family presence collapse into one number that tells the truth.</p>
+<div class="feature-kicker"><span class="feature-icon">6</span><span>Score logic</span></div>
+<h3>6 inputs. 1 honest score.</h3>
+<p>Sleep, training, nutrition, stress, hydration, and family collapse into one clean read.</p>
 </article>
 <article class="feature-card">
-<div class="feature-icon">24</div>
-<h3>Circadian protocols</h3>
-<p>Day shift, night shift, and rotating mode each re-weight the advice instead of assuming everyone lives on a clean 6am schedule.</p>
+<div class="feature-kicker"><span class="feature-icon">24</span><span>Shift-aware</span></div>
+<h3>Weighting changes with the roster.</h3>
+<p>Day, night, and rotating mode change the logic before the advice appears.</p>
 </article>
 <article class="feature-card">
-<div class="feature-icon">AI</div>
-<h3>AI coach reaction</h3>
-<p>Recommendations change when the inputs change. That is the difference between a static dashboard and an actual assistant.</p>
+<div class="feature-kicker"><span class="feature-icon">AI</span><span>Responsive coach</span></div>
+<h3>The recommendation moves with the input.</h3>
+<p>Change a slider and the coach reacts instantly. That is the difference.</p>
 </article>
 <article class="feature-card">
-<div class="feature-icon">F</div>
-<h3>Family-aware logic</h3>
-<p>Performance is not only output. Presence matters. The score respects that instead of treating family like noise.</p>
+<div class="feature-kicker"><span class="feature-icon">F</span><span>Real life</span></div>
+<h3>Family pressure stays inside the system.</h3>
+<p>Presence counts. The score respects home load instead of pretending it does not.</p>
 </article>
 </div>
 </div>
@@ -2112,32 +2432,32 @@
 <label class="slider-row">
 <div class="slider-head"><strong>Sleep</strong><span id="sleepValue">6.5 hrs</span></div>
 <input aria-label="Sleep score" id="sleepRange" max="10" min="0" step="0.5" type="range" value="6.5"/>
-<div class="slider-meta"><span>Blend of sleep hours and sleep quality from the last cycle.</span><span class="slider-scale">0 = no real recovery · 10 = fully restored</span></div>
+<div class="slider-meta"><span>Hours and sleep quality in the last cycle.</span><span class="slider-scale">0 = no recovery · 10 = fully restored</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Training</strong><span id="trainingValue">9 / 10 load</span></div>
+<div class="slider-head"><strong>Training</strong><span id="trainingValue">9 / 10</span></div>
 <input aria-label="Training score" id="trainingRange" max="10" min="0" step="0.5" type="range" value="9"/>
-<div class="slider-meta"><span>How strong, sharp, and honest the session should be today.</span><span class="slider-scale">0 = skip it · 10 = green light</span></div>
+<div class="slider-meta"><span>Session sharpness, intent, and honesty today.</span><span class="slider-scale">0 = skip it · 10 = full green light</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Nutrition</strong><span id="nutritionValue">7.5 / 10 meals</span></div>
+<div class="slider-head"><strong>Nutrition</strong><span id="nutritionValue">7.5 / 10</span></div>
 <input aria-label="Nutrition score" id="nutritionRange" max="10" min="0" step="0.5" type="range" value="7.5"/>
-<div class="slider-meta"><span>Meal timing, food quality, and consistency today.</span><span class="slider-scale">0 = chaos · 10 = nailed it</span></div>
+<div class="slider-meta"><span>Meal timing, food quality, and consistency today.</span><span class="slider-scale">0 = off track · 10 = nailed it</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Stress</strong><span id="stressValue">3 / 10 load</span></div>
+<div class="slider-head"><strong>Stress</strong><span id="stressValue">3 / 10</span></div>
 <input aria-label="Stress score" id="stressRange" max="10" min="0" step="0.5" type="range" value="3"/>
 <div class="slider-meta"><span>Current mental and logistical load. Lower is better.</span><span class="slider-scale">0 = calm · 10 = overloaded</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Hydration</strong><span id="hydrationValue">8.5 / 10 fluids</span></div>
+<div class="slider-head"><strong>Hydration</strong><span id="hydrationValue">8.5 / 10</span></div>
 <input aria-label="Hydration score" id="hydrationRange" max="10" min="0" step="0.5" type="range" value="8.5"/>
-<div class="slider-meta"><span>Water, electrolytes, and consistency across the day.</span><span class="slider-scale">0 = dry and flat · 10 = fully topped up</span></div>
+<div class="slider-meta"><span>Fluids, electrolytes, and recovery support today.</span><span class="slider-scale">0 = flat · 10 = topped up</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Family</strong><span id="familyValue">8.5 / 10 presence</span></div>
+<div class="slider-head"><strong>Family</strong><span id="familyValue">8.5 / 10</span></div>
 <input aria-label="Family score" id="familyRange" max="10" min="0" step="0.5" type="range" value="8.5"/>
-<div class="slider-meta"><span>Presence, connection, and home stability in this cycle.</span><span class="slider-scale">0 = disconnected · 10 = solid at home</span></div>
+<div class="slider-meta"><span>Presence, connection, and home stability this cycle.</span><span class="slider-scale">0 = disconnected · 10 = solid at home</span></div>
 </label>
 </div>
 <div class="planner-side">
@@ -2375,48 +2695,52 @@
 </div>
 <div class="funnel-grid">
 <article class="funnel-card reveal">
-<div class="funnel-icon">🎯</div>
+<div class="funnel-icon"><img alt="Pressure Planner logo" src="assets/logos/Pressure_Planner_Mark.svg"/></div>
+<div class="funnel-kicker">Product access</div>
 <h3>Try the Planner</h3>
-<p>Get early access to the daily performance tracker and circadian-aware recommendations.</p>
+<p>Get early access to the score engine, shift-mode logic, and AI recommendations.</p>
 <form action="https://formspree.io/f/meerjgde" class="funnel-form" method="POST">
 <input name="intent" type="hidden" value="planner-access"/>
-<input name="source" type="hidden" value="TPA Rebuild v6"/>
+<input name="source" type="hidden" value="TPA Rebuild v6.6"/>
 <input aria-label="Email for planner access" name="email" placeholder="Your email" required="" type="email"/>
 <button class="funnel-submit" type="submit">Get early access</button>
 <div aria-live="polite" class="form-status"></div>
 </form>
 </article>
 <article class="funnel-card reveal">
-<div class="funnel-icon">◆</div>
+<div class="funnel-icon"><img alt="Pressure Blueprint logo" src="assets/logos/Pressure_Blueprint_Mark.svg"/></div>
+<div class="funnel-kicker">Curriculum</div>
 <h3>Explore Blueprint</h3>
-<p>Request curriculum updates, IF→THEN chains, and rollout notes for your own coaching environment.</p>
+<p>Get IF→THEN chains, curriculum updates, and rollout notes for your coaching room.</p>
 <form action="https://formspree.io/f/meerjgde" class="funnel-form" method="POST">
 <input name="intent" type="hidden" value="blueprint-info"/>
-<input name="source" type="hidden" value="TPA Rebuild v6"/>
+<input name="source" type="hidden" value="TPA Rebuild v6.6"/>
 <input aria-label="Email for blueprint info" name="email" placeholder="Your email" required="" type="email"/>
 <button class="funnel-submit" type="submit">Send me the Blueprint</button>
 <div aria-live="polite" class="form-status"></div>
 </form>
 </article>
 <article class="funnel-card reveal">
-<div class="funnel-icon">🧠</div>
+<div class="funnel-icon"><img alt="Mastery Method logo" src="assets/logos/Mastery_Method_Mark.svg"/></div>
+<div class="funnel-kicker">Education support</div>
 <h3>Mastery Method</h3>
-<p>Enquire about 1:1 or small group learning support for Years 3–8 and homeschool-aligned pathways.</p>
+<p>Enquire about 1:1 or small-group support for Years 3–8 and homeschool-aligned pathways.</p>
 <form action="https://formspree.io/f/meerjgde" class="funnel-form" method="POST">
 <input name="intent" type="hidden" value="mastery-enquiry"/>
-<input name="source" type="hidden" value="TPA Rebuild v6"/>
+<input name="source" type="hidden" value="TPA Rebuild v6.6"/>
 <input aria-label="Email for mastery enquiry" name="email" placeholder="Your email" required="" type="email"/>
 <button class="funnel-submit" type="submit">Enquire now</button>
 <div aria-live="polite" class="form-status"></div>
 </form>
 </article>
 <article class="funnel-card reveal">
-<div class="funnel-icon">✉</div>
+<div class="funnel-icon"><img alt="The Pressure Academy logo" src="assets/logos/TPA_House_Mark.svg"/></div>
+<div class="funnel-kicker">Academy news</div>
 <h3>Join updates</h3>
-<p>Get the broader Academy news: releases, content drops, and systems built under pressure.</p>
+<p>Get releases, content drops, and new systems built under pressure.</p>
 <form action="https://formspree.io/f/meerjgde" class="funnel-form" method="POST">
 <input name="intent" type="hidden" value="academy-updates"/>
-<input name="source" type="hidden" value="TPA Rebuild v6"/>
+<input name="source" type="hidden" value="TPA Rebuild v6.6"/>
 <input aria-label="Email for updates" name="email" placeholder="Your email" required="" type="email"/>
 <button class="funnel-submit" type="submit">Join updates</button>
 <div aria-live="polite" class="form-status"></div>
@@ -2518,15 +2842,15 @@
         planner: {
           kicker: 'Product',
           title: 'Pressure Planner',
-          desc: 'Daily performance tracking with a six-variable score, circadian-aware weighting, and an AI coach that reacts when the inputs change.',
+          desc: 'Six inputs collapse into one daily score. Shift mode changes the weighting, and the AI coach reacts as the values move.',
           meta: ['Shift-aware', 'AI coach', 'Family-integrated'],
           cta: { text: 'Open the Planner demo', href: '#planner' },
-          benefit: 'Visitors can test a live score, see the logic react, and understand the product in under a minute.'
+          benefit: 'Visitors can move the inputs, watch the logic react, and understand the product in under a minute.'
         },
         blueprint: {
           kicker: 'Curriculum',
           title: 'Pressure Blueprint',
-          desc: 'A positional-loop curriculum with IF→THEN decision chains. It teaches relationships between positions, reactions, and finishes.',
+          desc: 'A positional loop with IF→THEN chains that links positions, reactions, and finishes into one teachable system.',
           meta: ['16 hubs', '62 techniques', '156 chains'],
           cta: { text: 'View the Blueprint loop', href: '#blueprint' },
           benefit: 'Coaches, parents, and athletes can see how positions, reactions, and finishes connect inside one system.'
@@ -2534,18 +2858,18 @@
         'pressure-tested': {
           kicker: 'Apparel',
           title: 'Pressure Tested',
-          desc: 'Identity, language, and visual proof of work. This is where the brand becomes wearable and recognisable.',
+          desc: 'The visual proof-of-work layer. This is where the system becomes wearable, recognisable, and shareable.',
           meta: ['Brand signal', 'Community marker', 'Merch-ready'],
           cta: { text: 'See the proof wall', href: '#proof' },
-          benefit: 'It gives the system a visible identity that can be worn, shared, and recognised beyond the mat or the page.'
+          benefit: 'It gives the system a visible identity that can be worn, shared, and recognised beyond the page.'
         },
         mastery: {
           kicker: 'Education',
           title: 'Mastery Method',
-          desc: 'Neuro-inclusive learning support for Years 3–8, designed around structure, feedback, and the way the child actually thinks.',
+          desc: 'Neuro-inclusive learning support for Years 3–8 built around structure, feedback, and the way the child actually thinks.',
           meta: ['1:1 support', 'Small groups', 'Parent visibility'],
           cta: { text: 'Explore Mastery Method', href: '#mastery' },
-          benefit: 'Parents can understand the offer quickly without losing the structured, systems-led feel of the wider brand.'
+          benefit: 'Parents can understand the offer quickly without losing the calm, structured feel of the wider brand.'
         },
         'pressure-over-force': {
           kicker: 'Culture',
@@ -2558,10 +2882,10 @@
         academy: {
           kicker: 'Brand House',
           title: 'The Pressure Academy',
-          desc: 'The strategic wrapper that unifies Planner, Blueprint, Mastery, Pressure Tested, and Pressure Over Force into one coherent story.',
+          desc: 'The brand house that keeps Planner, Blueprint, Mastery, Pressure Tested, and Pressure Over Force inside one coherent story.',
           meta: ['System logic', 'Brand architecture', 'Clear hierarchy'],
           cta: { text: 'Back to the hero', href: '#hero' },
-          benefit: 'It helps visitors see one coherent brand house rather than a collection of disconnected projects.'
+          benefit: 'It helps visitors see one coherent brand house rather than a stack of disconnected projects.'
         }
       };
 
@@ -2727,11 +3051,6 @@
         const numeric = Number(value);
         const fixed = Number.isInteger(numeric) ? String(numeric) : numeric.toFixed(1);
         if (key === 'sleep') return `${fixed} hrs`;
-        if (key === 'training') return `${fixed} / 10 load`;
-        if (key === 'nutrition') return `${fixed} / 10 meals`;
-        if (key === 'stress') return `${fixed} / 10 load`;
-        if (key === 'hydration') return `${fixed} / 10 fluids`;
-        if (key === 'family') return `${fixed} / 10 presence`;
         return `${fixed} / 10`;
       }
 
@@ -2864,6 +3183,9 @@
         document.querySelectorAll('.eco-node').forEach(node => {
           node.classList.toggle('active', node.dataset.brand === brand);
         });
+        const detailPanel = document.getElementById('ecoDetailPanel');
+        detailPanel?.setAttribute('data-brand-active', brand);
+        document.getElementById('ecoMap')?.setAttribute('data-brand-active', brand);
         document.getElementById('ecoKicker').textContent = data.kicker;
         document.getElementById('ecoTitle').textContent = data.title;
         document.getElementById('ecoDesc').textContent = data.desc;
@@ -3339,7 +3661,11 @@
         document.getElementById('personaClearMobile').addEventListener('click', () => setPersona(''));
 
         document.querySelectorAll('#ecoPaths .path-pill').forEach(btn => btn.addEventListener('click', () => setPathFilter(btn.dataset.path)));
-        document.querySelectorAll('.eco-node').forEach(node => node.addEventListener('click', () => activateEco(node.dataset.brand)));
+        document.querySelectorAll('.eco-node').forEach(node => {
+          node.addEventListener('click', () => activateEco(node.dataset.brand));
+          node.addEventListener('mouseenter', () => activateEco(node.dataset.brand));
+          node.addEventListener('focus', () => activateEco(node.dataset.brand));
+        });
 
         document.querySelectorAll('#shiftPills .shift-pill').forEach(btn => {
           btn.addEventListener('click', () => {
