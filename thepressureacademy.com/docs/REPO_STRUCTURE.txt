@@ -1,0 +1,31 @@
+thepressureacademy.com/
+|
+|-- index.html                              Main site (v6 production build)
+|-- privacy-policy.html                     Privacy policy page
+|-- robots.txt                              Search engine directives
+|-- sitemap.xml                             XML sitemap for crawlers
+|-- vercel.json                             Vercel static config + cache headers
+|
+|-- assets/
+|   |-- logos/
+|   |   |-- TPA_House_Mark.svg              Brand house mark (colour)
+|   |   |-- TPA_House_Mark_mono.svg         Brand house mark (mono)
+|   |   |-- TPA_House_Favicon.svg           Favicon SVG
+|   |   |-- Pressure_Planner_Mark.svg       Planner mark (colour)
+|   |   |-- Pressure_Planner_Mark_mono.svg  Planner mark (mono)
+|   |   |-- Pressure_Blueprint_Mark.svg     Blueprint mark (colour)
+|   |   |-- Pressure_Blueprint_Mark_mono.svg Blueprint mark (mono)
+|   |   |-- Pressure_Tested_Mark.svg        Tested mark (colour)
+|   |   |-- Pressure_Tested_Mark_mono.svg   Tested mark (mono)
+|   |   |-- Mastery_Method_Mark.svg         Mastery mark (colour)
+|   |   |-- Mastery_Method_Mark_mono.svg    Mastery mark (mono)
+|   |   |-- Pressure_Over_Force_Mark.svg    POF mark (colour)
+|   |   |-- Pressure_Over_Force_Mark_mono.svg POF mark (mono)
+|   |
+|   |-- social/
+|       |-- TPA_OG_1200x630.png             Open Graph preview image
+|
+|-- docs/
+    |-- AI_ALIGNMENT.md                     Canonical build truth
+    |-- DEPLOYMENT_CHECKLIST.md             Pre/post deploy QA
+    |-- REPO_STRUCTURE.txt                  This file
