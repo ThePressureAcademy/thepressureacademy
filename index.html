@@ -749,6 +749,7 @@
       grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: 18px;
     }
+    .feature-grid { grid-auto-rows: 1fr; }
 
     .eco-wrap {
       display: grid;
@@ -946,12 +947,11 @@
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.07);
       background: rgba(255,255,255,0.02);
-      display: flex;
-      flex-direction: column;
+      display: grid;
       gap: 10px;
-      min-height: 0;
+      height: 100%;
+      align-content: start;
     }
-    .feature-card p { flex: 1; }
     .feature-card h3 {
       margin: 0;
       font-size: 1rem;
@@ -1021,8 +1021,19 @@
     }
     .slider-head strong { font-size: 0.92rem; }
     .slider-head span { font-family: 'JetBrains Mono', monospace; color: var(--rust-2); font-size: 0.86rem; }
-    .slider-unit { color: var(--muted-2) !important; font-size: 0.78rem !important; margin-left: -4px; }
-    .slider-ref { display: block; font-size: 0.78rem; color: var(--muted-2); line-height: 1.4; margin-top: -2px; }
+    .slider-meta {
+      display: grid;
+      gap: 4px;
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .slider-scale {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.01em;
+      color: rgba(255,248,240,0.56);
+    }
     input[type="range"] {
       width: 100%;
       appearance: none;
@@ -1111,8 +1122,6 @@
       background: rgba(255,255,255,0.02);
       display: grid;
       gap: 10px;
-      overflow: hidden;
-      word-break: break-word;
     }
     .coach-panel strong,
     .planner-quick strong { font-size: 0.92rem; }
@@ -1170,6 +1179,8 @@
       stroke-linecap: round;
       stroke-dasharray: 1508;
       stroke-dashoffset: 1508;
+      transform-origin: 310px 310px;
+      transform: rotate(-90deg);
     }
     .loop-center {
       width: 230px;
@@ -2099,34 +2110,34 @@
 <div class="planner-grid">
 <div class="slider-group" id="sliderGroup">
 <label class="slider-row">
-<div class="slider-head"><strong>Sleep</strong><span id="sleepValue">6.5</span><span class="slider-unit">/ 10</span></div>
+<div class="slider-head"><strong>Sleep</strong><span id="sleepValue">6.5 hrs</span></div>
 <input aria-label="Sleep score" id="sleepRange" max="10" min="0" step="0.5" type="range" value="6.5"/>
-<span class="slider-ref">Hours and quality of rest in the last cycle</span>
+<div class="slider-meta"><span>Blend of sleep hours and sleep quality from the last cycle.</span><span class="slider-scale">0 = no real recovery · 10 = fully restored</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Training</strong><span id="trainingValue">9</span><span class="slider-unit">/ 10</span></div>
+<div class="slider-head"><strong>Training</strong><span id="trainingValue">9 / 10 load</span></div>
 <input aria-label="Training score" id="trainingRange" max="10" min="0" step="0.5" type="range" value="9"/>
-<span class="slider-ref">Session quality, intent, and volume honesty</span>
+<div class="slider-meta"><span>How strong, sharp, and honest the session should be today.</span><span class="slider-scale">0 = skip it · 10 = green light</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Nutrition</strong><span id="nutritionValue">7.5</span><span class="slider-unit">/ 10</span></div>
+<div class="slider-head"><strong>Nutrition</strong><span id="nutritionValue">7.5 / 10 meals</span></div>
 <input aria-label="Nutrition score" id="nutritionRange" max="10" min="0" step="0.5" type="range" value="7.5"/>
-<span class="slider-ref">Meal timing, quality, and consistency today</span>
+<div class="slider-meta"><span>Meal timing, food quality, and consistency today.</span><span class="slider-scale">0 = chaos · 10 = nailed it</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Stress</strong><span id="stressValue">3</span><span class="slider-unit">/ 10</span></div>
+<div class="slider-head"><strong>Stress</strong><span id="stressValue">3 / 10 load</span></div>
 <input aria-label="Stress score" id="stressRange" max="10" min="0" step="0.5" type="range" value="3"/>
-<span class="slider-ref">Higher = more stress. Inverted in the score.</span>
+<div class="slider-meta"><span>Current mental and logistical load. Lower is better.</span><span class="slider-scale">0 = calm · 10 = overloaded</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Hydration</strong><span id="hydrationValue">8.5</span><span class="slider-unit">/ 10</span></div>
+<div class="slider-head"><strong>Hydration</strong><span id="hydrationValue">8.5 / 10 fluids</span></div>
 <input aria-label="Hydration score" id="hydrationRange" max="10" min="0" step="0.5" type="range" value="8.5"/>
-<span class="slider-ref">Fluid and electrolyte intake across the day</span>
+<div class="slider-meta"><span>Water, electrolytes, and consistency across the day.</span><span class="slider-scale">0 = dry and flat · 10 = fully topped up</span></div>
 </label>
 <label class="slider-row">
-<div class="slider-head"><strong>Family</strong><span id="familyValue">8.5</span><span class="slider-unit">/ 10</span></div>
+<div class="slider-head"><strong>Family</strong><span id="familyValue">8.5 / 10 presence</span></div>
 <input aria-label="Family score" id="familyRange" max="10" min="0" step="0.5" type="range" value="8.5"/>
-<span class="slider-ref">Presence, connection, and home stability</span>
+<div class="slider-meta"><span>Presence, connection, and home stability in this cycle.</span><span class="slider-scale">0 = disconnected · 10 = solid at home</span></div>
 </label>
 </div>
 <div class="planner-side">
@@ -2173,7 +2184,7 @@
 <div class="loop-shell" id="loopStage">
 <svg aria-hidden="true" class="loop-svg" viewbox="0 0 620 620">
 <circle class="loop-track" cx="310" cy="310" r="240"></circle>
-<circle class="loop-progress" cx="310" cy="310" id="loopProgress" r="240" transform="rotate(-90 310 310)"></circle>
+<circle class="loop-progress" cx="310" cy="310" id="loopProgress" r="240"></circle>
 </svg>
 <div class="loop-center">
 <div class="muted-label">Pressure Blueprint</div>
@@ -2447,7 +2458,7 @@
 </div>
 </div>
 </div>
-<div class="footer-end">© 2026 The Pressure Academy. All rights reserved. <a href="privacy-policy.html" style="color:var(--muted-2);margin-left:12px;text-underline-offset:2px;">Privacy Policy</a></div>
+<div class="footer-end">© 2026 The Pressure Academy. All rights reserved.</div>
 </div>
 </footer>
 <script>
@@ -2711,6 +2722,19 @@
       };
 
       const plannerRingCirc = 2 * Math.PI * 52;
+
+      function formatPlannerValue(key, value) {
+        const numeric = Number(value);
+        const fixed = Number.isInteger(numeric) ? String(numeric) : numeric.toFixed(1);
+        if (key === 'sleep') return `${fixed} hrs`;
+        if (key === 'training') return `${fixed} / 10 load`;
+        if (key === 'nutrition') return `${fixed} / 10 meals`;
+        if (key === 'stress') return `${fixed} / 10 load`;
+        if (key === 'hydration') return `${fixed} / 10 fluids`;
+        if (key === 'family') return `${fixed} / 10 presence`;
+        return `${fixed} / 10`;
+      }
+
       let activePersona = sessionStorage.getItem('tpaPersona') || '';
       let activeShift = 'day';
       let loopIndex = 0;
@@ -2969,7 +2993,7 @@
         Object.entries(plannerInputs).forEach(([key, input]) => {
           const value = parseFloat(input.value);
           values[key] = value;
-          plannerValueEls[key].textContent = value;
+          plannerValueEls[key].textContent = formatPlannerValue(key, value);
           setRangeFill(input);
         });
 
@@ -3047,6 +3071,7 @@
           btn.textContent = '▶ Autoplay';
           return;
         }
+        loopIndex = 0;
         activateLoop(0);
         btn.classList.add('active');
         btn.textContent = '⏸ Pause';
