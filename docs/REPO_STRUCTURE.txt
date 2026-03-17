@@ -1,0 +1,29 @@
+.
+├── index.html
+├── privacy-policy.html
+├── assets/
+│   ├── logos/
+│   │   ├── Mastery_Method_Mark.svg
+│   │   ├── Mastery_Method_Mark_mono.svg
+│   │   ├── Pressure_Blueprint_Mark.svg
+│   │   ├── Pressure_Blueprint_Mark_mono.svg
+│   │   ├── Pressure_Over_Force_Mark.svg
+│   │   ├── Pressure_Over_Force_Mark_mono.svg
+│   │   ├── Pressure_Planner_Mark.svg
+│   │   ├── Pressure_Planner_Mark_mono.svg
+│   │   ├── Pressure_Tested_Mark.svg
+│   │   ├── Pressure_Tested_Mark_mono.svg
+│   │   ├── TPA_House_Favicon.svg
+│   │   ├── TPA_House_Mark.svg
+│   │   └── TPA_House_Mark_mono.svg
+│   └── social/
+│       └── TPA_OG_1200x630.png
+├── docs/
+│   ├── AI_ALIGNMENT.md
+│   ├── DEPLOYMENT_CHECKLIST.md
+│   └── REPO_STRUCTURE.txt
+├── prompts/
+│   └── COWORK_DEPLOYMENT_PROMPT_v1.md
+├── robots.txt
+├── sitemap.xml
+└── vercel.json

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | The Pressure Academy</title>
+  <meta name="description" content="Privacy Policy for The Pressure Academy website and The Pressure Planner app." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --panel: #111111;
+      --panel-2: #151515;
+      --text: #FFF8F0;
+      --muted: #CFC5BB;
+      --muted-2: #9E948B;
+      --line: #252525;
+      --rust: #C45B28;
+      --rust-light: #D4915C;
+      --gold: #E8A838;
+      --shadow: 0 18px 60px rgba(0,0,0,0.28);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 860px;
+    }
+
+    * { box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      margin: 0;
+      font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(196, 91, 40, 0.10), transparent 30%),
+        linear-gradient(180deg, #0A0A0A 0%, #0E0E0E 100%);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .shell {
+      background: linear-gradient(180deg, rgba(17,17,17,0.96), rgba(12,12,12,0.96));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 34px 28px 26px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(196,91,40,0.09), rgba(196,91,40,0.02));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(232,168,56,0.20);
+      background: rgba(232,168,56,0.08);
+      border-radius: 999px;
+      color: var(--gold);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--text);
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .meta {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted-2);
+      font-size: 0.92rem;
+    }
+
+    .meta code {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--rust-light);
+      background: rgba(255,255,255,0.04);
+      padding: 3px 7px;
+      border-radius: 8px;
+    }
+
+    .content {
+      padding: 28px;
+    }
+
+    .note,
+    .contact,
+    .summary {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 0 0 24px;
+    }
+
+    .summary ul,
+    .note ul,
+    .contact ul {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 34px 0 12px;
+      font-size: 1.15rem;
+      line-height: 1.2;
+      color: var(--rust-light);
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 22px 0 10px;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    ul {
+      margin: 10px 0 16px 20px;
+      padding: 0;
+      color: var(--muted);
+    }
+
+    li { margin-bottom: 8px; }
+
+    strong { color: var(--text); }
+
+    a {
+      color: var(--rust-light);
+      text-underline-offset: 2px;
+    }
+
+    a:hover { color: var(--text); }
+
+    hr {
+      border: 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 28px 0;
+    }
+
+    .small {
+      color: var(--muted-2);
+      font-size: 0.88rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .btn-primary {
+      background: var(--rust);
+      color: var(--text);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: #d36a36;
+      color: var(--text);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.16);
+      color: var(--text);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--gold);
+      background: rgba(232,168,56,0.08);
+      border: 1px solid rgba(232,168,56,0.18);
+      border-radius: 999px;
+      padding: 6px 10px;
+    }
+
+    @media (max-width: 720px) {
+      .hero,
+      .content { padding: 22px 18px; }
+      .wrap { padding: 18px 12px 40px; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="shell" aria-labelledby="privacy-title">
+      <header class="hero">
+        <div class="eyebrow">Privacy Policy</div>
+        <h1 id="privacy-title">Privacy Policy</h1>
+        <p class="lede">This policy explains how The Pressure Academy and The Pressure Planner handle personal information across the website, waitlists, enquiries, and app-related services.</p>
+        <div class="meta">
+          <span>Last updated: <code>16 March 2026</code></span>
+          <span>Applies to: <code>thepressureacademy.com</code> and <code>The Pressure Planner</code></span>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="summary">
+          <p><strong>Practical summary.</strong> We collect the information we need to run the site, respond to enquiries, process signups, and operate app features if and when you use them. We do not sell personal information. We may use service providers such as hosting, form-processing, analytics, or app distribution partners to deliver the service.</p>
+          <span class="badge">Australian privacy baseline</span>
+        </div>
+
+        <div class="note">
+          <p>The Pressure Academy is based in Australia. We aim to handle personal information in a manner consistent with the <strong>Privacy Act 1988 (Cth)</strong> and the <strong>Australian Privacy Principles</strong>, where they apply. This page is written to be readable and operational, not to overclaim rights or features that do not exist.</p>
+        </div>
+
+        <h2>1. Who this policy applies to</h2>
+        <p>This policy applies to personal information collected through:</p>
+        <ul>
+          <li>the website at <strong>thepressureacademy.com</strong></li>
+          <li>waitlist, contact, or enquiry forms</li>
+          <li>The Pressure Planner app and related product features, if and when those are made available</li>
+          <li>communications you send to us by email or through forms</li>
+        </ul>
+
+        <h2>2. The kinds of information we may collect</h2>
+        <p>The exact data we collect depends on how you interact with us. Examples include:</p>
+        <ul>
+          <li><strong>Identity and contact details:</strong> name, email address, and any details you choose to include in a message or form submission.</li>
+          <li><strong>Account or profile details:</strong> if app accounts are offered, this may include username, training profile information, goals, or preferences you choose to provide.</li>
+          <li><strong>Training, wellbeing, or planning data:</strong> if app features are used, this may include entries such as sleep, stress, hydration, nutrition, training load, notes, or similar self-reported information.</li>
+          <li><strong>Technical and device information:</strong> browser type, device type, operating system, approximate diagnostics, and product version information.</li>
+          <li><strong>Usage information:</strong> pages viewed, form events, feature interactions, and broad traffic or performance analytics.</li>
+        </ul>
+        <p>We generally collect information directly from you. We may also receive limited technical information from hosting, analytics, or app store providers when you use our services.</p>
+
+        <h2>3. Why we collect and use personal information</h2>
+        <p>We may use personal information to:</p>
+        <ul>
+          <li>operate, maintain, secure, and improve the website, waitlists, and app-related services</li>
+          <li>respond to enquiries, requests, and support issues</li>
+          <li>send service, launch, or marketing communications where you have asked to receive them or where otherwise permitted by law</li>
+          <li>personalise planning, coaching, educational, or progress-related features if those features are available and you use them</li>
+          <li>understand product usage, diagnose bugs, and improve performance or user experience</li>
+          <li>comply with legal obligations and enforce our terms or protect our rights</li>
+        </ul>
+
+        <h2>4. How we collect information</h2>
+        <p>We collect information when you:</p>
+        <ul>
+          <li>submit a form on the website</li>
+          <li>contact us by email</li>
+          <li>join a waitlist or request updates</li>
+          <li>create or use an app account, if app accounts are offered</li>
+          <li>interact with analytics, hosting, or security systems that support the service</li>
+        </ul>
+
+        <h2>5. Disclosure to service providers and third parties</h2>
+        <p>We may disclose personal information to service providers that help us operate the service. Depending on the product state, this may include providers for:</p>
+        <ul>
+          <li><strong>hosting and deployment</strong> (for example, Vercel)</li>
+          <li><strong>form processing and communication</strong> (for example, Formspree or email tooling)</li>
+          <li><strong>analytics and diagnostics</strong></li>
+          <li><strong>app distribution</strong> through the Apple App Store and Google Play</li>
+        </ul>
+        <p>We may also disclose information where required by law, to respond to lawful requests, or to protect rights, property, safety, or service integrity.</p>
+
+        <h2>6. Overseas disclosure</h2>
+        <p>Some service providers we use may store or process personal information outside Australia, including in the United States or other countries where their infrastructure operates. Where we disclose personal information overseas, we will take steps that are reasonable in the circumstances to ensure the information is handled appropriately.</p>
+
+        <h2>7. Security</h2>
+        <p>We use reasonable technical and organisational measures to protect personal information from misuse, interference, loss, and unauthorised access, modification, or disclosure. These measures may include encrypted connections, access controls, provider review, and internal process controls.</p>
+        <p class="small">No internet transmission or storage system is perfectly secure. We cannot guarantee absolute security.</p>
+
+        <h2>8. Retention and deletion</h2>
+        <p>We keep personal information only for as long as reasonably necessary for the purposes described in this policy, or as required by law. Retention periods can vary depending on whether the information relates to:</p>
+        <ul>
+          <li>an active enquiry, waitlist, or support matter</li>
+          <li>an account or app feature you are actively using</li>
+          <li>legal, tax, fraud-prevention, or record-keeping obligations</li>
+        </ul>
+        <p>If you ask us to delete information, we will review the request and delete or de-identify information where appropriate, subject to legal, technical, contractual, and operational requirements.</p>
+
+        <h2>9. Aggregated, de-identified, and product improvement use</h2>
+        <p>We may use aggregated or de-identified information to understand how people use the service, improve features, and develop better planning, coaching, or educational tools. We do not publicly disclose your private submissions as identifiable personal information.</p>
+
+        <h2>10. Cookies and analytics</h2>
+        <p>Our website may use cookies or similar technologies for site functionality, performance, security, and analytics. If privacy-focused analytics are enabled, we use them to understand traffic and product usage trends. We do not state here that every analytics tool is enabled at all times; tooling may change as the product evolves.</p>
+
+        <h2>11. Children and young people</h2>
+        <p>If child- or teen-focused features are offered, we expect a parent or guardian to be involved where required. We do not knowingly collect personal information from children in circumstances where consent is required and has not been appropriately obtained. If you believe a child has provided personal information to us improperly, contact us and we will review the matter.</p>
+
+        <h2>12. Your privacy choices and rights</h2>
+        <p>Subject to applicable law, you may request access to personal information we hold about you and ask us to correct information that is inaccurate, out of date, incomplete, irrelevant, or misleading. You may also ask us to stop marketing communications, or request deletion of certain information where appropriate.</p>
+        <ul>
+          <li><strong>Access:</strong> you can ask what personal information we hold about you.</li>
+          <li><strong>Correction:</strong> you can ask us to correct inaccurate or outdated information.</li>
+          <li><strong>Marketing opt-out:</strong> you can unsubscribe from marketing communications at any time.</li>
+          <li><strong>Deletion request:</strong> you can ask us to delete account-related or enquiry-related data, subject to legal and operational requirements.</li>
+        </ul>
+        <p>To make a request, contact us using the details below. We aim to respond within a reasonable time.</p>
+
+        <h2>13. Data breaches</h2>
+        <p>If a data breach occurs, we will assess it and respond in line with applicable legal requirements. If we are required to notify affected individuals or regulators of an eligible data breach, we will do so.</p>
+
+        <h2>14. External platforms and app stores</h2>
+        <p>If you access our products through the Apple App Store or Google Play, those platforms may collect information under their own terms and privacy policies. Your use of those platforms is also governed by their rules and disclosures.</p>
+
+        <h2>15. Changes to this policy</h2>
+        <p>We may update this policy from time to time. When we do, we will update the “Last updated” date at the top of this page. Material changes may also be communicated through the website, the app, or by email where appropriate.</p>
+
+        <div class="contact">
+          <h2>16. Contact</h2>
+          <p>If you have a privacy question, want to make a request, or want to make a complaint, contact us at:</p>
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:contact@thepressureacademy.com">contact@thepressureacademy.com</a></li>
+            <li><strong>Location:</strong> Queensland, Australia</li>
+          </ul>
+          <p class="small">If you are not satisfied with our response, you may be able to contact the Office of the Australian Information Commissioner.</p>
+        </div>
+
+        <hr />
+        <p class="small">This version is drafted to align with the current TPA website direction and to avoid unsupported promises, placeholder legal language, or feature claims that may not yet be live.</p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="/">Back to Home</a>
+          <a class="btn btn-secondary" href="mailto:contact@thepressureacademy.com">Contact Privacy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
