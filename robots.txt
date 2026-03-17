@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://thepressureacademy.com/sitemap.xml
