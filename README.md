@@ -1,57 +1,87 @@
-# The Pressure Academy — Static Site Repo Structure v1
+# The Pressure Academy
 
-Date: 16 March 2026  
-Status: Long-term asset-path deployment scaffold  
-Purpose: Replace self-contained emergency HTML with a stable static-site structure that serves the homepage, privacy policy, logos, and OG image from predictable relative paths.
+**[thepressureacademy.com](https://thepressureacademy.com)**
 
-## Canonical contents in this scaffold
-- `index.html` → homepage based on `TPA_Rebuild_Production_v6.1_fixed_js.html`
-- `privacy-policy.html` → reviewed privacy policy draft aligned to current site styling
-- `assets/logos/*.svg` → locked subsystem marks + patched Mastery Method mark
-- `assets/social/TPA_OG_1200x630.png` → OG/Twitter preview image
-- `docs/AI_ALIGNMENT.md` → current alignment truth for agents
-- `prompts/COWORK_DEPLOYMENT_PROMPT_v1.md` → execution prompt for Cowork
+Static website for The Pressure Academy — home of the **Pressure Planner**, a daily performance scoring system for shift workers, grapplers, and parents.
 
-## Locked decisions carried into this scaffold
-- Website type system: DM Sans + JetBrains Mono
-- Mastery gold: `#E8A838`
-- Mastery Method mark uses brain outline + structured nodes + pressure plates
-- Interaction architecture remains closed
-- Relative asset paths must remain:
-  - `assets/logos/*.svg`
-  - `assets/social/TPA_OG_1200x630.png`
-  - `privacy-policy.html`
+## Quick Start
 
-## Goal of this scaffold
-This package is not a redesign. It is the long-term deployment baseline so the site can load consistently without relying on embedded logos or ad-hoc folder placement.
+This is a static site with no build step. To preview locally:
 
-## Expected repo root structure
-```.
-├── index.html
-├── privacy-policy.html
-├── assets/
-│   ├── logos/
-│   └── social/
-├── docs/
-│   ├── AI_ALIGNMENT.md
-│   ├── DEPLOYMENT_CHECKLIST.md
-│   └── REPO_STRUCTURE.txt
-├── prompts/
-│   └── COWORK_DEPLOYMENT_PROMPT_v1.md
-├── robots.txt
-├── sitemap.xml
-└── vercel.json
+```bash
+# Any static server works
+npx serve .
+# or
+python3 -m http.server 8000
 ```
 
-## Immediate next move
-Hand this scaffold and the prompt in `prompts/` to Cowork and have it:
-1. place the files into the actual GitHub repo root,
-2. verify every asset path resolves on preview,
-3. keep the current visual design intact,
-4. redeploy after validation.
+Open `http://localhost:8000` and verify:
+- Homepage loads with hero, demo, and all sections
+- Logo SVGs render from `assets/logos/`
+- Privacy policy link works
+- Formspree forms are functional
 
+## Stack
 
-## Patch notes v1.1
-- Blueprint loop progress now starts from Step 1 at the top of the ring.
-- Planner sliders now show clear value references and formatted outputs.
-- Planner feature cards have equal-height bordered containers so the AI coach reaction card sits cleanly in the grid.
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Static HTML/CSS/JS (single page) |
+| Hosting | Vercel |
+| Forms | Formspree |
+| Fonts | DM Sans + JetBrains Mono (Google Fonts) |
+| Animation | GSAP 3.12.7 (CDN) |
+
+No build system, no framework, no backend, no database.
+
+## Project Structure
+
+```
+index.html              ← Homepage (CSS/JS inline)
+privacy-policy.html     ← Privacy policy
+assets/
+  logos/                 ← SVG brand marks (locked)
+  social/               ← OG image
+docs/
+  ARCHITECTURE_AUDIT.md  ← Current state analysis
+  PRODUCT_DIRECTION.md   ← Commercial priorities
+  DECISIONS.md           ← Decision record
+  DEPLOYMENT_CHECKLIST.md
+  AI_ALIGNMENT.md
+vercel.json             ← Vercel config
+robots.txt              ← SEO
+sitemap.xml             ← SEO
+CLAUDE.md               ← Agent alignment guide
+```
+
+## Current Focus
+
+The Pressure Planner digital product is the primary launch target. The website is positioned to:
+
+1. Explain the product clearly above the fold
+2. Let visitors try the interactive demo
+3. Capture early access emails via Formspree
+4. Use the broader ecosystem (Blueprint, Mastery Method, etc.) as supporting authority
+
+See [docs/PRODUCT_DIRECTION.md](docs/PRODUCT_DIRECTION.md) for full commercial context.
+
+## Deployment
+
+The site deploys to Vercel from this repository. See [docs/DEPLOYMENT_CHECKLIST.md](docs/DEPLOYMENT_CHECKLIST.md) for pre/post deploy checks.
+
+**Key rules:**
+- All asset paths are relative — do not use absolute paths
+- Do not commit secrets or API keys
+- Logo SVGs in `assets/logos/` are locked brand assets — do not regenerate
+- Test locally before pushing
+
+## Documentation
+
+- [CLAUDE.md](CLAUDE.md) — Agent alignment and coding standards
+- [docs/ARCHITECTURE_AUDIT.md](docs/ARCHITECTURE_AUDIT.md) — Technical audit
+- [docs/PRODUCT_DIRECTION.md](docs/PRODUCT_DIRECTION.md) — Business direction
+- [docs/DECISIONS.md](docs/DECISIONS.md) — Decision record
+- [docs/AI_ALIGNMENT.md](docs/AI_ALIGNMENT.md) — Visual/interaction alignment
+
+## License
+
+All rights reserved. © 2026 The Pressure Academy.
