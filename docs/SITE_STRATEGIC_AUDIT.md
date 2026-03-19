@@ -1,196 +1,243 @@
 # Site Strategic Audit — The Pressure Academy
 
-**Date:** 2026-03-19
-**Auditor role:** Market analyst · Conversion strategist · Brand architect · Premium digital experience consultant
-**Scope:** Full homepage (index.html, ~3,791 lines), supporting files, deployment config
+**Date:** 2026-03-19 (revised)
+**Commercial weighting:** conversion lift → trust lift → differentiation lift → data/measurement → effort-to-impact
+**Scope:** thepressureacademy.com — single-page static site (`index.html`, ~3,791 lines)
 
 ---
 
-## Executive Summary
+## 1. Executive Summary
 
-The Pressure Academy homepage is a strong visual foundation with a genuinely differentiated product (the Pressure Planner), but it currently functions more like a brand showcase than a conversion machine. The interactive demo is the single strongest asset on the page — it sells the product better than any copy. However, the site buries its only CTA behind four authority sections that most visitors will never scroll through. The ecosystem is impressive but over-exposed for a pre-launch product, and the absence of any social proof or analytics means the business is flying blind.
-
-**Current grade: B-** — premium visual quality, weak conversion architecture, strong product demo, absent trust signals.
+The Pressure Academy has a strong niche position (shift workers, grapplers, parents), a genuinely useful interactive demo, and honest commercial copy. However, the site leaks warm leads through a long mid-page authority sequence, has zero social proof or founder identity, and operates without analytics — making every optimisation decision a guess.
 
 ---
 
-## 1. Market Positioning Analysis
+## 2. Market Positioning Analysis
 
-### What works
-- **Niche clarity is genuinely strong.** "Shift workers, grapplers, and parents" is a specific, underserved audience. Most wellness tools target generic "busy professionals." This is more honest and more memorable.
-- **The persona selector makes the positioning tangible.** Visitors self-identify immediately, and the site adjusts weighting labels and copy. This is not cosmetic — it demonstrates that the product actually thinks differently per audience.
-- **"Six variables. One score."** is a clean product thesis. It's concrete, countable, and testable. Most competitors speak in vague wellness language.
+**Niche clarity: Strong.**
+The site targets a specific intersection — shift workers, grapplers, and parents who need a performance scoring system that accounts for real-life variables (night shifts, family load, training fatigue). This is a defensible position. Most wellness tools serve a single audience with generic scoring.
 
-### What's weak
-- **No competitive differentiation is explicit.** The site never says "unlike X" or "most apps assume Y." The FAQ hints at this ("Most apps assume you wake at 6am") but it's buried at line 2763 in an accordion most visitors won't open.
-- **No price signal anywhere.** Visitors cannot calibrate value. "Early access" with no mention of price range, format, or delivery timeline creates ambiguity, not curiosity. Premium brands don't avoid the money conversation — they frame it.
-- **The audience split (shift workers + grapplers + parents + learning support) risks feeling unfocused.** Four personas on a single page is ambitious. The "Learning Support" persona feels disconnected from the other three and may confuse the primary audience.
+**Differentiation language: Present but scattered.**
+8+ "instead of" differentiators are embedded across sections:
+- "respects home load instead of pretending it does not" (line 2377)
+- "accounts for that instead of pretending it does not happen" (line 2527)
+- "teachable instead of fragmented" (line 2654)
+- "respects how the child actually thinks instead of forcing one narrow learning template" (line 2730)
+- "respects reality instead of pretending you have unlimited energy and time" (line 2759)
+- "instead of disconnected position names" (line 2975)
+- "instead of fragile" (line 2991)
+- "instead of treating it as an unrelated side issue" (line 3080)
 
-### Competitive risk
-The site competes in a category (daily performance scoring) that doesn't have an obvious market leader for this niche. This is an advantage — first-mover positioning is available. But first-mover advantage only holds if the product ships. The site currently sells a demo, not a product.
+These are strong. The problem is they're buried across ecosystem, blueprint, chains, mastery, and FAQ sections — not consolidated where a visitor evaluating the product would see them.
+
+**Gap: No explicit competitor comparison.**
+No named competitors. No comparison table. No "unlike [category], we…" block. Differentiation is implicit rather than explicit.
+
+**Gap: No price signal.**
+The only cost-related language:
+- "Free to join. No spam. Just launch details and priority access." (line 2791)
+- "There is no charge to join the early access list." (line 2767)
+
+A visitor has no way to calibrate value. They don't know if the full product is £9/month or £299 one-time.
 
 ---
 
-## 2. Conversion Flow Audit
+## 3. Conversion Flow Audit
 
-### Current flow
+### Current Path
+
 ```
-Hero → Planner Demo → Product Value → Proof → Ecosystem → Blueprint → Chains → Mastery → FAQ → Join (CTA)
+Hero (CTA×2) → Demo → Value Cards (CTA×1) → Proof → Ecosystem → Blueprint → Chains → Mastery → FAQ → Join (form)
 ```
 
-### Conversion architecture problems
+### CTA Inventory
 
-**Problem 1: Single CTA at the bottom of a 10-section page.**
-The only email capture form is in section 10 of 10 (line 2793). There is one `btn` link in the product-value section (line 2499) and two in the hero (lines 2257-2258), but they all scroll to the bottom form. A visitor who is convinced after the demo (section 2) must scroll through 8 more sections to convert.
+| Location | CTA Text | Line |
+|----------|----------|------|
+| Top nav (sticky) | Get Early Access | 2219 |
+| Hero | Get Early Access → | 2257 |
+| Hero | Try the Demo | 2258 |
+| After value cards | Get Early Access → | 2499 |
+| Join section | Join the Early Access List (form submit) | 2798 |
+| Footer | Get Early Access | 2831 |
+| Footer | Try the Demo | 2829 |
 
-**Problem 2: Four authority sections separate the demo from the CTA.**
-After the demo (section 2) and product-value cards (section 3), the visitor hits ecosystem, blueprint, chains, and mastery — four sections that explain the broader brand, not the product they came for. This is where warm leads cool off.
+**7 CTAs total, but only 1 form.** All "Get Early Access" buttons scroll to the join section at the bottom.
 
-**Problem 3: No mid-page conversion points.**
-There is no inline CTA after the planner demo. The visitor's peak engagement moment (they just moved sliders, saw the score respond) has no immediate capture mechanism.
+### Strengths
+- Demo as second section is strong product-led growth. A visitor who interacts with 6 sliders and sees their score is warm.
+- "Get Early Access" appears early and repeats — good urgency and consistency.
+- Persona selector in hero (Shift Worker / Grappler / Parent) immediately qualifies the visitor.
 
-**Problem 4: The proof section has no social proof.**
-Section 4 ("Why this exists") is a founder story, not buyer validation. Problem/approach/result cards are narratively sound but they don't answer "who else uses this and what happened?" Zero testimonials, zero usage numbers, zero external validation.
-
-### Conversion path score: 4/10
-The flow is logical but the distance between conviction and action is too long.
-
----
-
-## 3. Content Hierarchy Effectiveness
-
-### Above the fold (hero)
-- **Strong.** Headline ("The Pressure Planner"), sub-copy, two CTAs, persona selector, stat cards, and a live score preview card all appear above the fold on desktop.
-- **Risk:** the hero-grid is dense. The right column (device-card + side-card) contains a lot of information. On first view, a new visitor may not know where to look.
-- **The persona selector placement is good** — it's early enough to feel like a choice, not a filter buried in settings.
-
-### Mid-page (sections 2-4)
-- **The planner demo is the hero of the page.** It should be treated as such. The section heading ("Stress-test the Planner in real time") is strong. The feature cards inside the demo section (lines 2359-2379) feel redundant — they describe what the demo already shows.
-- **Product-value cards (section 3)** are solid but generic in design. Six identical cards with diamond icons feel template-like. The content is good; the visual treatment doesn't match the premium feel of the rest of the site.
-
-### Lower page (sections 5-10)
-- **Ecosystem, Blueprint, Chains, Mastery** are all well-built interactive sections, but they serve different audiences. A shift worker doesn't care about BJJ chains. A grappler doesn't care about Mastery Method for children.
-- **The FAQ section** is clean and well-written. It answers real questions. But it uses inline styles extensively (lines 2753-2776) rather than the established CSS class system, which suggests it was added later without full design integration.
-- **The join section** is the only conversion point and it's competently built, but it's unremarkable. A premium brand launching a flagship product should make the final CTA section feel like an event, not an afterthought.
+### Issues
+1. **4 authority sections between value cards and form.** After the post-value CTA (line 2499), a visitor scrolls through ecosystem, blueprint, chains, and mastery before reaching FAQ and the join form. That's ~6 scroll-screens of cooling-off time.
+2. **No CTA between proof (section 4) and join (section 10).** The longest CTA-free stretch on the page.
+3. **Proof section has zero social proof.** "Why this exists" is an origin story, not buyer validation.
+4. **Post-signup is a dead end.** After submission: inline text "Thanks — your request is in. We will be in touch." (line 3684), form clears, sliders reset, user stays on page. No redirect, no next steps, no timeline.
 
 ---
 
-## 4. Brand Consistency & Premium Feel
+## 4. Pricing & Value Signalling
 
-### What feels premium
-- **The dark theme with rust/gold accents** is distinctive and avoids generic gym aesthetics.
-- **Typography pairing** (DM Sans + JetBrains Mono) is confident. The monospace for badges, labels, and scales creates a "systems" feel that matches the brand voice.
-- **Custom SVG logos** for every ecosystem element signal investment. These are not stock icons.
-- **The scoring ring animation** (SVG stroke-dashoffset with GSAP) is smooth and genuinely satisfying.
-- **Glow effects on hover** (interactiveBorderPulse, borderSweep keyframes) add depth without being gratuitous.
-- **The device-card frame** in the hero creates a "product screenshot" feel that positions the Planner as software, not a blog.
+**Current state: No pricing signal exists.**
 
-### What feels amateur
-- **The product-value cards** (section 3) use a diamond character (`&#9670;`) as an icon placeholder. This is visually cheap compared to the custom SVG logos used elsewhere.
-- **Inline styles on FAQ elements** (20+ inline style attributes in lines 2753-2776) break the design system and suggest rushed implementation.
-- **The proof section** has no visual weight. Three text-only cards with "The problem / The approach / The result" labels feel like a placeholder for actual proof that hasn't been collected yet.
-- **The join section CTA** doesn't feel like a premium conversion moment. Compare it to the elaborate ecosystem map above it — the section that should work hardest commercially has the least visual investment.
-- **The secondary mailto links** in the join section ("Blueprint curriculum", "Mastery Method", "General enquiry") feel like they belong in a footer, not a conversion section.
+| Signal | Location | Line |
+|--------|----------|------|
+| "Free to join" | Join section | 2791 |
+| "No charge to join" | FAQ | 2767 |
+| "Priority access" | Join section | 2791 |
 
-### What feels inconsistent
-- **Glow animations run on everything.** Feature cards, slider rows, ecosystem nodes, proof cards, funnel cards, loop nodes, chain steps — all share the same `ambientInteractiveGlow` animation (line 1118). When everything glows, nothing stands out. The glow should be reserved for interactive elements that reward engagement.
-- **The ecosystem section** has a fully custom-built SVG map with positioned nodes, bezier connections, path filtering, and a detail panel. This is the most technically impressive section on the page — but it's selling the brand architecture, not the product. The planner demo, which sells the product, doesn't get the same level of visual spectacle.
+No product pricing, no tier comparison, no "pricing TBA" language, no value anchor. A visitor investing 5-10 minutes in the demo has no idea what they're signing up for financially. "Free to join" describes the waitlist, not the product.
+
+**Risk:** Sophisticated buyers read this as either "too early to price" (acceptable) or "hiding the price" (suspicious).
+
+**Recommendation:** Add explicit language: "Early access is free. Planner pricing will be announced at launch." Sets honest expectations and signals the product has real value.
 
 ---
 
-## 5. Curiosity Marketing Analysis
+## 5. Differentiation vs. Alternatives
 
-### Where curiosity is created
-- **Hero headline + persona selector.** "Which pressure are you managing?" is an excellent curiosity hook. It invites self-identification before explanation.
-- **"Stress-test the Planner in real time"** invites interaction, not passive reading.
-- **The shift-mode toggle** creates a "what happens if I switch this?" moment.
-- **Quick presets ("Sharp", "Fatigued", "Dad Mode")** are brilliant curiosity triggers — they invite play.
-- **The ecosystem map** creates genuine "what's behind each node?" intrigue.
+**Strongest differentiators (evidence-based):**
 
-### Where curiosity is killed
-- **The product-value section explains too much.** Six cards telling you what you get, immediately after a demo that already showed you. This is explanation where anticipation should be.
-- **The proof section gives the full story upfront.** Problem → Approach → Result is a complete narrative arc with no mystery. The visitor has no reason to keep going because the story is already resolved.
-- **The ecosystem is fully exposed in one scroll.** All six nodes are visible at once. There's no progressive reveal, no "there's more to discover" moment. The user sees everything and decides whether they care in a single glance.
-- **Section headings are descriptive, not intriguing.** "Everything inside the Pressure Planner" (line 2463), "See how the ecosystem connects" (line 2545), "Follow the Blueprint as a complete loop" (line 2618) — these describe what the section is, not why you should care. Compare to: "Why six variables?" or "What happens when you change the shift?"
+1. **Multi-persona scoring** — shift workers, grapplers, and parents served by the same tool with different weight adjustments. Most competitors serve one audience.
+2. **Shift-mode weight adjustment** — day/night/rotating toggles genuinely change the scoring math. This is a real feature, not marketing.
+3. **Family variable** — "presence counts" (line 2377) is unusual in wellness scoring. Most tools ignore parenting load.
+4. **Interactive demo** — visitors can try the product before signing up. Most competitors show screenshots or videos.
 
-### Curiosity score: 5/10
-The demo creates genuine curiosity. The surrounding sections explain it away. The site needs more "what is this?" moments and fewer "here is everything" moments.
+**Gap: Differentiation is scattered.**
+The 8+ "instead of" statements are spread across ecosystem, blueprint, chains, mastery, and FAQ sections. A visitor evaluating the product on the first visit is unlikely to read deep enough to encounter most of them.
+
+**Recommendation:** Consolidate the strongest 3-4 "instead of" statements into a single "Why this is different" block positioned between proof and ecosystem — where a skeptical visitor is deciding whether to keep scrolling.
 
 ---
 
-## 6. Ecosystem Engagement Analysis
+## 6. Founder Authority
 
-### What works
-- **The ecosystem map** is genuinely impressive. SVG connections, node positioning, path filtering by persona, detail panel with per-brand copy — this is high-quality interactive design.
-- **Each ecosystem element has a distinct logo, colour variation, and role label** (Product, Curriculum, Apparel, Education, Culture, Brand House). This signals a real system, not a list of services.
-- **Path filtering** (Shift Worker Path, BJJ Path, Parent Path, Education Path) lets visitors see which elements are relevant to them. This is smart UX.
+**Current state: Completely absent.**
 
-### What's weak
-- **The ecosystem is over-explained for a pre-launch page.** Five of the six ecosystem elements have no product to sell yet. Blueprint, Pressure Tested, Mastery Method, and Pressure Over Force are all concepts, not live offerings. Showing them all at once makes the business look aspirational rather than operational.
-- **The ecosystem map competes with the Planner for attention.** The map is visually more impressive than the Planner demo. A visitor who explores the ecosystem may forget they were supposed to sign up for the Planner.
-- **Blueprint and Chains sections are BJJ-specific.** A shift-worker parent who is not a grappler encounters two full interactive sections about guard, sweeps, and choke chains. This breaks the emotional journey for non-BJJ audiences.
-- **The Mastery Method section** targets parents of children aged 3-15. This is a fundamentally different audience segment from the rest of the page. A shift-working grappler scrolling through content about neuro-inclusive learning for children feels like a wrong turn.
+No founder name, photo, bio, credentials, "founded by" language, team section, or social links anywhere on the site. The only origin signal is "Built under pressure" in the footer (line 2824).
 
-### Ecosystem engagement score: 6/10
-Technically impressive, strategically premature. The ecosystem should create depth perception ("there's more here") without requiring full exploration of concepts that aren't live yet.
+Authority is entirely system-centric. Domain expertise is implied through BJJ terminology, shift-work specifics, and neuro-inclusive education language — but there's no person behind it.
+
+**Risk for premium positioning:** Premium coaching products depend on perceived expertise. A visitor considering a paid tool from an unknown brand with no face, no credentials, and no testimonials has a high trust barrier.
+
+**Recommendation:** Minimum viable authority = one paragraph bio + photo in the proof section. Credentials that matter: personal experience with shift work, BJJ rank/coaching experience, parenting context. Authenticity and domain experience matter more than formal qualifications in this niche.
 
 ---
 
-## 7. Trust & Social Proof
+## 7. Post-Signup Flow
 
-### Current trust signals
-- Custom SVG brand marks (professional)
-- Clean, consistent visual design (signals investment)
-- Transparent copy ("no charge to join early access", "format details shared with early access members")
-- Privacy policy exists and is linked
+**Current experience after form submission:**
 
-### Missing trust signals
-- **Zero testimonials.** Fabricated ones were correctly removed. No real ones have replaced them.
-- **No usage metrics.** No waitlist count, no beta user count, no "X people have tried the demo."
-- **No founder presence.** No photo, no bio, no video. Premium products need a face. "Built by a shift worker, grappler, and parent" is copy — a photo and name would make it credibility.
-- **No media, press, or partnership mentions.**
-- **No certifications, qualifications, or credentials.**
-- **No guarantee language.** "Free to join, no spam" is good but generic.
-- **No analytics installed.** The business cannot measure conversion, scroll depth, or engagement. This means every other recommendation in this audit will be implemented without data to validate it.
+1. Formspree receives the email (hidden fields: `intent=planner-access`, `source=TPA Product Launch v8`)
+2. Form input clears
+3. All planner sliders reset to defaults
+4. Inline text appears: "Thanks — your request is in. We will be in touch." (green text)
+5. User stays on the same page
 
-### Trust score: 3/10
-The visual quality implies trust. The content does not build it. This is the largest gap on the page.
+**What's missing:**
+- No confirmation page or section with next steps
+- No expected timeline ("launching Q3 2026" or similar)
+- No social share prompt (missed organic distribution)
+- No lead nurture sequence (email captured, but no automated follow-up)
+- No "what happens next" guidance
 
----
+**Risk:** The signup feels like a dead end. A visitor who trusted the site enough to submit their email gets a flat text confirmation with no sense of what they just joined or when they'll hear back.
 
-## 8. SEO & Discoverability
-
-### In place
-- Title, meta description, OG tags, Twitter cards — all aligned to product positioning
-- Schema.org structured data (Organization + WebSite)
-- Sitemap.xml and robots.txt
-- Canonical URL
-- Semantic HTML (header, main, section, footer, nav, article, aside)
-
-### Missing
-- **No FAQPage schema.** The FAQ section uses `<details>/<summary>` HTML but has no structured data. Adding FAQPage schema is a free SERP feature.
-- **Single-page architecture limits keyword surface.** One URL = one ranking opportunity. There's no content marketing infrastructure, no blog, no topic pages.
-- **No alt text on decorative elements is mixed.** Some images have good alt text (e.g., "The Pressure Academy logo"), but the ecosystem SVG uses generic "logo" alt text patterns.
-- **Performance:** 3,791 lines of inline CSS + JS means every page load re-parses ~1,500 lines of CSS and ~800 lines of JS that could be cached separately.
-
-### SEO score: 5/10
-Foundations are sound. Surface area is minimal. Quick wins available (FAQ schema).
+**Recommendation:** Replace the inline message with a scroll to a thank-you section containing: confirmation, expected timeline, what to expect in their inbox, and a share prompt.
 
 ---
 
-## 9. Summary of Findings
+## 8. Mobile Conversion Friction
 
-| Dimension | Score | Key Issue |
-|-----------|-------|-----------|
-| Market positioning | 7/10 | Clear niche, no explicit differentiation from competitors |
-| Conversion architecture | 4/10 | Single CTA at bottom of 10-section page |
-| Content hierarchy | 6/10 | Strong above-fold, diluted mid-page by non-product sections |
-| Brand & premium feel | 7/10 | Visually strong, weakened by template-feel value cards and sparse proof |
-| Curiosity marketing | 5/10 | Demo creates curiosity; surrounding sections explain it away |
-| Ecosystem engagement | 6/10 | Technically impressive, strategically premature |
-| Trust & social proof | 3/10 | No testimonials, no metrics, no founder, no analytics |
-| SEO & discoverability | 5/10 | Foundations present, surface area too small |
+**Breakpoints:** 640px (mobile), 960px (tablet), 1180px (large desktop)
 
-**Overall strategic assessment: 5.4/10**
+| Element | Mobile Behaviour | Status |
+|---------|-----------------|--------|
+| Hero CTAs | Stack vertically, full-width, 46px min-height | Good |
+| Planner sliders | Single-column layout, full-width | Good |
+| Slider thumbs | 18px visual, ~26px with box-shadow | Below 44px WCAG target |
+| Join form input | Full-width, 46px height, 14px padding | Good |
+| Submit button | Full-width, centred | Good |
+| Navigation | Hamburger at 960px, full mobile panel | Good |
+| Horizontal scroll | `overflow-x: hidden` on body | Prevented |
 
-The site is a strong draft that needs commercial tightening. The product demo is exceptional. The brand identity is distinctive. But the conversion path is too long, the trust layer is empty, and the ecosystem overexposure dilutes the launch focus.
+**The only measurable mobile friction:** Slider thumb touch target is 18px visual (lines 1396-1397), extended to ~26px by box-shadow. WCAG recommends 44px minimum. On small phones (320-375px viewport), this is the primary interaction risk — a visitor trying the demo on mobile may struggle with precise slider manipulation.
+
+**Recommendation:** Increase slider thumb to 44px on mobile via CSS media query. Low-effort fix with direct conversion impact (the demo is the strongest sales tool).
+
+---
+
+## 9. Performance Beyond Animation
+
+### External Resources (6 total)
+
+| Resource | Type | Render Blocking? | Line |
+|----------|------|-------------------|------|
+| Google Fonts preconnect ×2 | DNS hint | No | 22-23 |
+| Google Fonts stylesheet | CSS | Yes (mitigated by display:swap) | 24 |
+| GSAP 3.12.7 | JS (defer) | No | 25 |
+| ScrollTrigger plugin | JS (defer) | No | 26 |
+| ScrollToPlugin | JS (defer) | No | 27 |
+
+### Page Weight
+- Inline CSS: ~70-80KB (lines 28-2168)
+- Inline JS: ~35-45KB (lines 2848-3768)
+- Total HTML document: ~145KB uncompressed (~50KB gzipped estimate)
+
+### LCP (Largest Contentful Paint)
+- LCP candidate: hero h1 text
+- Dependent on: Google Fonts load (display:swap prevents invisible text) + GSAP word-split animation
+- GSAP animates hero words from `opacity: 0` — h1 is invisible until JS executes
+- Risk: if GSAP CDN is slow, hero text is invisible for the entire load → degraded LCP
+
+### CLS (Cumulative Layout Shift)
+- Reveal animations use `transform: translateY(30px)` → `none` (visual shift only, no layout impact)
+- Low CLS risk — transform-only reveals are best practice
+
+### Font Loading
+- `display=swap` in Google Fonts URL — text renders immediately with system fallback
+- Preconnect hints for both Google Fonts origins
+- Font weights loaded: DM Sans 400/500/600/700/800, JetBrains Mono 400/500
+
+### Image Loading
+- 14 SVG logos (all internal relative paths, small filesize)
+- No `loading="lazy"` on any images
+- No `fetchpriority` attributes
+- Minor win available: add lazy loading to below-fold SVGs
+
+---
+
+## 10. SEO & Discoverability
+
+**In place:**
+- Meta title and description (product-focused)
+- OG image (`TPA_OG_1200x630.png`)
+- Schema.org structured data: Organization + WebSite (lines 2170-2192)
+- `sitemap.xml` and `robots.txt`
+
+**Gaps:**
+- No FAQPage schema — 6 Q&As exist in HTML but aren't marked up for SERP features
+- Single-page site = limited keyword surface area
+- No blog or content marketing infrastructure
+- No canonical tag
+
+---
+
+## 11. Trust & Social Proof Gaps
+
+| Trust Signal | Status |
+|-------------|--------|
+| Customer testimonials | None (fabricated ones correctly removed) |
+| User/waitlist count | None displayed |
+| Media mentions | None |
+| Certifications | None |
+| Founder identity | None |
+| Guarantee/refund | N/A (no paid product yet) |
+| Privacy policy | Present and linked |
+| Professional design | Strong |
+| Working demo | Strong — best trust signal on the site |
+
+The demo is currently doing all the trust-building work. A visitor who interacts with the planner and sees meaningful, persona-specific output gets confidence that this is a real product. Every other trust signal is absent.
+
+**Pre-paid-launch priority:** Collect 3-5 real testimonials from beta testers or early access users. Even short quotes with first name and context materially change the trust equation.

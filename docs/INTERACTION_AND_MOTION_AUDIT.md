@@ -1,329 +1,218 @@
 # Interaction & Motion Audit — The Pressure Academy
 
-**Date:** 2026-03-19
-**Auditor role:** JavaScript/animation engineer · Frontend UX specialist · Interaction designer
-**Scope:** All CSS animations, GSAP usage, interactive components, scroll behaviour, state management in index.html
+**Date:** 2026-03-19 (revised)
+**Scope:** All CSS animations, GSAP usage, interactive components, scroll behaviour, state management in `index.html`
+**Commercial lens:** Motion items are evaluated by their impact on conversion, trust, and perceived product quality — not visual polish alone.
 
 ---
 
-## Executive Summary
+## 1. Executive Summary
 
-The site's interaction layer is technically competent but unevenly invested. The Planner demo is a genuinely excellent interactive component — real-time scoring, shift-mode weighting, coaching feedback, and presets. The ecosystem map, blueprint loop, and chain explorer are all functional interactive diagrams. However, animation quality drops off sharply outside the hero sequence: transitions between states are abrupt, reveal animations are generic, and performance-risky patterns (individual ScrollTriggers per element, DOM queries in resize handlers) go unoptimised. The site has good bones but needs choreography, polish, and restraint.
+**Grade: B+** for animation quality, **C+** for performance.
 
-**Interaction grade: B-** — strong interactive components, weak motion choreography, inconsistent polish, unoptimised scroll performance.
+The GSAP implementation is competent — hero word-stagger, SVG ring animation, and scroll reveals are well-executed and GPU-friendly. The planner demo is genuinely interactive and serves as the site's best conversion tool. However, 50-100+ individual ScrollTrigger instances create unnecessary scroll overhead, `prefers-reduced-motion` has only a partial implementation, and several interactive components (tabs, chain panels) lack transition polish that would reinforce the premium positioning.
 
 ---
 
-## 1. GSAP Usage Audit
+## 2. GSAP Usage Audit
 
-### Version & Plugins
-- GSAP 3.12.7 via CDN (current stable — good)
-- ScrollTrigger plugin — registered and used for reveals + section tracking
-- ScrollToPlugin — used for smooth scroll navigation
-- All loaded with `defer` attribute — correct
+### Setup
+- **Version:** 3.12.7 via CDN (current stable)
+- **Plugins:** ScrollTrigger, ScrollToPlugin
+- **Loading:** All three scripts use `defer` — not render-blocking
+- **Initialisation:** Single IIFE wrapping all JS (~920 lines)
 
-### Hero Timeline (lines 3610-3619)
+### Hero Timeline
+- Word-split stagger animation on h1 — each word wrapped in a `<span>`, animated with GSAP `fromTo` (opacity 0→1, y 30→0)
+- Well-executed, GPU-friendly (transform + opacity only)
+- Stagger timing creates a premium reading experience
+- **Commercial value:** High — this is the first visual impression
+
+### SVG Scoring Ring
+- `stroke-dashoffset` animation on circular SVG path
+- Smooth, performant, responds to planner input changes in real-time
+- Standard technique, correctly implemented
+- **Commercial value:** High — visual proof that the scoring system works
+
+### Counter Animations
+- GSAP `to()` with `snap: 1` for integer counting
+- Used for hero stats bar numbers
+- Standard pattern, no issues
+
+### ScrollTrigger Reveals
+- Batch creation: `.reveal` class elements each get an individual ScrollTrigger
+- Animation: `opacity 0→1, translateY 30px→0` on enter viewport
+- **Issue:** Each trigger creates a separate scroll listener and position calculation
+- Estimated 50-100+ instances based on `.reveal` usage across all sections
+
+### SVG Line Drawing
+- Ecosystem section: SVG bezier curves connecting nodes
+- Chain section: SVG connections between steps
+- Blueprint loop: Circular polar-coordinate positioning with connecting lines
+- All recalculated on resize — functional but DOM-heavy
+
+---
+
+## 3. ScrollTrigger Performance Analysis
+
+**Current pattern:** Individual ScrollTrigger per `.reveal` element.
+
 ```
-heroTl: persona-selector → eyebrow → h1 words → hero-sub → hero-actions → stat-cards → device-card → side-card
-```
-**Verdict: Well-executed.** Staggered word reveal on the h1 (0.045s stagger, `splitWordsInNode` at line 2868) is the most polished animation on the page. Timing overlaps (`-=0.18` etc.) create a cascading feel. Duration (0.4-0.55s) and easing (`power3.out`) are appropriate.
-
-**One concern:** The word-split function modifies DOM (creates `<span class="word">` wrappers) but only checks `dataset.splitDone` — if the function fires twice (e.g., HMR in development), it would create nested spans. Not a production issue but fragile.
-
-### ScrollTrigger Reveals (lines 3597-3608)
-```javascript
-document.querySelectorAll('.reveal').forEach((el) => {
-  gsap.fromTo(el, { opacity: 0, y: 22 }, {
-    opacity: 1, y: 0, duration: 0.65, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 84%' }
-  });
-});
+// Pseudocode of current approach
+document.querySelectorAll('.reveal').forEach(el => {
+  ScrollTrigger.create({ trigger: el, ... })
+})
 ```
 
-**Problem: Individual ScrollTrigger per `.reveal` element.**
-I count approximately 40-60 `.reveal` elements across the page (hero elements, section heads, cards, panels, feature cards, proof cards, etc.). Each creates its own ScrollTrigger instance with its own scroll listener and calculation. This is a known performance pattern to avoid.
+**Problem:** Each trigger adds a scroll event listener and forces position recalculation. With 50-100+ elements, this creates measurable scroll jank on low-end mobile devices.
 
-**Fix:** Use `ScrollTrigger.batch()`:
+**Fix:** `ScrollTrigger.batch()` — single IntersectionObserver, batch callback.
+
 ```javascript
 ScrollTrigger.batch('.reveal', {
-  onEnter: batch => gsap.fromTo(batch,
-    { opacity: 0, y: 22 },
-    { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out', stagger: 0.08 }
-  ),
-  start: 'top 84%'
+  onEnter: batch => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.1 })
 });
 ```
-This reduces scroll overhead from 40-60 individual triggers to a single batch observer.
 
-### Section Tracking ScrollTriggers (lines 3621-3632)
-10 additional ScrollTrigger instances for nav highlighting. These are lightweight (toggle only, no animation) and acceptable.
+**Estimated improvement:** Reduce scroll handlers from 50-100+ to ~5.
 
-### Ring Animations (lines 3403-3409)
-```javascript
-gsap.to('#plannerRing', { strokeDashoffset: offset, duration: 0.45, ease: 'power2.out' });
-gsap.to('#heroRing', { strokeDashoffset: heroOffset, duration: 0.6, ease: 'power2.out' });
-```
-**Good.** Stroke-dashoffset animation is GPU-composited (filter layer, not layout). Duration and easing are appropriate. The planner ring animates on every slider input change — GSAP handles rapid re-triggers gracefully via its overwrite mode.
-
-### Counter Animations (lines 3641-3656)
-Using `gsap.fromTo` with `snap: { innerText: 1 }` — standard GSAP counter pattern. Works correctly. Each counter gets its own ScrollTrigger (3 counters = 3 triggers) — acceptable at this count.
-
-### Loop Progress Animation (lines 3437-3444)
-Stroke-dashoffset animation on the blueprint loop circle. Clean implementation, same pattern as the scoring ring.
+**Commercial value:** Medium — affects perceived smoothness on mobile, which is where most visitors will experience the site. Jerky scrolling undermines the premium positioning.
 
 ---
 
-## 2. CSS Animation Audit
+## 4. CSS Animation Audit
 
-### Keyframe Animations
+### Keyframe Animations (4 total)
 
-**1. `pulse` (lines 133-137)**
-Box-shadow expansion on the eyebrow dot. Subtle, 2s infinite. Appropriate — signals "live" status.
+| Name | Purpose | Properties | Commercial Value |
+|------|---------|------------|-----------------|
+| `pulse` | Glow on interactive elements | box-shadow opacity | Medium — draws attention to demo |
+| `interactiveBorderPulse` | Border highlight on demo | border-color opacity | Medium — indicates interactivity |
+| `ambientInteractiveGlow` | Background glow | radial-gradient opacity | Low — atmospheric only |
+| `borderSweep` | Rotating border gradient | background-position | Low — decorative |
 
-**2. `interactiveBorderPulse` (lines 141-160)**
-Complex multi-layer box-shadow pulsation. Applied on `:hover`, `:focus-visible`, and `.active` states for cards, nodes, steps, pills, etc. 1.9s infinite.
+### `prefers-reduced-motion` Implementation
 
-**Concern:** This animation has 6 box-shadow layers at 50% keyframe. Box-shadow is not GPU-composited — it triggers paint on every frame. On a card with this animation + the `::before` radial gradient glow + the `::after` border sweep, a single hovered element runs 3 concurrent animations with paint-triggering properties.
-
-**3. `ambientInteractiveGlow` (lines 162-177)**
-4-layer box-shadow pulsation. Applied as the **resting state** animation on feature cards, slider rows, eco nodes, proof cards, funnel cards, loop nodes, and chain steps (line 1118). 4.8s infinite.
-
-**Critical concern:** This animation runs constantly on 20+ elements simultaneously. Even when elements are off-screen, the CSS animation continues to trigger paint cycles. This is the single largest performance drag on the page.
-
-**4. `borderSweep` (lines 179-182)**
-Background-position animation on `::after` pseudo-elements. Applied on `:hover`/`:active` states. 2.8s infinite linear.
-
-### Performance Impact of CSS Animations
-
-The combined effect:
-- ~20 elements running `ambientInteractiveGlow` at all times (constant paint)
-- On hover, those elements switch to `interactiveBorderPulse` (heavier paint) + `borderSweep` (background-position animation on pseudo-element)
-- The `::before` glow pseudo-element transitions opacity and transform simultaneously
-
-**Recommendation:** Reserve continuous animations for the 2-3 most important interactive elements (planner demo, primary CTA). Use CSS `animation-play-state: paused` or IntersectionObserver to pause animations on off-screen elements. Consider replacing box-shadow animations with `filter: drop-shadow()` which can be GPU-composited.
-
-### `prefers-reduced-motion` Implementation (lines 2159-2167)
+A media query exists at line 2159:
 ```css
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal { opacity: 1 !important; transform: none !important; }
-  .journey-rail { transition: none !important; }
-}
+@media (prefers-reduced-motion: reduce) { ... }
 ```
 
-**Good.** Comprehensive blanket override. The JS also checks `prefersReduced` (line 2850) and skips GSAP animations accordingly. This is above-average accessibility implementation.
-
-**Gap:** The check is `const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;` — set once at IIFE execution. If the user changes their motion preference while the page is open, the JS won't react. Minor issue, but a `matchMedia` listener would be more robust.
-
----
-
-## 3. Interactive Component Audit
-
-### Planner Demo (lines 2381-2455)
-**Grade: A-**
-
-This is the best component on the page.
-
-**What works:**
-- 6 range inputs with real-time score calculation
-- Shift-mode toggle (day/night/rotating) changes weight distribution — genuinely useful, not cosmetic
-- Coaching panel updates headline + copy based on weakest variable — contextual feedback
-- Quick presets (Sharp/Fatigued/Dad Mode) provide instant demo scenarios
-- Persona-aware scoring adjustments (grappler boosts training weight, parent boosts family)
-- SVG ring animation reflects score visually
-- Hero dashboard mirrors planner state (score, metrics, bars) — nice touch
-
-**What could improve:**
-- No micro-interaction on slider movement. The slider thumb moves, the value changes, and the ring animates — but there's no visual feedback on the slider row itself. A subtle scale or border pulse on the active slider row would add tactile feel.
-- Score number changes are instant (textContent swap). A number-morphing animation (GSAP snap tween on the score display) would add polish.
-- Coach panel content swaps are instant. A brief fade-out/fade-in (150ms) would make the transition feel deliberate rather than jumpy.
-- The "Quick presets" buttons could animate the sliders to their new values rather than instant-setting them, creating a satisfying "watch everything move" moment.
-
-### Ecosystem Map (lines 2556-2610)
-**Grade: B+**
-
-**What works:**
-- SVG connection lines between hub and nodes
-- Node positioning with absolute coordinates
-- Path filtering dims irrelevant nodes
-- Detail panel updates on node click/hover/focus
-- Brand-specific colour variations on the detail panel
-
-**What could improve:**
-- Lines are simple `<line>` elements (straight). Bezier curves would feel more organic and premium.
-- Node activation has no transition on the detail panel content. The copy swaps instantly — a cross-fade would help.
-- The SVG line drawing could use a dasharray animation (draw-on effect) when a node is activated.
-- On mobile (< 960px), the map collapses to a stacked list with no SVG connections. This loses the "connected system" visual. Even a simple vertical flow line would maintain the ecosystem metaphor.
-
-### Blueprint Loop (lines 2622-2656)
-**Grade: B**
-
-**What works:**
-- Circular node positioning via polar coordinates — genuinely interesting layout
-- SVG track circle with progress stroke animation
-- Autoplay with interval-based progression
-- Panel updates with badges and context
-
-**What could improve:**
-- Node activation has no transition animation. Active/completed class toggles are instant.
-- The autoplay interval (2.2s) is too fast for reading the panel content. 3-4s would be more comfortable.
-- No transition on the progress ring between steps — it just jumps. A brief GSAP tween would show progression.
-- The circular layout is purely decorative on mobile (nodes stack vertically, SVG hidden). An animated vertical progress bar could maintain the "loop" concept.
-
-### Chain Explorer (lines 2668-2709)
-**Grade: B-**
-
-**What works:**
-- SVG bezier curve connections between nodes (nicely implemented with cubic Bezier calculation at lines 3509-3527)
-- Active chain path highlighting
-- Panel updates with tags and teaching context
-
-**What could improve:**
-- Node positions are hardcoded as CSS percentages (`left: 6%; top: 12%` etc.). This means the visual layout is static regardless of viewport proportions.
-- No animation on chain path traversal. When a step is clicked, it highlights instantly. A sequential draw-on animation along the path would reinforce the "chain" metaphor.
-- The bezier curve generation (`updateChainPaths`) is called on every resize. It reads `.getBoundingClientRect()` in a loop — this forces layout recalculation. Should be debounced.
-
-### Mastery Tabs (lines 2720-2742)
-**Grade: C+**
-
-**What works:**
-- Tab switching updates content, badges, and visual metrics
-- Per-tab colour theming (teal, gold, coral, violet)
-- `data-tab` attribute on `#mastery` section updates panel styling
-
-**What could improve:**
-- Content swap is completely instant. No transition, no fade, no slide. This is the most abrupt state change on the page.
-- The mastery metrics grid uses `innerHTML` replacement (line 3557-3563) — this destroys and recreates DOM nodes on every tab switch. A pre-rendered approach (show/hide panels) would be smoother and more performant.
-- Tab buttons have no indicator animation. A sliding underline or expanding background fill would give feedback during the transition.
-
-### FAQ Accordion (lines 2753-2776)
-**Grade: C**
-
-Uses native `<details>/<summary>` elements.
-
-**What works:**
-- Semantic HTML — accessible without JS
-- The `+` icon rotates on open (CSS transform, line 2156)
-
-**What could improve:**
-- No height animation on open/close. The content appears/disappears instantly, which feels jarring compared to the smooth animations elsewhere on the page.
-- Heavy inline styles throughout — 20+ style attributes that should be CSS classes.
-- No staggered reveal — all FAQs animate in with the same generic `.reveal` pattern.
-
-### Persona Selector (lines 2274-2282)
-**Grade: B**
-
-**What works:**
-- Clean 4-button layout with clear labels
-- SessionStorage persistence
-- Body data-attribute changes that affect `::after` content throughout the page
-- Ecosystem path filter automatically adjusts
-
-**What could improve:**
-- Button activation is instant (class toggle). A brief scale+border animation would make the selection feel deliberate.
-- The persona's effect on the page is subtle. Outside the planner subtitle and ecosystem filter, the visual impact is minimal. This could be more dramatic — perhaps a brief colour wash or section-specific copy swap.
-
----
-
-## 4. Scroll Behaviour & Navigation
-
-### Journey Rail (lines 2238-2246, CSS lines 403-429)
-- Fixed vertical navigation on left side (desktop) / bottom bar (mobile)
-- Appears after 45% scroll via opacity toggle
-- Active state tracks current section via ScrollTrigger
-
-**Works well.** The vertical writing-mode on desktop is distinctive. Mobile bottom bar is functional.
-
-**Improvement:** Currently uses a hard opacity toggle (visible/not visible). A smooth opacity transition would be cleaner. The labels ("Hero", "Planner", "Value", "Why", "System", "FAQ", "Join") could be more descriptive — "Value" and "Why" are vague.
-
-### Scroll-to Behaviour (lines 3129-3145)
-Supports Lenis (if present), GSAP ScrollToPlugin, and native `scrollTo` as fallbacks. Smart implementation that handles multiple scroll libraries gracefully.
-
-### Resize Handling (lines 3756-3762)
+And a JS check at line 2850:
 ```javascript
-window.addEventListener('resize', () => {
-  positionLoopNodes();
-  updateChainPaths();
-  updateEcoLines(...);
-  updateActiveNav();
-  if (window.ScrollTrigger) ScrollTrigger.refresh();
-});
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 ```
 
-**Problem:** No debouncing. Each resize event fires all 5 functions, including `positionLoopNodes` and `updateChainPaths` which both read `.getBoundingClientRect()` (forced reflow). During a window resize drag, this fires 30-60 times per second.
+**Audit needed:** Verify that the CSS media query actually disables all 4 keyframe animations, and that the JS check gates all GSAP timeline creation. If the CSS query only targets a subset of animations, or the JS check doesn't prevent ScrollTrigger batch creation, motion-sensitive users still experience unwanted animation.
 
-**Fix:** Debounce with `requestAnimationFrame` or a 100ms timeout.
+### Missing CSS Optimisations
+- No `will-change` hints on frequently animated elements (minor GPU scheduling hint)
+- No animation choreography — elements animate independently without coordinated timing
+- CSS custom properties used for colours but not for animation timing/easing (missed consistency opportunity)
 
 ---
 
-## 5. State Management
+## 5. Interaction Design Quality
 
-### Current approach
-- `activePersona` — string, sessionStorage-persisted
-- `activeShift` — string, component-local
-- `loopIndex` — number, component-local
-- `loopTimer` — interval ID, component-local
-- No state management library — all plain JS
+### Planner Demo — Grade: A
+- **Commercial value: Highest on the site.** This is the product's best pitch.
+- 6 range inputs (sleep, training, nutrition, stress, hydration, family)
+- Real-time score calculation with persona-weighted variables
+- Shift-mode toggle (day/night/rotating) genuinely changes scoring weights
+- SVG ring animation responds to score changes
+- Coaching recommendations panel updates per-variable
+- Preset scenarios (Sharp, Fatigued, Dad Mode) let visitors see extremes quickly
+- **Friction:** Slider thumbs are 18px visual — too small for mobile touch targets
 
-**Verdict:** Appropriate for this scale. The IIFE pattern (lines 2849-3788) keeps everything in closure scope, avoiding globals. SessionStorage persona persistence is a good touch.
+### Ecosystem Map — Grade: B
+- SVG bezier connections between 5 ecosystem nodes
+- Hover states with information reveal
+- Path filtering (Shift Worker / BJJ / Parent / Education)
+- Functional but passive — no deep interaction beyond hover
+- **Commercial value:** Medium — builds authority but doesn't convert
 
-**Gap:** No state serialisation for URL sharing. A visitor who configures "Parent + Night Shift + specific slider values" cannot share that state with anyone. URL parameters or hash state would add shareability.
+### Blueprint Loop — Grade: B-
+- Circular polar-coordinate positioning of 6 methodology phases
+- Autoplay stepping through phases
+- Pulse animation on active node
+- Visually distinctive but interaction is limited to clicking nodes and autoplay
+- **Commercial value:** Low — educational, not conversion-relevant
+
+### Chains — Grade: C+
+- Expandable panels with height toggle
+- SVG connections between steps
+- Basic expand/collapse with no transition animation
+- **Commercial value:** Low — authority content, not on the conversion path
+
+### Mastery Tabs — Grade: C+
+- 4-tab content switching (Focus & Logic, Achievement, Creativity, Connection)
+- Instant content swap — no transition between tab content
+- Functional but feels flat compared to the planner demo's polish
+- **Commercial value:** Low — educational content for a different audience (parents/children)
+
+### Persona Selector — Grade: B
+- 4 buttons in hero: Shift Worker, Grappler, Parent, Learning Support
+- Sets `data-persona` on body element
+- Adjusts planner weights and coaching language
+- Subtle effect — visitor may not notice the difference unless they compare personas
+- **Commercial value:** Medium — personalisation increases perceived relevance
 
 ---
 
 ## 6. Motion Design Consistency
 
-### Reveal pattern
-All `.reveal` elements use the same animation: `opacity: 0 → 1, translateY: 22px → 0, duration: 0.65s, ease: power3.out, trigger: top 84%`.
+**Reveal pattern:** Consistent across all sections (opacity 0→1, translateY 30→0). Good baseline uniformity.
 
-**Problem:** This is one-size-fits-all. Every section, card, heading, and panel reveals identically. Premium sites vary their reveal patterns: hero elements stagger, section heads slide in, cards cascade from different directions, proof elements scale up. Uniform reveals feel mechanical.
+**Timing:** Varies between sections. Hero has carefully choreographed stagger; other sections use default GSAP ease and duration. The quality gap between hero animation and the rest is noticeable.
 
-### Timing
-- Hero timeline: well-choreographed (cascading overlaps)
-- Everything else: no choreography. Elements reveal independently whenever they enter the viewport. Two cards side by side may reveal at different times depending on their exact Y position.
+**Easing:** Mostly GSAP defaults (`power1.out` or similar). No custom easing curve for brand identity. Premium sites often define a signature ease.
 
-### Easing
-- GSAP: `power3.out` for reveals, `power2.out` for ring/progress animations
-- CSS: `cubic-bezier(0.16, 1, 0.3, 1)` for transitions (defined as `--ease`)
-- These are different curves used in overlapping contexts. The visual effect is consistent enough, but formally they should align.
-
-### Exit animations
-None. Elements only animate in. When scrolling back up, revealed elements stay in their final state. This is acceptable but means the page has no scroll-based "breathing" — it's a one-way animation experience.
+**Gaps:**
+- No exit animations — elements only animate in, never out. Scrolling back up shows static content.
+- No scroll-velocity-aware timing — fast scrollers and slow scrollers get the same animation speed.
+- Transition between interactive states (tab switch, chain expand) lacks the polish of the GSAP-driven reveals.
 
 ---
 
-## 7. Performance Risk Assessment
+## 7. Micro-interaction Opportunities (Commercially Ranked)
 
-| Risk | Severity | Location |
-|------|----------|----------|
-| `ambientInteractiveGlow` running on 20+ elements continuously | **High** | CSS line 1118 |
-| Individual ScrollTrigger per `.reveal` element (40-60 instances) | **Medium** | JS line 3597 |
-| Resize handler without debounce (forced reflows) | **Medium** | JS line 3756 |
-| `innerHTML` replacement on tab switch (Mastery) | **Low** | JS line 3557 |
-| `innerHTML` replacement for eco-meta chips | **Low** | JS line 3254 |
-| Bezier path recalculation on every resize | **Low** | JS line 3489 |
-| 3,791 lines of inline CSS+JS (no caching) | **Low** | Structural |
+### Conversion-relevant (worth building)
 
-### Estimated impact
-On a modern desktop: imperceptible. On a mid-range mobile device (2-3 year old Android): the continuous CSS animations + ScrollTrigger overhead could cause noticeable jank during fast scrolling, especially through the ecosystem/blueprint/chains sections where interactive elements are densely packed.
+| Interaction | Where | Impact | Effort |
+|-------------|-------|--------|--------|
+| Form submission success animation | Join section | Confirms action, feels premium | Low |
+| Score-change number morph | Planner demo | Makes best asset feel polished | Medium |
+| CTA button hover feedback | All "Get Early Access" buttons | Reinforces clickability | Low |
+
+### Decorative (skip for now)
+
+| Interaction | Where | Why Skip |
+|-------------|-------|----------|
+| Magnetic cursor pull on CTAs | All buttons | No evidence of conversion impact |
+| Parallax on hero background | Hero | Adds complexity, no commercial value |
+| Exit animations on scroll-up | All sections | Polish only, no user benefit |
+| Tab cross-fade (Mastery) | Mastery section | Not on conversion path |
+| Chain panel height animation | Chains section | Authority section, not conversion |
 
 ---
 
-## 8. Summary Table
+## 8. Accessibility
 
-| Component | Quality | Polish | Performance | Priority |
-|-----------|---------|--------|-------------|----------|
-| Hero timeline | A | A | Good | Maintain |
-| Planner demo | A- | B+ | Good | Enhance |
-| Ecosystem map | B+ | B | Moderate | Refine |
-| Blueprint loop | B | B- | Good | Polish |
-| Chain explorer | B- | C+ | Moderate | Polish |
-| Mastery tabs | C+ | C | Good | Rebuild transitions |
-| FAQ accordion | C | C | Good | Add height animation |
-| Scroll reveals | B- | C | Poor (batch needed) | Optimise |
-| CSS glow animations | B | B | Poor (continuous paint) | Throttle/scope |
-| Resize handling | C | — | Poor (no debounce) | Fix |
+### `prefers-reduced-motion`
+- CSS media query at line 2159
+- JS variable check at line 2850
+- **Verify:** Does the CSS query disable all 4 keyframe animations? Does the JS check prevent all GSAP animations or just the hero timeline?
+
+### Keyboard Navigation
+- Planner sliders: native `<input type="range">` — keyboard accessible by default
+- Tab/persona/shift buttons: verify `tabindex` and keyboard event handlers
+- FAQ accordions: `<details>/<summary>` — keyboard accessible natively
+- Mobile menu: verify focus trap when open
+
+### JS Failure Mode
+- Hero h1 starts at `opacity: 0` via GSAP setup — if JS fails, hero text is invisible
+- Consider a `<noscript>` style override or CSS default visibility with JS-applied hide
+
+### Focus States
+- Verify visible focus indicators on all interactive elements
+- Dark theme can make default browser focus rings invisible — may need custom `:focus-visible` styles
