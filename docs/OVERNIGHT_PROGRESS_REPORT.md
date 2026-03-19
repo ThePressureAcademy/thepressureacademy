@@ -2,7 +2,7 @@
 
 **Date:** 19 March 2026
 **Branch:** `claude/product-launch-focus-OIvLg`
-**Session focus:** Redirect website from ecosystem showcase to digital product launch
+**Session focus:** Redirect website from ecosystem showcase to digital product launch, then clean up fabricated content and unify commercial state.
 
 ---
 
@@ -11,105 +11,122 @@
 ### 1. Homepage Restructured for Product Launch
 - **Hero section** rewritten: headline is now "The Pressure Planner" with "Get Early Access" as primary CTA
 - **Section order** reorganised: Planner demo → Product Value → Proof → Ecosystem → Blueprint → Chains → Mastery → FAQ → Join (was: Ecosystem → Planner → Blueprint → Chains → Mastery → Proof → Join)
-- **New "What You Get" section** added with 6 product value cards explaining exactly what the Planner delivers
-- **New FAQ section** added with 6 product-focused questions and answers
-- **Join section** restructured with a prominent standalone email capture box above the existing funnel grid
-- **Navigation** simplified to product flow: Try the Planner, What You Get, Proof, Ecosystem, FAQ, Get Access
+- **New "What You Get" section** added with 6 product value cards
+- **New FAQ section** added with 6 product-focused questions
+- **Navigation** simplified to product flow: Try the Planner, What You Get, Why This, Ecosystem, FAQ, Get Access
 - **Footer** updated to lead with product links
 
-### 2. SEO & Meta Updated
+### 2. Fabricated Content Removed
+- **Illustrative testimonials deleted** — Matt K., Sarah L., Jess R. were unsourced/fictional
+- **Proof section replaced** with honest "Why this exists" content: problem/approach/result cards with no fabricated claims
+- **Unsourced percentage metrics removed** — Mastery Method metrics (92%, 84%, etc.) replaced with "Core" labels in HTML and JS
+
+### 3. Commercial State Unified to Early Access
+- Entire site now speaks in one voice: **early access, not live product**
+- No "Now live", "Buy now", or purchase language anywhere
+- Product schema type removed (nothing is for sale yet)
+- All CTAs are "Get Early Access" or "Try the Demo"
+
+### 4. Single Conversion Path
+- **Four-way join section replaced** with one dominant Planner early-access email form
+- Reduced from 5 Formspree forms to 1
+- Form has proper `id`, `name`, `autocomplete`, hidden label, `aria-label`
+- Secondary ecosystem links are simple mailto links (Blueprint, Mastery, General)
+- Form source tracking updated to `TPA Product Launch v8`
+
+### 5. SEO & Schema Aligned
 - Title: "The Pressure Planner — Turn Pressure Into Progress | The Pressure Academy"
-- Description: product-focused copy mentioning six variables, one score
-- OG/Twitter cards updated to match
-- Structured data updated to name "The Pressure Planner" as the primary product
+- Description: product-focused copy
+- OG/Twitter cards updated
+- Product structured data removed (premature for pre-launch)
+- WebSite description aligned with product positioning
 
-### 3. Documentation Suite Created
-- **CLAUDE.md** — Agent alignment, business boundaries, coding standards, locked assets
-- **docs/ARCHITECTURE_AUDIT.md** — Full audit of current stack, what exists, what's misaligned, what's missing
-- **docs/PRODUCT_DIRECTION.md** — Commercial priorities, product definition, content hierarchy target
-- **docs/DECISIONS.md** — 5 documented decisions with rationale
-- **docs/LAUNCH_READINESS.md** — What's ready, what's blocked, recommended launch sequence
-- **docs/RECORDING_COMPLETION.md** — Guide for finishing the remaining ~30% content production
-- **README.md** — Rewritten with product focus, quick start, project structure
-- **.github/PULL_REQUEST_TEMPLATE.md** — Pre-merge quality checklist
-
-### 4. Form Tracking Updated
-- All Formspree forms now track `source: "TPA Product Launch v7"` for cleaner analytics
-- Intent segmentation preserved across all forms
+### 6. Documentation Suite Created
+- **CLAUDE.md** — Agent alignment, business boundaries, coding standards
+- **docs/ARCHITECTURE_AUDIT.md** — Current state analysis
+- **docs/PRODUCT_DIRECTION.md** — Commercial priorities
+- **docs/DECISIONS.md** — Decision record
+- **docs/LAUNCH_READINESS.md** — Launch blockers and sequence
+- **docs/RECORDING_COMPLETION.md** — Content production guide
+- **README.md** — Rewritten with product focus
+- **.github/PULL_REQUEST_TEMPLATE.md** — PR checklist
 
 ---
 
 ## Why These Changes Matter
 
-1. **Revenue path is clearer.** Every visitor now sees the Planner product immediately, not an ecosystem diagram. The CTA is unambiguous.
-2. **The demo is a sales tool.** Moving it to position 2 means visitors experience the product logic before being asked to sign up.
-3. **Documentation enables continuity.** The next developer or agent session can pick up exactly where this left off without re-auditing.
-4. **Launch readiness is explicit.** The blockers are documented. Human decisions (pricing, payment, content completion) are clearly separated from development work.
+1. **Commercially honest.** No fabricated testimonials, no unsourced metrics, no mixed signals about product state.
+2. **Single conversion path.** Every visitor flows toward one action: join the early access list.
+3. **Revenue path is clear.** When the product is ready, change one form and one CTA to enable purchases.
+4. **Demo as sales tool.** The interactive Planner demo is now the second thing visitors see, not the third.
+5. **Documentation enables handoff.** Next session can pick up without re-auditing.
 
 ---
 
-## What Remains Incomplete
+## What Remains
 
-### Requires Human Decisions (Not Development)
-1. **Complete content recording** — ~30% of Planner content remains unrecorded
+### Human Decisions Required
+1. **Complete content recording** — ~30% of Planner content remains
 2. **Choose product format** — PDF, video, app access, or bundle
-3. **Set pricing** — founding member vs. standard pricing
+3. **Set pricing** — founding member vs. standard
 4. **Choose payment provider** — Stripe recommended
-5. **Replace illustrative testimonials** with real customer feedback
-6. **Add analytics** — choose provider (Vercel Analytics, Plausible, etc.)
+5. **Collect real testimonials** — from beta users or early feedback
+6. **Choose analytics provider** — Vercel Analytics, Plausible, or similar
 
 ### Development Work (Next Sessions)
-7. Integrate Stripe checkout when payment decision is made
-8. Build delivery mechanism (download/gated access)
-9. Add analytics tracking script
-10. Extract CSS/JS from index.html into separate files (maintainability)
-11. Add conversion event tracking
-12. Consider adding a founder bio/about section
-13. Add terms of service page for digital product sales
-14. Set up branch protection rules on GitHub
-15. Configure Vercel preview deploys for PRs
+7. Add analytics tracking script
+8. Integrate Stripe checkout when ready
+9. Build delivery mechanism
+10. Update CTA from early access to purchase
+11. Add terms of service page
+12. Extract CSS/JS from index.html (maintainability)
+13. Add founder bio/about section
+14. Set up branch protection and preview deploys
+15. Clean up orphaned CSS (proof-filter, funnel-form styles)
 
 ---
 
-## Blockers Requiring Human Input
+## Blockers
 
 | Blocker | Impact | Who |
 |---------|--------|-----|
-| Product content not fully recorded | Cannot launch product | Product creator |
-| No pricing decision | Cannot add pricing section or checkout | Business owner |
-| No payment provider configured | Cannot process transactions | Business owner + developer |
-| Testimonials are illustrative | Trust risk if noticed | Business owner (needs real feedback) |
-| No analytics configured | Cannot measure conversion | Developer (needs provider choice) |
+| Product content not fully recorded | Cannot launch | Product creator |
+| No pricing decision | Cannot add checkout | Business owner |
+| No payment provider | Cannot process transactions | Business owner + developer |
+| No real testimonials | Proof section has no social proof | Business owner |
+| No analytics | Cannot measure conversion | Developer (needs provider choice) |
 
 ---
 
 ## Risks
 
-1. **Single-file HTML** — at 3,868 lines, the monolithic index.html is increasingly fragile. CSS/JS extraction should happen soon.
-2. **Formspree free tier** — unknown submission volume limits. Monitor and upgrade if needed.
-3. **No analytics** — cannot measure whether the homepage restructure improves conversion without tracking.
-4. **Illustrative testimonials** — "Matt K.", "Sarah L.", "Jess R." may look fabricated to visitors. Replace with real feedback or remove.
+1. **Single-file HTML** — at ~3,800 lines, index.html is fragile. Extract CSS/JS soon.
+2. **Formspree free tier** — monitor submission volume limits.
+3. **No analytics** — cannot measure conversion rate.
+4. **Orphaned CSS** — ~200 lines of proof-filter and funnel-form CSS are no longer used. Harmless but should be cleaned up.
 
 ---
 
-## Recommended Next 10 Tasks (In Execution Order)
+## Recommended Next 10 Tasks
 
-1. **Complete content recording** — finish the remaining ~30% of Planner content
-2. **Add analytics** — add Vercel Analytics or Plausible script to index.html
-3. **Get real testimonials** — replace illustrative proof cards with actual beta/early feedback
-4. **Set pricing and payment** — decide founding member pricing, configure Stripe
-5. **Integrate Stripe checkout** — add payment flow to the website
-6. **Build product delivery** — email with download link or gated content page
-7. **Update CTA** — change "Get Early Access" to "Buy Now — Founding Price"
-8. **Add terms of service** — create terms-of-service.html for digital product
-9. **Extract CSS/JS** — split index.html into separate CSS and JS files
-10. **Set up conversion tracking** — form submission events, Stripe events, CTA clicks
+1. **Complete content recording** — finish remaining ~30% of Planner content
+2. **Add analytics** — Vercel Analytics or Plausible
+3. **Collect real testimonials** — from beta testers or early users
+4. **Set pricing** — decide founding member vs. standard pricing
+5. **Configure Stripe** — integrate payment when pricing is set
+6. **Build delivery mechanism** — download link or gated access
+7. **Update CTA** — change "Get Early Access" → "Buy Now — Founding Price"
+8. **Add terms of service** — create terms-of-service.html
+9. **Extract CSS/JS** — split index.html into separate files
+10. **Set up conversion tracking** — form submissions, payment events
 
 ---
 
-## Commits in This Session
+## Commits
 
 1. `278cea3` — Add architecture audit, product direction, decisions, and CLAUDE.md
 2. `8a95c5d` — Restructure homepage for Pressure Planner product launch
 3. `2b3c1cd` — Add launch readiness docs, recording guide, PR template, and improved README
-4. (this report commit)
+4. `19a5cc6` — Add overnight progress report
+5. `102beef` — Remove fabricated content, unify to early-access state, single conversion path
+6. (this update)
