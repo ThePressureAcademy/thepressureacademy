@@ -4,19 +4,19 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>The Pressure Academy — Interactive System for Shift Workers, Grapplers &amp; Parents</title>
-<meta content="An interactive, story-led product experience for shift workers, grapplers, parents, and learning support families." name="description"/>
+<title>The Pressure Planner — Turn Pressure Into Progress | The Pressure Academy</title>
+<meta content="The Pressure Planner: a performance scoring system for shift workers, grapplers, and parents. Six variables. One score. A clearer picture of what to push, protect, and fix today." name="description"/>
 <meta content="index, follow" name="robots"/>
 <link href="https://thepressureacademy.com/" rel="canonical"/>
-<meta content="The Pressure Academy — Interactive System for Shift Workers, Grapplers &amp; Parents" property="og:title"/>
-<meta content="An interactive, story-led product experience for shift workers, grapplers, parents, and learning support families." property="og:description"/>
+<meta content="The Pressure Planner — Turn Pressure Into Progress" property="og:title"/>
+<meta content="A performance scoring system for shift workers, grapplers, and parents. Six variables. One score. A clearer picture of what to push, protect, and fix today." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://thepressureacademy.com/" property="og:url"/>
 <meta content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png" property="og:image"/>
 <meta content="The Pressure Academy" property="og:site_name"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="The Pressure Academy — Interactive System for Shift Workers, Grapplers &amp; Parents" name="twitter:title"/>
-<meta content="An interactive, story-led product experience for shift workers, grapplers, parents, and learning support families." name="twitter:description"/>
+<meta content="The Pressure Planner — Turn Pressure Into Progress" name="twitter:title"/>
+<meta content="A performance scoring system for shift workers, grapplers, and parents. Six variables. One score. A clearer picture of what to push, protect, and fix today." name="twitter:description"/>
 <meta content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png" name="twitter:image"/>
 <meta content="#0A0A0A" name="theme-color"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -768,6 +768,60 @@
     }
     .form-status.success { color: var(--green); }
     .form-status.error { color: var(--coral); }
+
+    /* Post-demo CTA */
+    .post-demo-cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 48px 32px;
+      background: linear-gradient(180deg, rgba(196,91,40,0.10), rgba(196,91,40,0.03));
+      border: 1px solid rgba(196,91,40,0.22);
+      border-radius: var(--radius);
+    }
+    .post-demo-cta-inner h2 { font-size: 1.5rem; margin: 0 0 8px; }
+    .post-demo-cta-inner p { color: var(--muted-2); margin: 0 0 20px; font-size: 0.95rem; }
+    .post-demo-cta-inner .funnel-form { max-width: 420px; margin: 0 auto; }
+
+    /* Thank-you panel (shared by all forms) */
+    .thankyou-panel {
+      display: none;
+      text-align: left;
+      padding: 28px 24px;
+      background: rgba(232,168,56,0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-top: 16px;
+    }
+    .thankyou-panel.visible { display: block; }
+    .thankyou-panel h3 { font-size: 1.1rem; margin: 0 0 16px; color: var(--gold); }
+    .thankyou-panel ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .thankyou-panel li { display: flex; gap: 10px; font-size: 0.92rem; color: var(--muted-2); line-height: 1.6; }
+    .thankyou-panel li strong { color: var(--cream); }
+    .thankyou-panel .thankyou-icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .thankyou-panel .thankyou-action { margin-top: 18px; text-align: center; }
+
+    /* Why This Is Different section */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .diff-card {
+      padding: 28px 24px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.3s ease;
+    }
+    .diff-card:hover { border-color: rgba(196,91,40,0.3); }
+    .diff-card h3 { font-size: 1.05rem; margin: 0 0 10px; color: var(--cream); }
+    .diff-card p { margin: 0; color: var(--muted-2); font-size: 0.92rem; line-height: 1.65; }
+    @media (max-width: 640px) {
+      .diff-grid { grid-template-columns: 1fr; }
+      .post-demo-cta-inner { padding: 32px 20px; }
+    }
     .side-list {
       display: grid;
       gap: 10px;
@@ -1815,9 +1869,34 @@
     }
     .footer-end {
       margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.82rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px 16px;
     }
+    .footer-legal a {
+      color: var(--muted-2);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .footer-legal a:hover { color: var(--cream, #FFF8F0); }
+    .form-privacy {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: var(--muted-2);
+      text-align: center;
+    }
+    .form-privacy a {
+      color: var(--rust-2, var(--rust-light, #D4915C));
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .form-privacy a:hover { color: var(--cream, #FFF8F0); }
 
     .reveal { opacity: 0; transform: translateY(22px); }
 
@@ -2151,6 +2230,11 @@
       .mastery-visual { grid-template-columns: 1fr; }
     }
 
+    /* FAQ accordion */
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary span:last-child { transform: rotate(45deg); }
+    details summary span:last-child { transition: transform 0.2s var(--ease); }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation: none !important;
@@ -2172,7 +2256,7 @@
       "name": "The Pressure Academy",
       "url": "https://thepressureacademy.com/",
       "logo": "https://thepressureacademy.com/assets/logos/TPA_House_Mark.svg",
-      "description": "The Pressure Academy is a system-led platform built for shift workers, grapplers, parents, and learning support families."
+      "description": "The Pressure Academy — home of the Pressure Planner, a daily performance scoring system for shift workers, grapplers, and parents."
     },
     {
       "@type": "WebSite",
@@ -2180,16 +2264,7 @@
       "url": "https://thepressureacademy.com/",
       "name": "The Pressure Academy",
       "publisher": { "@id": "https://thepressureacademy.com/#organization" },
-      "description": "Interactive system for shift workers, grapplers, parents, and learners."
-    },
-    {
-      "@type": "Product",
-      "@id": "https://thepressureacademy.com/#product",
-      "name": "The Pressure Academy System",
-      "brand": { "@id": "https://thepressureacademy.com/#organization" },
-      "category": "Performance planning and learning support system",
-      "description": "An interactive system spanning Planner, Blueprint, Mastery Method, Pressure Tested, and Pressure Over Force.",
-      "url": "https://thepressureacademy.com/"
+      "description": "Home of the Pressure Planner — a daily performance scoring system for shift workers, grapplers, and parents."
     }
   ]
 }
@@ -2208,20 +2283,19 @@
 </span>
 </a>
 <nav aria-label="Primary" class="top-links">
+<a data-scroll="" href="#planner">Try the Planner</a>
+<a data-scroll="" href="#product-value">What You Get</a>
+<a data-scroll="" href="#different">Why It's Different</a>
 <a data-scroll="" href="#ecosystem">Ecosystem</a>
-<a data-scroll="" href="#planner">Planner</a>
-<a data-scroll="" href="#blueprint">Blueprint</a>
-<a data-scroll="" href="#chains">Chains</a>
-<a data-scroll="" href="#mastery">Mastery</a>
-<a data-scroll="" href="#proof">Proof</a>
-<a data-scroll="" href="#join">Join</a>
+<a data-scroll="" href="#faq">FAQ</a>
+<a data-scroll="" href="#join">Get Access</a>
 </nav>
 <div class="top-actions">
 <div aria-live="polite" class="persona-pill" id="personaPill">
 <span>Viewing as: <strong id="personaPillLabel">Grappler</strong></span>
 <button aria-label="Clear persona" id="personaClear" type="button">×</button>
 </div>
-<a class="btn" data-scroll="" href="#planner">Try the Planner</a>
+<a class="btn" data-scroll="" href="#join">Get Early Access</a>
 <button aria-expanded="false" aria-label="Open menu" class="menu-btn" id="menuBtn" type="button">☰</button>
 </div>
 </div>
@@ -2232,48 +2306,36 @@
 <button aria-label="Clear persona" id="personaClearMobile" type="button">×</button>
 </div>
 <nav aria-label="Mobile" class="mobile-links">
-<a data-scroll="" href="#hero">Hero</a>
+<a data-scroll="" href="#planner">Try the Planner</a>
+<a data-scroll="" href="#product-value">What You Get</a>
+<a data-scroll="" href="#different">Why It's Different</a>
 <a data-scroll="" href="#ecosystem">Ecosystem</a>
-<a data-scroll="" href="#planner">Planner</a>
-<a data-scroll="" href="#blueprint">Blueprint</a>
-<a data-scroll="" href="#chains">Chains</a>
-<a data-scroll="" href="#mastery">Mastery Method</a>
-<a data-scroll="" href="#proof">Proof</a>
-<a data-scroll="" href="#join">Choose your entry point</a>
+<a data-scroll="" href="#faq">FAQ</a>
+<a data-scroll="" href="#join">Get Early Access</a>
 </nav>
 </div>
 <nav aria-label="Page progress" class="journey-rail" id="journeyRail">
 <button class="journey-step active" data-target="hero" type="button">Hero</button>
-<button class="journey-step" data-target="ecosystem" type="button">Ecosystem</button>
 <button class="journey-step" data-target="planner" type="button">Planner</button>
-<button class="journey-step" data-target="blueprint" type="button">Blueprint</button>
-<button class="journey-step" data-target="chains" type="button">Chains</button>
-<button class="journey-step" data-target="mastery" type="button">Mastery</button>
-<button class="journey-step" data-target="proof" type="button">Proof</button>
+<button class="journey-step" data-target="product-value" type="button">Value</button>
+<button class="journey-step" data-target="proof" type="button">Why</button>
+<button class="journey-step" data-target="different" type="button">Different</button>
+<button class="journey-step" data-target="ecosystem" type="button">System</button>
+<button class="journey-step" data-target="faq" type="button">FAQ</button>
 <button class="journey-step" data-target="join" type="button">Join</button>
 </nav>
 <main id="main-content" tabindex="-1">
 <section class="hero section" id="hero">
 <div class="container hero-grid">
 <div class="hero-copy">
-<div class="persona-selector reveal" id="personaSelector">
-<p>Choose the path that brought you here. Nothing disappears. The system simply changes emphasis.</p>
-<div class="persona-options">
-<button class="persona-btn" data-persona="shift-worker" type="button">Shift Worker</button>
-<button class="persona-btn" data-persona="grappler" type="button">Grappler</button>
-<button class="persona-btn" data-persona="parent" type="button">Parent</button>
-<button class="persona-btn" data-persona="learner" type="button">Learning Support</button>
-</div>
-</div>
-<div class="eyebrow reveal"><span class="dot"></span> Now live — The Pressure Planner</div>
-<h1 class="reveal">Turn <span class="rust">pressure</span> into progress.</h1>
+<div class="eyebrow reveal"><span class="dot"></span> Early access open now</div>
+<h1 class="reveal">The <span class="rust">Pressure</span> Planner</h1>
 <p class="hero-sub reveal">
-            Plan your life. Train with intent. A performance ecosystem for shift workers, grapplers, and parents who build systems — not excuses.
-            <span class="persona-context"></span>
+            Six variables. One score. A daily system that tells you what to push, what to protect, and what needs work — built for shift workers, grapplers, and parents who refuse to guess.
 </p>
 <div class="hero-actions reveal">
-<a class="btn" data-scroll="" href="#planner">Try the Planner <span aria-hidden="true">→</span></a>
-<a class="ghost-btn" data-scroll="" href="#ecosystem">Explore the System</a>
+<a class="btn" data-scroll="" href="#join">Get Early Access <span aria-hidden="true">→</span></a>
+<a class="ghost-btn" data-scroll="" href="#planner">Try the Demo</a>
 </div>
 <div class="hero-stats reveal">
 <div class="stat-card">
@@ -2282,11 +2344,20 @@
 </div>
 <div class="stat-card">
 <div class="stat-value"><span>24/7</span><sup>aware</sup></div>
-<div class="stat-label">Circadian shift protocols</div>
+<div class="stat-label">Shift-mode logic built in</div>
 </div>
 <div class="stat-card">
-<div class="stat-value"><span class="counter" data-target="62">0</span><sup>techniques</sup></div>
-<div class="stat-label">BJJ curriculum chains</div>
+<div class="stat-value"><span>1</span><sup>score</sup></div>
+<div class="stat-label">Know exactly where you stand</div>
+</div>
+</div>
+<div class="persona-selector reveal" id="personaSelector">
+<p>Which pressure are you managing?</p>
+<div class="persona-options">
+<button class="persona-btn" data-persona="shift-worker" type="button">Shift Worker</button>
+<button class="persona-btn" data-persona="grappler" type="button">Grappler</button>
+<button class="persona-btn" data-persona="parent" type="button">Parent</button>
+<button class="persona-btn" data-persona="learner" type="button">Learning Support</button>
 </div>
 </div>
 </div>
@@ -2345,86 +2416,13 @@
 </div>
 </div>
 <div class="hero-side-card reveal">
-<h3>Find the right entry point fast</h3>
+<h3>See the Planner in action</h3>
 <ul class="side-list">
-<li><span>◆</span><span><strong>Choose your pressure:</strong> shift work, training, parenting, and learning support each bring a different lens to the same system.</span></li>
-<li><span>◆</span><span><strong>Test the logic:</strong> use the Planner, Blueprint loop, and chain explorer to see how the system behaves before you commit.</span></li>
-<li><span>◆</span><span><strong>Take the right next step:</strong> Planner access, Blueprint updates, Mastery Method enquiries, and Academy news all have their own entry point.</span></li>
+<li><span>◆</span><span><strong>Pick your context:</strong> shift work, training, or parenting — the Planner adjusts its weighting to match how you actually live.</span></li>
+<li><span>◆</span><span><strong>Try the demo:</strong> move the inputs and watch the score, shift logic, and coaching advice respond in real time.</span></li>
+<li><span>◆</span><span><strong>Join early access:</strong> get on the list now so you are first in line when the full Planner launches.</span></li>
 </ul>
 </div>
-</div>
-</div>
-</section>
-<section class="section" id="ecosystem">
-<div class="container">
-<div class="section-head reveal with-mark"><img alt="Ecosystem section logo" class="section-mark reveal" src="assets/logos/TPA_House_Mark.svg"/>
-<span class="eyebrow">Six brands. One system.</span>
-<h2>See how the ecosystem connects.</h2>
-<p>Hover or tap the nodes. Filter by path. Each part is built to solve a different pressure point, but they all connect inside the same operating system.</p>
-</div>
-<div class="eco-paths reveal" id="ecoPaths">
-<button class="path-pill active" data-path="all" type="button">All Brands</button>
-<button class="path-pill" data-path="shift-worker" type="button">Shift Worker Path</button>
-<button class="path-pill" data-path="grappler" type="button">BJJ Path</button>
-<button class="path-pill" data-path="parent" type="button">Parent Path</button>
-<button class="path-pill" data-path="learner" type="button">Education Path</button>
-</div>
-<div class="eco-wrap">
-<div class="eco-map reveal" id="ecoMap">
-<svg aria-hidden="true" class="eco-svg" id="ecoSvg"></svg>
-<div class="eco-hub" id="ecoHub">
-<div class="eco-hub-mark">
-<img alt="The Pressure Academy house mark" class="eco-hub-logo" src="assets/logos/TPA_House_Mark.svg"/>
-</div>
-<strong>The Pressure Academy</strong>
-<p>The parent brand. Everything sits under one pressure-tested operating system.</p>
-</div>
-<button class="eco-node active" data-brand="planner" data-paths="shift-worker,grappler,parent" type="button">
-<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Planner logo" class="eco-logo" src="assets/logos/Pressure_Planner_Mark.svg"/></span><span class="eco-node-label"><small>Product</small></span></div>
-<strong>Pressure Planner</strong>
-<p>Daily score, shift-mode logic, and AI recommendations.</p>
-</button>
-<button class="eco-node" data-brand="blueprint" data-paths="grappler,parent" type="button">
-<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Blueprint logo" class="eco-logo" src="assets/logos/Pressure_Blueprint_Mark.svg"/></span><span class="eco-node-label"><small>Curriculum</small></span></div>
-<strong>Pressure Blueprint</strong>
-<p>Positional loops and IF→THEN logic.</p>
-</button>
-<button class="eco-node" data-brand="pressure-tested" data-paths="grappler,shift-worker,parent" type="button">
-<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Tested logo" class="eco-logo" src="assets/logos/Pressure_Tested_Mark.svg"/></span><span class="eco-node-label"><small>Apparel</small></span></div>
-<strong>Pressure Tested</strong>
-<p>Signals identity and proof of work.</p>
-</button>
-<button class="eco-node" data-brand="mastery" data-paths="learner,parent" type="button">
-<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Mastery Method logo" class="eco-logo" src="assets/logos/Mastery_Method_Mark.svg"/></span><span class="eco-node-label"><small>Education</small></span></div>
-<strong>Mastery Method</strong>
-<p>Structured support for unstructured minds.</p>
-</button>
-<button class="eco-node" data-brand="pressure-over-force" data-paths="grappler,parent,shift-worker" type="button">
-<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Over Force logo" class="eco-logo" src="assets/logos/Pressure_Over_Force_Mark.svg"/></span><span class="eco-node-label"><small>Culture</small></span></div>
-<strong>Pressure Over Force</strong>
-<p>Music, content, and the emotional engine.</p>
-</button>
-<button class="eco-node" data-brand="academy" data-paths="all" type="button">
-<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="The Academy logo" class="eco-logo" src="assets/logos/TPA_House_Mark.svg"/></span><span class="eco-node-label"><small>Brand House</small></span></div>
-<strong>The Academy</strong>
-<p>The strategic wrapper that gives the rest coherence.</p>
-</button>
-</div>
-<aside class="eco-detail reveal" data-brand-active="planner" id="ecoDetailPanel">
-<div class="kicker" id="ecoKicker">Product</div>
-<h3 id="ecoTitle">Pressure Planner</h3>
-<p id="ecoDesc">Daily performance tracking with a six-variable score, circadian-aware recommendations, and family-aware reality built into the logic.</p>
-<div class="eco-meta" id="ecoMeta">
-<span class="chip">Shift-aware</span>
-<span class="chip">Interactive score</span>
-<span class="chip">AI coach</span>
-</div>
-<a class="btn" data-scroll="" href="#planner" id="ecoCta">Open the Planner demo</a>
-<div class="insight-card">
-<h3>Where this leads</h3>
-<p id="ecoWhy">Visitors can see which product solves which problem, how each path connects to the next, and where they should go first.</p>
-</div>
-</aside>
 </div>
 </div>
 </section>
@@ -2519,7 +2517,7 @@
 <div class="muted-label">Under Pressure Score</div>
 </div>
 <div class="coach-panel">
-<div class="muted-label">AI coach</div>
+<div class="muted-label">Coach</div>
 <strong id="coachHeadline">Protect recovery without dropping the structure.</strong>
 <p id="coachCopy">You are in a good range. Rotating stress is the main drag right now, so keep intensity honest and use simple food + hydration rules to hold the line.</p>
 </div>
@@ -2535,6 +2533,214 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section class="section" id="post-demo-cta">
+<div class="container">
+<div class="post-demo-cta-inner reveal">
+<h2>Like what you see?</h2>
+<p>Get early access to the full Pressure Planner — the complete scoring system, not just the demo.</p>
+<form class="funnel-form" action="https://formspree.io/f/meerjgde" method="POST">
+<input type="hidden" name="intent" value="planner-access"/>
+<input type="hidden" name="source" value="post-demo-cta"/>
+<label for="post-demo-email" style="display: none;">Email address</label>
+<input id="post-demo-email" name="email" type="email" required placeholder="Your best email" autocomplete="email" aria-label="Email address for Planner early access" style="padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--cream); font-size: 1rem; width: 100%;"/>
+<button type="submit" class="btn" style="width: 100%; justify-content: center;">Join the Early Access List</button>
+<div aria-live="polite" class="form-status" style="text-align: center; margin-top: 4px;"></div>
+<p class="form-privacy">By joining, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+</form>
+<div class="thankyou-panel" aria-live="polite">
+<h3>You're on the list.</h3>
+<ul>
+<li><span class="thankyou-icon">&#10003;</span><span><strong>You're on the early access list.</strong> When the full Planner launches, you'll hear from us before anyone else.</span></li>
+<li><span class="thankyou-icon">&#9719;</span><span><strong>Timeline:</strong> The full Planner launches later this year. You'll be first in line.</span></li>
+<li><span class="thankyou-icon">&#9993;</span><span><strong>Watch your inbox.</strong> That's where launch details and your access link will arrive.</span></li>
+</ul>
+<div class="thankyou-action"><a class="ghost-btn" data-scroll="" href="#planner">Try the demo with a different persona &#8594;</a></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="product-value">
+<div class="container">
+<div class="section-head reveal">
+<span class="eyebrow">What you get</span>
+<h2>Everything inside the Pressure Planner.</h2>
+<p>Not another generic wellness app. A scoring system built around the variables that actually matter when you are managing shift work, training, parenting, or all three at once.</p>
+</div>
+<div class="funnel-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+<article class="funnel-card reveal" style="padding: 24px;">
+<div style="font-size: 1.6rem; margin-bottom: 12px;">&#9670;</div>
+<h3>Six-Variable Performance Score</h3>
+<p>Sleep, training, nutrition, stress, hydration, and family presence — combined into one daily score that tells you where you actually stand.</p>
+</article>
+<article class="funnel-card reveal" style="padding: 24px;">
+<div style="font-size: 1.6rem; margin-bottom: 12px;">&#9670;</div>
+<h3>Shift-Mode Logic</h3>
+<p>The Planner knows whether you are on days, nights, or rotating. Weightings change automatically so the score reflects your real situation.</p>
+</article>
+<article class="funnel-card reveal" style="padding: 24px;">
+<div style="font-size: 1.6rem; margin-bottom: 12px;">&#9670;</div>
+<h3>Coaching Recommendations</h3>
+<p>Based on your score and mode, you get clear guidance on what to push, what to protect, and what to leave alone today.</p>
+</article>
+<article class="funnel-card reveal" style="padding: 24px;">
+<div style="font-size: 1.6rem; margin-bottom: 12px;">&#9670;</div>
+<h3>Family-Aware Design</h3>
+<p>Family presence is a first-class variable, not an afterthought. The system weighs it alongside sleep and training because that is how real life works.</p>
+</article>
+<article class="funnel-card reveal" style="padding: 24px;">
+<div style="font-size: 1.6rem; margin-bottom: 12px;">&#9670;</div>
+<h3>Daily Decision Clarity</h3>
+<p>Stop guessing whether today is a push day or a recovery day. The score removes the ambiguity so you can act with confidence.</p>
+</article>
+<article class="funnel-card reveal" style="padding: 24px;">
+<div style="font-size: 1.6rem; margin-bottom: 12px;">&#9670;</div>
+<h3>Built for Practitioners</h3>
+<p>Designed by a shift worker, grappler, and parent — not a productivity influencer. Every feature exists because someone needed it under real pressure.</p>
+</article>
+</div>
+<div style="text-align: center; margin-top: 36px;" class="reveal">
+<a class="btn" data-scroll="" href="#join">Get Early Access <span aria-hidden="true">&rarr;</span></a>
+</div>
+</div>
+</section>
+<section class=”section” id=”proof”>
+<div class=”container”>
+<div class=”section-head reveal”>
+<span class=”eyebrow”>Why this exists</span>
+<h2>Built under real pressure. Not in a design sprint.</h2>
+<p>The Pressure Planner was not built by a productivity influencer or a wellness startup. It was built by a shift worker, grappler, and parent who needed a system that actually worked under the conditions most apps ignore.</p>
+</div>
+<div class=”proof-grid” style=”grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));”>
+<article class=”proof-card reveal”>
+<div class=”proof-top”>
+<div>
+<div class=”proof-role”>The problem</div>
+<h3>Every planning app assumes a normal schedule</h3>
+</div>
+</div>
+<p style=”margin:0;color:var(--muted-2)”>Most productivity tools assume you wake at 6am, train at the same time daily, and control your own calendar. If you work rotating shifts, coach kids, or parent around unpredictable schedules, those tools fail on day one.</p>
+</article>
+<article class=”proof-card reveal”>
+<div class=”proof-top”>
+<div>
+<div class=”proof-role”>The approach</div>
+<h3>Six variables that reflect how you actually live</h3>
+</div>
+</div>
+<p style=”margin:0;color:var(--muted-2)”>Sleep, training, nutrition, stress, hydration, and family presence are weighted differently depending on your mode. Night shift changes the math. A sick kid changes the math. The Planner accounts for that instead of pretending it does not happen.</p>
+</article>
+<article class=”proof-card reveal”>
+<div class=”proof-top”>
+<div>
+<div class=”proof-role”>The result</div>
+<h3>One score. Clear next action. No guessing.</h3>
+</div>
+</div>
+<p style=”margin:0;color:var(--muted-2)”>Instead of tracking 14 metrics across 3 apps, you get one score that tells you whether today is a push day, a recovery day, or a protect-what-matters day. The demo above lets you test the logic yourself.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="different">
+<div class="container">
+<div class="section-head reveal">
+<span class="eyebrow">What makes this different</span>
+<h2>Why This Is Different</h2>
+<p>Most wellness tools assume a clean schedule, a single focus, and unlimited energy. The Pressure Planner does not.</p>
+</div>
+<div class="diff-grid">
+<div class="diff-card reveal">
+<h3>Night shifts change the math</h3>
+<p>Most tools pretend everyone sleeps 10pm–6am. The Planner adjusts scoring weights for day, night, and rotating shifts — because your schedule is the variable, not a footnote.</p>
+</div>
+<div class="diff-card reveal">
+<h3>Family pressure counts</h3>
+<p>Wellness apps ignore home load. The Planner scores family presence as a real variable — because a sick kid changes your capacity whether the app acknowledges it or not.</p>
+</div>
+<div class="diff-card reveal">
+<h3>One system, not ten apps</h3>
+<p>Sleep tracker, training log, nutrition app, stress journal — the Planner replaces the stack with six variables and one score that reflects how you actually live.</p>
+</div>
+<div class="diff-card reveal">
+<h3>Teachable, not fragmented</h3>
+<p>The scoring system is designed to be understood, not just followed. You see why the number moves, so you learn to manage pressure — not just measure it.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="ecosystem">
+<div class="container">
+<div class="section-head reveal with-mark"><img alt="Ecosystem section logo" class="section-mark reveal" src="assets/logos/TPA_House_Mark.svg"/>
+<span class="eyebrow">Six brands. One system.</span>
+<h2>See how the ecosystem connects.</h2>
+<p>Hover or tap the nodes. Filter by path. Each part is built to solve a different pressure point, but they all connect inside the same operating system.</p>
+</div>
+<div class="eco-paths reveal" id="ecoPaths">
+<button class="path-pill active" data-path="all" type="button">All Brands</button>
+<button class="path-pill" data-path="shift-worker" type="button">Shift Worker Path</button>
+<button class="path-pill" data-path="grappler" type="button">BJJ Path</button>
+<button class="path-pill" data-path="parent" type="button">Parent Path</button>
+<button class="path-pill" data-path="learner" type="button">Education Path</button>
+</div>
+<div class="eco-wrap">
+<div class="eco-map reveal" id="ecoMap">
+<svg aria-hidden="true" class="eco-svg" id="ecoSvg"></svg>
+<div class="eco-hub" id="ecoHub">
+<div class="eco-hub-mark">
+<img alt="The Pressure Academy house mark" class="eco-hub-logo" src="assets/logos/TPA_House_Mark.svg"/>
+</div>
+<strong>The Pressure Academy</strong>
+<p>The parent brand. Everything sits under one pressure-tested operating system.</p>
+</div>
+<button class="eco-node active" data-brand="planner" data-paths="shift-worker,grappler,parent" type="button">
+<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Planner logo" class="eco-logo" src="assets/logos/Pressure_Planner_Mark.svg"/></span><span class="eco-node-label"><small>Product</small></span></div>
+<strong>Pressure Planner</strong>
+<p>Daily score, shift-mode logic, and coaching recommendations.</p>
+</button>
+<button class="eco-node" data-brand="blueprint" data-paths="grappler,parent" type="button">
+<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Blueprint logo" class="eco-logo" src="assets/logos/Pressure_Blueprint_Mark.svg"/></span><span class="eco-node-label"><small>Curriculum</small></span></div>
+<strong>Pressure Blueprint</strong>
+<p>Positional loops and IF→THEN logic.</p>
+</button>
+<button class="eco-node" data-brand="pressure-tested" data-paths="grappler,shift-worker,parent" type="button">
+<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Tested logo" class="eco-logo" src="assets/logos/Pressure_Tested_Mark.svg"/></span><span class="eco-node-label"><small>Apparel</small></span></div>
+<strong>Pressure Tested</strong>
+<p>Signals identity and proof of work.</p>
+</button>
+<button class="eco-node" data-brand="mastery" data-paths="learner,parent" type="button">
+<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Mastery Method logo" class="eco-logo" src="assets/logos/Mastery_Method_Mark.svg"/></span><span class="eco-node-label"><small>Education</small></span></div>
+<strong>Mastery Method</strong>
+<p>Structured support for unstructured minds.</p>
+</button>
+<button class="eco-node" data-brand="pressure-over-force" data-paths="grappler,parent,shift-worker" type="button">
+<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="Pressure Over Force logo" class="eco-logo" src="assets/logos/Pressure_Over_Force_Mark.svg"/></span><span class="eco-node-label"><small>Culture</small></span></div>
+<strong>Pressure Over Force</strong>
+<p>Music, content, and the emotional engine.</p>
+</button>
+<button class="eco-node" data-brand="academy" data-paths="all" type="button">
+<div class="eco-node-header"><span class="eco-logo-wrap"><img alt="The Academy logo" class="eco-logo" src="assets/logos/TPA_House_Mark.svg"/></span><span class="eco-node-label"><small>Brand House</small></span></div>
+<strong>The Academy</strong>
+<p>The strategic wrapper that gives the rest coherence.</p>
+</button>
+</div>
+<aside class="eco-detail reveal" data-brand-active="planner" id="ecoDetailPanel">
+<div class="kicker" id="ecoKicker">Product</div>
+<h3 id="ecoTitle">Pressure Planner</h3>
+<p id="ecoDesc">Daily performance tracking with a six-variable score, circadian-aware recommendations, and family-aware reality built into the logic.</p>
+<div class="eco-meta" id="ecoMeta">
+<span class="chip">Shift-aware</span>
+<span class="chip">Interactive score</span>
+<span class="chip">Coach logic</span>
+</div>
+<a class="btn" data-scroll="" href="#planner" id="ecoCta">Open the Planner demo</a>
+<div class="insight-card">
+<h3>Where this leads</h3>
+<p id="ecoWhy">Visitors can see which product solves which problem, how each path connects to the next, and where they should go first.</p>
+</div>
+</aside>
 </div>
 </div>
 </section>
@@ -2661,137 +2867,88 @@
 <span class="chip">Neuro-inclusive</span>
 </div>
 <div class="mastery-visual" id="masteryVisual">
-<div class="mastery-metric"><span class="muted-label">Structure</span><strong>92%</strong><span style="color:var(--muted-2)">Routine clarity</span></div>
-<div class="mastery-metric"><span class="muted-label">Attention</span><strong>84%</strong><span style="color:var(--muted-2)">Task engagement</span></div>
-<div class="mastery-metric"><span class="muted-label">Confidence</span><strong>78%</strong><span style="color:var(--muted-2)">Progress visibility</span></div>
-<div class="mastery-metric"><span class="muted-label">Parent insight</span><strong>90%</strong><span style="color:var(--muted-2)">Feedback clarity</span></div>
+<div class="mastery-metric"><span class="muted-label">Structure</span><strong>Core</strong><span style="color:var(--muted-2)">Routine clarity</span></div>
+<div class="mastery-metric"><span class="muted-label">Attention</span><strong>Core</strong><span style="color:var(--muted-2)">Task engagement</span></div>
+<div class="mastery-metric"><span class="muted-label">Confidence</span><strong>Core</strong><span style="color:var(--muted-2)">Progress visibility</span></div>
+<div class="mastery-metric"><span class="muted-label">Parent insight</span><strong>Core</strong><span style="color:var(--muted-2)">Feedback clarity</span></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section class="section" id="proof">
+<section class="section" id="faq">
 <div class="container">
-<div class="section-head reveal with-mark"><img alt="Proof section logo" class="section-mark reveal" src="assets/logos/Pressure_Tested_Mark.svg"/>
-<span class="eyebrow">Built by practitioners. For practitioners.</span>
-<h2>Find the proof that matches your path.</h2>
-<p>Filter by role and read the outcomes that matter most to you, whether that is roster fit, coaching clarity, or more stable family routines.</p>
+<div class="section-head reveal">
+<span class="eyebrow">Questions</span>
+<h2>Frequently asked questions.</h2>
 </div>
-<div class="proof-filters reveal" id="proofFilters">
-<button class="proof-filter active" data-filter="all" type="button">All</button>
-<button class="proof-filter" data-filter="shift-worker" type="button">Shift Worker</button>
-<button class="proof-filter" data-filter="grappler" type="button">Coach / Grappler</button>
-<button class="proof-filter" data-filter="parent" type="button">Parent</button>
-</div>
-<div class="proof-grid">
-<article class="proof-card reveal" data-proof="shift-worker">
-<div class="proof-top">
-<div>
-<div class="proof-role">Shift Worker</div>
-<h3>Matt K. — Crane Operator · Blue Belt</h3>
-</div>
-<div class="avatar">M</div>
-</div>
-<p class="quote">“Every other app assumes you wake up at 6am. The Pressure Planner is the first thing that makes sense when your week starts at 10pm.”</p>
-<div class="proof-metrics">
-<span class="chip">Roster fit ↑</span>
-<span class="chip">Decision fatigue ↓</span>
-<span class="chip">Training consistency ↑</span>
-</div>
-</article>
-<article class="proof-card reveal" data-proof="grappler">
-<div class="proof-top">
-<div>
-<div class="proof-role">Coach / Grappler</div>
-<h3>Sarah L. — Kids Coach · Purple Belt</h3>
-</div>
-<div class="avatar">S</div>
-</div>
-<p class="quote">“The IF→THEN chains changed how I teach. Every position finally connects. Parents can see the system instead of trying to decode random class notes.”</p>
-<div class="proof-metrics">
-<span class="chip">Class clarity ↑</span>
-<span class="chip">Parent buy-in ↑</span>
-<span class="chip">Curriculum coherence ↑</span>
-</div>
-</article>
-<article class="proof-card reveal" data-proof="parent">
-<div class="proof-top">
-<div>
-<div class="proof-role">Parent / Athlete</div>
-<h3>Jess R. — Parent · Night Shift Nurse</h3>
-</div>
-<div class="avatar">J</div>
-</div>
-<p class="quote">“What landed for me was the family variable. The site stopped feeling like another productivity lecture and started feeling like a system made for real life.”</p>
-<div class="proof-metrics">
-<span class="chip">Presence ↑</span>
-<span class="chip">Guilt load ↓</span>
-<span class="chip">Routine adherence ↑</span>
-</div>
-</article>
+<div style="max-width: 760px; display: grid; gap: 2px;">
+<details class="reveal" style="background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.018)); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0;" open>
+<summary style="padding: 20px 24px; cursor: pointer; font-weight: 700; font-size: 1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">What is the Pressure Planner?<span style="color: var(--rust-2); font-size: 1.2rem; flex-shrink: 0; margin-left: 12px;">+</span></summary>
+<div style="padding: 0 24px 20px; color: var(--muted-2); font-size: 0.95rem; line-height: 1.7;">A daily performance scoring system that combines six variables — sleep, training, nutrition, stress, hydration, and family presence — into one score. It tells you what to push, what to protect, and what needs attention today. It is built for people managing shift work, training, parenting, or any combination of real-world pressure.</div>
+</details>
+<details class="reveal" style="background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.018)); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0;">
+<summary style="padding: 20px 24px; cursor: pointer; font-weight: 700; font-size: 1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">Who is this for?<span style="color: var(--rust-2); font-size: 1.2rem; flex-shrink: 0; margin-left: 12px;">+</span></summary>
+<div style="padding: 0 24px 20px; color: var(--muted-2); font-size: 0.95rem; line-height: 1.7;">Shift workers who cannot follow a normal schedule. Grapplers and athletes managing training load alongside life. Parents who want to perform without sacrificing presence. Anyone who needs a system that respects reality instead of pretending you have unlimited energy and time.</div>
+</details>
+<details class="reveal" style="background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.018)); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0;">
+<summary style="padding: 20px 24px; cursor: pointer; font-weight: 700; font-size: 1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">How is this different from other wellness or planning apps?<span style="color: var(--rust-2); font-size: 1.2rem; flex-shrink: 0; margin-left: 12px;">+</span></summary>
+<div style="padding: 0 24px 20px; color: var(--muted-2); font-size: 0.95rem; line-height: 1.7;">Most apps assume you wake at 6am, train at the same time every day, and have full control over your schedule. The Pressure Planner does not make those assumptions. It has shift-mode logic that changes how variables are weighted depending on whether you are on days, nights, or rotating. Family presence is a real input, not a nice-to-have. The result is a system that reflects how you actually live.</div>
+</details>
+<details class="reveal" style="background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.018)); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0;">
+<summary style="padding: 20px 24px; cursor: pointer; font-weight: 700; font-size: 1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">What does early access include?<span style="color: var(--rust-2); font-size: 1.2rem; flex-shrink: 0; margin-left: 12px;">+</span></summary>
+<div style="padding: 0 24px 20px; color: var(--muted-2); font-size: 0.95rem; line-height: 1.7;">Early access puts you on the priority list for the full Pressure Planner when it launches. You will be the first to know when it is available and first in line when it goes live. There is no charge to join the early access list.</div>
+</details>
+<details class="reveal" style="background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.018)); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0;">
+<summary style="padding: 20px 24px; cursor: pointer; font-weight: 700; font-size: 1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">Is this an app or a digital product?<span style="color: var(--rust-2); font-size: 1.2rem; flex-shrink: 0; margin-left: 12px;">+</span></summary>
+<div style="padding: 0 24px 20px; color: var(--muted-2); font-size: 0.95rem; line-height: 1.7;">The Pressure Planner is a digital product. Exact format and delivery details will be shared with early access members before launch. The interactive demo on this page gives you a real preview of how the scoring logic works.</div>
+</details>
+<details class="reveal" style="background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.018)); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); padding: 0;">
+<summary style="padding: 20px 24px; cursor: pointer; font-weight: 700; font-size: 1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">What is The Pressure Academy ecosystem?<span style="color: var(--rust-2); font-size: 1.2rem; flex-shrink: 0; margin-left: 12px;">+</span></summary>
+<div style="padding: 0 24px 20px; color: var(--muted-2); font-size: 0.95rem; line-height: 1.7;">The Pressure Academy is the parent brand. The Planner is the first product. The ecosystem also includes Pressure Blueprint (BJJ curriculum), Mastery Method (structured learning support), Pressure Tested (apparel), and Pressure Over Force (culture and content). Each part solves a different kind of pressure, but they all connect inside the same system.</div>
+</details>
 </div>
 </div>
 </section>
 <section class="section" id="join">
 <div class="container">
-<div class="section-head reveal with-mark"><img alt="Join section logo" class="section-mark reveal" src="assets/logos/TPA_House_Mark.svg"/>
-<span class="eyebrow">Your next move</span>
-<h2>Choose the entry point that fits what you need.</h2>
-<p>Whether you want the Planner, the Blueprint, learning support, or broader Academy updates, start from the path that matches your real interest.</p>
+<div class="section-head reveal" style="text-align: center; max-width: 640px; margin-left: auto; margin-right: auto;">
+<span class="eyebrow">Early access</span>
+<h2>Get the Pressure Planner before anyone else.</h2>
+<p>Join the early access list. You will be first to know when it launches and first in line when it goes live.</p>
 </div>
-<div class="funnel-grid">
-<article class="funnel-card reveal">
-<div class="funnel-icon"><img alt="Pressure Planner logo" src="assets/logos/Pressure_Planner_Mark.svg"/></div>
-<div class="funnel-kicker">Product access</div>
-<h3>Try the Planner</h3>
-<p>Get early access to the score engine, shift-mode logic, and AI recommendations.</p>
-<form action="https://formspree.io/f/meerjgde" class="funnel-form" method="POST">
-<input name="intent" type="hidden" value="planner-access"/>
-<input name="source" type="hidden" value="TPA Rebuild v6.6"/>
-<input aria-label="Email for planner access" name="email" placeholder="Your email" required="" type="email"/>
-<button class="funnel-submit" type="submit">Get early access</button>
-<div aria-live="polite" class="form-status"></div>
+<div id="planner-signup" style="max-width: 520px; margin: 0 auto 56px; padding: 36px 32px; background: linear-gradient(180deg, rgba(196,91,40,0.08), rgba(196,91,40,0.02)); border: 1px solid rgba(196,91,40,0.22); border-radius: var(--radius);" class="reveal">
+<div style="text-align: center; margin-bottom: 20px;">
+<img alt="Pressure Planner mark" src="assets/logos/Pressure_Planner_Mark.svg" style="width: 44px; height: 44px; margin: 0 auto 12px;"/>
+<h3 style="margin: 0 0 6px; font-size: 1.15rem;">Pressure Planner — Early Access</h3>
+<p style="margin: 0; color: var(--muted-2); font-size: 0.92rem;">Free to join. No spam. Just launch details and priority access.</p>
+</div>
+<form id="planner-early-access-form" class="funnel-form" action="https://formspree.io/f/meerjgde" method="POST" style="display: grid; gap: 10px;">
+<input type="hidden" name="intent" value="planner-access"/>
+<input type="hidden" name="source" value="join-section"/>
+<label for="planner-email" style="display: none;">Email address</label>
+<input id="planner-email" name="email" type="email" required placeholder="Your best email" autocomplete="email" aria-label="Email address for Planner early access" style="padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--cream); font-size: 1rem; width: 100%;"/>
+<button type="submit" class="btn" style="width: 100%; justify-content: center;">Join the Early Access List</button>
+<div id="planner-form-status" aria-live="polite" class="form-status" style="text-align: center; margin-top: 4px;"></div>
+<p class="form-privacy">By joining, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
 </form>
-</article>
-<article class="funnel-card reveal">
-<div class="funnel-icon"><img alt="Pressure Blueprint logo" src="assets/logos/Pressure_Blueprint_Mark.svg"/></div>
-<div class="funnel-kicker">Curriculum</div>
-<h3>Explore Blueprint</h3>
-<p>Get IF→THEN chains, curriculum updates, and rollout notes for your coaching room.</p>
-<form action="https://formspree.io/f/meerjgde" class="funnel-form" method="POST">
-<input name="intent" type="hidden" value="blueprint-info"/>
-<input name="source" type="hidden" value="TPA Rebuild v6.6"/>
-<input aria-label="Email for blueprint info" name="email" placeholder="Your email" required="" type="email"/>
-<button class="funnel-submit" type="submit">Send me the Blueprint</button>
-<div aria-live="polite" class="form-status"></div>
-</form>
-</article>
-<article class="funnel-card reveal">
-<div class="funnel-icon"><img alt="Mastery Method logo" src="assets/logos/Mastery_Method_Mark.svg"/></div>
-<div class="funnel-kicker">Education support</div>
-<h3>Mastery Method</h3>
-<p>Enquire about 1:1 or small-group support for Years 3–8 and homeschool-aligned pathways.</p>
-<form action="https://formspree.io/f/meerjgde" class="funnel-form" method="POST">
-<input name="intent" type="hidden" value="mastery-enquiry"/>
-<input name="source" type="hidden" value="TPA Rebuild v6.6"/>
-<input aria-label="Email for mastery enquiry" name="email" placeholder="Your email" required="" type="email"/>
-<button class="funnel-submit" type="submit">Enquire now</button>
-<div aria-live="polite" class="form-status"></div>
-</form>
-</article>
-<article class="funnel-card reveal">
-<div class="funnel-icon"><img alt="The Pressure Academy logo" src="assets/logos/TPA_House_Mark.svg"/></div>
-<div class="funnel-kicker">Academy news</div>
-<h3>Join updates</h3>
-<p>Get releases, content drops, and new systems built under pressure.</p>
-<form action="https://formspree.io/f/meerjgde" class="funnel-form" method="POST">
-<input name="intent" type="hidden" value="academy-updates"/>
-<input name="source" type="hidden" value="TPA Rebuild v6.6"/>
-<input aria-label="Email for updates" name="email" placeholder="Your email" required="" type="email"/>
-<button class="funnel-submit" type="submit">Join updates</button>
-<div aria-live="polite" class="form-status"></div>
-</form>
-</article>
+<div class="thankyou-panel" aria-live="polite">
+<h3>You're on the list.</h3>
+<ul>
+<li><span class="thankyou-icon">&#10003;</span><span><strong>You're on the early access list.</strong> When the full Planner launches, you'll hear from us before anyone else.</span></li>
+<li><span class="thankyou-icon">&#9719;</span><span><strong>Timeline:</strong> The full Planner launches later this year. You'll be first in line.</span></li>
+<li><span class="thankyou-icon">&#9993;</span><span><strong>Watch your inbox.</strong> That's where launch details and your access link will arrive.</span></li>
+</ul>
+<div class="thankyou-action"><a class="ghost-btn" data-scroll="" href="#planner">Try the demo with a different persona &#8594;</a></div>
+</div>
+</div>
+<div class="reveal" style="max-width: 520px; margin: 0 auto; text-align: center; color: var(--muted-2); font-size: 0.88rem; line-height: 1.7;">
+<p style="margin: 0 0 12px;">Looking for something else?</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px;">
+<a href="mailto:contact@thepressureacademy.com?subject=Blueprint%20enquiry" style="color: var(--rust-2); text-decoration: underline; text-underline-offset: 3px;">Blueprint curriculum</a>
+<a href="mailto:contact@thepressureacademy.com?subject=Mastery%20Method%20enquiry" style="color: var(--rust-2); text-decoration: underline; text-underline-offset: 3px;">Mastery Method (education)</a>
+<a href="mailto:contact@thepressureacademy.com?subject=General%20enquiry" style="color: var(--rust-2); text-decoration: underline; text-underline-offset: 3px;">General enquiry</a>
+</div>
 </div>
 </div>
 </section>
@@ -2807,28 +2964,27 @@
 <span>Plan your life. Train with intent.</span>
 </span>
 </div>
-<p>Performance system for shift workers, grapplers, parents, and structured learners. Built under pressure.</p>
+<p>The Pressure Planner — a daily performance scoring system for shift workers, grapplers, and parents. Built under pressure.</p>
+</div>
+<div>
+<h4>Product</h4>
+<div class="footer-links">
+<a data-scroll="" href="#planner">Try the Demo</a>
+<a data-scroll="" href="#product-value">What You Get</a>
+<a data-scroll="" href="#join">Get Early Access</a>
+<a data-scroll="" href="#faq">FAQ</a>
+</div>
 </div>
 <div>
 <h4>Ecosystem</h4>
 <div class="footer-links">
-<a data-scroll="" href="#planner">Pressure Planner</a>
+<a data-scroll="" href="#ecosystem">The System</a>
 <a data-scroll="" href="#blueprint">Pressure Blueprint</a>
 <a data-scroll="" href="#mastery">Mastery Method</a>
-<a data-scroll="" href="#proof">Pressure Tested</a>
-</div>
-</div>
-<div>
-<h4>Platform</h4>
-<div class="footer-links">
-<a data-scroll="" href="#join">Planner early access</a>
-<a data-scroll="" href="#join">Blueprint updates</a>
-<a data-scroll="" href="#join">Mastery enquiries</a>
-<a data-scroll="" href="#join">Academy updates</a>
 </div>
 </div>
 </div>
-<div class="footer-end">© 2026 The Pressure Academy. All rights reserved.</div>
+<div class="footer-end"><span>© 2026 The Pressure Academy. All rights reserved.</span><span class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a></span></div>
 </div>
 </footer>
 <script>
@@ -2888,8 +3044,8 @@
         planner: {
           kicker: 'Product',
           title: 'Pressure Planner',
-          desc: 'Six inputs collapse into one daily score. Shift mode changes the weighting, and the AI coach reacts as the values move.',
-          meta: ['Shift-aware', 'AI coach', 'Family-integrated'],
+          desc: 'Six inputs collapse into one daily score. Shift mode changes the weighting, and the coach logic reacts as the values move.',
+          meta: ['Shift-aware', 'Coach logic', 'Family-integrated'],
           cta: { text: 'Open the Planner demo', href: '#planner' },
           benefit: 'Visitors can move the inputs, watch the logic react, and understand the product in under a minute.'
         },
@@ -3030,10 +3186,10 @@
           desc: 'Build reading comprehension, sequencing, and routine design in a way that respects how the child actually thinks.',
           tags: ['Years 3–8', 'Neuro-inclusive', 'Routine clarity'],
           metrics: [
-            ['Structure', '92%', 'Routine clarity'],
-            ['Attention', '84%', 'Task engagement'],
-            ['Confidence', '78%', 'Progress visibility'],
-            ['Parent insight', '90%', 'Feedback clarity']
+            ['Structure', 'Core', 'Routine clarity'],
+            ['Attention', 'Core', 'Task engagement'],
+            ['Confidence', 'Core', 'Progress visibility'],
+            ['Parent insight', 'Core', 'Feedback clarity']
           ]
         },
         achievement: {
@@ -3042,10 +3198,10 @@
           desc: 'Clear progression levels and gates help children see their growth while giving parents a cleaner picture of what is actually improving.',
           tags: ['Milestone gates', 'Visible wins', 'Parent reporting'],
           metrics: [
-            ['Wins tracked', '12', 'Visible goals'],
-            ['Momentum', '88%', 'Session completion'],
-            ['Retention', '83%', 'Programme continuity'],
-            ['Clarity', '91%', 'Parent confidence']
+            ['Wins tracked', 'Tracked', 'Visible goals'],
+            ['Momentum', 'Core', 'Session completion'],
+            ['Retention', 'Core', 'Programme continuity'],
+            ['Clarity', 'Core', 'Parent confidence']
           ]
         },
         creativity: {
@@ -3054,10 +3210,10 @@
           desc: 'Writing, spelling, storytelling, and self-expression are treated as guided outputs, not random worksheets on repeat.',
           tags: ['Writing', 'Expression', 'Confidence building'],
           metrics: [
-            ['Output', '4x', 'Weekly creative tasks'],
-            ['Voice', '86%', 'Student ownership'],
-            ['Recall', '80%', 'Retention through play'],
-            ['Enjoyment', '93%', 'Positive engagement']
+            ['Output', 'Weekly', 'Creative tasks'],
+            ['Voice', 'Core', 'Student ownership'],
+            ['Recall', 'Core', 'Retention through play'],
+            ['Enjoyment', 'Core', 'Positive engagement']
           ]
         },
         connection: {
@@ -3066,10 +3222,10 @@
           desc: 'Trauma-informed, neurodivergent-aware support that keeps emotional regulation inside the learning plan instead of treating it as an unrelated side issue.',
           tags: ['Belonging', 'Regulation', 'Relationship-led'],
           metrics: [
-            ['Safety', '95%', 'Session comfort'],
-            ['Regulation', '82%', 'Recover after friction'],
-            ['Belonging', '90%', 'Identity support'],
-            ['Communication', '87%', 'Parent alignment']
+            ['Safety', 'Core', 'Session comfort'],
+            ['Regulation', 'Core', 'Recover after friction'],
+            ['Belonging', 'Core', 'Identity support'],
+            ['Communication', 'Core', 'Parent alignment']
           ]
         }
       };
@@ -3105,7 +3261,7 @@
       let loopIndex = 0;
       let loopTimer = null;
 
-      const sections = ['hero', 'ecosystem', 'planner', 'blueprint', 'chains', 'mastery', 'proof', 'join'];
+      const sections = ['hero', 'planner', 'post-demo-cta', 'product-value', 'proof', 'different', 'ecosystem', 'blueprint', 'chains', 'mastery', 'faq', 'join'];
 
       function setRangeFill(input) {
         const percent = ((input.value - input.min) / (input.max - input.min)) * 100;
@@ -3665,7 +3821,13 @@
 
           form.reset();
           Object.values(plannerInputs).forEach(input => input && setRangeFill(input));
-          if (status) {
+
+          /* Show thank-you panel if present, otherwise fall back to inline text */
+          const thankyou = form.parentElement.querySelector('.thankyou-panel');
+          if (thankyou) {
+            form.style.display = 'none';
+            thankyou.classList.add('visible');
+          } else if (status) {
             status.className = 'form-status success';
             status.textContent = 'Thanks — your request is in. We will be in touch.';
           }
