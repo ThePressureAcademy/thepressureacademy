@@ -16,7 +16,7 @@
 
 **Estimated time:** 45 minutes.
 
-**Success metric:** A second email capture form exists immediately after the planner demo section. It uses the same Formspree endpoint (`https://formspree.io/f/meerjgde`) with `intent=planner-access`. Formspree receives submissions from both forms. The new CTA does not break the existing join form.
+**Success metric:** A second email capture form exists immediately after the planner demo section. It uses the same Formspree endpoint (`https://formspree.io/f/meerjgde`) with `intent=planner-access`. The two forms are source-distinguishable via the hidden `source` field (e.g., `source="post-demo-cta"` vs `source="join-section"`). Both forms use the same confirmation/thank-you logic. Formspree receives submissions from both forms.
 
 ---
 
@@ -87,7 +87,7 @@ Rewrite as short, scannable cards — not a copy-paste. The originals stay in th
 
 **Estimated time:** 30 minutes.
 
-**Success metric:** Analytics script loads on every page. Dashboard shows real-time visitors. Scroll depth events fire at 25/50/75/100%. Form submission events track both capture points (post-demo CTA and join section).
+**Success metric:** Analytics script loads on every page and tracks page views. CTA click events and form submission events are instrumented for both capture points (post-demo CTA and join section), distinguishable by source. Scroll depth tracking and any additional event tracking are documented as implemented or noted as unsupported by the chosen provider. A brief integration note in the codebase records what is tracked, what is not, and where to extend.
 
 ---
 
