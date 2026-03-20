@@ -9,11 +9,11 @@
 
 | # | Change | Why This Order | Blocked By | Est. Time |
 |---|--------|----------------|------------|-----------|
-| 1 | **Install analytics** (Plausible or Fathom, privacy-first) | Everything after this can be measured. Without it, all other changes are unverifiable. | Owner: provider choice | 30 min |
-| 2 | **Add post-demo CTA section** — inline email capture or scroll-to-join after planner demo | Highest-leverage conversion change. Warm demo users currently scroll through 4 sections before seeing a form. | Nothing | 45 min |
-| 3 | **Post-signup thank-you flow** — replace inline "Thanks" with redirect to thank-you section: what happens next, expected timeline, social share prompt | Reduces post-conversion confusion. Currently a dead end. | Nothing | 1 hr |
+| 1 | **Add post-demo CTA section** — inline email capture after planner demo, duplicating the join form with same Formspree endpoint | Highest-leverage conversion change. No blocker. Warm demo users currently scroll through 4 sections before seeing a form. Ship this first so every subsequent change is captured by the new conversion point. | Nothing | 45 min |
+| 2 | **Post-signup thank-you flow** — on successful submission, scroll to a new thank-you section that covers: (a) what happens next, (b) expected timeline, (c) delivery channel, (d) one recommended next action | Dead-end post-signup is the second-biggest conversion leak. Strengthening this retains the lead's attention and sets expectations. | Nothing | 1 hr |
+| 3 | **Build the "Why This Is Different" section** — new named on-page section between proof and ecosystem with a dedicated `id`, heading, and 4 differentiation statements drawn from the existing "instead of" copy | Differentiation is the site's strongest copy but it's buried. A visible, scannable section converts sceptics before they hit the authority sequence. | Nothing | 1.5 hrs |
 | 4 | **Add pricing expectation signal** — "Early access is free. Planner pricing announced at launch." in FAQ and join section | Removes value ambiguity. Visitors need to know this isn't a bait-and-switch. | Owner: confirm messaging | 15 min |
-| 5 | **Consolidate differentiation block** — gather scattered "instead of" statements into a single "Why this is different" section between proof and ecosystem | Makes the strongest copy on the site visible in one place instead of buried. | Nothing | 1 hr |
+| 5 | **Install analytics** (Plausible or Fathom, privacy-first) | Now that the two biggest conversion changes (post-demo CTA, thank-you flow) are live, analytics measures their impact. If provider choice delays this, items 1-4 still ship. | Owner: provider choice | 30 min |
 | 6 | **Add FAQ schema markup** (FAQPage structured data) | Zero-effort SEO win. 6 Q&As already exist in HTML, just need `<script type="application/ld+json">` wrapper. | Nothing | 20 min |
 | 7 | **Increase slider touch targets** — thumb size from 18px to 44px on mobile via CSS media query | Removes the only measurable mobile conversion friction point. The demo is the best sales tool. | Nothing | 20 min |
 | 8 | **Add `prefers-reduced-motion` verification** — confirm CSS query disables all 4 keyframes, JS check gates all GSAP timelines | Accessibility compliance. Failing this loses motion-sensitive users and is a WCAG violation. | Nothing | 30 min |
@@ -30,27 +30,30 @@
 ## Dependencies Summary
 
 ### Needs owner input
-- **Item 1** — analytics provider choice (Plausible recommended for privacy alignment)
 - **Item 4** — pricing language approval
+- **Item 5** — analytics provider choice (Plausible recommended for privacy alignment)
 - **Item 9** — founder photo and bio copy
 - **Item 10** — real testimonials from beta users
 
 ### Can execute immediately (developer track)
-Items 2, 3, 5, 6, 7, 8, 11, 12, 13, 14, 15 — all code changes, no external dependencies.
+Items 1, 2, 3, 6, 7, 8, 11, 12, 13, 14, 15 — all code changes, no external dependencies.
 
 ### Recommended parallel tracks
 
 **Track A (developer, no blockers):**
 ```
-2 → 3 → 5 → 6 → 7 → 8 → 11 → 12 → 13 → 14 → 15
+1 → 2 → 3 → 6 → 7 → 8 → 11 → 12 → 13 → 14 → 15
 ```
-Estimated total: ~9.5 hours of focused development
+Estimated total: ~10 hours of focused development
 
 **Track B (owner decisions, then developer implements):**
 ```
-1 (analytics choice) → 4 (pricing language) → 9 (bio/photo) → 10 (testimonials)
+4 (pricing language) → 5 (analytics choice) → 9 (bio/photo) → 10 (testimonials)
 ```
 Owner lead time is the bottleneck. Developer implementation is ~3 hours once content is provided.
+
+### Key change from previous revision
+Post-demo CTA (#1), thank-you flow (#2), and differentiation section (#3) are all unblocked and ship before analytics. If the owner's provider decision delays analytics, the three highest-impact conversion changes are already live.
 
 ---
 
@@ -58,9 +61,9 @@ Owner lead time is the bottleneck. Developer implementation is ~3 hours once con
 
 | Track | Items | Dev Time | Owner Time |
 |-------|-------|----------|------------|
-| A (unblocked) | 2,3,5,6,7,8,11-15 | ~9.5 hrs | None |
-| B (blocked) | 1,4,9,10 | ~3 hrs | Variable (content collection) |
-| **Total** | **15** | **~12.5 hrs** | **Owner decision + content** |
+| A (unblocked) | 1,2,3,6,7,8,11-15 | ~10 hrs | None |
+| B (blocked) | 4,5,9,10 | ~3 hrs | Variable (content collection) |
+| **Total** | **15** | **~13 hrs** | **Owner decision + content** |
 
 ---
 

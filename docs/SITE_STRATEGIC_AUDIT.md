@@ -107,7 +107,7 @@ No product pricing, no tier comparison, no "pricing TBA" language, no value anch
 **Gap: Differentiation is scattered.**
 The 8+ "instead of" statements are spread across ecosystem, blueprint, chains, mastery, and FAQ sections. A visitor evaluating the product on the first visit is unlikely to read deep enough to encounter most of them.
 
-**Recommendation:** Consolidate the strongest 3-4 "instead of" statements into a single "Why this is different" block positioned between proof and ecosystem — where a skeptical visitor is deciding whether to keep scrolling.
+**Recommendation:** Build a new named on-page section — "Why This Is Different" (`id="different"`) — positioned between proof and ecosystem. This is not copy consolidation; it's a first-class section with its own heading, 4 differentiation cards, registration in the JS `sections` array and the nav. The strongest 4 "instead of" statements should be rewritten as scannable, visitor-facing cards. The original scattered statements stay where they are for in-context reinforcement; this section presents them where a sceptical visitor is deciding whether to keep scrolling.
 
 ---
 
@@ -144,7 +144,14 @@ Authority is entirely system-centric. Domain expertise is implied through BJJ te
 
 **Risk:** The signup feels like a dead end. A visitor who trusted the site enough to submit their email gets a flat text confirmation with no sense of what they just joined or when they'll hear back.
 
-**Recommendation:** Replace the inline message with a scroll to a thank-you section containing: confirmation, expected timeline, what to expect in their inbox, and a share prompt.
+**Requirement:** The post-signup experience must cover exactly 4 things:
+
+1. **What happens next** — "You're on the early access list. Here's what that means." Confirm the action, name the list, make it feel real.
+2. **Timeline expectation** — "The full Planner launches [quarter/year]. You'll hear from us before anyone else." Give a window, even if approximate. Uncertainty is fine; silence is not.
+3. **Delivery channel** — "Watch your inbox at [submitted email]. That's where launch details and your access link will arrive." Name the channel so the lead knows where to look and can whitelist if needed.
+4. **One recommended next action** — "While you wait: try the demo above with a different persona and see how the scoring changes." Keep them on-site, deepen engagement, and reinforce the product's value. Do not send them away.
+
+**Implementation:** Replace the inline "Thanks" text with a scroll or reveal to a thank-you section that presents all 4 items. This can be a hidden section that becomes visible on successful submission, or a smooth scroll to a dedicated block below the form.
 
 ---
 
