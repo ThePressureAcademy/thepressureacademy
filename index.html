@@ -1869,9 +1869,34 @@
     }
     .footer-end {
       margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.82rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px 16px;
     }
+    .footer-legal a {
+      color: var(--muted-2);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .footer-legal a:hover { color: var(--cream, #FFF8F0); }
+    .form-privacy {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: var(--muted-2);
+      text-align: center;
+    }
+    .form-privacy a {
+      color: var(--rust-2, var(--rust-light, #D4915C));
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .form-privacy a:hover { color: var(--cream, #FFF8F0); }
 
     .reveal { opacity: 0; transform: translateY(22px); }
 
@@ -2523,6 +2548,7 @@
 <input id="post-demo-email" name="email" type="email" required placeholder="Your best email" autocomplete="email" aria-label="Email address for Planner early access" style="padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--cream); font-size: 1rem; width: 100%;"/>
 <button type="submit" class="btn" style="width: 100%; justify-content: center;">Join the Early Access List</button>
 <div aria-live="polite" class="form-status" style="text-align: center; margin-top: 4px;"></div>
+<p class="form-privacy">By joining, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
 </form>
 <div class="thankyou-panel" aria-live="polite">
 <h3>You're on the list.</h3>
@@ -2904,6 +2930,7 @@
 <input id="planner-email" name="email" type="email" required placeholder="Your best email" autocomplete="email" aria-label="Email address for Planner early access" style="padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); color: var(--cream); font-size: 1rem; width: 100%;"/>
 <button type="submit" class="btn" style="width: 100%; justify-content: center;">Join the Early Access List</button>
 <div id="planner-form-status" aria-live="polite" class="form-status" style="text-align: center; margin-top: 4px;"></div>
+<p class="form-privacy">By joining, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
 </form>
 <div class="thankyou-panel" aria-live="polite">
 <h3>You're on the list.</h3>
@@ -2954,11 +2981,10 @@
 <a data-scroll="" href="#ecosystem">The System</a>
 <a data-scroll="" href="#blueprint">Pressure Blueprint</a>
 <a data-scroll="" href="#mastery">Mastery Method</a>
-<a href="privacy-policy.html">Privacy Policy</a>
 </div>
 </div>
 </div>
-<div class="footer-end">© 2026 The Pressure Academy. All rights reserved.</div>
+<div class="footer-end"><span>© 2026 The Pressure Academy. All rights reserved.</span><span class="footer-legal"><a href="privacy-policy.html">Privacy Policy</a></span></div>
 </div>
 </footer>
 <script>
