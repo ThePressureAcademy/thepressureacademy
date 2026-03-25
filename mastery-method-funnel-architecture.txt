@@ -1,0 +1,438 @@
+================================================================
+MASTERY METHOD — FULL FUNNEL ARCHITECTURE
+"The Clarity Funnel"
+================================================================
+Status: READY TO BUILD
+Date: March 2026
+
+================================================================
+FUNNEL OVERVIEW
+================================================================
+
+STAGE 1 — AD (Social Media Reel)
+  Kirsty talks about "The Homework War"
+  Hook: authentic pain recognition
+  CTA: "Comment CLARITY for my free scorecard"
+  Platform: Instagram Reels, Facebook Reels, TikTok
+
+STAGE 2 — LEAD MAGNET (The Clarity Scorecard)
+  Interactive 16-question assessment
+  4 pillars x 4 questions (sliders + multiple choice)
+  Email capture before results
+  Personalised clarity profile with scores
+  CTA: "Start with a free Clarity Call"
+  Hosted at: thepressureacademy.com/mastery-method/scorecard
+
+STAGE 3 — NURTURE (3-Email Sequence)
+  Sent over 5 days after scorecard completion
+  Each email builds authority on one aspect of the system
+  Drives toward the Clarity Call
+
+STAGE 4 — OFFER (Clarity Call)
+  Free 15-20 min conversation with Kirsty
+  Pre-qualified by scorecard + nurture
+  Kirsty recommends Clarity Assessment
+  
+STAGE 5 — CONVERSION (Clarity Assessment → Clarity Pathway)
+  Assessment: $197 one-time
+  Produces first Teaching Blueprint
+  Natural entry into Clarity Pathway: $127/mo
+
+STAGE 6 — CLOSE (Welcome Video)
+  Sent immediately after Assessment payment
+  Emotional anchor from Kirsty
+  Sets expectations for the Clarity Pathway
+
+================================================================
+FUNNEL MATH (CONSERVATIVE)
+================================================================
+
+Per reel cycle (1 reel, 1 week):
+
+  Reel views:               1,000 - 5,000
+  Comments ("CLARITY"):     20 - 100 (2-5% engagement)
+  Scorecard completions:    15 - 70 (75% of commenters)
+  Email captured:           12 - 55 (80% of completers)
+  Clarity Call booked:      3 - 12 (25% of email list)
+  Assessment purchased:     2 - 8 (65% of call attendees)
+  Pathway enrolled:         2 - 6 (75% of assessment)
+
+Conservative monthly (4 reels):
+  Emails captured: 48 - 220
+  Calls booked: 12 - 48
+  Assessments: 8 - 32
+  Pathway enrollments: 6 - 24
+
+Revenue per month (steady state after 3 months):
+  Assessments: 8-32 x $197 = $1,576 - $6,304
+  Pathways: 18-72 active x $127 = $2,286 - $9,144
+  Total: $3,862 - $15,448/mo
+
+Kirsty's capacity constraint:
+  Monthly check-in calls: 15-20 min each
+  At 20 families: ~6 hours/month of calls
+  At 40 families: ~12 hours/month of calls
+  Weekly activity creation: batch-producible
+  Blueprint updates: 15-20 min per family per month
+
+Sweet spot: 15-25 active Pathway families
+  = $1,905 - $3,175/mo Pathway revenue
+  = ~5-8 hours/month check-in calls
+  = manageable for one person
+
+================================================================
+STAGE 1 — REEL SCRIPTS
+================================================================
+
+See: mastery-method-reel-scripts.txt (already created)
+
+Primary reel: "The Kitchen Table Moment"
+  Hook: "If your child can explain something perfectly at the 
+  kitchen table but then the understanding disappears..."
+  CTA: Comment CLARITY
+
+Secondary reels rotate:
+  - "The Homework Battle" (pain point)
+  - "The Tutoring Trap" (pattern interrupt)
+
+DM automation message (ManyChat):
+  "Hey [name]! Here's your free Clarity Scorecard — 
+  16 quick questions to understand where your child's 
+  learning clarity gaps are.
+  
+  [LINK TO SCORECARD]
+  
+  Takes 3 minutes. Results are instant.
+  — Kirsty"
+
+================================================================
+STAGE 2 — CLARITY SCORECARD
+================================================================
+
+See: mastery-method-clarity-scorecard.html (already created)
+
+Architecture:
+  - 16 questions: 4 per pillar
+  - Mix of sliders (1-10) and multiple choice
+  - Progress bar tracks completion
+  - Email capture BEFORE results (gate)
+  - Personalised results:
+    - Total score out of 100
+    - Per-pillar score out of 25
+    - Level label (Strong / Developing / Significant / Critical)
+    - Weakest pillar identified
+    - Specific insight paragraph
+    - CTA: Start with a Clarity Call
+
+Data captured:
+  - Email address
+  - Total score
+  - Per-pillar scores
+  - Weakest pillar
+  
+This data is GOLD for Kirsty. Before the Clarity Call,
+she already knows:
+  - What the parent is worried about
+  - Which pillar is weakest
+  - How severe the parent perceives the problem
+
+================================================================
+STAGE 3 — 3-EMAIL NURTURE SEQUENCE
+================================================================
+
+Timing: Sent over 5 days after scorecard completion
+Tool: Mailchimp, ConvertKit, or similar
+Sender: Kirsty <kirsty@thepressureacademy.com>
+
+--------------------------------------------------
+EMAIL 1 — Day 1 (immediate follow-up)
+Subject: Your child's clarity profile — what it means
+--------------------------------------------------
+
+Hi [name],
+
+Thank you for completing the Clarity Scorecard. Here's
+what your results are telling me.
+
+Your child scored [total]/100 overall, with the biggest
+gap in [weakest pillar].
+
+I see this pattern regularly. A child who scores low in
+[weakest pillar] often looks like they're [brief description
+of visible behaviour]. Parents tell me they feel frustrated
+because they can see their child is capable — but something
+keeps getting in the way.
+
+That something has a name. It's a clarity gap.
+
+Over the next few days, I'm going to send you two more
+emails that explain how the Clarity Framework works —
+and why it changes things that tutoring hasn't been able to.
+
+For now, one thing you can try tonight:
+
+[ONE PRACTICAL TIP BASED ON WEAKEST PILLAR — pulled from
+the lead magnet content]
+
+Talk soon,
+Kirsty
+
+P.S. If you'd rather not wait, you can book a free Clarity
+Call and we'll talk through your child's profile together:
+[LINK TO BOOK PAGE]
+
+--------------------------------------------------
+EMAIL 2 — Day 3 (educational authority)
+Subject: Why more tutoring isn't the answer
+--------------------------------------------------
+
+Hi [name],
+
+Most parents I talk to have already tried tutoring.
+Often more than once. And it helped — a bit. But the
+progress didn't stick. Sound familiar?
+
+Here's why.
+
+Traditional tutoring re-teaches content. It assumes the
+child missed something in class and needs it explained
+again. That works when the problem is a content gap.
+
+But for most children I work with, the problem isn't
+content. It's clarity.
+
+Specifically, it's one or more of four things:
+
+1. CLARITY OF THINKING
+Can they break a question down before they start?
+
+2. CLARITY OF COMMUNICATION
+Can they turn understanding into written or spoken language?
+
+3. CLARITY OF LEARNING
+Do they know what success looks like and how to use feedback?
+
+4. CLARITY OF ACTION
+Can they start, sustain, and finish work independently?
+
+These four pillars sit beneath every subject. They're the
+skills that make Maths, English, Science — everything —
+more accessible. And they're what the Clarity Assessment
+is designed to identify.
+
+Your child's scorecard showed [weakest pillar] as the
+biggest gap. That's not a diagnosis — it's a direction.
+It tells us where to look first.
+
+Tomorrow I'll explain how the Clarity Assessment turns
+that direction into a practical plan your family can
+actually use.
+
+Kirsty
+
+P.S. If you're ready to talk now:
+[LINK TO BOOK PAGE]
+
+--------------------------------------------------
+EMAIL 3 — Day 5 (the system, the offer)
+Subject: What families actually get from Mastery Method
+--------------------------------------------------
+
+Hi [name],
+
+Over the last few days I've talked about the clarity gap
+and why it matters. Today I want to show you what support
+actually looks like — because "tutoring" and "Mastery
+Method" are genuinely different things.
+
+Here's how it works:
+
+STEP 1: CLARITY CALL (free)
+A 15-20 minute conversation where I listen to what's
+happening for your child and help you understand whether
+Mastery Method is the right fit. No pressure. No pitch.
+
+STEP 2: CLARITY ASSESSMENT ($197, one-time)
+A structured diagnostic across all four pillars. I identify
+exactly where your child gets stuck and why. This produces
+your family's first Teaching Blueprint — a personalised
+guide to what your child needs and how to help at home.
+
+STEP 3: CLARITY PATHWAY ($127/month)
+Your Teaching Blueprint stays current. You get a monthly
+check-in call with me. You receive weekly home activities
+aligned to your child's clarity profile. And you have
+access to a growing parent resource library.
+
+This is not paying for more sessions. It's gaining a
+system — one that gives your family clarity, visibility,
+and the confidence to support learning at home.
+
+The goal is for your family to become more capable over
+time. Not more dependent on me.
+
+If your scorecard results made you think "that's my child,"
+the next step is a free Clarity Call. We'll talk about what
+you're seeing, what the scores might mean, and whether this
+is the right path for your family.
+
+[BUTTON: Start with a Clarity Call]
+thepressureacademy.com/mastery-method/book
+
+No obligation. Just clarity.
+
+Kirsty
+
+================================================================
+STAGE 4 — CLARITY CALL
+================================================================
+
+By the time the parent reaches the Clarity Call, they have:
+  1. Watched a reel that named their child's pattern
+  2. Completed a scorecard that gave them a clarity profile
+  3. Read 3 emails explaining the framework and the system
+  4. Self-identified their child's weakest pillar
+
+Kirsty's job on the call is NOT to re-explain the system.
+It's to:
+  - Listen to the parent's specific situation
+  - Reference their scorecard results
+  - Validate what they're experiencing
+  - Recommend the Clarity Assessment as the next step
+  - Answer questions about what the Assessment produces
+
+This is a 15-20 minute conversation, not a sales pitch.
+The parent is already warm. The scorecard did the selling.
+
+================================================================
+STAGE 5 — CONVERSION
+================================================================
+
+Clarity Assessment: $197 one-time
+  - Produces the first Teaching Blueprint
+  - Natural transition: "Your blueprint needs to stay
+    current as your child progresses. That's what the
+    Clarity Pathway does."
+
+Clarity Pathway: $127/month
+  - Introduced AFTER the Assessment, not before
+  - Framed as continuity, not an upsell
+  - "The Assessment showed us where your child is. The
+    Pathway keeps that blueprint current and gives you
+    guided support at home every week."
+
+Targeted 1:1 Sessions: $97/session
+  - Mentioned only if Kirsty identifies specific gaps
+    that need direct teacher-led work
+  - Never bundled into the Pathway
+  - "Some children benefit from focused 1:1 work on a
+    specific pillar. I'll let you know if I think that's
+    the case for your child."
+
+================================================================
+STAGE 6 — CLOSE (Welcome Video)
+================================================================
+
+Trigger: Sent immediately after Assessment payment
+Format: Short video (60-90 seconds) from Kirsty
+Delivery: Email with embedded video or hosted link
+
+SCRIPT FRAMEWORK:
+
+"Hi [name],
+
+I just wanted to personally welcome you and [child's name]
+to Mastery Method.
+
+I've received your Assessment details and I'm already
+looking forward to working through the clarity pillars
+with your family.
+
+Here's what happens next:
+
+[Explain the Assessment process — when it happens,
+what the parent will receive, timeline for the
+Teaching Blueprint]
+
+You've made a really clear decision for your family today.
+And I want you to know — this is designed to make things
+feel calmer and clearer. Not harder.
+
+I'll be in touch soon with your Assessment booking.
+
+Speak soon,
+Kirsty"
+
+TONE: Warm, personal, calm. NOT corporate onboarding.
+The parent should feel: "I made the right choice."
+
+================================================================
+TECH STACK REQUIREMENTS
+================================================================
+
+Minimum viable:
+  - Instagram business account (for reels + DM automation)
+  - ManyChat free tier (for comment-to-DM automation)
+  - Scorecard: hosted HTML page on Vercel
+  - Email: ConvertKit free tier (up to 1,000 subscribers)
+  - Booking: existing Formspree or Calendly
+  - Payment: Stripe or Square invoice
+  - Welcome video: Loom (free) emailed manually
+
+Future:
+  - ManyChat paid for advanced flows
+  - ConvertKit paid for automation + segmentation
+  - Scorecard data piped to a dashboard
+  - Stripe checkout embedded in booking page
+  - Welcome video auto-sent via ConvertKit
+
+================================================================
+IMPLEMENTATION ORDER
+================================================================
+
+Week 1:
+  □ Film Reel 1 (Kitchen Table Moment)
+  □ Set up ManyChat on Instagram
+  □ Host Clarity Scorecard on Vercel
+  □ Set up ConvertKit with 3-email sequence
+  □ Test full flow: comment → DM → scorecard → email → call
+
+Week 2:
+  □ Publish Reel 1
+  □ Monitor comments, DMs, scorecard completions
+  □ Film Reel 2 (Homework Battle)
+  □ Record welcome video
+
+Week 3:
+  □ Publish Reel 2
+  □ Review scorecard data — which pillar scores lowest?
+  □ Book first Clarity Calls from funnel leads
+  □ Film Reel 3 (Tutoring Trap)
+
+Week 4:
+  □ Publish Reel 3
+  □ First Assessments from funnel leads
+  □ First Pathway enrollments
+  □ Review funnel metrics: comment rate, completion rate,
+    email capture rate, call booking rate, conversion rate
+
+================================================================
+KEY METRICS TO TRACK
+================================================================
+
+  Reel → Comment rate:     target 2-5%
+  Comment → Scorecard:     target 70-80%
+  Scorecard → Email:       target 75-85%
+  Email → Call booked:     target 20-30%
+  Call → Assessment:       target 60-70%
+  Assessment → Pathway:    target 70-80%
+
+Overall funnel:
+  1,000 reel views → 3-6 Pathway families (0.3-0.6%)
+  
+That's a good funnel. Most tutoring businesses convert
+at 0.1% or less from cold traffic.
+
+================================================================
+END
+================================================================
