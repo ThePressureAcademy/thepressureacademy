@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs — Mastery Method | The Pressure Academy</title>
+<meta name="description" content="Understand exactly what Mastery Method offers: Clarity Call, Clarity Assessment, Clarity Pathway, and Targeted 1:1 Sessions. A clear system, not a confusing menu.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+  :root{--rust:#C45B28;--rust-deep:#9A4620;--rust-light:#D4916F;--rust-wash:#FAF0EB;--teal:#4A9B8E;--teal-wash:#EBF5F3;--teal-deep:#3A7D72;--amber:#E8A838;--amber-wash:#FDF5E6;--violet:#8B6AAE;--violet-wash:#F3EFF7;--rose:#D4726A;--ink:#2C2C38;--ink-soft:#4A4A58;--ink-muted:#7A7A8A;--cream:#FAF8F5;--cream-deep:#F2EDE6;--white:#FFFFFF;--sage-wash:#EFF5F1;--sage-deep:#4A6B58;--radius:10px;--radius-lg:16px;--shadow-soft:0 2px 16px rgba(44,44,56,.05);--shadow-card:0 4px 24px rgba(44,44,56,.07);--shadow-lift:0 8px 32px rgba(44,44,56,.1);--max-w:1080px;--section-pad:clamp(56px,8vw,100px)}
+  *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Outfit',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .eyebrow{font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;display:block;font-weight:500}
+  .section-heading{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:500;line-height:1.25;margin-bottom:16px}
+  .topbar-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:300;display:block;margin-top:-2px}.topbar-cta:hover{background:var(--rust-deep)}
+  .breadcrumb{max-width:var(--max-w);margin:0 auto;padding:8px 24px;font-size:.75rem;color:var(--ink-muted)}.breadcrumb a{color:var(--ink-muted);text-decoration:none}.breadcrumb a:hover{color:var(--rust)}
+  .page-hero{padding:48px 24px 24px;max-width:var(--max-w);margin:0 auto}.page-hero h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;line-height:1.2;margin-bottom:20px;max-width:700px}.page-hero h1 em{font-style:italic;color:var(--rust)}.page-hero .lead{font-size:1.05rem;color:var(--ink-muted);line-height:1.85;font-weight:300;max-width:620px}
+
+  /* ── OVERVIEW STEPS ── */
+  .overview{padding:var(--section-pad) 24px;background:var(--white)}.overview-inner{max-width:var(--max-w);margin:0 auto}.overview-intro{max-width:600px;margin-bottom:48px}.overview-intro p{font-size:1rem;color:var(--ink-muted);line-height:1.8;font-weight:300;margin-top:12px}
+  .ov-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .ov-step{text-align:center;position:relative}
+  .ov-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;color:var(--white)}
+  .ov-step:nth-child(1) .ov-num{background:var(--rust)}.ov-step:nth-child(2) .ov-num{background:var(--teal)}.ov-step:nth-child(3) .ov-num{background:var(--amber)}.ov-step:nth-child(4) .ov-num{background:var(--violet)}
+  .ov-step h3{font-family:'Fraunces',Georgia,serif;font-size:.92rem;font-weight:500;margin-bottom:4px}.ov-step p{font-size:.78rem;color:var(--ink-muted);font-weight:300}
+  .ov-tag{display:inline-block;font-size:.58rem;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:50px;font-weight:500;margin-top:6px}
+  .ov-step:nth-child(1) .ov-tag{background:var(--rust-wash);color:var(--rust)}.ov-step:nth-child(2) .ov-tag{background:var(--teal-wash);color:var(--teal-deep)}.ov-step:nth-child(3) .ov-tag{background:var(--amber-wash);color:#946A20}.ov-step:nth-child(4) .ov-tag{background:var(--violet-wash);color:var(--violet)}
+
+  /* ── OFFER CARDS ── */
+  .offers{padding:var(--section-pad) 24px}.offers-inner{max-width:var(--max-w);margin:0 auto;display:grid;gap:24px}
+  .offer-card{background:var(--white);border-radius:var(--radius-lg);padding:36px 32px;box-shadow:var(--shadow-card);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;position:relative;overflow:hidden}
+  .offer-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px}
+  .offer-card:nth-child(1)::before{background:var(--rust)}.offer-card:nth-child(2)::before{background:var(--teal)}.offer-card:nth-child(3)::before{background:var(--amber)}.offer-card:nth-child(4)::before{background:var(--violet)}
+  .offer-left h3{font-family:'Fraunces',Georgia,serif;font-size:1.25rem;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .offer-tag{font-size:.6rem;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:50px;font-weight:500}
+  .offer-card:nth-child(1) .offer-tag{background:var(--rust-wash);color:var(--rust)}.offer-card:nth-child(2) .offer-tag{background:var(--teal-wash);color:var(--teal-deep)}.offer-card:nth-child(3) .offer-tag{background:var(--amber-wash);color:#946A20}.offer-card:nth-child(4) .offer-tag{background:var(--violet-wash);color:var(--violet)}
+  .offer-who{font-size:.88rem;color:var(--ink-muted);line-height:1.7;font-weight:300;margin-bottom:16px;font-style:italic;font-family:'Fraunces',Georgia,serif}
+  .offer-desc{font-size:.9rem;color:var(--ink-soft);line-height:1.75;font-weight:300}
+  .offer-desc strong{color:var(--ink);font-weight:500}
+  .offer-right h4{font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-bottom:12px;color:var(--ink)}
+  .offer-includes{list-style:none;margin-bottom:20px}
+  .offer-includes li{font-size:.84rem;color:var(--ink-soft);line-height:1.6;padding:6px 0 6px 22px;position:relative;font-weight:300;border-bottom:1px solid rgba(44,44,56,.03)}
+  .offer-includes li:last-child{border-bottom:none}
+  .offer-includes li::before{content:'';position:absolute;left:0;top:12px;width:8px;height:8px;border-radius:50%;opacity:.4}
+  .offer-card:nth-child(1) .offer-includes li::before{background:var(--rust)}.offer-card:nth-child(2) .offer-includes li::before{background:var(--teal)}.offer-card:nth-child(3) .offer-includes li::before{background:var(--amber)}.offer-card:nth-child(4) .offer-includes li::before{background:var(--violet)}
+  .offer-next{font-size:.82rem;color:var(--ink-muted);font-weight:300;padding-top:12px;border-top:1px solid rgba(44,44,56,.06)}
+  .offer-next strong{color:var(--ink);font-weight:500}
+  .offer-cta{display:inline-flex;align-items:center;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:500;padding:11px 22px;border-radius:50px;text-decoration:none;transition:all .25s;margin-top:16px}
+  .offer-card:nth-child(1) .offer-cta,.offer-card:nth-child(3) .offer-cta{background:var(--rust);color:var(--white)}.offer-card:nth-child(1) .offer-cta:hover,.offer-card:nth-child(3) .offer-cta:hover{background:var(--rust-deep)}
+  .offer-card:nth-child(2) .offer-cta{background:var(--teal);color:var(--white)}.offer-card:nth-child(2) .offer-cta:hover{background:var(--teal-deep)}
+  .offer-card:nth-child(4) .offer-cta{background:transparent;color:var(--ink);border:1.5px solid rgba(44,44,56,.12)}.offer-card:nth-child(4) .offer-cta:hover{border-color:rgba(44,44,56,.25)}
+
+  /* ── MOST FAMILIES ── */
+  .most-families{padding:var(--section-pad) 24px;background:var(--white)}.mf-inner{max-width:720px;margin:0 auto;text-align:center}
+  .mf-inner h2{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:500;margin-bottom:16px}
+  .mf-inner p{font-size:.95rem;color:var(--ink-soft);line-height:1.8;font-weight:300;margin-bottom:12px}
+  .mf-path{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .mf-step{padding:10px 18px;border-radius:50px;font-size:.82rem;font-weight:500}
+  .mf-step:nth-child(1){background:var(--rust-wash);color:var(--rust)}.mf-step:nth-child(3){background:var(--teal-wash);color:var(--teal-deep)}.mf-step:nth-child(5){background:var(--amber-wash);color:#946A20}
+  .mf-arrow{color:var(--ink-muted);opacity:.3;font-size:.75rem}
+
+  /* ── PATHWAY vs TUTORING ── */
+  .pvt{padding:var(--section-pad) 24px}
+  .pvt-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .pvt-intro{grid-column:1/-1;max-width:600px;margin-bottom:24px}
+  .pvt-intro p{font-size:1rem;color:var(--ink-muted);line-height:1.8;font-weight:300;margin-top:12px}
+  .pvt-card{border-radius:var(--radius-lg);padding:28px 24px}
+  .pvt-card.old{background:var(--cream-deep);border:1px solid rgba(44,44,56,.04)}
+  .pvt-card.new{background:var(--teal-wash);border:1px solid rgba(74,155,142,.12)}
+  .pvt-label{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+  .pvt-card.old .pvt-label{color:var(--ink-muted)}.pvt-card.new .pvt-label{color:var(--teal-deep)}
+  .pvt-card h3{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:500;margin-bottom:14px}
+  .pvt-list{list-style:none}.pvt-list li{font-size:.85rem;line-height:1.6;padding:7px 0 7px 24px;position:relative;font-weight:300;border-bottom:1px solid rgba(44,44,56,.04)}.pvt-list li:last-child{border-bottom:none}
+  .pvt-card.old .pvt-list li{color:var(--ink-muted)}.pvt-card.old .pvt-list li::before{content:'—';position:absolute;left:0;top:7px;color:var(--ink-muted);opacity:.3}
+  .pvt-card.new .pvt-list li{color:var(--ink-soft)}.pvt-card.new .pvt-list li::before{content:'';position:absolute;left:0;top:13px;width:8px;height:8px;border-radius:50%;background:var(--teal);opacity:.4}
+
+  /* ── FAQ ── */
+  .faq{padding:var(--section-pad) 24px;background:var(--white)}
+  .faq-inner{max-width:720px;margin:0 auto}
+  .faq-intro{margin-bottom:40px}.faq-intro p{font-size:1rem;color:var(--ink-muted);line-height:1.8;font-weight:300;margin-top:12px}
+  .faq-item{border-bottom:1px solid rgba(44,44,56,.06)}
+  .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-size:.93rem;font-weight:500;color:var(--ink);text-align:left;line-height:1.5;gap:16px}
+  .faq-q:hover{color:var(--rust)}
+  .faq-icon{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:rgba(44,44,56,.04);display:flex;align-items:center;justify-content:center;transition:transform .3s,background .3s}
+  .faq-icon svg{width:12px;height:12px;stroke:var(--ink-muted);fill:none;stroke-width:2;stroke-linecap:round}
+  .faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(196,91,40,.08)}.faq-item.open .faq-icon svg{stroke:var(--rust)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+  .faq-item.open .faq-a{max-height:400px;padding-bottom:22px}
+  .faq-a p{font-size:.86rem;color:var(--ink-muted);line-height:1.75;font-weight:300}
+
+  /* ── CTA ── */
+  .page-cta{padding:var(--section-pad) 24px;background:var(--ink);color:var(--white);text-align:center;position:relative;overflow:hidden}
+  .page-cta::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(ellipse,rgba(196,91,40,.07) 0%,transparent 60%);pointer-events:none}
+  .page-cta-inner{max-width:580px;margin:0 auto;position:relative;z-index:1}
+  .page-cta h2{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:400;margin-bottom:16px;line-height:1.25}.page-cta h2 em{font-style:italic;color:var(--rust-light)}
+  .page-cta p{font-size:.95rem;color:rgba(255,255,255,.5);margin-bottom:32px;font-weight:300;line-height:1.75}
+  .page-cta .btn-p{display:inline-flex;align-items:center;font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:500;padding:14px 28px;border-radius:50px;background:var(--rust);color:var(--white);text-decoration:none;transition:all .25s;border:none;cursor:pointer}.page-cta .btn-p:hover{background:var(--rust-deep);transform:translateY(-1px)}
+  .page-cta .reassurance{margin-top:24px;font-size:.73rem;color:rgba(255,255,255,.25);font-weight:300}
+
+  .footer{padding:40px 24px;text-align:center;font-size:.73rem;color:var(--ink-muted);font-weight:300}.footer a{color:var(--ink-muted);text-decoration:none}.footer a:hover{color:var(--rust)}
+  @media(max-width:768px){.ov-flow{grid-template-columns:1fr 1fr;gap:24px}.offer-card{grid-template-columns:1fr}.pvt-inner{grid-template-columns:1fr}.mf-path{flex-direction:column}.mf-arrow{transform:rotate(90deg)}}
+  @media(max-width:480px){.ov-flow{grid-template-columns:1fr}}
+
+  /* ══ SHARED NAV ══ */
+  .site-header{border-bottom:1px solid rgba(44,44,56,.04)}
+  
+  
+  .topbar-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:300;display:block;margin-top:-2px}
+  .topbar-cta:hover{background:var(--rust-deep)}
+  
+  
+  /* ══ SHARED FOOTER ══ */
+  .site-footer{background:var(--ink);color:var(--white);padding:56px 24px 32px}
+  .footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .footer-brand-name{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;margin-bottom:6px}
+  .footer-tagline{font-size:.82rem;color:rgba(255,255,255,.4);font-weight:300;font-style:italic;font-family:'Fraunces',Georgia,serif;margin-bottom:16px}
+  .footer-desc{font-size:.78rem;color:rgba(255,255,255,.3);font-weight:300;line-height:1.7;max-width:300px}
+  .footer-col h4{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;font-weight:500}
+  .footer-col a{display:block;font-size:.82rem;color:rgba(255,255,255,.55);text-decoration:none;padding:3px 0;transition:color .2s;font-weight:300}.footer-col a:hover{color:var(--white)}
+  .footer-bottom{max-width:var(--max-w);margin:0 auto;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .footer-copy{font-size:.7rem;color:rgba(255,255,255,.2);font-weight:300}.footer-copy a{color:rgba(255,255,255,.3);text-decoration:none}.footer-copy a:hover{color:rgba(255,255,255,.5)}
+  .footer-legal{font-size:.65rem;color:rgba(255,255,255,.15);font-weight:300}
+  @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:24px}}
+
+  /* NAV */
+  .site-nav{border-bottom:1px solid rgba(44,44,56,.04);background:rgba(250,248,245,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+  .nav-inner{max-width:var(--max-w);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex-shrink:0}.nav-mark{height:30px}
+  .nav-wm{font-family:'DM Serif Display',Georgia,serif;font-size:1rem}.nav-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:300;display:block;margin-top:-2px}
+  .nav-links{display:flex;align-items:center;gap:4px}
+  .nav-link{font-size:.78rem;font-weight:400;color:var(--ink-muted);text-decoration:none;padding:6px 12px;border-radius:50px;transition:all .2s}.nav-link:hover{color:var(--ink);background:rgba(44,44,56,.03)}.nav-link.active{color:var(--ink);font-weight:500}
+  .nav-cta{font-size:.78rem;font-weight:500;padding:8px 18px;border-radius:50px;background:var(--rust);color:var(--white);text-decoration:none;transition:all .25s;flex-shrink:0}.nav-cta:hover{background:var(--rust-deep)}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}.nav-toggle svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round}
+  @media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:1px solid rgba(44,44,56,.06);flex-direction:column;padding:12px 24px;gap:2px}.nav-links.open{display:flex}.nav-link{padding:10px 12px;width:100%}.nav-toggle{display:block}}
+</style>
+</head>
+<body data-section="mastery-method">
+
+<nav class="site-nav"><div class="nav-inner">
+  <a href="/mastery-method" class="nav-brand"><svg class="nav-mark" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="4" width="56" height="7" rx="3.5" fill="#C45B28"/><rect x="22" y="119" width="56" height="7" rx="3.5" fill="#C45B28"/><line x1="50" y1="11" x2="50" y2="32" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><line x1="50" y1="98" x2="50" y2="119" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><path d="M50 32 C56 34,64 38,70 44 C74 48,78 54,80 60 Q82 65,80 70 C78 76,74 82,70 86 C64 92,56 96,50 98 C44 96,36 92,30 86 C26 82,22 76,20 70 Q18 65,20 60 C22 54,26 48,30 44 C36 38,44 34,50 32Z" fill="none" stroke="#C45B28" stroke-width="5"/><path d="M62 38 C68 36,76 40,78 48 C80 52,82 58,80 62" fill="none" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><path d="M22 58 C18 62,20 72,26 78" fill="none" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><polygon points="24,63 30,58 30,68" fill="#C45B28"/><g stroke="#D38F5C" stroke-width="2" stroke-opacity=".55" fill="none"><line x1="50" y1="48" x2="38" y2="58"/><line x1="50" y1="48" x2="62" y2="58"/><line x1="38" y1="58" x2="38" y2="74"/><line x1="62" y1="58" x2="62" y2="74"/><line x1="38" y1="74" x2="50" y2="82"/><line x1="62" y1="74" x2="50" y2="82"/><line x1="50" y1="48" x2="50" y2="65"/><line x1="38" y1="58" x2="50" y2="65"/><line x1="62" y1="58" x2="50" y2="65"/><line x1="38" y1="74" x2="50" y2="65"/><line x1="62" y1="74" x2="50" y2="65"/><line x1="50" y1="82" x2="50" y2="65"/></g><circle cx="50" cy="48" r="4" fill="#C45B28"/><circle cx="38" cy="58" r="3.5" fill="#4A9B8E"/><circle cx="62" cy="58" r="3.5" fill="#E8A838"/><circle cx="38" cy="74" r="3.5" fill="#D4726A"/><circle cx="62" cy="74" r="3.5" fill="#8B6AAE"/><circle cx="50" cy="82" r="3.5" fill="#4A9B8E"/><circle cx="50" cy="65" r="4.5" fill="#C45B28"/></svg><div class="nav-wm">Mastery Method<span>by The Pressure Academy</span></div></a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div class="nav-links"><a href="/mastery-method/clarity" class="nav-link">Clarity</a><a href="/mastery-method/for-parents" class="nav-link">For Parents</a><a href="/mastery-method/programs" class="nav-link active">Programs</a><a href="/mastery-method/pricing" class="nav-link">Pricing</a><a href="/mastery-method/about" class="nav-link">About</a><a href="/mastery-method/resources" class="nav-link">Resources</a></div>
+  <a href="/mastery-method/book" class="nav-cta">Start with a Clarity Call</a>
+</div></nav>
+
+<!-- ══ SHARED HEADER ══ -->
+<div class="breadcrumb"><a href="/mastery-method">Mastery Method</a> &nbsp;/&nbsp; Programs</div>
+
+<section class="page-hero">
+  <span class="eyebrow" style="color:var(--rust)">Programs</span>
+  <h1>A clear system with a clear <em>starting point</em></h1>
+  <p class="lead">Mastery Method isn't a menu of services. It's a structured pathway — and most families begin the same way: with a conversation. From there, each step is guided, clear, and designed to match what your child actually needs.</p>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <div class="overview-inner">
+    <div class="overview-intro">
+      <span class="eyebrow" style="color:var(--teal)">The pathway at a glance</span>
+      <h2 class="section-heading">Four parts, one system</h2>
+    </div>
+    <div class="ov-flow">
+      <div class="ov-step"><div class="ov-num">1</div><h3>Clarity Call</h3><p>A conversation to understand your family's situation</p><span class="ov-tag">Free</span></div>
+      <div class="ov-step"><div class="ov-num">2</div><h3>Clarity Assessment</h3><p>A structured diagnostic that produces your first blueprint</p><span class="ov-tag">One-time</span></div>
+      <div class="ov-step"><div class="ov-num">3</div><h3>Clarity Pathway</h3><p>Monthly guided support with blueprint, check-ins, and activities</p><span class="ov-tag">Monthly</span></div>
+      <div class="ov-step"><div class="ov-num">+</div><h3>Targeted 1:1</h3><p>Expert-led sessions when specific gaps need focused support</p><span class="ov-tag">Add-on</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER CARDS -->
+<section class="offers">
+  <div class="offers-inner">
+
+    <!-- CLARITY CALL -->
+    <div class="offer-card">
+      <div class="offer-left">
+        <h3>Clarity Call <span class="offer-tag">Free</span></h3>
+        <div class="offer-who">For families who want to understand if this is right for their child.</div>
+        <div class="offer-desc">A free, no-obligation conversation with Kirsty. She'll listen to what's happening for your child, ask about what you've noticed, and help you understand whether Mastery Method is the right fit — and what the best next step would be. <strong>No hard sell. Just an honest conversation.</strong></div>
+      </div>
+      <div class="offer-right">
+        <h4>What's included</h4>
+        <ul class="offer-includes">
+          <li>15-20 minute conversation with Kirsty</li>
+          <li>Understanding of your child's current situation</li>
+          <li>Clear recommendation on next steps</li>
+          <li>No obligation, no pressure</li>
+        </ul>
+        <div class="offer-next"><strong>What happens next:</strong> If Mastery Method is a good fit, Kirsty will recommend a Clarity Assessment as the next step.</div>
+        <a href="/mastery-method/book" class="offer-cta">Start with a Clarity Call</a>
+      </div>
+    </div>
+
+    <!-- CLARITY ASSESSMENT -->
+    <div class="offer-card">
+      <div class="offer-left">
+        <h3>Clarity Assessment <span class="offer-tag">One-time</span></h3>
+        <div class="offer-who">For families ready to understand exactly where their child is and where support should focus.</div>
+        <div class="offer-desc">A structured, teacher-led diagnostic across the four clarity pillars: Thinking, Communication, Learning, and Action. Kirsty identifies exactly where your child gets stuck, why, and what kind of support will make the most difference. <strong>This assessment produces your family's first Teaching Blueprint.</strong></div>
+      </div>
+      <div class="offer-right">
+        <h4>What's included</h4>
+        <ul class="offer-includes">
+          <li>Structured assessment across all four clarity pillars</li>
+          <li>Detailed parent report with findings and recommendations</li>
+          <li>Your family's first personalised Teaching Blueprint</li>
+          <li>Clear next-step guidance from Kirsty</li>
+        </ul>
+        <div class="offer-next"><strong>What happens next:</strong> Your family can continue with the Clarity Pathway for ongoing guided support, or use the blueprint independently.</div>
+        <a href="/mastery-method/book" class="offer-cta">Request a Clarity Assessment</a>
+      </div>
+    </div>
+
+    <!-- CLARITY PATHWAY -->
+    <div class="offer-card">
+      <div class="offer-left">
+        <h3>Clarity Pathway <span class="offer-tag">Monthly</span></h3>
+        <div class="offer-who">For families who want ongoing guided support, visible progress, and practical tools for home.</div>
+        <div class="offer-desc">The Clarity Pathway is the core of Mastery Method. It keeps your family's Teaching Blueprint current, gives you structured home activities each week, and includes a monthly check-in call with Kirsty so support stays targeted and relevant. <strong>This is a support system — not just more sessions.</strong></div>
+      </div>
+      <div class="offer-right">
+        <h4>Included every month</h4>
+        <ul class="offer-includes">
+          <li>Updated Teaching Blueprint — personalised, current, actionable</li>
+          <li>Monthly parent check-in call with Kirsty (15-20 min)</li>
+          <li>Weekly home activity guidance — short, practical, pillar-aligned</li>
+          <li>Access to the parent resource library</li>
+        </ul>
+        <div class="offer-next"><strong>Important:</strong> The Clarity Pathway does not include 1:1 sessions with your child. Targeted 1:1 Sessions are available as a separate add-on when needed.</div>
+        <a href="/mastery-method/book" class="offer-cta">Start with a Clarity Call</a>
+      </div>
+    </div>
+
+    <!-- TARGETED 1:1 -->
+    <div class="offer-card">
+      <div class="offer-left">
+        <h3>Targeted 1:1 Sessions <span class="offer-tag">Add-on</span></h3>
+        <div class="offer-who">For children who need focused, expert-led support on specific clarity gaps.</div>
+        <div class="offer-desc">Sometimes a child needs direct teacher-led work on a specific barrier — task comprehension, written expression, or self-checking habits. Targeted 1:1 Sessions are booked when that precision is needed. <strong>They are strategic and purposeful, not an ongoing commitment.</strong></div>
+      </div>
+      <div class="offer-right">
+        <h4>How it works</h4>
+        <ul class="offer-includes">
+          <li>Live, teacher-led sessions with your child</li>
+          <li>Focused on specific clarity pillar gaps</li>
+          <li>Booked per session or in small bundles</li>
+          <li>Recommended by Kirsty based on your child's blueprint</li>
+        </ul>
+        <div class="offer-next"><strong>Important:</strong> Targeted 1:1 is not included in the Clarity Pathway. It is a separate, optional layer of support — used only when direct expert input will make the biggest difference.</div>
+        <a href="/mastery-method/book" class="offer-cta">Discuss with Kirsty</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT MOST FAMILIES DO -->
+<section class="most-families">
+  <div class="mf-inner">
+    <span class="eyebrow" style="color:var(--rust)">What most families do</span>
+    <h2>The typical pathway</h2>
+    <p>Most families start with a free Clarity Call, move into a Clarity Assessment to get their first Teaching Blueprint, and then continue with the Clarity Pathway for ongoing guided support. Targeted 1:1 Sessions are added only if and when specific gaps need focused work.</p>
+    <p>There's no pressure to commit to everything at once. Each step leads naturally to the next.</p>
+    <div class="mf-path">
+      <span class="mf-step">Clarity Call</span><span class="mf-arrow">&rarr;</span>
+      <span class="mf-step">Assessment</span><span class="mf-arrow">&rarr;</span>
+      <span class="mf-step">Clarity Pathway</span>
+    </div>
+  </div>
+</section>
+
+<!-- PATHWAY vs TUTORING -->
+<section class="pvt">
+  <div class="pvt-inner">
+    <div class="pvt-intro">
+      <span class="eyebrow" style="color:var(--teal)">Why this isn't tutoring</span>
+      <h2 class="section-heading">The Clarity Pathway is a system, not a session schedule</h2>
+      <p>Traditional tutoring sells time. The Clarity Pathway sells clarity, visibility, and guided progress — with support that continues between live touchpoints.</p>
+    </div>
+    <div class="pvt-card old">
+      <span class="pvt-label">Weekly tutoring model</span>
+      <h3>You pay for hours</h3>
+      <ul class="pvt-list">
+        <li>Progress depends on showing up each week</li>
+        <li>Parent receives little or no visibility</li>
+        <li>No structured home support between sessions</li>
+        <li>When you stop, progress stops</li>
+        <li>More sessions = more cost, same model</li>
+      </ul>
+    </div>
+    <div class="pvt-card new">
+      <span class="pvt-label">Clarity Pathway</span>
+      <h3>You gain a system</h3>
+      <ul class="pvt-list">
+        <li>Progress is tracked across clarity pillars monthly</li>
+        <li>Parent receives a Teaching Blueprint and check-in call</li>
+        <li>Weekly activities keep support active between sessions</li>
+        <li>Family builds capacity that continues independently</li>
+        <li>Targeted 1:1 only when precision support is needed</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-intro">
+      <span class="eyebrow" style="color:var(--rust)">Practical questions</span>
+      <h2 class="section-heading">Choosing the right starting point</h2>
+    </div>
+
+    <div class="faq-item"><button class="faq-q">Where should I start?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p>Start with a Clarity Call. It's free, it's short, and it helps both you and Kirsty understand whether this is the right fit. From there, she'll recommend the best next step for your family.</p></div></div>
+
+    <div class="faq-item"><button class="faq-q">Do I need the assessment, or can I go straight to the Pathway?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p>The Clarity Assessment is strongly recommended before entering the Pathway. It produces your first Teaching Blueprint — which is what the entire Pathway is built around. Without it, support can't be properly targeted.</p></div></div>
+
+    <div class="faq-item"><button class="faq-q">Does the Clarity Pathway include 1:1 sessions?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p>No. The Clarity Pathway includes your Teaching Blueprint, monthly parent check-in, weekly home activities, and resource library access. Targeted 1:1 Sessions are a separate add-on, available when your child needs focused expert-led support on a specific gap.</p></div></div>
+
+    <div class="faq-item"><button class="faq-q">How much time do I need as a parent?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p>The monthly check-in is 15-20 minutes. Weekly home activities are designed to take 5-10 minutes, a few times a week. You're not becoming the teacher — you're gaining a clearer picture and practical tools that fit into real life.</p></div></div>
+
+    <div class="faq-item"><button class="faq-q">What if my child needs more support than the Pathway provides?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p>That's what Targeted 1:1 Sessions are for. If Kirsty identifies a specific gap that needs direct teacher-led work, she'll recommend it. You're never locked into anything — support scales to what your child actually needs.</p></div></div>
+
+    <div class="faq-item"><button class="faq-q">Can I cancel the Pathway?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-a"><p>Yes. There are no lock-in contracts. The Clarity Pathway is month-to-month. If your family reaches a point where you feel confident continuing independently, that's the goal — not the problem.</p></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <div class="page-cta-inner">
+    <span class="eyebrow" style="color:var(--rust-light)">Ready to start?</span>
+    <h2>Give your family <em>clarity</em></h2>
+    <p>The first step is a conversation. No commitment. No pressure. Just a clear understanding of where your child is — and how we can help.</p>
+    <a href="/mastery-method/book" class="btn-p">Start with a Clarity Call</a>
+    <div class="reassurance">Free &middot; 15-20 minutes &middot; No pressure &middot; With Kirsty directly</div>
+  </div>
+</section>
+
+<!-- ══ SHARED FOOTER ══ -->
+
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  for(var i=0;i<items.length;i++){(function(item){item.querySelector('.faq-q').addEventListener('click',function(){var wasOpen=item.classList.contains('open');for(var j=0;j<items.length;j++)items[j].classList.remove('open');if(!wasOpen)item.classList.add('open');});})(items[i]);}
+})();
+</script>
+
+<footer class="site-footer"><div class="footer-inner">
+  <div class="footer-brand-col"><div class="footer-brand">Mastery Method</div><div class="footer-tagline">Structured support for unstructured minds.</div><div class="footer-note">A clarity-led learning system for families, by The Pressure Academy.</div></div>
+  <div class="footer-col"><h4>Learn</h4><a href="/mastery-method/clarity">The Clarity Framework</a><a href="/mastery-method/for-parents">For Parents</a><a href="/mastery-method/about">About</a><a href="/mastery-method/resources">Resources</a></div>
+  <div class="footer-col"><h4>Get Started</h4><a href="/mastery-method/programs">Programs</a><a href="/mastery-method/pricing">Pricing</a><a href="/mastery-method/book">Start with a Clarity Call</a></div>
+  <div class="footer-col"><h4>Connect</h4><a href="/cdn-cgi/l/email-protection#adc5c8c1c1c2edd9c5c8dddfc8deded8dfc8ccceccc9c8c0d483cec2c0">Email Kirsty</a><a href="/">The Pressure Academy</a></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Mastery Method by The Pressure Academy</span><span>Queenslan

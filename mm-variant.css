@@ -1,0 +1,219 @@
+/* ================================================================
+   MASTERY METHOD — SUBSECTION VARIANT
+   ================================================================
+   Version: 1.0
+   Status: LOCKED
+   
+   Applied on top of tpa-foundation.css.
+   Activated by: <body data-section="mastery-method">
+   
+   This file does NOT redefine structural primitives.
+   It only adjusts the emotional temperature:
+   - warmer background
+   - softer surfaces
+   - calmer accent weighting
+   - education-specific support palette
+   - pillar colour mapping
+   ================================================================ */
+
+
+/* ══════════════════════════════════════════════════════════════
+   VARIANT TOKEN OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+
+body[data-section="mastery-method"] {
+
+  /* ── Surface Temperature ── */
+  /* MM uses the same cream base as TPA but with slightly
+     warmer surface alternation for a softer feel */
+  --color-bg:           #FAF8F5;    /* inherited — same as TPA */
+  --color-bg-alt:       #F4EDE4;    /* slightly warmer than TPA default */
+  --color-surface:      #FFFFFF;    /* inherited */
+  --color-surface-alt:  #FBF7F2;   /* warmer off-white for alternating sections */
+
+  /* ── Accent Weighting ── */
+  /* MM uses TPA rust as primary accent but at slightly
+     reduced saturation for a calmer CTA feel */
+  --color-accent:       #C45B28;    /* same rust — ecosystem DNA */
+  --color-accent-deep:  #9A4620;    /* inherited */
+  --color-accent-light: #D4916F;    /* inherited */
+  --color-accent-wash:  #FAF0EB;    /* inherited */
+
+  /* ── MM-Specific Tokens ── */
+  --mm-bg:              #FAF8F5;
+  --mm-surface:         #FFFFFF;
+  --mm-surface-soft:    #FBF7F2;
+  --mm-text:            #2C2C38;
+  --mm-text-muted:      #7A7A8A;
+  --mm-accent:          #C45B28;
+  --mm-accent-soft:     #D4916F;
+  --mm-border:          rgba(44, 44, 56, 0.05);
+  --mm-shadow:          0 2px 16px rgba(44, 44, 56, 0.04);
+
+  /* ── Pillar Colour Mapping ──
+     These map directly to the locked Pressure Node logo colours.
+     Used for pillar cards, progress tracking, and offer tier accents. */
+  --mm-pillar-thinking:       #C45B28;  /* rust — the anchor */
+  --mm-pillar-thinking-wash:  #FAF0EB;
+  --mm-pillar-communication:  #4A9B8E;  /* teal */
+  --mm-pillar-communication-wash: #EBF5F3;
+  --mm-pillar-learning:       #E8A838;  /* amber */
+  --mm-pillar-learning-wash:  #FDF5E6;
+  --mm-pillar-action:         #8B6AAE;  /* violet */
+  --mm-pillar-action-wash:    #F3EFF7;
+
+  /* ── Connector / Network ── */
+  --mm-connector:       #D38F5C;
+
+  /* ── Additional Support ── */
+  --mm-rose:            #D4726A;
+  --mm-rose-wash:       #FBEFEE;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   MM NAV VARIANT
+   ══════════════════════════════════════════════════════════════ */
+
+/* The nav structure is inherited from foundation.
+   MM only adjusts the brand wordmark to show "Mastery Method"
+   and the CTA text. No structural changes needed. */
+
+body[data-section="mastery-method"] .nav-link.active {
+  color: var(--color-text);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   MM SECTION ALTERNATION
+   ══════════════════════════════════════════════════════════════ */
+
+/* MM uses a gentler alternation between sections.
+   Foundation sections alternate between --color-bg and --color-surface.
+   MM adds a third tone for specific trust-building sections. */
+
+body[data-section="mastery-method"] .section-warm {
+  background: var(--mm-surface-soft);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   MM CARD ATMOSPHERE
+   ══════════════════════════════════════════════════════════════ */
+
+/* MM cards use slightly softer shadows than TPA default */
+body[data-section="mastery-method"] .card {
+  box-shadow: var(--mm-shadow);
+}
+
+body[data-section="mastery-method"] .card:hover {
+  box-shadow: var(--shadow-card);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   MM PILLAR ACCENT UTILITIES
+   ══════════════════════════════════════════════════════════════ */
+
+/* These utility classes map pillar colours for consistent use
+   across all MM pages. Use on cards, borders, icons, tags. */
+
+.pillar-thinking    { color: var(--mm-pillar-thinking); }
+.pillar-comm        { color: var(--mm-pillar-communication); }
+.pillar-learning    { color: var(--mm-pillar-learning); }
+.pillar-action      { color: var(--mm-pillar-action); }
+
+.bg-thinking        { background: var(--mm-pillar-thinking-wash); }
+.bg-comm            { background: var(--mm-pillar-communication-wash); }
+.bg-learning        { background: var(--mm-pillar-learning-wash); }
+.bg-action          { background: var(--mm-pillar-action-wash); }
+
+.border-thinking    { border-color: var(--mm-pillar-thinking); }
+.border-comm        { border-color: var(--mm-pillar-communication); }
+.border-learning    { border-color: var(--mm-pillar-learning); }
+.border-action      { border-color: var(--mm-pillar-action); }
+
+
+/* ══════════════════════════════════════════════════════════════
+   MM OFFER TIER TAGS
+   ══════════════════════════════════════════════════════════════ */
+
+.offer-tag-free     { background: var(--color-accent-wash); color: var(--color-accent); }
+.offer-tag-onetime  { background: var(--mm-pillar-communication-wash); color: var(--mm-pillar-communication); }
+.offer-tag-monthly  { background: var(--mm-pillar-learning-wash); color: #946A20; }
+.offer-tag-addon    { background: var(--mm-pillar-action-wash); color: var(--mm-pillar-action); }
+
+
+/* ══════════════════════════════════════════════════════════════
+   MM DARK SECTION VARIANT
+   ══════════════════════════════════════════════════════════════ */
+
+/* MM CTA blocks and footer inherit the dark surface from foundation
+   but add a subtle warm radial glow — the "rust ember" effect */
+
+body[data-section="mastery-method"] .section-dark::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(196, 91, 40, 0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+body[data-section="mastery-method"] .section-dark {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   MM PAGE HERO VARIANT
+   ══════════════════════════════════════════════════════════════ */
+
+/* MM page heroes get a subtle warm radial behind the heading */
+body[data-section="mastery-method"] .page-hero {
+  position: relative;
+}
+
+body[data-section="mastery-method"] .page-hero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(232, 168, 56, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   NOTES FOR IMPLEMENTATION
+   ══════════════════════════════════════════════════════════════
+
+   TO USE ON ANY MM PAGE:
+   
+   1. Link tpa-foundation.css
+   2. Link mm-variant.css
+   3. Add data-section="mastery-method" to <body>
+   4. Use foundation class names (.btn-primary, .card, .section, etc.)
+   5. Use MM-specific classes (.pillar-thinking, .bg-learning, etc.)
+   6. The nav and footer are inherited — only content changes per page
+   
+   MIGRATION PATH FOR EXISTING INLINE PAGES:
+   
+   1. Move <style> block CSS variables → already defined in foundation
+   2. Move component styles → replace with foundation class names
+   3. Keep page-specific layout CSS inline (grid structures, etc.)
+   4. Remove duplicated nav/footer HTML → use shared pattern
+   5. Add data-section="mastery-method" to <body>
+   
+   This migration can happen page-by-page without breaking anything.
+   
+   ══════════════════════════════════════════════════════════════ */
