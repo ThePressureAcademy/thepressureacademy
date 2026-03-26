@@ -87,7 +87,8 @@
   .sys-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
   .sys-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
   .sys-card:nth-child(1)::after{background:var(--rust)}.sys-card:nth-child(2)::after{background:var(--teal)}.sys-card:nth-child(3)::after{background:var(--amber)}.sys-card:nth-child(4)::after{background:var(--violet)}.sys-card:nth-child(5)::after{background:var(--rose)}.sys-card:nth-child(6)::after{background:var(--rust)}
-  .sys-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.2rem}
+  .sys-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--ink-soft)}
+  .sys-icon svg{width:20px;height:20px}
   .sys-card:nth-child(1) .sys-icon{background:var(--rust-wash)}.sys-card:nth-child(2) .sys-icon{background:var(--teal-wash)}.sys-card:nth-child(3) .sys-icon{background:var(--amber-wash)}.sys-card:nth-child(4) .sys-icon{background:var(--violet-wash)}.sys-card:nth-child(5) .sys-icon{background:var(--rose-wash)}.sys-card:nth-child(6) .sys-icon{background:var(--sage-wash)}
   .sys-card h3{font-family:'Fraunces',Georgia,serif;font-size:1rem;font-weight:500;margin-bottom:8px}
   .sys-card p{font-size:.82rem;color:var(--ink-muted);line-height:1.7;font-weight:300}
@@ -102,7 +103,8 @@
   .pillar-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card)}
   .pillar-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
   .pillar-card:nth-child(1)::after{background:var(--rust)}.pillar-card:nth-child(2)::after{background:var(--teal)}.pillar-card:nth-child(3)::after{background:var(--amber)}.pillar-card:nth-child(4)::after{background:var(--violet)}
-  .p-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.1rem}
+  .p-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--ink-soft)}
+  .p-icon svg{width:20px;height:20px}
   .pillar-card:nth-child(1) .p-icon{background:rgba(196,91,40,.08)}.pillar-card:nth-child(2) .p-icon{background:rgba(74,155,142,.08)}.pillar-card:nth-child(3) .p-icon{background:rgba(232,168,56,.08)}.pillar-card:nth-child(4) .p-icon{background:rgba(139,106,174,.08)}
   .pillar-card h3{font-family:'Fraunces',Georgia,serif;font-size:.95rem;font-weight:500;margin-bottom:8px}
   .pillar-card p{font-size:.78rem;color:var(--ink-muted);line-height:1.6;font-weight:300}
@@ -294,7 +296,7 @@
     </div>
     <div class="sys-card" style="border-left:3px solid var(--rust);margin-bottom:48px">
       <div style="display:flex;gap:20px;align-items:flex-start">
-        <div class="sys-icon" style="background:var(--rust-wash);flex-shrink:0">&#128203;</div>
+        <div class="sys-icon" style="background:var(--rust-wash);flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
         <div>
           <h3>Clarity Assessment</h3>
           <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;font-weight:300;margin-top:4px">A structured diagnostic across the four clarity pillars that shows exactly where your child is, where they're getting stuck, and why. Produces your family's first Teaching Blueprint — a personalised guide to what your child needs and how you can help at home.</p>
@@ -309,22 +311,22 @@
     </div>
     <div class="system-grid" style="margin-bottom:48px">
       <div class="sys-card">
-        <div class="sys-icon" style="background:var(--teal-wash)">&#128218;</div>
+        <div class="sys-icon" style="background:var(--teal-wash)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M9 10h6"/></svg></div>
         <h3>Updated Teaching Blueprint</h3>
         <p>Your child's personalised guide — updated monthly as they progress. What they're working on, where to focus, and exactly how to support at home.</p>
       </div>
       <div class="sys-card">
-        <div class="sys-icon" style="background:var(--amber-wash)">&#128222;</div>
+        <div class="sys-icon" style="background:var(--amber-wash)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/></svg></div>
         <h3>Monthly Parent Check-In</h3>
         <p>A 15-20 minute call with Kirsty to review progress, adjust the blueprint, and answer your questions. For you — not a teaching session.</p>
       </div>
       <div class="sys-card">
-        <div class="sys-icon" style="background:var(--violet-wash)">&#128161;</div>
+        <div class="sys-icon" style="background:var(--violet-wash)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg></div>
         <h3>Weekly Home Activities</h3>
         <p>One specific focus and one practical activity per week. 5-10 minutes, a few times a week. Designed for real parents with real schedules.</p>
       </div>
       <div class="sys-card">
-        <div class="sys-icon" style="background:var(--sage-wash)">&#128200;</div>
+        <div class="sys-icon" style="background:var(--sage-wash)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 16V10"/><path d="M12 16V8"/><path d="M16 16v-4"/></svg></div>
         <h3>Parent Resource Library</h3>
         <p>Clarity pillar guides, curriculum visibility by year level, conversation prompts, and strategies — a growing library built for parents.</p>
       </div>
@@ -337,7 +339,7 @@
     </div>
     <div class="sys-card" style="border-left:3px solid var(--cream-deep);margin-bottom:0">
       <div style="display:flex;gap:20px;align-items:flex-start">
-        <div class="sys-icon" style="background:var(--cream-deep);flex-shrink:0">&#128101;</div>
+        <div class="sys-icon" style="background:var(--cream-deep);flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="9" r="2"/><path d="M21 21v-1.5a3 3 0 0 0-2-2.83"/></svg></div>
         <div>
           <h3>Targeted 1:1 Sessions</h3>
           <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;font-weight:300;margin-top:4px">Teacher-led sessions with your child when specific clarity gaps need focused, expert-led support. Strategic and purposeful — booked when needed, not as an ongoing commitment.</p>
@@ -361,25 +363,25 @@
   </div>
   <div class="pillars-grid">
     <div class="pillar-card">
-      <div class="p-icon">&#128161;</div>
+      <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-3 13.33V17h6v-1.67A7 7 0 0 0 12 2Z"/><path d="M10 21h4"/></svg></div>
       <h3>Clarity of Thinking</h3>
       <p>Understanding the real task. Breaking it down. Knowing where to begin.</p>
       <a href="/mastery-method/clarity#thinking" class="pillar-link">Learn more &rarr;</a>
     </div>
     <div class="pillar-card">
-      <div class="p-icon">&#128488;</div>
+      <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
       <h3>Clarity of Communication</h3>
       <p>Expressing ideas clearly. Turning understanding into confident language.</p>
       <a href="/mastery-method/clarity#communication" class="pillar-link">Learn more &rarr;</a>
     </div>
     <div class="pillar-card">
-      <div class="p-icon">&#127919;</div>
+      <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
       <h3>Clarity of Learning</h3>
       <p>Understanding goals, feedback, and what success looks like.</p>
       <a href="/mastery-method/clarity#learning" class="pillar-link">Learn more &rarr;</a>
     </div>
     <div class="pillar-card">
-      <div class="p-icon">&#9889;</div>
+      <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
       <h3>Clarity of Action</h3>
       <p>Starting tasks, following through, building routines that stick.</p>
       <a href="/mastery-method/clarity#action" class="pillar-link">Learn more &rarr;</a>
