@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Clarity Framework — Mastery Method | The Pressure Academy</title>
+<meta name="description" content="The four pillars of clarity that change how your child learns: Thinking, Communication, Learning, and Action. Understand the system behind Mastery Method.">
+<meta property="og:title" content="The Clarity Framework — Mastery Method">
+<meta property="og:description" content="The four pillars of clarity that change how your child learns: Thinking, Communication, Learning, and Action.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thepressureacademy.com/mastery-method/clarity">
+<meta property="og:image" content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logos/TPA_House_Favicon.svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+  :root {
+    --rust: #C45B28; --rust-deep: #9A4620; --rust-light: #D4916F;
+    --teal: #4A9B8E; --teal-wash: #EBF5F3;
+    --amber: #E8A838; --amber-wash: #FDF5E6;
+    --rose: #D4726A; --rose-wash: #FBEFEE;
+    --violet: #8B6AAE; --violet-wash: #F3EFF7;
+    --rust-wash: #FAF0EB;
+    --ink: #2C2C38; --ink-soft: #4A4A58; --ink-muted: #7A7A8A;
+    --cream: #FAF8F5; --cream-deep: #F2EDE6; --white: #FFFFFF;
+    --radius: 10px; --radius-lg: 16px;
+    --shadow-soft: 0 2px 16px rgba(44,44,56,0.05);
+    --shadow-lift: 0 8px 32px rgba(44,44,56,0.1);
+    --max-w: 1080px;
+    --section-pad: clamp(56px, 8vw, 100px);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Outfit',system-ui,sans-serif; background:var(--cream); color:var(--ink); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  .eyebrow { font-size:0.68rem; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:14px; display:block; font-weight:500; }
+
+  /* ── NAV ── */
+  .topbar { padding:16px 24px; display:flex; align-items:center; justify-content:space-between; max-width:var(--max-w); margin:0 auto; }
+  .topbar-brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); }
+  .topbar-mark { height:36px; }
+  .topbar-wordmark { font-family:'DM Serif Display',Georgia,serif; font-size:1.1rem; }
+  .topbar-wordmark span { color:var(--ink-muted); font-family:'Outfit',sans-serif; font-size:0.72rem; font-weight:300; display:block; margin-top:-2px; }
+  .topbar-cta { font-size:0.82rem; font-weight:500; padding:9px 20px; border-radius:50px; background:var(--rust); color:var(--white); text-decoration:none; transition:all 0.25s; }
+  .topbar-cta:hover { background:var(--rust-deep); }
+  .breadcrumb { max-width:var(--max-w); margin:0 auto; padding:8px 24px; font-size:0.75rem; color:var(--ink-muted); }
+  .breadcrumb a { color:var(--ink-muted); text-decoration:none; }
+  .breadcrumb a:hover { color:var(--rust); }
+
+  /* ── PAGE HERO ── */
+  .page-hero { padding:48px 24px var(--section-pad); text-align:center; }
+  .page-hero-inner { max-width:680px; margin:0 auto; }
+  .page-hero h1 {
+    font-family:'DM Serif Display',Georgia,serif;
+    font-size:clamp(2rem,5vw,3.2rem);
+    font-weight:400; line-height:1.2; margin-bottom:20px;
+  }
+  .page-hero h1 em { font-style:italic; color:var(--rust); }
+  .page-hero p { font-size:1.05rem; color:var(--ink-muted); max-width:560px; margin:0 auto; line-height:1.8; font-weight:300; }
+
+  /* ── PILLAR SECTION ── */
+  .pillar-section { padding:var(--section-pad) 24px; }
+  .pillar-section:nth-child(odd) { background:var(--white); }
+  .pillar-inner { max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr 1.2fr; gap:56px; align-items:start; }
+  .pillar-inner.reverse { grid-template-columns:1.2fr 1fr; }
+  .pillar-inner.reverse .pillar-visual { order:-1; }
+
+  .pillar-text .pillar-num {
+    font-family:'DM Serif Display',Georgia,serif;
+    font-size:3.5rem; font-weight:400; opacity:0.1; line-height:1; margin-bottom:8px;
+  }
+  .pillar-text h2 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:clamp(1.5rem,3vw,2rem); font-weight:500; line-height:1.3; margin-bottom:16px;
+  }
+  .pillar-text .pillar-lead {
+    font-size:1rem; color:var(--ink-soft); line-height:1.8; font-weight:300; margin-bottom:24px;
+  }
+  .pillar-text .pillar-lead strong { color:var(--ink); font-weight:500; }
+
+  /* Signs list */
+  .signs-box { border-radius:var(--radius-lg); padding:24px 28px; margin-bottom:20px; }
+  .signs-box h4 { font-size:0.78rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:14px; font-weight:600; }
+  .signs-box ul { list-style:none; }
+  .signs-box li {
+    font-size:0.88rem; color:var(--ink-soft); line-height:1.6;
+    padding:6px 0 6px 24px; position:relative; font-weight:300;
+  }
+  .signs-box li::before {
+    content:''; position:absolute; left:0; top:13px;
+    width:10px; height:10px; border-radius:50%; opacity:0.5;
+  }
+
+  /* Per-pillar colors */
+  .pillar-section[data-pillar="thinking"] .eyebrow { color:var(--rust); }
+  .pillar-section[data-pillar="thinking"] .signs-box { background:var(--rust-wash); }
+  .pillar-section[data-pillar="thinking"] .signs-box h4 { color:var(--rust); }
+  .pillar-section[data-pillar="thinking"] li::before { background:var(--rust); }
+
+  .pillar-section[data-pillar="communication"] .eyebrow { color:var(--teal); }
+  .pillar-section[data-pillar="communication"] .signs-box { background:var(--teal-wash); }
+  .pillar-section[data-pillar="communication"] .signs-box h4 { color:var(--teal); }
+  .pillar-section[data-pillar="communication"] li::before { background:var(--teal); }
+
+  .pillar-section[data-pillar="learning"] .eyebrow { color:var(--amber); }
+  .pillar-section[data-pillar="learning"] .signs-box { background:var(--amber-wash); }
+  .pillar-section[data-pillar="learning"] .signs-box h4 { color:var(--amber); }
+  .pillar-section[data-pillar="learning"] li::before { background:var(--amber); }
+
+  .pillar-section[data-pillar="action"] .eyebrow { color:var(--violet); }
+  .pillar-section[data-pillar="action"] .signs-box { background:var(--violet-wash); }
+  .pillar-section[data-pillar="action"] .signs-box h4 { color:var(--violet); }
+  .pillar-section[data-pillar="action"] li::before { background:var(--violet); }
+
+  /* Visual card */
+  .pillar-visual {
+    border-radius:var(--radius-lg);
+    padding:40px 32px;
+    text-align:center;
+  }
+  .pillar-section[data-pillar="thinking"] .pillar-visual { background:var(--rust-wash); }
+  .pillar-section[data-pillar="communication"] .pillar-visual { background:var(--teal-wash); }
+  .pillar-section[data-pillar="learning"] .pillar-visual { background:var(--amber-wash); }
+  .pillar-section[data-pillar="action"] .pillar-visual { background:var(--violet-wash); }
+
+  .visual-icon { font-size:3rem; margin-bottom:20px; display:block; }
+  .visual-quote {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:1.1rem; font-style:italic; line-height:1.6;
+    margin-bottom:16px;
+  }
+  .visual-caption { font-size:0.78rem; color:var(--ink-muted); font-weight:400; }
+
+  /* How we address it */
+  .approach-box {
+    background:var(--cream);
+    border-radius:var(--radius);
+    padding:20px 24px;
+    margin-top:4px;
+  }
+  .approach-box h4 {
+    font-size:0.78rem; letter-spacing:1.5px; text-transform:uppercase;
+    margin-bottom:10px; font-weight:600; color:var(--ink);
+  }
+  .approach-box p {
+    font-size:0.88rem; color:var(--ink-soft); line-height:1.7; font-weight:300;
+  }
+
+  /* ── HOW PILLARS CONNECT ── */
+  .connect { padding:var(--section-pad) 24px; text-align:center; }
+  .connect-inner { max-width:640px; margin:0 auto; }
+  .connect h2 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:clamp(1.6rem,3vw,2.2rem); font-weight:500; margin-bottom:16px;
+  }
+  .connect p { font-size:1rem; color:var(--ink-muted); line-height:1.8; font-weight:300; margin-bottom:16px; }
+  .connect-visual {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+    margin:40px auto 0; max-width:520px;
+  }
+  .connect-dot {
+    padding:16px 8px; border-radius:var(--radius); text-align:center;
+    font-size:0.72rem; font-weight:500; letter-spacing:0.5px;
+  }
+  .connect-dot:nth-child(1) { background:var(--rust-wash); color:var(--rust); }
+  .connect-dot:nth-child(2) { background:var(--teal-wash); color:var(--teal); }
+  .connect-dot:nth-child(3) { background:var(--amber-wash); color:var(--amber); }
+  .connect-dot:nth-child(4) { background:var(--violet-wash); color:var(--violet); }
+  .connect-arrow { display:flex; align-items:center; justify-content:center; color:var(--ink-muted); font-size:1.2rem; }
+
+  /* ── ASSESSMENT METHODOLOGY ── */
+  .assess-section { padding:var(--section-pad) 24px; background:var(--white); }
+  .assess-inner { max-width:var(--max-w); margin:0 auto; }
+  .assess-intro { max-width:640px; margin-bottom:48px; }
+  .assess-intro p { font-size:1rem; color:var(--ink-muted); line-height:1.8; font-weight:300; margin-top:12px; }
+  .assess-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  .assess-card { background:var(--cream); border-radius:var(--radius-lg); padding:28px 24px; position:relative; overflow:hidden; }
+  .assess-card::before { content:''; position:absolute; top:0; left:0; bottom:0; width:3px; }
+  .assess-card:nth-child(1)::before { background:var(--rust); }
+  .assess-card:nth-child(2)::before { background:var(--teal); }
+  .assess-card:nth-child(3)::before { background:var(--amber); }
+  .assess-card:nth-child(4)::before { background:var(--violet); }
+  .assess-card h3 { font-family:'Fraunces',Georgia,serif; font-size:.95rem; font-weight:500; margin-bottom:8px; }
+  .assess-card p { font-size:.84rem; color:var(--ink-muted); line-height:1.7; font-weight:300; }
+  .assess-note { margin-top:32px; padding:20px 24px; background:var(--cream); border-radius:var(--radius); border-left:3px solid var(--rust); font-size:.88rem; color:var(--ink-soft); line-height:1.7; font-weight:300; max-width:720px; }
+  .assess-note strong { color:var(--ink); font-weight:500; }
+
+  /* ── BLUEPRINT PROCESS ── */
+  .blueprint-process { padding:var(--section-pad) 24px; }
+  .bp-inner { max-width:var(--max-w); margin:0 auto; }
+  .bp-intro { max-width:640px; margin-bottom:48px; }
+  .bp-intro p { font-size:1rem; color:var(--ink-muted); line-height:1.8; font-weight:300; margin-top:12px; }
+  .bp-flow { display:grid; grid-template-columns:repeat(3,1fr); gap:0; position:relative; max-width:900px; margin:0 auto; }
+  .bp-flow::before { content:''; position:absolute; top:36px; left:16.6%; right:16.6%; height:2px; background:linear-gradient(90deg, var(--rust), var(--teal), var(--amber)); opacity:.2; }
+  .bp-step { text-align:center; padding:0 16px; position:relative; z-index:1; }
+  .bp-step-num { width:72px; height:72px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-family:'DM Serif Display',Georgia,serif; font-size:1.5rem; color:var(--white); }
+  .bp-step:nth-child(1) .bp-step-num { background:var(--rust); }
+  .bp-step:nth-child(2) .bp-step-num { background:var(--teal); }
+  .bp-step:nth-child(3) .bp-step-num { background:var(--amber); }
+  .bp-step h3 { font-family:'Fraunces',Georgia,serif; font-size:1.05rem; font-weight:500; margin-bottom:8px; }
+  .bp-step p { font-size:.84rem; color:var(--ink-muted); line-height:1.7; font-weight:300; }
+  .bp-example { margin-top:48px; background:var(--white); border-radius:var(--radius-lg); padding:32px; box-shadow:var(--shadow-soft); max-width:720px; margin-left:auto; margin-right:auto; }
+  .bp-example-header { font-family:'DM Serif Display',Georgia,serif; font-size:1.05rem; margin-bottom:20px; text-align:center; }
+  .bp-example-items { display:grid; gap:8px; }
+  .bp-example-item { display:flex; align-items:center; gap:12px; padding:10px 14px; background:var(--cream); border-radius:var(--radius); font-size:.82rem; color:var(--ink-soft); font-weight:300; }
+  .bp-example-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .bp-example-item:nth-child(1) .bp-example-dot { background:var(--rust); opacity:.6; }
+  .bp-example-item:nth-child(2) .bp-example-dot { background:var(--teal); opacity:.6; }
+  .bp-example-item:nth-child(3) .bp-example-dot { background:var(--amber); opacity:.6; }
+  .bp-example-item:nth-child(4) .bp-example-dot { background:var(--violet); opacity:.6; }
+  .bp-example-item:nth-child(5) .bp-example-dot { background:var(--rust); opacity:.4; }
+  .bp-example-label { font-weight:500; color:var(--ink); margin-right:4px; }
+  .bp-example-note { text-align:center; margin-top:16px; font-size:.72rem; color:var(--ink-muted); font-style:italic; font-weight:300; }
+
+  /* ── CTA ── */
+  .page-cta {
+    padding:var(--section-pad) 24px; background:var(--ink); color:var(--white); text-align:center;
+  }
+  .page-cta-inner { max-width:580px; margin:0 auto; }
+  .page-cta h2 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:400; margin-bottom:16px; line-height:1.25; }
+  .page-cta h2 em { font-style:italic; color:var(--rust-light); }
+  .page-cta p { font-size:0.95rem; color:rgba(255,255,255,0.5); margin-bottom:32px; font-weight:300; line-height:1.7; }
+  .page-cta .btn-primary { background:var(--rust); color:var(--white); display:inline-flex; align-items:center; font-family:'Outfit',sans-serif; font-size:0.92rem; font-weight:500; padding:14px 28px; border-radius:50px; text-decoration:none; transition:all 0.25s; }
+  .page-cta .btn-primary:hover { background:var(--rust-deep); transform:translateY(-1px); }
+
+  .footer { padding:40px 24px; text-align:center; font-size:0.73rem; color:var(--ink-muted); font-weight:300; }
+  .footer a { color:var(--ink-muted); text-decoration:none; }
+
+  @media (max-width:768px) {
+    .pillar-inner, .pillar-inner.reverse { grid-template-columns:1fr; gap:32px; }
+    .pillar-inner.reverse .pillar-visual { order:0; }
+    .connect-visual { grid-template-columns:1fr 1fr; }
+    .assess-grid { grid-template-columns:1fr; }
+    .bp-flow { grid-template-columns:1fr; gap:32px; }
+    .bp-flow::before { display:none; }
+  }
+
+  /* ══ SHARED NAV ══ */
+  .site-header{border-bottom:1px solid rgba(44,44,56,.04)}
+  
+  
+  .topbar-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:300;display:block;margin-top:-2px}
+  .topbar-cta:hover{background:var(--rust-deep)}
+  
+  
+  /* ══ SHARED FOOTER ══ */
+  .site-footer{background:var(--ink);color:var(--white);padding:56px 24px 32px}
+  .footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .footer-brand-name{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;margin-bottom:6px}
+  .footer-tagline{font-size:.82rem;color:rgba(255,255,255,.4);font-weight:300;font-style:italic;font-family:'Fraunces',Georgia,serif;margin-bottom:16px}
+  .footer-desc{font-size:.78rem;color:rgba(255,255,255,.3);font-weight:300;line-height:1.7;max-width:300px}
+  .footer-col h4{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;font-weight:500}
+  .footer-col a{display:block;font-size:.82rem;color:rgba(255,255,255,.55);text-decoration:none;padding:3px 0;transition:color .2s;font-weight:300}.footer-col a:hover{color:var(--white)}
+  .footer-bottom{max-width:var(--max-w);margin:0 auto;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .footer-copy{font-size:.7rem;color:rgba(255,255,255,.2);font-weight:300}.footer-copy a{color:rgba(255,255,255,.3);text-decoration:none}.footer-copy a:hover{color:rgba(255,255,255,.5)}
+  .footer-legal{font-size:.65rem;color:rgba(255,255,255,.15);font-weight:300}
+  @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:24px}}
+
+  /* NAV */
+  .site-nav{border-bottom:1px solid rgba(44,44,56,.04);background:rgba(250,248,245,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+  .nav-inner{max-width:var(--max-w);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex-shrink:0}.nav-mark{height:30px}
+  .nav-wm{font-family:'DM Serif Display',Georgia,serif;font-size:1rem}.nav-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:300;display:block;margin-top:-2px}
+  .nav-links{display:flex;align-items:center;gap:4px}
+  .nav-link{font-size:.78rem;font-weight:400;color:var(--ink-muted);text-decoration:none;padding:6px 12px;border-radius:50px;transition:all .2s}.nav-link:hover{color:var(--ink);background:rgba(44,44,56,.03)}.nav-link.active{color:var(--ink);font-weight:500}
+  .nav-cta{font-size:.78rem;font-weight:500;padding:8px 18px;border-radius:50px;background:var(--rust);color:var(--white);text-decoration:none;transition:all .25s;flex-shrink:0}.nav-cta:hover{background:var(--rust-deep)}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}.nav-toggle svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round}
+  @media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:1px solid rgba(44,44,56,.06);flex-direction:column;padding:12px 24px;gap:2px}.nav-links.open{display:flex}.nav-link{padding:10px 12px;width:100%}.nav-toggle{display:block}}
+</style>
+</head>
+<body data-section="mastery-method">
+
+<nav class="site-nav"><div class="nav-inner">
+  <a href="/mastery-method" class="nav-brand"><svg class="nav-mark" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="4" width="56" height="7" rx="3.5" fill="#C45B28"/><rect x="22" y="119" width="56" height="7" rx="3.5" fill="#C45B28"/><line x1="50" y1="11" x2="50" y2="32" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><line x1="50" y1="98" x2="50" y2="119" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><path d="M50 32 C56 34,64 38,70 44 C74 48,78 54,80 60 Q82 65,80 70 C78 76,74 82,70 86 C64 92,56 96,50 98 C44 96,36 92,30 86 C26 82,22 76,20 70 Q18 65,20 60 C22 54,26 48,30 44 C36 38,44 34,50 32Z" fill="none" stroke="#C45B28" stroke-width="5"/><path d="M62 38 C68 36,76 40,78 48 C80 52,82 58,80 62" fill="none" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><path d="M22 58 C18 62,20 72,26 78" fill="none" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><polygon points="24,63 30,58 30,68" fill="#C45B28"/><g stroke="#D38F5C" stroke-width="2" stroke-opacity=".55" fill="none"><line x1="50" y1="48" x2="38" y2="58"/><line x1="50" y1="48" x2="62" y2="58"/><line x1="38" y1="58" x2="38" y2="74"/><line x1="62" y1="58" x2="62" y2="74"/><line x1="38" y1="74" x2="50" y2="82"/><line x1="62" y1="74" x2="50" y2="82"/><line x1="50" y1="48" x2="50" y2="65"/><line x1="38" y1="58" x2="50" y2="65"/><line x1="62" y1="58" x2="50" y2="65"/><line x1="38" y1="74" x2="50" y2="65"/><line x1="62" y1="74" x2="50" y2="65"/><line x1="50" y1="82" x2="50" y2="65"/></g><circle cx="50" cy="48" r="4" fill="#C45B28"/><circle cx="38" cy="58" r="3.5" fill="#4A9B8E"/><circle cx="62" cy="58" r="3.5" fill="#E8A838"/><circle cx="38" cy="74" r="3.5" fill="#D4726A"/><circle cx="62" cy="74" r="3.5" fill="#8B6AAE"/><circle cx="50" cy="82" r="3.5" fill="#4A9B8E"/><circle cx="50" cy="65" r="4.5" fill="#C45B28"/></svg><div class="nav-wm">Mastery Method<span>by The Pressure Academy</span></div></a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div class="nav-links"><a href="/mastery-method/clarity" class="nav-link active">Clarity</a><a href="/mastery-method/for-parents" class="nav-link">For Parents</a><a href="/mastery-method/programs" class="nav-link">Programs</a><a href="/mastery-method/pricing" class="nav-link">Pricing</a><a href="/mastery-method/about" class="nav-link">About</a><a href="/mastery-method/resources" class="nav-link">Resources</a></div>
+  <a href="/mastery-method/book" class="nav-cta">Start with a Clarity Call</a>
+</div></nav>
+
+<!-- ══ SHARED HEADER ══ -->
+<div class="breadcrumb"><a href="/mastery-method">Mastery Method</a> &nbsp;/&nbsp; The Clarity Framework</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="eyebrow" style="color:var(--rust)">The Clarity Framework</span>
+    <h1>The four skills beneath <em>every</em> skill</h1>
+    <p>Most learning struggles aren't about intelligence or effort. They're about clarity — the ability to understand, communicate, plan, and act with confidence. These are the four pillars we assess and strengthen in every child.</p>
+  </div>
+</section>
+
+<!-- PILLAR 1: THINKING -->
+<section class="pillar-section" data-pillar="thinking" id="thinking">
+  <div class="pillar-inner">
+    <div class="pillar-text">
+      <span class="eyebrow">Pillar 1</span>
+      <div class="pillar-num">01</div>
+      <h2>Clarity of Thinking</h2>
+      <p class="pillar-lead"><strong>Understanding the real task.</strong> Breaking it down into parts. Knowing where to start, what's being asked, and what information matters. Many children who seem "stuck" aren't confused by the content — they're confused by the task itself.</p>
+      <div class="signs-box">
+        <h4>What this looks like at home</h4>
+        <ul>
+          <li>Reads a question three times and still doesn't know what it's asking</li>
+          <li>Starts work without understanding what the finished product should look like</li>
+          <li>Gets overwhelmed by multi-step tasks and shuts down</li>
+          <li>Can explain an idea verbally but can't organise it on paper</li>
+        </ul>
+      </div>
+      <div class="approach-box">
+        <h4>How we build this</h4>
+        <p>We teach children to decode what a task is actually asking. They learn to identify the key instruction, separate relevant from irrelevant information, and break large tasks into smaller, manageable steps before they begin — so they're never staring at a blank page wondering where to start.</p>
+      </div>
+    </div>
+    <div class="pillar-visual">
+      <span class="visual-icon">&#128161;</span>
+      <div class="visual-quote">"I know they understand it — they just can't seem to get it down on paper."</div>
+      <div class="visual-caption">— What parents often say before discovering this pillar</div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 2: COMMUNICATION -->
+<section class="pillar-section" data-pillar="communication" id="communication">
+  <div class="pillar-inner reverse">
+    <div class="pillar-text">
+      <span class="eyebrow">Pillar 2</span>
+      <div class="pillar-num">02</div>
+      <h2>Clarity of Communication</h2>
+      <p class="pillar-lead"><strong>Expressing ideas with confidence.</strong> Asking better questions. Explaining reasoning in a way that others can follow. Communication isn't just about writing neatly — it's about <strong>turning understanding into language</strong> that's clear, structured, and purposeful.</p>
+      <div class="signs-box">
+        <h4>What this looks like at home</h4>
+        <ul>
+          <li>Gives one-word answers when asked about school</li>
+          <li>Writes the minimum required and resists expanding ideas</li>
+          <li>Struggles to explain their thinking process to a teacher or parent</li>
+          <li>Avoids asking for help even when they're clearly stuck</li>
+        </ul>
+      </div>
+      <div class="approach-box">
+        <h4>How we build this</h4>
+        <p>We give children structured frameworks for organising their thoughts before they speak or write. They practise explaining ideas step by step, learn to ask precise questions when they need help, and build the confidence to share their reasoning — not just their answer.</p>
+      </div>
+    </div>
+    <div class="pillar-visual">
+      <span class="visual-icon">&#128488;</span>
+      <div class="visual-quote">"They clearly know more than they're showing — it's like there's a gap between what's in their head and what comes out."</div>
+      <div class="visual-caption">— The communication clarity gap</div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 3: LEARNING -->
+<section class="pillar-section" data-pillar="learning" id="learning">
+  <div class="pillar-inner">
+    <div class="pillar-text">
+      <span class="eyebrow">Pillar 3</span>
+      <div class="pillar-num">03</div>
+      <h2>Clarity of Learning</h2>
+      <p class="pillar-lead"><strong>Understanding what success looks like.</strong> Knowing what they're aiming for, how to use feedback, and what the next step actually is. Without this, children work hard but can't tell if they're improving — and neither can their parents.</p>
+      <div class="signs-box">
+        <h4>What this looks like at home</h4>
+        <ul>
+          <li>Studies for a test but can't explain what they need to know</li>
+          <li>Gets a mark back and doesn't understand what to do differently</li>
+          <li>Says "I don't know what I'm supposed to do" — even after instructions</li>
+          <li>Can't see their own progress, even when they're improving</li>
+        </ul>
+      </div>
+      <div class="approach-box">
+        <h4>How we build this</h4>
+        <p>We make learning goals visible and concrete. Children learn to understand success criteria before they start, use feedback as a tool rather than a verdict, and track their own progress across the clarity pillars — so they can see themselves getting better, not just getting marks.</p>
+      </div>
+    </div>
+    <div class="pillar-visual">
+      <span class="visual-icon">&#127919;</span>
+      <div class="visual-quote">"They work so hard, but it never seems to translate into the results they deserve."</div>
+      <div class="visual-caption">— Effort without clarity of learning</div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 4: ACTION -->
+<section class="pillar-section" data-pillar="action" id="action">
+  <div class="pillar-inner reverse">
+    <div class="pillar-text">
+      <span class="eyebrow">Pillar 4</span>
+      <div class="pillar-num">04</div>
+      <h2>Clarity of Action</h2>
+      <p class="pillar-lead"><strong>Starting without stalling. Following through.</strong> Building the routines, momentum, and self-checking habits that turn understanding into completed work. This is where many capable children fall apart — not because they don't know, but because they <strong>can't get moving</strong>.</p>
+      <div class="signs-box">
+        <h4>What this looks like at home</h4>
+        <ul>
+          <li>Spends 30 minutes "getting ready" to start homework</li>
+          <li>Begins confidently but loses momentum halfway through</li>
+          <li>Finishes work without checking it, then makes avoidable errors</li>
+          <li>Needs constant prompting to stay on task</li>
+        </ul>
+      </div>
+      <div class="approach-box">
+        <h4>How we build this</h4>
+        <p>We teach practical strategies for task initiation, time-chunking, and self-review. Children build personal routines they can follow independently — not because someone is standing over them, but because they have a clear, repeatable process that makes starting and finishing feel manageable.</p>
+      </div>
+    </div>
+    <div class="pillar-visual">
+      <span class="visual-icon">&#9889;</span>
+      <div class="visual-quote">"It's not that they can't do it. They just can't seem to start — or finish."</div>
+      <div class="visual-caption">— The action clarity gap</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW THEY CONNECT -->
+<section class="connect">
+  <div class="connect-inner">
+    <span class="eyebrow" style="color:var(--rust)">How they work together</span>
+    <h2>Clarity compounds</h2>
+    <p>These four pillars aren't separate subjects — they reinforce each other. When a child gains clarity of thinking, their communication improves. When they understand what they're learning toward, they take action more easily. Progress in one pillar accelerates progress in all of them.</p>
+    <p>That's why Mastery Method doesn't just address symptoms. It builds the foundation that makes <em>every</em> subject, <em>every</em> task, and <em>every</em> year level easier.</p>
+    <div class="connect-visual">
+      <div class="connect-dot">Thinking</div>
+      <div class="connect-dot">Communication</div>
+      <div class="connect-dot">Learning</div>
+      <div class="connect-dot">Action</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW CLARITY IS ASSESSED -->
+<section class="assess-section" id="assessment">
+  <div class="assess-inner">
+    <div class="assess-intro">
+      <span class="eyebrow" style="color:var(--rust)">How clarity is assessed</span>
+      <h2 class="section-heading">What the Clarity Assessment actually measures</h2>
+      <p>The Clarity Assessment is not a standardised test. It's not a quiz. It's a structured, teacher-led diagnostic designed to identify exactly where a child's clarity breaks down — and why. Each pillar is assessed through observation, structured tasks, and conversation.</p>
+    </div>
+    <div class="assess-grid">
+      <div class="assess-card">
+        <h3>Thinking: Task comprehension</h3>
+        <p>Can your child identify what a question is actually asking? Can they separate relevant information from irrelevant? Do they know what the finished product should look like before they start? Kirsty observes how a child approaches a multi-step task — not just whether they get the answer right, but how they get there.</p>
+      </div>
+      <div class="assess-card">
+        <h3>Communication: Expression under structure</h3>
+        <p>Can your child explain their reasoning aloud? Can they organise an idea into a written response? Do they know how to ask for help when they're stuck? The assessment looks at the gap between what a child understands internally and what they can produce externally — the gap parents often describe as "they know it but can't show it."</p>
+      </div>
+      <div class="assess-card">
+        <h3>Learning: Goal and feedback awareness</h3>
+        <p>Does your child know what they're aiming for before they start a task? Can they use feedback to adjust, or does correction feel like failure? Do they understand what "doing well" looks like beyond getting a good mark? This pillar reveals whether a child is learning with direction or just working hard without a compass.</p>
+      </div>
+      <div class="assess-card">
+        <h3>Action: Initiation and follow-through</h3>
+        <p>How long does it take your child to begin? Do they lose momentum partway through? Do they check their work before finishing? The action pillar measures the executive function gap — the difference between knowing what to do and actually doing it consistently, without someone standing over them.</p>
+      </div>
+    </div>
+    <div class="assess-note">
+      <strong>What parents receive:</strong> A detailed report mapping your child's clarity profile across all four pillars — not just where they scored, but what each finding means in practice, what's causing the pattern, and what targeted support looks like. This report becomes the foundation for your family's first Teaching Blueprint.
+    </div>
+  </div>
+</section>
+
+<!-- FROM ASSESSMENT TO BLUEPRINT -->
+<section class="blueprint-process" id="blueprint">
+  <div class="bp-inner">
+    <div class="bp-intro">
+      <span class="eyebrow" style="color:var(--teal)">From assessment to blueprint</span>
+      <h2 class="section-heading">How a clarity profile becomes a teaching blueprint</h2>
+      <p>The Clarity Assessment produces a diagnostic. The Teaching Blueprint translates that diagnostic into something a parent can actually use. Here's how one becomes the other.</p>
+    </div>
+    <div class="bp-flow">
+      <div class="bp-step">
+        <div class="bp-step-num">1</div>
+        <h3>Identify the pattern</h3>
+        <p>The assessment reveals which pillars are strong and which have gaps. More importantly, it shows how the gaps interact — a child with weak task comprehension (Thinking) often also has weak task initiation (Action), because they can't start what they don't understand.</p>
+      </div>
+      <div class="bp-step">
+        <div class="bp-step-num">2</div>
+        <h3>Map to curriculum</h3>
+        <p>Kirsty connects the clarity profile to what the school actually expects at your child's year level. This step translates "your child has a communication clarity gap" into "your child needs support structuring written responses in English and showing reasoning in Maths."</p>
+      </div>
+      <div class="bp-step">
+        <div class="bp-step-num">3</div>
+        <h3>Build the blueprint</h3>
+        <p>The Teaching Blueprint combines the clarity priorities with practical, home-friendly guidance. Each pillar gets a current focus, a specific strategy, and a short weekly activity the parent can use. The blueprint is written for parents — not teachers.</p>
+      </div>
+    </div>
+    <div class="bp-example">
+      <div class="bp-example-header">Example: What a blueprint entry looks like</div>
+      <div class="bp-example-items">
+        <div class="bp-example-item"><div class="bp-example-dot"></div><span><span class="bp-example-label">Pillar:</span> Clarity of Thinking</span></div>
+        <div class="bp-example-item"><div class="bp-example-dot"></div><span><span class="bp-example-label">Current gap:</span> Struggles to identify what multi-step questions are asking</span></div>
+        <div class="bp-example-item"><div class="bp-example-dot"></div><span><span class="bp-example-label">Strategy:</span> Break each question into "what do I know?" and "what do I need to find out?"</span></div>
+        <div class="bp-example-item"><div class="bp-example-dot"></div><span><span class="bp-example-label">Home activity:</span> Before homework, read the question aloud and name the first step together (5 min, 3x/week)</span></div>
+        <div class="bp-example-item"><div class="bp-example-dot"></div><span><span class="bp-example-label">What to notice:</span> Does your child start faster? Do they ask fewer "what do I do?" questions?</span></div>
+      </div>
+      <div class="bp-example-note">Each family's blueprint is personalised &middot; Updated monthly on the Clarity Pathway</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <div class="page-cta-inner">
+    <h2>See where your child's <em>clarity</em> gaps are</h2>
+    <p>The Clarity Assessment maps your child across all four pillars — so you know exactly where to focus, and support is targeted from day one.</p>
+    <a href="/mastery-method/book" class="btn-primary">Start with a Clarity Call</a>
+  </div>
+</section>
+
+<!-- ══ SHARED FOOTER ══ -->
+
+
+<footer class="site-footer"><div class="footer-inner">
+  <div class="footer-brand-col"><div class="footer-brand">Mastery Method</div><div class="footer-tagline">Structured support for unstructured minds.</div><div class="footer-note">A clarity-led learning system for families, by The Pressure Academy.</div></div>
+  <div class="footer-col"><h4>Learn</h4><a href="/mastery-method/clarity">The Clarity Framework</a><a href="/mastery-method/for-parents">For Parents</a><a href="/mastery-method/about">About</a><a href="/mastery-method/resources">Resources</a></div>
+  <div class="footer-col"><h4>Get Started</h4><a href="/mastery-method/programs">Programs</a><a href="/mastery-method/pricing">Pricing</a><a href="/mastery-method/book">Start with a Clarity Call</a></div>
+  <div class="footer-col"><h4>Connect</h4><a href="/mastery-method/book">Email Kirsty</a><a href="/">The Pressure Academy</a></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Mastery Method by The Pressure Academy</span><span>Queensland, Australia</span></div><div class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a></div></footer>
+</body>
+</html>

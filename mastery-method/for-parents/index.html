@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Parents — Mastery Method | The Pressure Academy</title>
+<meta name="description" content="Mastery Method doesn't just support your child — it supports you. Understand the curriculum, see real progress, and know exactly how to help at home.">
+<meta property="og:title" content="For Parents — Mastery Method">
+<meta property="og:description" content="Mastery Method doesn't just support your child — it supports you. Understand the curriculum, see real progress, and know exactly how to help at home.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thepressureacademy.com/mastery-method/for-parents">
+<meta property="og:image" content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logos/TPA_House_Favicon.svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+  :root {
+    --rust: #C45B28; --rust-deep: #9A4620; --rust-light: #D4916F;
+    --rust-wash: #FAF0EB;
+    --teal: #4A9B8E; --teal-wash: #EBF5F3; --teal-deep: #3A7D72;
+    --amber: #E8A838; --amber-wash: #FDF5E6;
+    --rose: #D4726A; --rose-wash: #FBEFEE;
+    --violet: #8B6AAE; --violet-wash: #F3EFF7;
+    --ink: #2C2C38; --ink-soft: #4A4A58; --ink-muted: #7A7A8A;
+    --cream: #FAF8F5; --cream-deep: #F2EDE6; --white: #FFFFFF;
+    --sage-wash: #EFF5F1; --sage-deep: #4A6B58;
+    --radius: 10px; --radius-lg: 16px;
+    --shadow-soft: 0 2px 16px rgba(44,44,56,0.05);
+    --shadow-card: 0 4px 24px rgba(44,44,56,0.07);
+    --shadow-lift: 0 8px 32px rgba(44,44,56,0.1);
+    --max-w: 1080px;
+    --section-pad: clamp(56px, 8vw, 100px);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Outfit',system-ui,sans-serif; background:var(--cream); color:var(--ink); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  .eyebrow { font-size:0.68rem; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:14px; display:block; font-weight:500; }
+  .section-heading { font-family:'Fraunces',Georgia,serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:500; line-height:1.25; margin-bottom:16px; }
+
+  /* ── TOPBAR ── */
+  .topbar { padding:16px 24px; display:flex; align-items:center; justify-content:space-between; max-width:var(--max-w); margin:0 auto; }
+  .topbar-brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); }
+  .topbar-mark { height:36px; }
+  .topbar-wordmark { font-family:'DM Serif Display',Georgia,serif; font-size:1.1rem; }
+  .topbar-wordmark span { color:var(--ink-muted); font-family:'Outfit',sans-serif; font-size:0.72rem; font-weight:300; display:block; margin-top:-2px; }
+  .topbar-cta { font-size:0.82rem; font-weight:500; padding:9px 20px; border-radius:50px; background:var(--rust); color:var(--white); text-decoration:none; transition:all 0.25s; }
+  .topbar-cta:hover { background:var(--rust-deep); }
+  .breadcrumb { max-width:var(--max-w); margin:0 auto; padding:8px 24px; font-size:0.75rem; color:var(--ink-muted); }
+  .breadcrumb a { color:var(--ink-muted); text-decoration:none; }
+  .breadcrumb a:hover { color:var(--rust); }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding:48px 24px 40px;
+    max-width:var(--max-w);
+    margin:0 auto;
+  }
+  .page-hero-grid {
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .page-hero h1 {
+    font-family:'DM Serif Display',Georgia,serif;
+    font-size:clamp(2rem,5vw,3rem);
+    font-weight:400; line-height:1.2; margin-bottom:20px;
+  }
+  .page-hero h1 em { font-style:italic; color:var(--rust); }
+  .page-hero .lead {
+    font-size:1.05rem; color:var(--ink-muted); line-height:1.85;
+    font-weight:300; margin-bottom:28px; max-width:520px;
+  }
+  .page-hero .lead strong { color:var(--ink); font-weight:500; }
+  .hero-quote-card {
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:36px 32px;
+    box-shadow:var(--shadow-card);
+    position:relative;
+  }
+  .hero-quote-card::before {
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0;
+    height:3px;
+    background:linear-gradient(90deg, var(--rust), var(--teal), var(--amber), var(--violet));
+    border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .hero-quote {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:1.15rem; font-style:italic; font-weight:400;
+    line-height:1.65; color:var(--ink);
+    margin-bottom:16px;
+  }
+  .hero-quote-attr {
+    font-size:0.78rem; color:var(--ink-muted); font-weight:400;
+  }
+
+  /* ── OLD MODEL vs NEW MODEL ── */
+  .contrast {
+    padding:var(--section-pad) 24px;
+    background:var(--white);
+  }
+  .contrast-inner {
+    max-width:var(--max-w);
+    margin:0 auto;
+  }
+  .contrast-intro {
+    max-width:600px;
+    margin-bottom:48px;
+  }
+  .contrast-intro p {
+    font-size:1rem; color:var(--ink-muted); line-height:1.8; font-weight:300; margin-top:12px;
+  }
+  .contrast-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .contrast-card {
+    border-radius:var(--radius-lg);
+    padding:32px 28px;
+    position:relative;
+  }
+  .contrast-card.old {
+    background:var(--cream-deep);
+    border:1px solid rgba(44,44,56,0.04);
+  }
+  .contrast-card.new {
+    background:var(--teal-wash);
+    border:1px solid rgba(74,155,142,0.12);
+  }
+  .contrast-label {
+    font-size:0.65rem; letter-spacing:2px; text-transform:uppercase;
+    font-weight:600; margin-bottom:20px; display:block;
+  }
+  .contrast-card.old .contrast-label { color:var(--ink-muted); }
+  .contrast-card.new .contrast-label { color:var(--teal-deep); }
+  .contrast-card h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:1.15rem; font-weight:500; margin-bottom:16px; line-height:1.35;
+  }
+  .contrast-list { list-style:none; }
+  .contrast-list li {
+    font-size:0.88rem; line-height:1.6; padding:8px 0 8px 28px;
+    position:relative; font-weight:300;
+    border-bottom:1px solid rgba(44,44,56,0.04);
+  }
+  .contrast-list li:last-child { border-bottom:none; }
+  .contrast-card.old .contrast-list li { color:var(--ink-muted); }
+  .contrast-card.new .contrast-list li { color:var(--ink-soft); }
+  .contrast-list li::before {
+    position:absolute; left:0; top:12px; font-size:0.85rem;
+  }
+  .contrast-card.old .contrast-list li::before { content:'—'; color:var(--ink-muted); opacity:0.3; }
+  .contrast-card.new .contrast-list li::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--teal); opacity:0.5; top:14px; }
+
+  /* ── WHAT INVOLVEMENT LOOKS LIKE ── */
+  .involvement {
+    padding:var(--section-pad) 24px;
+  }
+  .involvement-inner {
+    max-width:var(--max-w);
+    margin:0 auto;
+  }
+  .involvement-intro {
+    text-align:center;
+    max-width:620px;
+    margin:0 auto 56px;
+  }
+  .involvement-intro p {
+    font-size:1.02rem; color:var(--ink-muted); line-height:1.8;
+    font-weight:300; margin-top:12px;
+  }
+  .involvement-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .inv-card {
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:28px 24px;
+    box-shadow:var(--shadow-soft);
+    transition:all 0.3s;
+  }
+  .inv-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lift); }
+  .inv-icon {
+    width:44px; height:44px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px; font-size:1.2rem;
+  }
+  .inv-card:nth-child(1) .inv-icon { background:var(--rust-wash); }
+  .inv-card:nth-child(2) .inv-icon { background:var(--teal-wash); }
+  .inv-card:nth-child(3) .inv-icon { background:var(--amber-wash); }
+  .inv-card:nth-child(4) .inv-icon { background:var(--violet-wash); }
+  .inv-card:nth-child(5) .inv-icon { background:var(--rose-wash); }
+  .inv-card:nth-child(6) .inv-icon { background:var(--sage-wash); }
+  .inv-card h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:1rem; font-weight:500; margin-bottom:8px;
+  }
+  .inv-card p {
+    font-size:0.84rem; color:var(--ink-muted); line-height:1.7; font-weight:300;
+  }
+  .inv-note {
+    font-size:0.82rem; font-style:italic; color:var(--ink-muted);
+    font-family:'Fraunces',Georgia,serif;
+    margin-top:8px; padding-top:10px;
+    border-top:1px solid rgba(44,44,56,0.04);
+    font-weight:300;
+  }
+
+  /* ── TEACHING BLUEPRINT ── */
+  .blueprint {
+    padding:var(--section-pad) 24px;
+    background:var(--white);
+  }
+  .blueprint-inner {
+    max-width:var(--max-w);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:56px;
+    align-items:center;
+  }
+  .blueprint-text h2 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:clamp(1.6rem,3vw,2.2rem); font-weight:500; line-height:1.3; margin-bottom:16px;
+  }
+  .blueprint-text h2 em { font-style:italic; color:var(--rust); font-family:'DM Serif Display',Georgia,serif; }
+  .blueprint-text p {
+    font-size:0.95rem; color:var(--ink-soft); line-height:1.8;
+    font-weight:300; margin-bottom:16px;
+  }
+  .blueprint-text p strong { color:var(--ink); font-weight:500; }
+  .blueprint-features {
+    margin-top:28px;
+    display:grid; gap:12px;
+  }
+  .bp-feature {
+    display:flex; align-items:flex-start; gap:14px;
+    padding:14px 18px;
+    background:var(--cream);
+    border-radius:var(--radius);
+    transition:transform 0.2s;
+  }
+  .bp-feature:hover { transform:translateX(4px); }
+  .bp-dot {
+    width:10px; height:10px; border-radius:50%;
+    flex-shrink:0; margin-top:6px;
+  }
+  .bp-feature:nth-child(1) .bp-dot { background:var(--rust); opacity:0.6; }
+  .bp-feature:nth-child(2) .bp-dot { background:var(--teal); opacity:0.6; }
+  .bp-feature:nth-child(3) .bp-dot { background:var(--amber); opacity:0.6; }
+  .bp-feature:nth-child(4) .bp-dot { background:var(--violet); opacity:0.6; }
+  .bp-feature span {
+    font-size:0.88rem; color:var(--ink-soft); line-height:1.6; font-weight:300;
+  }
+  .bp-feature strong { color:var(--ink); font-weight:500; }
+  .blueprint-visual {
+    background:var(--cream);
+    border-radius:var(--radius-lg);
+    padding:40px 32px;
+    text-align:center;
+    border:1px solid rgba(44,44,56,0.04);
+  }
+  .bp-visual-header {
+    font-family:'DM Serif Display',Georgia,serif;
+    font-size:1.2rem; margin-bottom:24px; color:var(--ink);
+  }
+  .bp-preview {
+    display:grid; gap:10px; text-align:left;
+  }
+  .bp-preview-item {
+    display:flex; align-items:center; gap:12px;
+    padding:12px 16px;
+    background:var(--white);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);
+  }
+  .bp-preview-dot {
+    width:8px; height:8px; border-radius:50%; flex-shrink:0;
+  }
+  .bp-preview-item:nth-child(1) .bp-preview-dot { background:var(--rust); }
+  .bp-preview-item:nth-child(2) .bp-preview-dot { background:var(--teal); }
+  .bp-preview-item:nth-child(3) .bp-preview-dot { background:var(--amber); }
+  .bp-preview-item:nth-child(4) .bp-preview-dot { background:var(--violet); }
+  .bp-preview-item:nth-child(5) .bp-preview-dot { background:var(--rose); }
+  .bp-preview-text {
+    font-size:0.82rem; color:var(--ink-soft); font-weight:400;
+  }
+  .bp-preview-sub {
+    font-size:0.7rem; color:var(--ink-muted); font-weight:300; margin-top:1px;
+  }
+  .bp-visual-note {
+    margin-top:20px;
+    font-size:0.72rem; color:var(--ink-muted); font-weight:300;
+    font-style:italic;
+  }
+
+  /* ── PARENT CONCERNS ── */
+  .concerns {
+    padding:var(--section-pad) 24px;
+  }
+  .concerns-inner {
+    max-width:var(--max-w);
+    margin:0 auto;
+  }
+  .concerns-intro {
+    max-width:560px;
+    margin-bottom:40px;
+  }
+  .concerns-intro p {
+    font-size:1rem; color:var(--ink-muted); line-height:1.8; font-weight:300; margin-top:12px;
+  }
+  .concerns-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .concern-card {
+    background:var(--white);
+    border-radius:var(--radius-lg);
+    padding:24px 28px;
+    box-shadow:var(--shadow-soft);
+  }
+  .concern-q {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:0.98rem; font-weight:500; font-style:italic;
+    color:var(--ink); margin-bottom:10px; line-height:1.45;
+  }
+  .concern-a {
+    font-size:0.85rem; color:var(--ink-muted); line-height:1.7; font-weight:300;
+  }
+
+  /* ── PARENT VOICE ── */
+  .parent-voice {
+    padding:var(--section-pad) 24px;
+    background:var(--white);
+  }
+  .pv-inner {
+    max-width:720px; margin:0 auto; text-align:center;
+  }
+  .pv-inner blockquote {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:clamp(1.2rem,2.5vw,1.6rem);
+    font-style:italic; font-weight:400;
+    line-height:1.6; color:var(--ink);
+    margin-bottom:20px;
+    position:relative;
+  }
+  .pv-inner blockquote::before {
+    content:'\201C';
+    font-family:'DM Serif Display',Georgia,serif;
+    font-size:4rem; color:var(--rust); opacity:0.12;
+    position:absolute; top:-20px; left:50%; transform:translateX(-50%);
+    line-height:1;
+  }
+  .pv-attr { font-size:0.82rem; color:var(--ink-muted); font-weight:400; }
+  .pv-context { font-size:0.72rem; color:var(--ink-muted); font-weight:300; margin-top:2px; }
+
+  /* ── FINAL CTA ── */
+  .page-cta {
+    padding:var(--section-pad) 24px; background:var(--ink); color:var(--white); text-align:center;
+    position:relative; overflow:hidden;
+  }
+  .page-cta::before {
+    content:''; position:absolute; top:-80px; left:50%; transform:translateX(-50%);
+    width:600px; height:600px; border-radius:50%;
+    background:radial-gradient(ellipse, rgba(196,91,40,0.07) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .page-cta-inner { max-width:580px; margin:0 auto; position:relative; z-index:1; }
+  .page-cta h2 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:400; margin-bottom:16px; line-height:1.25; }
+  .page-cta h2 em { font-style:italic; color:var(--rust-light); }
+  .page-cta p { font-size:0.95rem; color:rgba(255,255,255,0.5); margin-bottom:32px; font-weight:300; line-height:1.75; }
+  .page-cta .btn-primary {
+    display:inline-flex; align-items:center; font-family:'Outfit',sans-serif;
+    font-size:0.92rem; font-weight:500; padding:14px 28px; border-radius:50px;
+    background:var(--rust); color:var(--white); text-decoration:none;
+    transition:all 0.25s; border:none; cursor:pointer;
+  }
+  .page-cta .btn-primary:hover { background:var(--rust-deep); transform:translateY(-1px); }
+  .page-cta .reassurance-line {
+    margin-top:24px; font-size:0.73rem; color:rgba(255,255,255,0.25); font-weight:300;
+  }
+
+  .footer { padding:40px 24px; text-align:center; font-size:0.73rem; color:var(--ink-muted); font-weight:300; }
+  .footer a { color:var(--ink-muted); text-decoration:none; }
+  .footer a:hover { color:var(--rust); }
+
+  @media (max-width:768px) {
+    .page-hero-grid { grid-template-columns:1fr; gap:32px; }
+    .contrast-grid { grid-template-columns:1fr; }
+    .involvement-grid { grid-template-columns:1fr; }
+    .blueprint-inner { grid-template-columns:1fr; gap:32px; }
+    .concerns-grid { grid-template-columns:1fr; }
+  }
+
+  /* ══ SHARED NAV ══ */
+  .site-header{border-bottom:1px solid rgba(44,44,56,.04)}
+  
+  
+  .topbar-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:300;display:block;margin-top:-2px}
+  .topbar-cta:hover{background:var(--rust-deep)}
+  
+  
+  /* ══ SHARED FOOTER ══ */
+  .site-footer{background:var(--ink);color:var(--white);padding:56px 24px 32px}
+  .footer-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .footer-brand-name{font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem;margin-bottom:6px}
+  .footer-tagline{font-size:.82rem;color:rgba(255,255,255,.4);font-weight:300;font-style:italic;font-family:'Fraunces',Georgia,serif;margin-bottom:16px}
+  .footer-desc{font-size:.78rem;color:rgba(255,255,255,.3);font-weight:300;line-height:1.7;max-width:300px}
+  .footer-col h4{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;font-weight:500}
+  .footer-col a{display:block;font-size:.82rem;color:rgba(255,255,255,.55);text-decoration:none;padding:3px 0;transition:color .2s;font-weight:300}.footer-col a:hover{color:var(--white)}
+  .footer-bottom{max-width:var(--max-w);margin:0 auto;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .footer-copy{font-size:.7rem;color:rgba(255,255,255,.2);font-weight:300}.footer-copy a{color:rgba(255,255,255,.3);text-decoration:none}.footer-copy a:hover{color:rgba(255,255,255,.5)}
+  .footer-legal{font-size:.65rem;color:rgba(255,255,255,.15);font-weight:300}
+  @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:24px}}
+
+  /* NAV */
+  .site-nav{border-bottom:1px solid rgba(44,44,56,.04);background:rgba(250,248,245,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+  .nav-inner{max-width:var(--max-w);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex-shrink:0}.nav-mark{height:30px}
+  .nav-wm{font-family:'DM Serif Display',Georgia,serif;font-size:1rem}.nav-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:300;display:block;margin-top:-2px}
+  .nav-links{display:flex;align-items:center;gap:4px}
+  .nav-link{font-size:.78rem;font-weight:400;color:var(--ink-muted);text-decoration:none;padding:6px 12px;border-radius:50px;transition:all .2s}.nav-link:hover{color:var(--ink);background:rgba(44,44,56,.03)}.nav-link.active{color:var(--ink);font-weight:500}
+  .nav-cta{font-size:.78rem;font-weight:500;padding:8px 18px;border-radius:50px;background:var(--rust);color:var(--white);text-decoration:none;transition:all .25s;flex-shrink:0}.nav-cta:hover{background:var(--rust-deep)}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}.nav-toggle svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round}
+  @media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:1px solid rgba(44,44,56,.06);flex-direction:column;padding:12px 24px;gap:2px}.nav-links.open{display:flex}.nav-link{padding:10px 12px;width:100%}.nav-toggle{display:block}}
+</style>
+</head>
+<body data-section="mastery-method">
+
+<nav class="site-nav"><div class="nav-inner">
+  <a href="/mastery-method" class="nav-brand"><svg class="nav-mark" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg"><rect x="22" y="4" width="56" height="7" rx="3.5" fill="#C45B28"/><rect x="22" y="119" width="56" height="7" rx="3.5" fill="#C45B28"/><line x1="50" y1="11" x2="50" y2="32" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><line x1="50" y1="98" x2="50" y2="119" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><path d="M50 32 C56 34,64 38,70 44 C74 48,78 54,80 60 Q82 65,80 70 C78 76,74 82,70 86 C64 92,56 96,50 98 C44 96,36 92,30 86 C26 82,22 76,20 70 Q18 65,20 60 C22 54,26 48,30 44 C36 38,44 34,50 32Z" fill="none" stroke="#C45B28" stroke-width="5"/><path d="M62 38 C68 36,76 40,78 48 C80 52,82 58,80 62" fill="none" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><path d="M22 58 C18 62,20 72,26 78" fill="none" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/><polygon points="24,63 30,58 30,68" fill="#C45B28"/><g stroke="#D38F5C" stroke-width="2" stroke-opacity=".55" fill="none"><line x1="50" y1="48" x2="38" y2="58"/><line x1="50" y1="48" x2="62" y2="58"/><line x1="38" y1="58" x2="38" y2="74"/><line x1="62" y1="58" x2="62" y2="74"/><line x1="38" y1="74" x2="50" y2="82"/><line x1="62" y1="74" x2="50" y2="82"/><line x1="50" y1="48" x2="50" y2="65"/><line x1="38" y1="58" x2="50" y2="65"/><line x1="62" y1="58" x2="50" y2="65"/><line x1="38" y1="74" x2="50" y2="65"/><line x1="62" y1="74" x2="50" y2="65"/><line x1="50" y1="82" x2="50" y2="65"/></g><circle cx="50" cy="48" r="4" fill="#C45B28"/><circle cx="38" cy="58" r="3.5" fill="#4A9B8E"/><circle cx="62" cy="58" r="3.5" fill="#E8A838"/><circle cx="38" cy="74" r="3.5" fill="#D4726A"/><circle cx="62" cy="74" r="3.5" fill="#8B6AAE"/><circle cx="50" cy="82" r="3.5" fill="#4A9B8E"/><circle cx="50" cy="65" r="4.5" fill="#C45B28"/></svg><div class="nav-wm">Mastery Method<span>by The Pressure Academy</span></div></a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div class="nav-links"><a href="/mastery-method/clarity" class="nav-link">Clarity</a><a href="/mastery-method/for-parents" class="nav-link active">For Parents</a><a href="/mastery-method/programs" class="nav-link">Programs</a><a href="/mastery-method/pricing" class="nav-link">Pricing</a><a href="/mastery-method/about" class="nav-link">About</a><a href="/mastery-method/resources" class="nav-link">Resources</a></div>
+  <a href="/mastery-method/book" class="nav-cta">Start with a Clarity Call</a>
+</div></nav>
+
+<!-- TOPBAR -->
+<!-- ══ SHARED HEADER ══ -->
+<div class="breadcrumb"><a href="/mastery-method">Mastery Method</a> &nbsp;/&nbsp; For Parents</div>
+
+
+<!-- ═══ S1: HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-grid">
+    <div>
+      <span class="eyebrow" style="color:var(--rust)">For parents</span>
+      <h1>You're not on the sidelines. You're <em>part of the system</em>.</h1>
+      <p class="lead">Most learning support keeps parents in the dark. You drop your child off, hope for the best, and get a vague update weeks later. <strong>Mastery Method works differently.</strong> We include you — not because you have to teach the content, but because when you understand what's happening and why, everything works better.</p>
+    </div>
+    <div class="hero-quote-card">
+      <div class="hero-quote">"For the first time, I actually understand what my son is supposed to be learning — and how I can help. That alone changed everything."</div>
+      <div class="hero-quote-attr">Parent of a Year 4 student</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ S2: OLD MODEL vs NEW MODEL ═══ -->
+<section class="contrast">
+  <div class="contrast-inner">
+    <div class="contrast-intro">
+      <span class="eyebrow" style="color:var(--teal)">A different model</span>
+      <h2 class="section-heading">Traditional tutoring leaves parents guessing</h2>
+      <p>The standard tutoring model treats parents as the payment method and the pickup service. Mastery Method treats you as a partner in your child's progress — because that's what actually makes support stick.</p>
+    </div>
+    <div class="contrast-grid">
+      <div class="contrast-card old">
+        <span class="contrast-label">Traditional tutoring</span>
+        <h3>The parent waits outside</h3>
+        <ul class="contrast-list">
+          <li>Child goes in, parent waits or leaves</li>
+          <li>No visibility into what's being taught or why</li>
+          <li>Progress is vague — "they're doing well"</li>
+          <li>Parent doesn't know what the curriculum expects</li>
+          <li>Homework at home still feels like guesswork</li>
+          <li>When sessions stop, progress fades</li>
+        </ul>
+      </div>
+      <div class="contrast-card new">
+        <span class="contrast-label">Mastery Method</span>
+        <h3>The parent is part of the system</h3>
+        <ul class="contrast-list">
+          <li>You understand what your child is working on and why</li>
+          <li>You receive clear guidance for supporting learning at home</li>
+          <li>Progress is visible — you can see what's improving</li>
+          <li>The curriculum is made understandable, not mysterious</li>
+          <li>Home support feels practical and manageable</li>
+          <li>Your family builds skills that continue between sessions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ S3: WHAT INVOLVEMENT LOOKS LIKE ═══ -->
+<section class="involvement">
+  <div class="involvement-inner">
+    <div class="involvement-intro">
+      <span class="eyebrow" style="color:var(--rust)">What involvement actually means</span>
+      <h2 class="section-heading">It's lighter than you think</h2>
+      <p>Parent involvement doesn't mean you become the teacher. It means you understand enough to support confidently — and you always know what to do next.</p>
+    </div>
+    <div class="involvement-grid">
+      <div class="inv-card">
+        <div class="inv-icon">&#128218;</div>
+        <h3>Curriculum made visible</h3>
+        <p>You'll understand what the school expects at your child's year level — in plain language, not educator jargon.</p>
+        <div class="inv-note">No teaching degree required.</div>
+      </div>
+      <div class="inv-card">
+        <div class="inv-icon">&#128200;</div>
+        <h3>Progress you can see</h3>
+        <p>Clear updates on where your child started, where they are now, and what's being worked on next. Not just marks — meaningful progress across the four clarity pillars.</p>
+      </div>
+      <div class="inv-card">
+        <div class="inv-icon">&#128161;</div>
+        <h3>Clear next steps at home</h3>
+        <p>After each session, you'll know exactly what to reinforce and how. Practical, manageable guidance — not a second curriculum.</p>
+      </div>
+      <div class="inv-card">
+        <div class="inv-icon">&#128172;</div>
+        <h3>Better conversations</h3>
+        <p>When you understand the clarity framework, you can ask better questions. Instead of "How was school?" you'll know what to ask and when.</p>
+      </div>
+      <div class="inv-card">
+        <div class="inv-icon">&#128170;</div>
+        <h3>Confidence, not dependence</h3>
+        <p>The goal isn't to make you reliant on Kirsty for everything. It's to give your family the tools and understanding to keep moving forward — together.</p>
+      </div>
+      <div class="inv-card">
+        <div class="inv-icon">&#128338;</div>
+        <h3>Flexible and realistic</h3>
+        <p>You're busy. We know that. Involvement is designed to fit into your life — not add another overwhelming commitment to your week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ S4: TEACHING BLUEPRINT ═══ -->
+<section class="blueprint">
+  <div class="blueprint-inner">
+    <div class="blueprint-text">
+      <span class="eyebrow" style="color:var(--rust)">The teaching blueprint</span>
+      <h2>A clear guide you can actually <em>use</em></h2>
+      <p>The teaching blueprint is what makes Mastery Method different from anything else available. It's <strong>not a generic worksheet pack</strong>. It's a structured, personalised guide that shows you what your child is working on, where they need support, and exactly how to help at home.</p>
+      <p>Think of it as the missing layer between school and your kitchen table — the thing that makes homework feel manageable instead of mysterious.</p>
+      <div class="blueprint-features">
+        <div class="bp-feature">
+          <div class="bp-dot"></div>
+          <span><strong>What your child is learning</strong> — mapped to the curriculum in language that makes sense</span>
+        </div>
+        <div class="bp-feature">
+          <div class="bp-dot"></div>
+          <span><strong>Where they're getting stuck</strong> — specific clarity gaps, not vague "needs improvement"</span>
+        </div>
+        <div class="bp-feature">
+          <div class="bp-dot"></div>
+          <span><strong>What to do at home</strong> — practical, short activities you can fit into your week</span>
+        </div>
+        <div class="bp-feature">
+          <div class="bp-dot"></div>
+          <span><strong>How to know it's working</strong> — visible progress markers so you can see the change</span>
+        </div>
+      </div>
+    </div>
+    <div class="blueprint-visual">
+      <div class="bp-visual-header">Your Teaching Blueprint</div>
+      <div class="bp-preview">
+        <div class="bp-preview-item">
+          <div class="bp-preview-dot"></div>
+          <div><div class="bp-preview-text">Clarity of Thinking</div><div class="bp-preview-sub">Breaking down multi-step questions</div></div>
+        </div>
+        <div class="bp-preview-item">
+          <div class="bp-preview-dot"></div>
+          <div><div class="bp-preview-text">Clarity of Communication</div><div class="bp-preview-sub">Structuring written responses</div></div>
+        </div>
+        <div class="bp-preview-item">
+          <div class="bp-preview-dot"></div>
+          <div><div class="bp-preview-text">Clarity of Learning</div><div class="bp-preview-sub">Understanding success criteria</div></div>
+        </div>
+        <div class="bp-preview-item">
+          <div class="bp-preview-dot"></div>
+          <div><div class="bp-preview-text">Clarity of Action</div><div class="bp-preview-sub">Homework start routine</div></div>
+        </div>
+        <div class="bp-preview-item">
+          <div class="bp-preview-dot"></div>
+          <div><div class="bp-preview-text">Home Activity This Week</div><div class="bp-preview-sub">5-minute task breakdown practice</div></div>
+        </div>
+      </div>
+      <div class="bp-visual-note">Preview only — your family's blueprint is personalised</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ S5: PARENT CONCERNS ═══ -->
+<section class="concerns">
+  <div class="concerns-inner">
+    <div class="concerns-intro">
+      <span class="eyebrow" style="color:var(--rust)">Honest answers</span>
+      <h2 class="section-heading">What parents usually want to know</h2>
+      <p>These are the questions parents ask most often — the real ones, not the polished marketing ones.</p>
+    </div>
+    <div class="concerns-grid">
+      <div class="concern-card">
+        <div class="concern-q">"I'm not a teacher. Can I really help?"</div>
+        <div class="concern-a">You don't need to be. The teaching blueprint gives you specific, practical guidance — not lesson plans. You're reinforcing what Kirsty is teaching, not delivering new content. If you can ask a question and listen to the answer, you can do this.</div>
+      </div>
+      <div class="concern-card">
+        <div class="concern-q">"What if I don't have time?"</div>
+        <div class="concern-a">Home support is designed to be realistic — think 5-10 minutes, a few times a week. Not another homework session. The clarity framework also improves the quality of time you already spend together, so you don't need more hours — just better ones.</div>
+      </div>
+      <div class="concern-card">
+        <div class="concern-q">"What if my child pushes back when I try to help?"</div>
+        <div class="concern-a">That resistance often comes from the child sensing the parent's uncertainty. When you have a clear blueprint, you approach support differently — with calm confidence instead of anxiety. Children respond to that shift. Kirsty will also give you specific strategies for navigating pushback.</div>
+      </div>
+      <div class="concern-card">
+        <div class="concern-q">"Will this replace what the school is doing?"</div>
+        <div class="concern-a">No — and it shouldn't. Mastery Method works alongside school, not against it. The clarity framework strengthens the skills that make school work easier. When the school teaches content, your child is better equipped to absorb, process, and apply it.</div>
+      </div>
+      <div class="concern-card">
+        <div class="concern-q">"How is this more financially sensible than just booking more sessions?"</div>
+        <div class="concern-a">Because we're building your family's capacity, not your dependence. The teaching blueprint and home support tools mean your child continues progressing between sessions. Over time, your family needs less intensive support — not because we've cut it, but because you're more capable.</div>
+      </div>
+      <div class="concern-card">
+        <div class="concern-q">"What if my child has a learning difference or diagnosis?"</div>
+        <div class="concern-a">Mastery Method is designed to work with how your child thinks, not against it. The clarity pillars are adaptable. If your child has a diagnosis, that becomes part of the picture — not something we work around. Mention it on your Clarity Call so we can factor it in from day one.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ S6: PARENT VOICE ═══ -->
+<section class="parent-voice">
+  <div class="pv-inner">
+    <span class="eyebrow" style="color:var(--rust)">In their words</span>
+    <blockquote>The biggest shift wasn't in my daughter's results — it was in me. I stopped feeling anxious about whether I was doing enough. I finally had a clear picture of what she needed, and I knew exactly how to help. That changed our whole dynamic at home.</blockquote>
+    <div class="pv-attr">Parent of a Year 5 student</div>
+    <div class="pv-context">Clarity Assessment + Clarity Pathway</div>
+  </div>
+</section>
+
+
+<!-- ═══ S7: FINAL CTA ═══ -->
+<section class="page-cta">
+  <div class="page-cta-inner">
+    <span class="eyebrow" style="color:var(--rust-light)">Ready to start?</span>
+    <h2>Understand your child's learning — and know how to <em>help</em></h2>
+    <p>The Clarity Call is a free, no-obligation conversation. We'll listen to what's happening, explain how the system works, and help you decide if Mastery Method is right for your family.</p>
+    <a href="/mastery-method/book" class="btn-primary">Start with a Clarity Call</a>
+    <div class="reassurance-line">Free &middot; 15-20 minutes &middot; No pressure &middot; With Kirsty directly</div>
+  </div>
+</section>
+
+
+<!-- ══ SHARED FOOTER ══ -->
+
+
+<footer class="site-footer"><div class="footer-inner">
+  <div class="footer-brand-col"><div class="footer-brand">Mastery Method</div><div class="footer-tagline">Structured support for unstructured minds.</div><div class="footer-note">A clarity-led learning system for families, by The Pressure Academy.</div></div>
+  <div class="footer-col"><h4>Learn</h4><a href="/mastery-method/clarity">The Clarity Framework</a><a href="/mastery-method/for-parents">For Parents</a><a href="/mastery-method/about">About</a><a href="/mastery-method/resources">Resources</a></div>
+  <div class="footer-col"><h4>Get Started</h4><a href="/mastery-method/programs">Programs</a><a href="/mastery-method/pricing">Pricing</a><a href="/mastery-method/book">Start with a Clarity Call</a></div>
+  <div class="footer-col"><h4>Connect</h4><a href="/mastery-method/book">Email Kirsty</a><a href="/">The Pressure Academy</a></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Mastery Method by The Pressure Academy</span><span>Queensland, Australia</span></div><div class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a></div></footer>
+</body>
+</html>

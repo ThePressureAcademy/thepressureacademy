@@ -1,0 +1,295 @@
+================================================================
+THE PRESSURE ACADEMY — DESIGN SYSTEM ARCHITECTURE
+================================================================
+Version: 1.0
+Status: LOCKED
+Date: March 2026
+
+================================================================
+SYSTEM OVERVIEW
+================================================================
+
+The Pressure Academy uses a TWO-LAYER design system:
+
+LAYER 1: tpa-foundation.css
+  - Shared across ALL TPA properties
+  - Defines: tokens, reset, typography, buttons, nav, footer,
+    cards, sections, FAQ, breadcrumbs
+  - This file never changes per sub-brand
+
+LAYER 2: [sub-brand]-variant.css
+  - One per sub-brand (mastery-method, pressure-blueprint, etc.)
+  - Overrides: colour temperature, shadow depth, accent weighting,
+    pillar/domain colours, section atmosphere
+  - Activated by data-section="[sub-brand]" on <body>
+
+RESULT:
+  - Structural consistency across the ecosystem
+  - Emotional distinction per sub-brand
+  - "A calmer room inside the same house"
+
+================================================================
+FILE STRUCTURE
+================================================================
+
+/css/
+  tpa-foundation.css     ← Layer 1 (global)
+  mm-variant.css         ← Layer 2 (Mastery Method)
+  bp-variant.css         ← Layer 2 (Pressure Blueprint) [future]
+  pt-variant.css         ← Layer 2 (Pressure Tested) [future]
+
+================================================================
+HOW TO USE — MASTERY METHOD PAGE
+================================================================
+
+<head>
+  <link rel="stylesheet" href="/css/tpa-foundation.css">
+  <link rel="stylesheet" href="/css/mm-variant.css">
+  <style>
+    /* Page-specific layout CSS only */
+  </style>
+</head>
+<body data-section="mastery-method">
+  <!-- Nav (shared pattern) -->
+  <!-- Page content (uses foundation classes) -->
+  <!-- Footer (shared pattern) -->
+</body>
+
+================================================================
+WHAT GOES WHERE
+================================================================
+
+IN tpa-foundation.css:
+  ✓ All CSS custom properties (tokens)
+  ✓ Global reset
+  ✓ Typography primitives (.eyebrow, .section-heading, etc.)
+  ✓ Button primitives (.btn-primary, .btn-secondary)
+  ✓ Nav component (.site-nav, .nav-inner, etc.)
+  ✓ Footer component (.site-footer, .footer-inner, etc.)
+  ✓ Card primitive (.card, .card-featured)
+  ✓ Section wrappers (.section, .section-white, .section-dark)
+  ✓ Container classes (.container, .container-narrow, etc.)
+  ✓ FAQ component (.faq-item, .faq-q, etc.)
+  ✓ Breadcrumb
+  ✓ Responsive breakpoints for shared components
+
+IN mm-variant.css:
+  ✓ Token overrides for MM emotional temperature
+  ✓ MM-specific tokens (--mm-* prefix)
+  ✓ Pillar colour mapping (--mm-pillar-*)
+  ✓ Pillar utility classes (.pillar-thinking, .bg-comm, etc.)
+  ✓ Offer tier tag classes (.offer-tag-free, etc.)
+  ✓ MM card atmosphere adjustment
+  ✓ MM dark section glow effect
+  ✓ MM page hero ambient glow
+
+IN page-specific <style>:
+  ✓ Grid layouts unique to that page
+  ✓ Section-specific card arrangements
+  ✓ Form styling (booking page)
+  ✓ Page-specific animation
+  ✓ Any one-off component that doesn't repeat
+
+================================================================
+TOKEN REFERENCE — QUICK MAP
+================================================================
+
+COLOURS (Foundation):
+  --color-bg             #FAF8F5    cream background
+  --color-surface        #FFFFFF    white cards/sections
+  --color-text           #2C2C38    primary text
+  --color-text-muted     #7A7A8A    secondary text
+  --color-accent         #C45B28    rust (TPA DNA)
+  --color-accent-deep    #9A4620    hover state
+  --color-teal           #4A9B8E    support/success
+  --color-amber          #E8A838    highlight/featured
+  --color-violet         #8B6AAE    add-on/extra
+  --color-rose           #D4726A    alert/warmth
+
+TYPOGRAPHY:
+  --font-display         DM Serif Display    hero headings, prices
+  --font-editorial       Fraunces            section headings, cards
+  --font-body            Outfit              everything else
+
+SPACING:
+  --space-1 to --space-16   4px to 96px
+  --section-pad             clamp(56px, 8vw, 100px)
+  --page-pad                24px
+
+LAYOUT:
+  --max-w                1080px     default container
+  --max-w-narrow         720px      text-heavy sections
+  --max-w-text           640px      paragraph blocks
+
+RADII:
+  --radius-md            10px       default cards
+  --radius-lg            16px       featured cards
+  --radius-full          50px       buttons, tags
+
+SHADOWS:
+  --shadow-soft          default card state
+  --shadow-card          featured card / hover
+  --shadow-lift          elevated hover
+
+================================================================
+SHARED NAV — HTML PATTERN
+================================================================
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/mastery-method" class="nav-brand">
+      [SVG LOGO MARK]
+      <div class="nav-wm">Mastery Method
+        <span>by The Pressure Academy</span>
+      </div>
+    </a>
+    <button class="nav-toggle" 
+      onclick="document.querySelector('.nav-links')
+        .classList.toggle('open')" 
+      aria-label="Menu">
+      [HAMBURGER SVG]
+    </button>
+    <div class="nav-links">
+      <a href="/mastery-method/clarity" class="nav-link">
+        Clarity</a>
+      <a href="/mastery-method/for-parents" class="nav-link">
+        For Parents</a>
+      <a href="/mastery-method/programs" class="nav-link">
+        Programs</a>
+      <a href="/mastery-method/pricing" class="nav-link">
+        Pricing</a>
+      <a href="/mastery-method/about" class="nav-link">
+        About</a>
+      <a href="/mastery-method/resources" class="nav-link">
+        Resources</a>
+    </div>
+    <a href="/mastery-method/book" class="nav-cta">
+      Start with a Clarity Call</a>
+  </div>
+</nav>
+
+Active page gets class="nav-link active"
+
+================================================================
+SHARED FOOTER — HTML PATTERN
+================================================================
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-brand">Mastery Method</div>
+      <div class="footer-tagline">
+        Structured support for unstructured minds.</div>
+      <div class="footer-note">
+        A clarity-led learning system for families,
+        by The Pressure Academy.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <a href="/mastery-method/clarity">
+        The Clarity Framework</a>
+      <a href="/mastery-method/for-parents">For Parents</a>
+      <a href="/mastery-method/about">About</a>
+      <a href="/mastery-method/resources">Resources</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get Started</h4>
+      <a href="/mastery-method/programs">Programs</a>
+      <a href="/mastery-method/pricing">Pricing</a>
+      <a href="/mastery-method/book">
+        Start with a Clarity Call</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="mailto:hello@thepressureacademy.com">
+        Email Kirsty</a>
+      <a href="/">The Pressure Academy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Mastery Method 
+      by The Pressure Academy</span>
+    <span>Queensland, Australia</span>
+  </div>
+</footer>
+
+================================================================
+MIGRATION PATH — EXISTING MM PAGES
+================================================================
+
+Each existing page currently has ~300 lines of inline CSS.
+Migration is page-by-page, in this order:
+
+Priority 1 (structural reference):
+  □ Pricing page — already closest to target
+
+Priority 2 (highest traffic):
+  □ Homepage
+  □ Booking page
+
+Priority 3 (content pages):
+  □ Clarity
+  □ For Parents
+  □ About
+  □ Programs
+  □ Resources
+
+For each page:
+  1. Add <link> to foundation + variant CSS
+  2. Add data-section="mastery-method" to <body>
+  3. Replace inline nav with shared nav pattern
+  4. Replace inline footer with shared footer pattern
+  5. Remove duplicated token definitions from <style>
+  6. Replace inline component CSS with foundation classes
+  7. Keep page-specific layout CSS in <style>
+  8. Test
+
+Estimated time per page: 15-30 minutes for a developer.
+
+================================================================
+RISKS / WATCHOUTS
+================================================================
+
+1. Font loading: External Google Fonts import in foundation.css
+   means network dependency. For production, consider self-hosting
+   fonts or using font-display: swap.
+
+2. Inline vs external CSS: Current pages work as standalone HTML
+   files. Moving to external stylesheets requires a build/server
+   setup. For prototyping, inline is fine. For production on
+   Vercel, extract to /public/css/.
+
+3. SVG logo: Currently inlined in every page's nav HTML. For
+   production, extract to a shared partial or SVG sprite.
+
+4. Pricing values: $197, $127/mo, $97/session are in the HTML.
+   These are Kirsty's decision — verify before go-live.
+
+5. Formspree: Booking form logs to console. Wire to Formspree
+   endpoint (meerjgde) or equivalent before launch.
+
+6. Photo placeholders: Kirsty's photo placeholder appears on
+   homepage, about, and booking pages. Replace with actual photo.
+
+7. Testimonials: Process proof replaces fabricated quotes.
+   Real testimonials layer on when available.
+
+================================================================
+WHAT THE TPA MAIN SITE INHERITS
+================================================================
+
+When building TPA pages outside of Mastery Method:
+  - Use tpa-foundation.css only (no variant)
+  - No data-section attribute on <body>
+  - Same nav structure, different links
+  - Same footer structure, different content
+  - TPA accent (#C45B28) at full saturation
+  - Standard --color-bg and --color-surface
+  - No pillar utilities (those are MM-specific)
+
+Future sub-brands (Blueprint, Tested, etc.) each get their own
+variant CSS file following the same pattern as mm-variant.css.
+
+================================================================
+END OF DOCUMENT
+================================================================

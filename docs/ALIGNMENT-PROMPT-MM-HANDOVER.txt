@@ -1,0 +1,239 @@
+==================================================
+ALIGNMENT PROMPT — MASTERY METHOD BUILD HANDOVER
+==================================================
+Date: 25 March 2026
+From: Claude Opus session (Cody's primary account)
+To: Claude Opus / Remote Co-work (Cody's secondary account)
+
+==================================================
+WHO YOU ARE AND WHAT YOU'RE CONTINUING
+==================================================
+
+You are picking up an active build for:
+MASTERY METHOD BY THE PRESSURE ACADEMY
+
+This is NOT a new project. This is a continuation.
+A full build phase has just been completed. Your job is to:
+1. Ensure all created files are saved to the correct folders on the server
+2. Continue the next build phase if instructed
+
+==================================================
+PROJECT IDENTITY
+==================================================
+
+The Pressure Academy (TPA) is the parent ecosystem.
+Domain: thepressureacademy.com (live on Vercel)
+
+Mastery Method is a sub-brand within TPA:
+- A clarity-led, parent-empowering online learning system
+- Teacher-led by Kirsty (senior QLD educator, 15+ years early childhood/primary)
+- Launches at: thepressureacademy.com/mastery-method
+- NOT generic tutoring. NOT session-first. NOT a SaaS product.
+
+Brand voice: calm, premium, warm, teacher-led, emotionally safe, structured.
+Never: bro-marketing, startup jargon, generic tutoring language, loud funnel energy.
+
+==================================================
+LOCKED OFFER STACK (DO NOT MODIFY)
+==================================================
+
+1. Clarity Call — FREE entry conversation
+2. Clarity Assessment — ONE-TIME paid diagnostic, produces first Teaching Blueprint
+3. Clarity Pathway — MONTHLY subscription (blueprint updates, parent check-in, weekly activities, resource library)
+4. Targeted 1:1 Sessions — SEPARATE PREMIUM ADD-ON, NOT included in Pathway
+
+These four tiers must remain exactly separated across all pages.
+"Core Program" is RETIRED. Do not use it.
+"Selective 1:1" is RETIRED. Always use "Targeted 1:1 Sessions."
+
+==================================================
+LOCKED BRAND DETAILS
+==================================================
+
+- Logo: Pressure Node (Concept D) — brain outline + compression chevrons + neural nodes
+- Logo colours: #C45B28 (rust frame), #4A9B8E (teal), #E8A838 (amber), #D4726A (rose), #8B6AAE (violet), #D38F5C (connectors at 55% opacity)
+- Primary accent: #C45B28 (rust — TPA ecosystem DNA)
+- Typography: DM Serif Display (display/wordmark) + Fraunces (editorial/headings) + Outfit (body)
+- Four Clarity Pillars: Thinking (rust), Communication (teal), Learning (amber), Action (violet)
+- Founder: Kirsty — senior QLD educator, 15+ years, Bachelor of Education, mother, ADHD/ASD/dyslexia experienced, trauma-aware
+- Tagline: "Structured support for unstructured minds."
+- CTA standard: "Start with a Clarity Call" (used everywhere)
+
+==================================================
+PRICING (Kirsty to confirm before go-live)
+==================================================
+
+- Clarity Call: $0 (free)
+- Clarity Assessment: $197 one-time
+- Clarity Pathway: $127/month
+- Targeted 1:1 Sessions: $97/session (4-pack bundle available)
+
+==================================================
+WHAT WAS BUILT — COMPLETE FILE INVENTORY
+==================================================
+
+CURRENT FILES (keep these):
+
+HTML Pages:
+  mastery-method-homepage-v3.html     ← /mastery-method (homepage)
+  mastery-method-book-v2.html         ← /mastery-method/book (intake/booking)
+  mastery-method-clarity.html         ← /mastery-method/clarity (four pillars deep dive)
+  mastery-method-for-parents.html     ← /mastery-method/for-parents (parent empowerment)
+  mastery-method-about.html           ← /mastery-method/about (origin + methodology + founder)
+  mastery-method-programs.html        ← /mastery-method/programs (explicit offer architecture)
+  mastery-method-resources.html       ← /mastery-method/resources (resource library preview)
+  mastery-method-pricing.html         ← /mastery-method/pricing (transparent pricing page)
+
+Design System:
+  tpa-foundation.css                  ← Layer 1: shared global design tokens + components
+  mm-variant.css                      ← Layer 2: Mastery Method subsection variant
+
+Reference Documents:
+  tpa-design-system-architecture.txt  ← Architecture reference (token map, migration path, implementation rules)
+  mastery-method-clarity-pathway-definition.txt ← Locked offer definition, pricing logic, founder copy
+
+SUPERSEDED FILES (safe to delete):
+  mastery-method-homepage.html        ← replaced by v3
+  mastery-method-homepage-v2.html     ← replaced by v3
+  mastery-method-book.html            ← replaced by book-v2
+  mastery-method-clarity-v2.html      ← intermediate version
+  mastery-method-for-parents-v2.html  ← intermediate version
+  100-day-plan.html                   ← unrelated deliverable (Pedagogical Leadership plan, not MM)
+
+==================================================
+TARGET FOLDER STRUCTURE ON SERVER
+==================================================
+
+The files need to be organised into the following structure
+within the TPA project on Vercel:
+
+thepressureacademy.com/
+├── public/
+│   └── css/
+│       ├── tpa-foundation.css
+│       └── mm-variant.css
+├── mastery-method/
+│   ├── index.html          ← from mastery-method-homepage-v3.html
+│   ├── book/
+│   │   └── index.html      ← from mastery-method-book-v2.html
+│   ├── clarity/
+│   │   └── index.html      ← from mastery-method-clarity.html
+│   ├── for-parents/
+│   │   └── index.html      ← from mastery-method-for-parents.html
+│   ├── about/
+│   │   └── index.html      ← from mastery-method-about.html
+│   ├── programs/
+│   │   └── index.html      ← from mastery-method-programs.html
+│   ├── resources/
+│   │   └── index.html      ← from mastery-method-resources.html
+│   └── pricing/
+│       └── index.html      ← from mastery-method-pricing.html
+└── docs/
+    ├── tpa-design-system-architecture.txt
+    └── mastery-method-clarity-pathway-definition.txt
+
+NOTE: The current pages use inline CSS (each page is self-contained).
+The tpa-foundation.css and mm-variant.css are the ARCHITECTURE for
+future extraction — when ready, inline CSS gets replaced with
+<link> tags pointing to /public/css/. This migration is documented
+in tpa-design-system-architecture.txt.
+
+For now, the pages work as standalone HTML files and can be deployed
+directly to the /mastery-method/ path on Vercel.
+
+==================================================
+WHAT IS CONSISTENT ACROSS ALL 8 PAGES
+==================================================
+
+All pages now share:
+
+1. SHARED NAV — sticky, blurred backdrop, responsive with hamburger toggle
+   - Logo mark (inline SVG) + "Mastery Method" wordmark
+   - 6 nav links: Clarity, For Parents, Programs, Pricing, About, Resources
+   - CTA button: "Start with a Clarity Call"
+   - Active page gets .active class on its nav-link
+
+2. SHARED FOOTER — 4-column dark footer
+   - Brand column: name + tagline + note
+   - Learn: Clarity, For Parents, About, Resources
+   - Get Started: Programs, Pricing, Start with a Clarity Call
+   - Connect: Email Kirsty, The Pressure Academy
+
+3. OFFER STACK — exact same language on every page
+   - Zero instances of "Core Program"
+   - Zero instances of "Selective 1:1"
+   - Zero instances of "Book a Clarity Call"
+   - Zero instances of "18 years"
+   - All CTA buttons say "Start with a Clarity Call"
+   - Targeted 1:1 always framed as separate add-on
+
+==================================================
+WHAT STILL NEEDS REAL ASSETS
+==================================================
+
+Before go-live, these placeholders need replacement:
+
+1. Kirsty's photo — placeholder on homepage, about, and booking pages
+   Replace [ Kirsty's photo ] with actual image
+
+2. Pricing — $197 / $127/mo / $97/session are in the HTML
+   Kirsty needs to confirm these before launch
+
+3. Formspree integration — booking form currently logs to console
+   Wire submitForm() to Formspree endpoint (meerjgde) or equivalent
+
+4. Testimonials — process proof replaces fabricated quotes
+   Real parent testimonials layer on when available
+
+5. Resource library portal — resources page previews the concept
+   Actual portal is a future build
+
+6. Font self-hosting — currently Google Fonts CDN
+   Self-host DM Serif Display, Fraunces, Outfit for production performance
+
+==================================================
+NEXT BUILD STEPS (in priority order)
+==================================================
+
+1. FILE ORGANISATION
+   - Move all current HTML files into correct /mastery-method/ folder structure
+   - Delete superseded files
+   - Place CSS files in /public/css/
+   - Place reference docs in /docs/
+
+2. PRODUCTION WIRING
+   - Wire booking form to Formspree
+   - Replace photo placeholders with Kirsty's actual photo
+   - Confirm pricing with Kirsty
+   - Deploy to Vercel under /mastery-method/
+
+3. CSS EXTRACTION (optional — can be done later)
+   - Move inline CSS to tpa-foundation.css + mm-variant.css
+   - Add <link> tags to each page
+   - Add data-section="mastery-method" to each page's <body>
+   - Keep page-specific layout CSS inline
+   - Migration path documented in tpa-design-system-architecture.txt
+
+4. FUTURE BUILDS
+   - TPA main site shell (homepage, main nav, transition into /mastery-method)
+   - Parent resource portal (actual access layer behind the Clarity Pathway)
+   - Real testimonial integration when available
+   - Analytics / conversion tracking
+
+==================================================
+CRITICAL RULES — DO NOT VIOLATE
+==================================================
+
+1. Do NOT blur the four-tier offer stack
+2. Do NOT imply 1:1 sessions are included in the Clarity Pathway
+3. Do NOT use "Core Program" or "Selective 1:1" anywhere
+4. Do NOT weaken TPA brand to accommodate Mastery Method
+5. Do NOT introduce startup/SaaS/funnel language
+6. Do NOT use fabricated testimonials — use process proof until real ones exist
+7. Do NOT redesign the homepage — it is LOCKED as V3
+8. Keep Mastery Method isolated from crane/BJJ/combat-sports tone
+9. Kirsty: 15+ years, NOT 18 years
+
+==================================================
+END OF ALIGNMENT PROMPT
+==================================================
