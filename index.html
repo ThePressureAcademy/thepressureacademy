@@ -2043,22 +2043,22 @@
     .mastery-palette i:nth-child(3) { background: var(--mastery-c); }
     .mastery-palette i:nth-child(4) { background: var(--mastery-d); }
 
-    .tab-btn[data-tab="focus"].active {
+    .tab-btn[data-tab="thinking"].active {
       border-color: rgba(74,155,142,0.34);
       background: rgba(74,155,142,0.1);
       box-shadow: 0 12px 28px rgba(74,155,142,0.16);
     }
-    .tab-btn[data-tab="achievement"].active {
+    .tab-btn[data-tab="communication"].active {
       border-color: rgba(232,168,56,0.34);
       background: rgba(232,168,56,0.1);
       box-shadow: 0 12px 28px rgba(232,168,56,0.16);
     }
-    .tab-btn[data-tab="creativity"].active {
+    .tab-btn[data-tab="learning"].active {
       border-color: rgba(212,114,106,0.34);
       background: rgba(212,114,106,0.1);
       box-shadow: 0 12px 28px rgba(212,114,106,0.16);
     }
-    .tab-btn[data-tab="connection"].active {
+    .tab-btn[data-tab="action"].active {
       border-color: rgba(139,106,174,0.34);
       background: rgba(139,106,174,0.1);
       box-shadow: 0 12px 28px rgba(139,106,174,0.16);
@@ -2070,31 +2070,31 @@
         rgba(10,10,10,0.76);
       border: 1px solid rgba(255,255,255,0.06);
     }
-    #mastery[data-tab="focus"] #masteryPanel {
+    #mastery[data-tab="thinking"] #masteryPanel {
       box-shadow: inset 0 1px 0 rgba(74,155,142,0.18), 0 24px 50px rgba(0,0,0,0.24);
     }
-    #mastery[data-tab="achievement"] #masteryPanel {
+    #mastery[data-tab="communication"] #masteryPanel {
       box-shadow: inset 0 1px 0 rgba(232,168,56,0.18), 0 24px 50px rgba(0,0,0,0.24);
     }
-    #mastery[data-tab="creativity"] #masteryPanel {
+    #mastery[data-tab="learning"] #masteryPanel {
       box-shadow: inset 0 1px 0 rgba(212,114,106,0.18), 0 24px 50px rgba(0,0,0,0.24);
     }
-    #mastery[data-tab="connection"] #masteryPanel {
+    #mastery[data-tab="action"] #masteryPanel {
       box-shadow: inset 0 1px 0 rgba(139,106,174,0.18), 0 24px 50px rgba(0,0,0,0.24);
     }
-    #mastery[data-tab="focus"] .mastery-metric {
+    #mastery[data-tab="thinking"] .mastery-metric {
       border-color: rgba(74,155,142,0.2);
       background: linear-gradient(180deg, rgba(74,155,142,0.08), rgba(255,255,255,0.02));
     }
-    #mastery[data-tab="achievement"] .mastery-metric {
+    #mastery[data-tab="communication"] .mastery-metric {
       border-color: rgba(232,168,56,0.2);
       background: linear-gradient(180deg, rgba(232,168,56,0.08), rgba(255,255,255,0.02));
     }
-    #mastery[data-tab="creativity"] .mastery-metric {
+    #mastery[data-tab="learning"] .mastery-metric {
       border-color: rgba(212,114,106,0.2);
       background: linear-gradient(180deg, rgba(212,114,106,0.08), rgba(255,255,255,0.02));
     }
-    #mastery[data-tab="connection"] .mastery-metric {
+    #mastery[data-tab="action"] .mastery-metric {
       border-color: rgba(139,106,174,0.2);
       background: linear-gradient(180deg, rgba(139,106,174,0.08), rgba(255,255,255,0.02));
     }
@@ -2845,7 +2845,7 @@
 </div>
 </div>
 </section>
-<section class="section" data-tab="focus" id="mastery">
+<section class="section" data-tab="thinking" id="mastery">
 <div class="container">
 <div class="section-head reveal with-mark"><img alt="Mastery section logo" class="section-mark reveal" src="assets/logos/Mastery_Method_Mark.svg"/>
 <span class="eyebrow">Mastery Method</span>
@@ -2854,24 +2854,24 @@
 </div>
 <div class="mastery-layout">
 <div class="mastery-tab-list reveal" id="masteryTabs">
-<button class="tab-btn active" data-tab="focus" type="button">Focus &amp; Logic</button>
-<button class="tab-btn" data-tab="achievement" type="button">Achievement</button>
-<button class="tab-btn" data-tab="creativity" type="button">Creativity</button>
-<button class="tab-btn" data-tab="connection" type="button">Connection</button>
+<button class="tab-btn active" data-tab="thinking" type="button">Thinking</button>
+<button class="tab-btn" data-tab="communication" type="button">Communication</button>
+<button class="tab-btn" data-tab="learning" type="button">Learning</button>
+<button class="tab-btn" data-tab="action" type="button">Action</button>
 </div>
 <div class="mastery-tab-panel reveal" id="masteryPanel">
-<div class="muted-label" id="masteryKicker">Executive Function</div>
-<h3 id="masteryTitle">Focus &amp; Logic</h3>
-<p id="masteryDesc">Build reading comprehension, sequencing, routine design, and executive function in a way that respects how the child actually thinks instead of forcing one narrow learning template.</p>
+<div class="muted-label" id="masteryKicker">Pillar 1</div>
+<h3 id="masteryTitle">Clarity of Thinking</h3>
+<p id="masteryDesc">Understanding the real task, breaking it down, knowing where to start. Many children who seem stuck aren't confused by the content — they're confused by the task itself.</p>
 <div class="mastery-tags" id="masteryTags">
 <span class="chip">Years 3–8</span>
-<span class="chip">1:1 or small group</span>
 <span class="chip">Neuro-inclusive</span>
+<span class="chip">Task clarity</span>
 </div>
 <div class="mastery-visual" id="masteryVisual">
-<div class="mastery-metric"><span class="muted-label">Structure</span><strong>Core</strong><span style="color:var(--muted-2)">Routine clarity</span></div>
-<div class="mastery-metric"><span class="muted-label">Attention</span><strong>Core</strong><span style="color:var(--muted-2)">Task engagement</span></div>
-<div class="mastery-metric"><span class="muted-label">Confidence</span><strong>Core</strong><span style="color:var(--muted-2)">Progress visibility</span></div>
+<div class="mastery-metric"><span class="muted-label">Comprehension</span><strong>Core</strong><span style="color:var(--muted-2)">Task understanding</span></div>
+<div class="mastery-metric"><span class="muted-label">Processing</span><strong>Core</strong><span style="color:var(--muted-2)">Breaking down steps</span></div>
+<div class="mastery-metric"><span class="muted-label">Independence</span><strong>Core</strong><span style="color:var(--muted-2)">Starting confidently</span></div>
 <div class="mastery-metric"><span class="muted-label">Parent insight</span><strong>Core</strong><span style="color:var(--muted-2)">Feedback clarity</span></div>
 </div>
 </div>
@@ -3185,52 +3185,52 @@
       };
 
       const masteryData = {
-        focus: {
-          kicker: 'Executive Function',
-          title: 'Focus & Logic',
-          desc: 'Build reading comprehension, sequencing, and routine design in a way that respects how the child actually thinks.',
-          tags: ['Years 3–8', 'Neuro-inclusive', 'Routine clarity'],
+        thinking: {
+          kicker: 'Pillar 1',
+          title: 'Clarity of Thinking',
+          desc: 'Understanding the real task, breaking it down, knowing where to start. Many children who seem stuck aren\'t confused by the content — they\'re confused by the task itself.',
+          tags: ['Years 3–8', 'Neuro-inclusive', 'Task clarity'],
           metrics: [
-            ['Structure', 'Core', 'Routine clarity'],
-            ['Attention', 'Core', 'Task engagement'],
-            ['Confidence', 'Core', 'Progress visibility'],
+            ['Comprehension', 'Core', 'Task understanding'],
+            ['Processing', 'Core', 'Breaking down steps'],
+            ['Independence', 'Core', 'Starting confidently'],
             ['Parent insight', 'Core', 'Feedback clarity']
           ]
         },
-        achievement: {
-          kicker: 'Visible Progress',
-          title: 'Achievement',
-          desc: 'Clear progression levels and gates help children see their growth while giving parents a cleaner picture of what is actually improving.',
-          tags: ['Milestone gates', 'Visible wins', 'Parent reporting'],
-          metrics: [
-            ['Wins tracked', 'Tracked', 'Visible goals'],
-            ['Momentum', 'Core', 'Session completion'],
-            ['Retention', 'Core', 'Programme continuity'],
-            ['Clarity', 'Core', 'Parent confidence']
-          ]
-        },
-        creativity: {
-          kicker: 'Structured Expression',
-          title: 'Creativity',
-          desc: 'Writing, spelling, storytelling, and self-expression are treated as guided outputs, not random worksheets on repeat.',
+        communication: {
+          kicker: 'Pillar 2',
+          title: 'Clarity of Communication',
+          desc: 'Expressing ideas with confidence, asking better questions, and explaining reasoning in a way others can follow — turning understanding into clear, purposeful language.',
           tags: ['Writing', 'Expression', 'Confidence building'],
           metrics: [
-            ['Output', 'Weekly', 'Creative tasks'],
+            ['Expression', 'Core', 'Written clarity'],
             ['Voice', 'Core', 'Student ownership'],
-            ['Recall', 'Core', 'Retention through play'],
-            ['Enjoyment', 'Core', 'Positive engagement']
+            ['Questions', 'Core', 'Asking for help'],
+            ['Confidence', 'Core', 'Verbal reasoning']
           ]
         },
-        connection: {
-          kicker: 'Belonging & Regulation',
-          title: 'Connection',
-          desc: 'Trauma-informed, neurodivergent-aware support that keeps emotional regulation inside the learning plan instead of treating it as an unrelated side issue.',
-          tags: ['Belonging', 'Regulation', 'Relationship-led'],
+        learning: {
+          kicker: 'Pillar 3',
+          title: 'Clarity of Learning',
+          desc: 'Knowing what success looks like, how to use feedback, and what the next step actually is — so effort becomes purposeful rather than anxious.',
+          tags: ['Progress visibility', 'Feedback use', 'Parent reporting'],
           metrics: [
-            ['Safety', 'Core', 'Session comfort'],
-            ['Regulation', 'Core', 'Recover after friction'],
-            ['Belonging', 'Core', 'Identity support'],
-            ['Communication', 'Core', 'Parent alignment']
+            ['Goals', 'Tracked', 'Clear targets'],
+            ['Feedback', 'Core', 'Using correction'],
+            ['Retention', 'Core', 'Study strategy'],
+            ['Clarity', 'Core', 'Progress awareness']
+          ]
+        },
+        action: {
+          kicker: 'Pillar 4',
+          title: 'Clarity of Action',
+          desc: 'Starting without stalling, maintaining focus, and building the routines that turn understanding into completed work — where many capable children fall apart.',
+          tags: ['Routines', 'Follow-through', 'Independence'],
+          metrics: [
+            ['Initiation', 'Core', 'Task start'],
+            ['Focus', 'Core', 'Sustained attention'],
+            ['Completion', 'Core', 'Follow-through'],
+            ['Routine', 'Core', 'Independent habits']
           ]
         }
       };
