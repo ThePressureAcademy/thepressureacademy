@@ -136,7 +136,15 @@
   .results-cta a{display:inline-block;padding:14px 32px;border-radius:50px;background:var(--rust);color:var(--white);font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:500;text-decoration:none;transition:all .25s}
   .results-cta a:hover{background:var(--rust-deep);transform:translateY(-1px)}
   .results-cta .reassurance{margin-top:14px;font-size:.7rem;color:rgba(255,255,255,.25);font-weight:300}
+  .results-cta-trust{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:20px}
+  .results-cta-avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(255,255,255,.12)}
+  .results-cta-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block}
+  .results-cta-who{text-align:left;font-size:.78rem;color:rgba(255,255,255,.55);font-weight:300;line-height:1.4}
+  .results-cta-who strong{color:rgba(255,255,255,.8);font-weight:500}
 
+  .sc-submit-error{display:none;text-align:center;padding:12px 16px;margin:16px auto 0;max-width:480px;background:rgba(212,114,106,.08);border:1.5px solid rgba(212,114,106,.18);border-radius:var(--radius);font-size:.82rem;color:var(--rose);line-height:1.6}
+  .sc-submit-error.show{display:block}
+  .sc-submit-error a{color:var(--rust);font-weight:500;text-decoration:none}
   .sc-footer{text-align:center;padding:24px 0;font-size:.7rem;color:var(--ink-muted);font-weight:300}
   .sc-footer a{color:var(--ink-muted);text-decoration:none}.sc-footer a:hover{color:var(--rust)}
 
@@ -258,9 +266,14 @@
       <h3>Want to understand this <em>in depth</em>?</h3>
       <p>The Clarity Scorecard gives you a snapshot. A full Clarity Assessment with Kirsty identifies the exact patterns, the root causes, and produces your family's first Teaching Blueprint.</p>
       <p>The first step is a free Clarity Call.</p>
+      <div class="results-cta-trust">
+        <div class="results-cta-avatar"><img src="/assets/Kirsty-portrait.jpg" alt="Kirsty" loading="lazy"></div>
+        <div class="results-cta-who"><strong>You'll speak with Kirsty</strong><br>Senior Queensland educator &middot; 15+ years &middot; Learning differences specialist</div>
+      </div>
       <a href="/mastery-method/book">Start with a Clarity Call</a>
       <div class="reassurance">Free &middot; 15-20 minutes &middot; No pressure &middot; With Kirsty directly</div>
     </div>
+    <div class="sc-submit-error" id="scSubmitError">Your results are shown above, but we couldn't save your details. To make sure Kirsty receives your information, please <a href="mailto:contact@thepressureacademy.com?subject=Clarity%20Scorecard%20results">email her directly</a> or <a href="/mastery-method/book">start a Clarity Call request</a>.</div>
   </div>
 
   <div class="sc-footer">
@@ -589,7 +602,11 @@
       method: 'POST',
       body: formData,
       headers: { 'Accept': 'application/json' }
-    }).catch(function(){});
+    }).then(function(response) {
+      if (!response.ok) throw new Error('Submission failed');
+    }).catch(function() {
+      document.getElementById('scSubmitError').classList.add('show');
+    });
 
     window.scrollTo({top:0,behavior:'smooth'});
   };
