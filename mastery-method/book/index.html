@@ -72,7 +72,8 @@
 
   /* Founder mini */
   .founder-mini{display:flex;gap:16px;align-items:center;padding:20px;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);margin-bottom:24px}
-  .founder-avatar{width:56px;height:56px;border-radius:50%;background:var(--cream-deep);display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--ink-muted);flex-shrink:0;text-align:center;line-height:1.2}
+  .founder-avatar{width:56px;height:56px;border-radius:50%;background:var(--cream-deep);overflow:hidden;flex-shrink:0}
+  .founder-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block}
   .founder-mini-text h4{font-family:'Fraunces',Georgia,serif;font-size:.9rem;font-weight:500;margin-bottom:2px}
   .founder-mini-text p{font-size:.75rem;color:var(--ink-muted);font-weight:300;line-height:1.5}
   .founder-mini-creds{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
@@ -268,7 +269,7 @@
 
     <!-- Founder mini -->
     <div class="founder-mini">
-      <div class="founder-avatar">[ Photo ]</div>
+      <div class="founder-avatar"><img src="/assets/Kirsty-portrait.jpg" alt="Kirsty" loading="lazy"></div>
       <div class="founder-mini-text">
         <h4>You'll speak with Kirsty</h4>
         <p>Senior Queensland educator with over 15 years across early childhood and primary — including extensive experience with children with ADHD, ASD, and dyslexia. Also a mother who gets it.</p>
@@ -365,12 +366,12 @@
         <label>What are you noticing?</label>
         <span class="hint">Select all that apply</span>
         <div class="checkbox-group">
-          <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Struggles to start tasks independently</span></label>
-          <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Knows it but can't get it on paper</span></label>
-          <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Low confidence or gives up easily</span></label>
-          <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Homework is a daily battle</span></label>
-          <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Progress doesn't seem to stick</span></label>
-          <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">I'm not sure what they need</span></label>
+          <div class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Struggles to start tasks independently</span></div>
+          <div class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Knows it but can't get it on paper</span></div>
+          <div class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Low confidence or gives up easily</span></div>
+          <div class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Homework is a daily battle</span></div>
+          <div class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">Progress doesn't seem to stick</span></div>
+          <div class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="check-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span class="checkbox-label">I'm not sure what they need</span></div>
         </div>
       </div>
       <div class="form-actions">
