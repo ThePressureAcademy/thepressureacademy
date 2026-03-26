@@ -145,7 +145,7 @@
   /* Success */
   .form-success{display:none;text-align:center;padding:32px 16px}
   .form-success.show{display:block}
-  .success-icon{width:56px;height:56px;border-radius:50%;background:var(--teal-wash);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+  .success-icon{width:56px;height:56px;border-radius:50%;background:var(--teal-wash);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;color:var(--teal)} .success-icon svg{width:24px;height:24px}
   .form-success h3{font-family:'DM Serif Display',Georgia,serif;font-size:1.3rem;margin-bottom:8px}
   .form-success p{font-size:.88rem;color:var(--ink-muted);line-height:1.7;font-weight:300}
   .form-success a{color:var(--rust);font-weight:500;text-decoration:none}
@@ -162,7 +162,7 @@
   .pp-intro p{font-size:.95rem;color:var(--ink-muted);line-height:1.8;font-weight:300}
   .pp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .pp-card{background:var(--white);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-soft);display:flex;gap:16px;align-items:flex-start}
-  .pp-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+  .pp-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-soft)} .pp-icon svg{width:18px;height:18px}
   .pp-card:nth-child(1) .pp-icon{background:var(--rust-wash)}
   .pp-card:nth-child(2) .pp-icon{background:var(--teal-wash)}
   .pp-card:nth-child(3) .pp-icon{background:var(--amber-wash)}
@@ -422,7 +422,7 @@
 
     <!-- SUCCESS -->
     <div class="form-success" id="formSuccess">
-      <div class="success-icon" id="successIcon">&#10003;</div>
+      <div class="success-icon" id="successIcon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
       <h3 id="successTitle">Request received</h3>
       <p id="successMsg">Thank you. Kirsty will be in touch within 24 hours to arrange your Clarity Call.</p>
       <p style="margin-top:12px;font-size:.82rem">While you wait, explore the <a href="/mastery-method/clarity">Clarity Framework</a> or read about <a href="/mastery-method/for-parents">how parent involvement works</a>.</p>
@@ -443,28 +443,28 @@
   </div>
   <div class="pp-grid">
     <div class="pp-card">
-      <div class="pp-icon">&#128218;</div>
+      <div class="pp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
       <div>
         <h3>Updated Teaching Blueprint</h3>
         <p>A personalised guide to your child's current focus, where they're progressing, and specific home reinforcement — updated monthly.</p>
       </div>
     </div>
     <div class="pp-card">
-      <div class="pp-icon">&#128222;</div>
+      <div class="pp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/></svg></div>
       <div>
         <h3>Monthly Parent Check-In</h3>
         <p>A 15-20 minute call with Kirsty to review progress, adjust the blueprint, and answer your questions. For you — not a teaching session.</p>
       </div>
     </div>
     <div class="pp-card">
-      <div class="pp-icon">&#128161;</div>
+      <div class="pp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg></div>
       <div>
         <h3>Weekly Home Activities</h3>
         <p>One specific focus area and one practical activity per week. 5-10 minutes, 2-3 times. Designed for real parents with real schedules.</p>
       </div>
     </div>
     <div class="pp-card">
-      <div class="pp-icon">&#128218;</div>
+      <div class="pp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M9 10h6"/></svg></div>
       <div>
         <h3>Parent Resource Library</h3>
         <p>Clarity pillar guides, curriculum visibility by year level, conversation prompts, and strategies — a growing library built for parents.</p>
@@ -489,9 +489,9 @@
   };
 
   var successMap = {
-    call: { title: 'Clarity Call requested', icon: '&#128222;', msg: 'Thank you. Kirsty will be in touch within 24 hours to arrange your Clarity Call.' },
-    assessment: { title: 'Assessment request received', icon: '&#128203;', msg: 'Thank you. Kirsty will be in touch within 24 hours to discuss your Clarity Assessment and next steps.' },
-    info: { title: 'Information on its way', icon: '&#128232;', msg: 'Thank you. We\u2019ll send you information about how Mastery Method works. No pressure \u2014 take your time.' }
+    call: { title: 'Clarity Call requested', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>', msg: 'Thank you. Kirsty will be in touch within 24 hours to arrange your Clarity Call.' },
+    assessment: { title: 'Assessment request received', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>', msg: 'Thank you. Kirsty will be in touch within 24 hours to discuss your Clarity Assessment and next steps.' },
+    info: { title: 'Information on its way', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>', msg: 'Thank you. We\u2019ll send you information about how Mastery Method works. No pressure \u2014 take your time.' }
   };
 
   function getIntent() {
