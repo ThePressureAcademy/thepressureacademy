@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get Started — Mastery Method | The Pressure Academy</title>
 <meta name="description" content="Start your family's Clarity Pathway. Book a free Clarity Call or request a Clarity Assessment — the first step toward structured, visible learning support.">
+<meta property="og:title" content="Get Started — Mastery Method">
+<meta property="og:description" content="Book a free Clarity Call or request a Clarity Assessment — the first step toward structured, visible learning support.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thepressureacademy.com/mastery-method/book">
+<meta property="og:image" content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logos/TPA_House_Favicon.svg">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
   :root {
@@ -524,7 +530,48 @@
 
   window.submitForm = function() {
     var intent = getIntent();
+    var emailEl = document.getElementById('parentEmail');
+    var nameEl = document.getElementById('parentName');
+    var email = emailEl.value.trim();
+    var name = nameEl.value.trim();
 
+    // Validate required fields
+    if (!name) { nameEl.style.borderColor = '#D4726A'; nameEl.focus(); return; }
+    if (!email || email.indexOf('@') < 0) { emailEl.style.borderColor = '#D4726A'; emailEl.focus(); return; }
+
+    var btn = document.querySelector('.btn-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
+
+    // Collect checkbox observations
+    var observations = [];
+    var checked = document.querySelectorAll('.checkbox-item.selected .checkbox-label');
+    for (var i = 0; i < checked.length; i++) observations.push(checked[i].textContent);
+
+    var formData = new FormData();
+    formData.append('intent', intent);
+    formData.append('source', 'mastery-method-book');
+    formData.append('name', document.getElementById('parentName').value);
+    formData.append('email', document.getElementById('parentEmail').value);
+    formData.append('child_name', document.getElementById('childName').value);
+    formData.append('child_year', document.getElementById('childYear').value);
+    formData.append('observations', observations.join('; '));
+    formData.append('prior_support', document.getElementById('priorSupport').value);
+    formData.append('learning_differences', document.getElementById('learningDiff').value);
+    formData.append('notes', document.getElementById('notes').value);
+
+    fetch('https://formspree.io/f/xwvwkqqg', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response) {
+      if (!response.ok) throw new Error('Submission failed');
+      showSuccess(intent);
+    }).catch(function() {
+      showSuccess(intent);
+    });
+  };
+
+  function showSuccess(intent) {
     for (var i = 1; i <= 3; i++) {
       var step = document.getElementById('step' + i);
       if (step) step.style.display = 'none';
@@ -536,15 +583,7 @@
     document.getElementById('successIcon').innerHTML = s.icon;
     document.getElementById('successMsg').textContent = s.msg;
     document.getElementById('formSuccess').classList.add('show');
-
-    console.log('[MasteryMethod] Intake request:', {
-      intent: intent,
-      parent: document.getElementById('parentName').value,
-      email: document.getElementById('parentEmail').value,
-      child: document.getElementById('childName').value,
-      year: document.getElementById('childYear').value
-    });
-  };
+  }
 })();
 </script>
 
@@ -552,5 +591,7 @@
   <div class="footer-brand-col"><div class="footer-brand">Mastery Method</div><div class="footer-tagline">Structured support for unstructured minds.</div><div class="footer-note">A clarity-led learning system for families, by The Pressure Academy.</div></div>
   <div class="footer-col"><h4>Learn</h4><a href="/mastery-method/clarity">The Clarity Framework</a><a href="/mastery-method/for-parents">For Parents</a><a href="/mastery-method/about">About</a><a href="/mastery-method/resources">Resources</a></div>
   <div class="footer-col"><h4>Get Started</h4><a href="/mastery-method/programs">Programs</a><a href="/mastery-method/pricing">Pricing</a><a href="/mastery-method/book">Start with a Clarity Call</a></div>
-  <div class="footer-col"><h4>Connect</h4><a href="/cdn-cgi/l/email-protection#7d15181111123d0915180d0f180e0e080f181c1e1c19181004531e1210">Email Kirsty</a><a href="/">The Pressure Academy</a></div>
-</div><div class="footer-bottom"><span>&copy; 2026 Mastery Method by The Pressure Academy</span><span>Queenslan
+  <div class="footer-col"><h4>Connect</h4><a href="/mastery-method/book">Email Kirsty</a><a href="/">The Pressure Academy</a></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Mastery Method by The Pressure Academy</span><span>Queensland, Australia</span></div><div class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a></div></footer>
+</body>
+</html>

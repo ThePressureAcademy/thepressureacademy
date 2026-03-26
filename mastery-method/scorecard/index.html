@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Clarity Scorecard — How Clear Is Your Child's Learning? | Mastery Method</title>
 <meta name="description" content="A free 3-minute assessment to understand where your child's learning clarity gaps are — and what to do about them.">
+<meta property="og:title" content="The Clarity Scorecard — Free Learning Assessment">
+<meta property="og:description" content="A free 3-minute assessment to understand where your child's learning clarity gaps are — and what to do about them.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thepressureacademy.com/mastery-method/scorecard">
+<meta property="og:image" content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logos/TPA_House_Favicon.svg">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
   :root{--rust:#C45B28;--rust-deep:#9A4620;--rust-light:#D4916F;--rust-wash:#FAF0EB;--teal:#4A9B8E;--teal-wash:#EBF5F3;--teal-deep:#3A7D72;--amber:#E8A838;--amber-wash:#FDF5E6;--violet:#8B6AAE;--violet-wash:#F3EFF7;--ink:#2C2C38;--ink-soft:#4A4A58;--ink-muted:#7A7A8A;--cream:#FAF8F5;--cream-deep:#F2EDE6;--white:#FFFFFF;--radius:10px;--radius-lg:16px;--shadow-soft:0 2px 16px rgba(44,44,56,.05);--shadow-card:0 4px 24px rgba(44,44,56,.07);--max-w:640px}
@@ -258,7 +264,7 @@
   </div>
 
   <div class="sc-footer">
-    <p>The Clarity Scorecard by <a href="/mastery-method">Mastery Method</a> &middot; <a href="/">The Pressure Academy</a></p>
+    <p>The Clarity Scorecard by <a href="/mastery-method">Mastery Method</a> &middot; <a href="/">The Pressure Academy</a> &middot; <a href="/privacy-policy.html">Privacy Policy</a></p>
   </div>
 
 </div>
@@ -564,34 +570,27 @@
       timestamp: new Date().toISOString()
     };
 
-    console.log('[ClarityScorecard] Lead captured:', leadData);
+    // Submit lead data to Formspree
+    var formData = new FormData();
+    formData.append('intent', 'scorecard-lead');
+    formData.append('source', 'clarity-scorecard');
+    formData.append('name', leadData.name);
+    formData.append('email', leadData.email);
+    formData.append('child_year', leadData.yearLevel);
+    formData.append('total_score', leadData.totalScore);
+    formData.append('thinking_score', leadData.thinkingScore);
+    formData.append('communication_score', leadData.communicationScore);
+    formData.append('learning_score', leadData.learningScore);
+    formData.append('action_score', leadData.actionScore);
+    formData.append('weakest_pillar', leadData.weakestPillar);
+    formData.append('clarity_level', leadData.level);
 
-    // ══ INTEGRATION HOOK ══
-    // Replace this function body with your email provider integration.
-    // ConvertKit example:
-    //   fetch('https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({
-    //       api_key: 'YOUR_API_KEY',
-    //       email: leadData.email,
-    //       first_name: leadData.name,
-    //       fields: {
-    //         year_level: leadData.yearLevel,
-    //         total_score: leadData.totalScore,
-    //         weakest_pillar: leadData.weakestPillar,
-    //         thinking_score: leadData.thinkingScore,
-    //         communication_score: leadData.communicationScore,
-    //         learning_score: leadData.learningScore,
-    //         action_score: leadData.actionScore,
-    //         clarity_level: leadData.level
-    //       },
-    //       tags: ['clarity-scorecard', 'weakest-' + leadData.weakestPillar]
-    //     })
-    //   });
-    //
-    // Mailchimp / Formspree / Zapier webhook also work.
-    // The leadData object above contains everything the nurture sequence needs.
+    fetch('https://formspree.io/f/xwvwkqqg', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).catch(function(){});
+
     window.scrollTo({top:0,behavior:'smooth'});
   };
 
