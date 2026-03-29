@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Library — Mastery Method Portal</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/assets/logos/TPA_House_Favicon.svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+  :root{--rust:#C45B28;--rust-deep:#9A4620;--rust-wash:#FAF0EB;--teal:#4A9B8E;--teal-wash:#EBF5F3;--teal-deep:#3A7D72;--amber:#E8A838;--amber-wash:#FDF5E6;--violet:#8B6AAE;--violet-wash:#F3EFF7;--rose:#D4726A;--rose-wash:#FBEFEE;--ink:#2C2C38;--ink-soft:#4A4A58;--ink-muted:#7A7A8A;--cream:#FAF8F5;--cream-deep:#F2EDE6;--white:#FFFFFF;--radius:10px;--radius-lg:16px;--shadow-soft:0 2px 16px rgba(44,44,56,.05);--shadow-card:0 4px 24px rgba(44,44,56,.07);--max-w:1080px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Outfit',system-ui,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .portal-nav{background:var(--white);border-bottom:1px solid rgba(44,44,56,.06);position:sticky;top:0;z-index:100}
+  .portal-nav-inner{max-width:var(--max-w);margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .portal-brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);flex-shrink:0}
+  .portal-mark{height:26px}
+  .portal-wm{font-family:'DM Serif Display',Georgia,serif;font-size:.9rem;line-height:1.2}
+  .portal-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:300;display:block;margin-top:-1px}
+  .portal-badge{font-size:.56rem;letter-spacing:1.5px;text-transform:uppercase;background:var(--teal-wash);color:var(--teal-deep);padding:2px 8px;border-radius:50px;font-weight:500;flex-shrink:0}
+  .portal-nav-links{display:flex;align-items:center;gap:2px}
+  .portal-nav-link{font-size:.75rem;font-weight:400;color:var(--ink-muted);text-decoration:none;padding:6px 12px;border-radius:50px;transition:all .2s}
+  .portal-nav-link:hover{color:var(--ink);background:rgba(44,44,56,.03)}
+  .portal-nav-link.active{color:var(--ink);font-weight:500}
+  .portal-nav-exit{font-size:.72rem;color:var(--ink-muted);background:none;border:1.5px solid rgba(44,44,56,.1);padding:6px 14px;border-radius:50px;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+  .portal-nav-exit:hover{border-color:rgba(44,44,56,.2);color:var(--ink)}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .nav-toggle svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round}
+  @media(max-width:768px){.portal-nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);border-bottom:1px solid rgba(44,44,56,.06);flex-direction:column;padding:8px 24px;gap:2px}.portal-nav-links.open{display:flex}.portal-nav-link{padding:10px 12px;width:100%}.nav-toggle{display:block}}
+  .lib-header{max-width:var(--max-w);margin:0 auto;padding:36px 24px 0}
+  .lib-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:400;margin-bottom:4px}
+  .lib-sub{font-size:.82rem;color:var(--ink-muted);font-weight:300}
+  .filter-bar{max-width:var(--max-w);margin:24px auto 0;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap}
+  .filter-btn{font-family:'Outfit',sans-serif;font-size:.74rem;font-weight:400;padding:7px 16px;border-radius:50px;border:1.5px solid rgba(44,44,56,.1);background:var(--white);color:var(--ink-muted);cursor:pointer;transition:all .2s}
+  .filter-btn:hover{border-color:rgba(44,44,56,.2);color:var(--ink)}
+  .filter-btn.active{background:var(--ink);color:var(--white);border-color:var(--ink)}
+  .filter-btn[data-filter="thinking"].active{background:var(--teal);border-color:var(--teal)}
+  .filter-btn[data-filter="communication"].active{background:var(--rust);border-color:var(--rust)}
+  .filter-btn[data-filter="learning"].active{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+  .filter-btn[data-filter="action"].active{background:var(--violet);border-color:var(--violet)}
+  .lib-grid{max-width:var(--max-w);margin:24px auto;padding:0 24px 56px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .resource-card{background:var(--white);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-soft);cursor:pointer;transition:all .25s;text-decoration:none;color:var(--ink);display:block;position:relative;overflow:hidden}
+  .resource-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-card)}
+  .resource-card[data-pillar="thinking"]::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--teal)}
+  .resource-card[data-pillar="communication"]::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--rust)}
+  .resource-card[data-pillar="learning"]::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--amber)}
+  .resource-card[data-pillar="action"]::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--violet)}
+  .resource-card.viewed .resource-viewed-badge{display:flex}
+  .resource-type{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+  .resource-card[data-pillar="thinking"] .resource-type{color:var(--teal-deep)}
+  .resource-card[data-pillar="communication"] .resource-type{color:var(--rust)}
+  .resource-card[data-pillar="learning"] .resource-type{color:#946A20}
+  .resource-card[data-pillar="action"] .resource-type{color:var(--violet)}
+  .resource-viewed-badge{display:none;align-items:center;gap:3px;font-size:.58rem;color:var(--teal-deep);background:var(--teal-wash);padding:2px 8px;border-radius:50px}
+  .resource-viewed-badge svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5}
+  .resource-title{font-family:'Fraunces',Georgia,serif;font-size:.95rem;font-weight:500;margin-bottom:6px;line-height:1.35}
+  .resource-desc{font-size:.75rem;color:var(--ink-muted);font-weight:300;line-height:1.6}
+  .resource-meta{margin-top:12px;font-size:.65rem;color:var(--ink-muted);font-weight:300;display:flex;gap:10px}
+  .resource-card.hidden{display:none}
+  @media(max-width:768px){.lib-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.lib-grid{grid-template-columns:1fr}}
+</style>
+</head>
+
+<!-- Route protection is server-side via api/portal-serve.js -->
+<body>
+
+<nav class="portal-nav" role="navigation" aria-label="Portal navigation">
+  <div class="portal-nav-inner">
+    <a href="/mastery-method" class="portal-brand">
+      <svg class="portal-mark" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+        <rect x="22" y="4" width="56" height="7" rx="3.5" fill="#C45B28"/>
+        <rect x="22" y="119" width="56" height="7" rx="3.5" fill="#C45B28"/>
+        <line x1="50" y1="11" x2="50" y2="32" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/>
+        <line x1="50" y1="98" x2="50" y2="119" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/>
+        <path d="M50 32 C56 34,64 38,70 44 C74 48,78 54,80 60 Q82 65,80 70 C78 76,74 82,70 86 C64 92,56 96,50 98 C44 96,36 92,30 86 C26 82,22 76,20 70 Q18 65,20 60 C22 54,26 48,30 44 C36 38,44 34,50 32Z" fill="none" stroke="#C45B28" stroke-width="5"/>
+        <g stroke="#D38F5C" stroke-width="2" stroke-opacity=".55" fill="none"><line x1="50" y1="48" x2="38" y2="58"/><line x1="50" y1="48" x2="62" y2="58"/><line x1="38" y1="58" x2="38" y2="74"/><line x1="62" y1="58" x2="62" y2="74"/><line x1="38" y1="74" x2="50" y2="82"/><line x1="62" y1="74" x2="50" y2="82"/><line x1="50" y1="48" x2="50" y2="65"/></g>
+        <circle cx="50" cy="48" r="4" fill="#C45B28"/><circle cx="38" cy="58" r="3.5" fill="#4A9B8E"/><circle cx="62" cy="58" r="3.5" fill="#E8A838"/><circle cx="50" cy="65" r="4.5" fill="#C45B28"/>
+      </svg>
+      <div class="portal-wm">Mastery Method<span>Member Portal</span></div>
+    </a>
+    <span class="portal-badge">Portal</span>
+    <button class="nav-toggle" onclick="document.querySelector('.portal-nav-links').classList.toggle('open')" aria-label="Open menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="portal-nav-links">
+      <a href="/mastery-method/portal/dashboard/" class="portal-nav-link">Dashboard</a>
+      <a href="/mastery-method/portal/library/" class="portal-nav-link active">Library</a>
+      <a href="/mastery-method/portal/account/" class="portal-nav-link">Account</a>
+    </div>
+    <button class="portal-nav-exit" onclick="exitPortal()" aria-label="Exit portal">Exit portal</button>
+  </div>
+</nav>
+
+<div class="lib-header">
+  <h1 class="lib-title">Resource library</h1>
+  <p class="lib-sub">Materials organised by clarity pillar — matched to your Teaching Blueprint.</p>
+</div>
+
+<div class="filter-bar" role="group" aria-label="Filter resources by pillar">
+  <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">All resources</button>
+  <button class="filter-btn" data-filter="thinking" onclick="setFilter('thinking',this)">Thinking</button>
+  <button class="filter-btn" data-filter="communication" onclick="setFilter('communication',this)">Communication</button>
+  <button class="filter-btn" data-filter="learning" onclick="setFilter('learning',this)">Learning</button>
+  <button class="filter-btn" data-filter="action" onclick="setFilter('action',this)">Action</button>
+</div>
+
+<div class="lib-grid" id="lib-grid">
+
+  <!-- Teaching Blueprint (featured) -->
+  <a href="/mastery-method/portal/module/?id=blueprint" class="resource-card" data-pillar="thinking" data-id="blueprint" onclick="markViewed('blueprint','Teaching Blueprint','thinking')">
+    <div class="resource-type">Thinking <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">Teaching Blueprint</div>
+    <div class="resource-desc">Your family's personalised teaching map — clarity pillars, identified gaps, and recommended home approaches.</div>
+    <div class="resource-meta"><span>Blueprint</span><span>·</span><span>Updated monthly</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=thinking-framework" class="resource-card" data-pillar="thinking" data-id="thinking-framework" onclick="markViewed('thinking-framework','The Thinking Framework','thinking')">
+    <div class="resource-type">Thinking <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">The Thinking Framework</div>
+    <div class="resource-desc">How children approach problems, form questions, and hold complexity. The foundation pillar.</div>
+    <div class="resource-meta"><span>Guide</span><span>·</span><span>Core module</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=thinking-activities" class="resource-card" data-pillar="thinking" data-id="thinking-activities" onclick="markViewed('thinking-activities','Thinking Home Activities','thinking')">
+    <div class="resource-type">Thinking <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">Thinking Home Activities</div>
+    <div class="resource-desc">Short, practical activities to strengthen analytical thinking between sessions. 5–10 minutes each.</div>
+    <div class="resource-meta"><span>Activities</span><span>·</span><span>Weekly use</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=communication-framework" class="resource-card" data-pillar="communication" data-id="communication-framework" onclick="markViewed('communication-framework','The Communication Framework','communication')">
+    <div class="resource-type">Communication <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">The Communication Framework</div>
+    <div class="resource-desc">How children express ideas, ask for help, and participate in academic conversation.</div>
+    <div class="resource-meta"><span>Guide</span><span>·</span><span>Core module</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=communication-activities" class="resource-card" data-pillar="communication" data-id="communication-activities" onclick="markViewed('communication-activities','Communication Home Activities','communication')">
+    <div class="resource-type">Communication <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">Communication Home Activities</div>
+    <div class="resource-desc">Practical prompts and conversation tools to build expressive clarity at home.</div>
+    <div class="resource-meta"><span>Activities</span><span>·</span><span>Weekly use</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=written-expression" class="resource-card" data-pillar="communication" data-id="written-expression" onclick="markViewed('written-expression','Written Expression Guide','communication')">
+    <div class="resource-type">Communication <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">Written Expression Guide</div>
+    <div class="resource-desc">Supporting your child's writing clarity: task comprehension, structure, and self-editing habits.</div>
+    <div class="resource-meta"><span>Guide</span><span>·</span><span>Targeted support</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=learning-framework" class="resource-card" data-pillar="learning" data-id="learning-framework" onclick="markViewed('learning-framework','The Learning Framework','learning')">
+    <div class="resource-type">Learning <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">The Learning Framework</div>
+    <div class="resource-desc">How children absorb and retain new information — memory, retrieval, and study habits.</div>
+    <div class="resource-meta"><span>Guide</span><span>·</span><span>Core module</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=learning-activities" class="resource-card" data-pillar="learning" data-id="learning-activities" onclick="markViewed('learning-activities','Learning Home Activities','learning')">
+    <div class="resource-type">Learning <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">Learning Home Activities</div>
+    <div class="resource-desc">Memory and retention activities your child can do in 5–10 minutes, matched to their learning style.</div>
+    <div class="resource-meta"><span>Activities</span><span>·</span><span>Weekly use</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=study-habits" class="resource-card" data-pillar="learning" data-id="study-habits" onclick="markViewed('study-habits','Study Habits Toolkit','learning')">
+    <div class="resource-type">Learning <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">Study Habits Toolkit</div>
+    <div class="resource-desc">A structured approach to building consistent, effective study patterns without pressure.</div>
+    <div class="resource-meta"><span>Toolkit</span><span>·</span><span>Foundational</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=action-framework" class="resource-card" data-pillar="action" data-id="action-framework" onclick="markViewed('action-framework','The Action Framework','action')">
+    <div class="resource-type">Action <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">The Action Framework</div>
+    <div class="resource-desc">How children start tasks, manage time, and follow through — the execution pillar.</div>
+    <div class="resource-meta"><span>Guide</span><span>·</span><span>Core module</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=action-activities" class="resource-card" data-pillar="action" data-id="action-activities" onclick="markViewed('action-activities','Action Home Activities','action')">
+    <div class="resource-type">Action <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">Action Home Activities</div>
+    <div class="resource-desc">Short exercises to build task initiation and follow-through habits at home.</div>
+    <div class="resource-meta"><span>Activities</span><span>·</span><span>Weekly use</span></div>
+  </a>
+
+  <a href="/mastery-method/portal/module/?id=parent-guide" class="resource-card" data-pillar="action" data-id="parent-guide" onclick="markViewed('parent-guide','Parent Support Guide','action')">
+    <div class="resource-type">Action <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+    <div class="resource-title">Parent Support Guide</div>
+    <div class="resource-desc">How to coach rather than intervene. Practical scripts and approaches for supporting your child's action clarity.</div>
+    <div class="resource-meta"><span>Guide</span><span>·</span><span>Parent resource</span></div>
+  </a>
+
+</div>
+
+<script>
+function exitPortal(){
+  window.location.href='/api/auth/logout';
+}
+
+/* Filter logic — show/hide cards by data-pillar attribute */
+function setFilter(pillar, btn){
+  // Update active button
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  // Show/hide cards
+  document.querySelectorAll('.resource-card').forEach(function(card){
+    if(pillar==='all' || card.dataset.pillar===pillar){
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+/* Mark resource as viewed in localStorage and update card badge */
+function markViewed(id, title, pillar){
+  var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
+  progress[id] = {viewed:true, pillar:pillar};
+  localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
+  localStorage.setItem('mm_portal_last', JSON.stringify({title:title, pillar:pillar}));
+}
+
+function initLibrary(){
+  // Restore viewed state from localStorage
+  var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
+  document.querySelectorAll('.resource-card').forEach(function(card){
+    var id = card.dataset.id;
+    if(progress[id] && progress[id].viewed){
+      card.classList.add('viewed');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initLibrary);
+</script>
+
+</body>
+</html>

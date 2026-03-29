@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Portal — member-only area. Not for public indexing or crawling.
+Disallow: /mastery-method/portal/
+
 Sitemap: https://thepressureacademy.com/sitemap.xml
