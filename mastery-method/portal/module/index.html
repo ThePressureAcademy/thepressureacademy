@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module — Mastery Method Portal</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/assets/logos/TPA_House_Favicon.svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+  :root{--rust:#C45B28;--rust-deep:#9A4620;--rust-wash:#FAF0EB;--teal:#4A9B8E;--teal-wash:#EBF5F3;--teal-deep:#3A7D72;--amber:#E8A838;--amber-wash:#FDF5E6;--violet:#8B6AAE;--violet-wash:#F3EFF7;--ink:#2C2C38;--ink-soft:#4A4A58;--ink-muted:#7A7A8A;--cream:#FAF8F5;--cream-deep:#F2EDE6;--white:#FFFFFF;--radius:10px;--radius-lg:16px;--shadow-soft:0 2px 16px rgba(44,44,56,.05);--shadow-card:0 4px 24px rgba(44,44,56,.07);--max-w:1080px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Outfit',system-ui,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .portal-nav{background:var(--white);border-bottom:1px solid rgba(44,44,56,.06);position:sticky;top:0;z-index:100}
+  .portal-nav-inner{max-width:var(--max-w);margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .portal-brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);flex-shrink:0}
+  .portal-mark{height:26px}
+  .portal-wm{font-family:'DM Serif Display',Georgia,serif;font-size:.9rem;line-height:1.2}
+  .portal-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:300;display:block;margin-top:-1px}
+  .portal-badge{font-size:.56rem;letter-spacing:1.5px;text-transform:uppercase;background:var(--teal-wash);color:var(--teal-deep);padding:2px 8px;border-radius:50px;font-weight:500;flex-shrink:0}
+  .portal-nav-links{display:flex;align-items:center;gap:2px}
+  .portal-nav-link{font-size:.75rem;color:var(--ink-muted);text-decoration:none;padding:6px 12px;border-radius:50px;transition:all .2s}
+  .portal-nav-link:hover{color:var(--ink);background:rgba(44,44,56,.03)}
+  .portal-nav-exit{font-size:.72rem;color:var(--ink-muted);background:none;border:1.5px solid rgba(44,44,56,.1);padding:6px 14px;border-radius:50px;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+  .portal-nav-exit:hover{border-color:rgba(44,44,56,.2);color:var(--ink)}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .nav-toggle svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round}
+  @media(max-width:768px){.portal-nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);border-bottom:1px solid rgba(44,44,56,.06);flex-direction:column;padding:8px 24px;gap:2px}.portal-nav-links.open{display:flex}.portal-nav-link{padding:10px 12px;width:100%}.nav-toggle{display:block}}
+
+  .module-layout{max-width:var(--max-w);margin:0 auto;padding:32px 24px 56px;display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start}
+  .module-sidebar{position:sticky;top:80px}
+  .module-back{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--ink-muted);text-decoration:none;margin-bottom:20px;transition:color .2s}
+  .module-back:hover{color:var(--rust)}
+  .module-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .module-nav-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink-muted);font-weight:500;margin-bottom:10px}
+  .module-nav-item{display:block;font-size:.78rem;color:var(--ink-muted);text-decoration:none;padding:8px 12px;border-radius:var(--radius);margin-bottom:2px;transition:all .2s;cursor:pointer;background:none;border:none;font-family:'Outfit',sans-serif;width:100%;text-align:left}
+  .module-nav-item:hover{background:var(--white);color:var(--ink)}
+  .module-nav-item.active{background:var(--white);color:var(--ink);font-weight:500;box-shadow:var(--shadow-soft)}
+
+  .module-content{min-height:400px}
+  .module-eyebrow{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;margin-bottom:10px}
+  .module-title{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:400;line-height:1.25;margin-bottom:6px}
+  .module-meta{font-size:.75rem;color:var(--ink-muted);font-weight:300;margin-bottom:28px;display:flex;gap:12px;align-items:center}
+  .module-section{margin-bottom:36px}
+  .module-section-title{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:500;margin-bottom:10px;color:var(--ink);padding-bottom:8px;border-bottom:1px solid rgba(44,44,56,.06)}
+  .module-body{font-size:.88rem;color:var(--ink-soft);line-height:1.8;font-weight:300}
+  .module-body p{margin-bottom:12px}
+  .module-body strong{color:var(--ink);font-weight:500}
+  .module-body ul{margin:10px 0 12px 0;padding-left:20px}
+  .module-body li{margin-bottom:6px;line-height:1.7}
+  .module-callout{background:var(--teal-wash);border-left:3px solid var(--teal);border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;margin:16px 0;font-size:.84rem;color:var(--teal-deep);line-height:1.65}
+  .module-callout strong{color:var(--teal-deep);font-weight:500}
+  .module-complete-bar{background:var(--white);border-radius:var(--radius-lg);padding:20px 24px;box-shadow:var(--shadow-soft);margin-top:32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .module-complete-text{font-size:.82rem;color:var(--ink-muted);font-weight:300}
+  .module-complete-text strong{color:var(--ink);font-weight:500;display:block;margin-bottom:2px}
+  .module-complete-btn{font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:500;padding:8px 20px;border-radius:50px;background:var(--teal);color:var(--white);border:none;cursor:pointer;transition:all .25s}
+  .module-complete-btn:hover{background:var(--teal-deep)}
+  .module-complete-btn.done{background:rgba(44,44,56,.06);color:var(--ink-muted);cursor:default}
+  @media(max-width:768px){.module-layout{grid-template-columns:1fr}.module-sidebar{position:relative;top:0}}
+</style>
+</head>
+
+<!-- CONTENT FLASH PROTECTION -->
+<body style="visibility:hidden">
+
+<script>
+/* PORTAL ACCESS GUARD */
+(function(){
+  if(localStorage.getItem('mm_portal_access')!=='granted'){
+    window.location.replace('/mastery-method/portal/');
+    return;
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    document.body.style.visibility='visible';
+    initModule();
+  });
+})();
+</script>
+
+<nav class="portal-nav" role="navigation" aria-label="Portal navigation">
+  <div class="portal-nav-inner">
+    <a href="/mastery-method" class="portal-brand">
+      <svg class="portal-mark" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+        <rect x="22" y="4" width="56" height="7" rx="3.5" fill="#C45B28"/>
+        <rect x="22" y="119" width="56" height="7" rx="3.5" fill="#C45B28"/>
+        <line x1="50" y1="11" x2="50" y2="32" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/>
+        <line x1="50" y1="98" x2="50" y2="119" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/>
+        <path d="M50 32 C56 34,64 38,70 44 C74 48,78 54,80 60 Q82 65,80 70 C78 76,74 82,70 86 C64 92,56 96,50 98 C44 96,36 92,30 86 C26 82,22 76,20 70 Q18 65,20 60 C22 54,26 48,30 44 C36 38,44 34,50 32Z" fill="none" stroke="#C45B28" stroke-width="5"/>
+        <g stroke="#D38F5C" stroke-width="2" stroke-opacity=".55" fill="none"><line x1="50" y1="48" x2="38" y2="58"/><line x1="50" y1="48" x2="62" y2="58"/><line x1="38" y1="58" x2="38" y2="74"/><line x1="62" y1="58" x2="62" y2="74"/><line x1="38" y1="74" x2="50" y2="82"/><line x1="62" y1="74" x2="50" y2="82"/><line x1="50" y1="48" x2="50" y2="65"/></g>
+        <circle cx="50" cy="48" r="4" fill="#C45B28"/><circle cx="38" cy="58" r="3.5" fill="#4A9B8E"/><circle cx="62" cy="58" r="3.5" fill="#E8A838"/><circle cx="50" cy="65" r="4.5" fill="#C45B28"/>
+      </svg>
+      <div class="portal-wm">Mastery Method<span>Member Portal</span></div>
+    </a>
+    <span class="portal-badge">Portal</span>
+    <button class="nav-toggle" onclick="document.querySelector('.portal-nav-links').classList.toggle('open')" aria-label="Open menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="portal-nav-links">
+      <a href="/mastery-method/portal/dashboard/" class="portal-nav-link">Dashboard</a>
+      <a href="/mastery-method/portal/library/" class="portal-nav-link">Library</a>
+      <a href="/mastery-method/portal/account/" class="portal-nav-link">Account</a>
+    </div>
+    <button class="portal-nav-exit" onclick="exitPortal()" aria-label="Exit portal">Exit portal</button>
+  </div>
+</nav>
+
+<div class="module-layout">
+
+  <!-- ── SECTION NAVIGATION SIDEBAR ── -->
+  <aside class="module-sidebar" role="navigation" aria-label="Module sections">
+    <a href="/mastery-method/portal/library/" class="module-back" aria-label="Back to library">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to library
+    </a>
+    <div class="module-nav-label">Sections</div>
+    <div id="module-nav">
+      <!-- Populated by JS based on module id -->
+    </div>
+  </aside>
+
+  <!-- ── MODULE CONTENT ── -->
+  <main class="module-content" id="module-content" role="main">
+    <!-- Populated by JS -->
+  </main>
+
+</div>
+
+<script>
+function exitPortal(){
+  localStorage.removeItem('mm_portal_access');
+  window.location.href='/mastery-method/portal/';
+}
+
+/*
+ * MODULE CONTENT DEFINITIONS
+ * In a real implementation these would be fetched from a CMS or API.
+ * For the prototype these are inline content stubs — real content to be
+ * populated by Kirsty when portal goes live.
+ */
+var MODULES = {
+  'blueprint': {
+    title: 'Teaching Blueprint',
+    pillar: 'thinking',
+    eyebrow: 'Your personalised teaching map',
+    meta: ['Blueprint', 'Updated monthly by Kirsty'],
+    sections: [
+      {
+        id: 'about',
+        label: 'About your blueprint',
+        content: '<p>Your Teaching Blueprint is a personalised map of where your child currently is across the four clarity pillars — and what focused home support will make the most difference.</p><p>It is updated by Kirsty monthly as your child progresses. Think of it as a living document, not a fixed report.</p><div class="module-callout"><strong>How to use it:</strong> Review the current focus areas before each week of home activities. The blueprint tells you where to direct your energy.</div>'
+      },
+      {
+        id: 'pillars',
+        label: 'Pillar overview',
+        content: '<p>Your blueprint covers all four clarity pillars: <strong>Thinking</strong>, <strong>Communication</strong>, <strong>Learning</strong>, and <strong>Action</strong>.</p><p>Each pillar section identifies:</p><ul><li>Current strength level</li><li>Primary gap or barrier</li><li>Recommended home focus this month</li><li>Signs of progress to watch for</li></ul><p>Not every pillar requires equal attention — Kirsty prioritises the areas where focused effort will have the most leverage.</p>'
+      },
+      {
+        id: 'current-focus',
+        label: 'This month\'s focus',
+        content: '<p>Your current monthly focus is populated by Kirsty after each check-in call. It reflects the most current picture of your child\'s progress and identifies the highest-leverage area for this month\'s home support.</p><div class="module-callout"><strong>Note:</strong> This section is updated after each monthly parent check-in call. If you\'ve just enrolled, your first blueprint focus will be set following your initial clarity assessment.</div><p>Until your first update, begin with the core library resources for each pillar — they provide a solid foundation regardless of your child\'s specific profile.</p>'
+      },
+      {
+        id: 'next-steps',
+        label: 'Recommended next steps',
+        content: '<p>After reviewing your blueprint, Kirsty\'s recommended steps are:</p><ul><li>Complete your first week of home activities in your priority pillar</li><li>Keep a brief note of what you observe — what landed, what didn\'t</li><li>Bring any observations to your next monthly check-in call</li></ul><p>The goal is not perfection — it\'s consistent, directed attention. Short, frequent engagement outperforms sporadic intensive effort.</p><div class="module-callout"><strong>Questions?</strong> Reach out to Kirsty directly via <a href="/mastery-method/book">the contact form</a>. She\'ll respond within one business day.</div>'
+      }
+    ]
+  },
+  'thinking-framework': {
+    title: 'The Thinking Framework',
+    pillar: 'thinking',
+    eyebrow: 'Thinking — Core module',
+    meta: ['Core guide', 'Foundation pillar'],
+    sections: [
+      { id: 'overview', label: 'Overview', content: '<p>The Thinking pillar covers how your child approaches problems, forms questions, and holds complexity. It\'s the foundation that supports all other pillars.</p><p>Children with strong thinking clarity can break tasks apart, notice what they don\'t know, and reason through unfamiliar problems without shutting down.</p>' },
+      { id: 'what-to-look-for', label: 'What to look for', content: '<p>Common signs that the Thinking pillar needs support:</p><ul><li>Child refuses to attempt tasks that feel unfamiliar</li><li>Difficulty generating questions — "I don\'t know what I don\'t know"</li><li>All-or-nothing approach: either understands immediately or gives up</li><li>Can\'t explain reasoning, only outcomes</li></ul>' },
+      { id: 'home-approach', label: 'Home approach', content: '<p>The most effective home approach for building thinking clarity is <strong>slow, narrated reasoning</strong> — thinking out loud with your child rather than providing answers.</p><div class="module-callout">When your child is stuck, try: <strong>"What do we know for certain? What are we unsure about?"</strong> — this builds the habit of separating certainty from uncertainty.</div>' },
+      { id: 'activities', label: 'Related activities', content: '<p>The Thinking Home Activities module contains short, practical exercises matched to this framework.</p><p><a href="/mastery-method/portal/module/?id=thinking-activities">Open Thinking Home Activities →</a></p>' }
+    ]
+  }
+};
+
+// Generic stub for modules not yet fully defined
+var MODULE_STUB = function(id, title, pillar) {
+  return {
+    title: title || 'Resource',
+    pillar: pillar || 'thinking',
+    eyebrow: 'Mastery Method resource',
+    meta: ['Module', 'Pathway resource'],
+    sections: [
+      {
+        id: 'content',
+        label: 'Content',
+        content: '<p>This resource is being prepared by Kirsty and will be available shortly. Full content is added as your programme progresses.</p><div class="module-callout">In the meantime, your Teaching Blueprint and the core framework modules are fully available. Start there.</div><p><a href="/mastery-method/portal/library/">← Back to full library</a></p>'
+      }
+    ]
+  };
+};
+
+var PILLAR_COLORS = {
+  thinking: 'var(--teal)',
+  communication: 'var(--rust)',
+  learning: 'var(--amber)',
+  action: 'var(--violet)'
+};
+
+function initModule(){
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get('id') || 'blueprint';
+  var module = MODULES[id] || MODULE_STUB(id, id.replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}));
+
+  // Mark as viewed in localStorage
+  var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
+  progress[id] = {viewed:true, pillar:module.pillar};
+  localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
+  localStorage.setItem('mm_portal_last', JSON.stringify({title:module.title, pillar:module.pillar}));
+
+  // Update page title
+  document.title = module.title + ' — Mastery Method Portal';
+
+  // Build section nav
+  var navEl = document.getElementById('module-nav');
+  module.sections.forEach(function(sec, i){
+    var btn = document.createElement('button');
+    btn.className = 'module-nav-item' + (i===0?' active':'');
+    btn.textContent = sec.label;
+    btn.dataset.section = sec.id;
+    btn.onclick = function(){
+      document.querySelectorAll('.module-nav-item').forEach(function(b){b.classList.remove('active')});
+      btn.classList.add('active');
+      document.querySelectorAll('.module-section').forEach(function(s){
+        s.style.display = s.dataset.section===sec.id ? '' : 'none';
+      });
+    };
+    navEl.appendChild(btn);
+  });
+
+  // Build content
+  var contentEl = document.getElementById('module-content');
+  var color = PILLAR_COLORS[module.pillar] || 'var(--teal)';
+  var metaStr = module.meta.map(function(m){return '<span>'+m+'</span>'}).join('<span style="opacity:.3">·</span>');
+  var html = '<span class="module-eyebrow" style="color:'+color+'">'+module.eyebrow+'</span>';
+  html += '<h1 class="module-title">'+module.title+'</h1>';
+  html += '<div class="module-meta">'+metaStr+'</div>';
+
+  module.sections.forEach(function(sec, i){
+    html += '<div class="module-section" data-section="'+sec.id+'" style="display:'+(i===0?'':'none')+'">';
+    html += '<h2 class="module-section-title">'+sec.label+'</h2>';
+    html += '<div class="module-body">'+sec.content+'</div>';
+    html += '</div>';
+  });
+
+  // Complete bar
+  var isViewed = progress[id] && progress[id].viewed;
+  html += '<div class="module-complete-bar">';
+  html += '<div class="module-complete-text"><strong>Mark as reviewed</strong>Tick this off when you\'ve read through the resource.</div>';
+  html += '<button class="module-complete-btn'+(isViewed?' done':'')+'" id="complete-btn" onclick="markComplete(\''+id+'\',\''+module.pillar+'\',\''+module.title+'\')">'+( isViewed?'Reviewed ✓':'Mark reviewed')+'</button>';
+  html += '</div>';
+
+  contentEl.innerHTML = html;
+}
+
+function markComplete(id, pillar, title){
+  var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
+  progress[id] = {viewed:true, pillar:pillar};
+  localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
+  localStorage.setItem('mm_portal_last', JSON.stringify({title:title, pillar:pillar}));
+  var btn = document.getElementById('complete-btn');
+  if(btn){ btn.textContent='Reviewed ✓'; btn.classList.add('done'); }
+}
+</script>
+
+</body>
+</html>
