@@ -60,22 +60,8 @@
 </style>
 </head>
 
-<!-- CONTENT FLASH PROTECTION -->
-<body style="visibility:hidden">
-
-<script>
-/* PORTAL ACCESS GUARD */
-(function(){
-  if(localStorage.getItem('mm_portal_access')!=='granted'){
-    window.location.replace('/mastery-method/portal/');
-    return;
-  }
-  document.addEventListener('DOMContentLoaded',function(){
-    document.body.style.visibility='visible';
-    initModule();
-  });
-})();
-</script>
+<!-- Route protection is server-side via api/portal-serve.js -->
+<body>
 
 <nav class="portal-nav" role="navigation" aria-label="Portal navigation">
   <div class="portal-nav-inner">
@@ -127,8 +113,7 @@
 
 <script>
 function exitPortal(){
-  localStorage.removeItem('mm_portal_access');
-  window.location.href='/mastery-method/portal/';
+  window.location.href='/api/auth/logout';
 }
 
 /*
@@ -203,6 +188,8 @@ var PILLAR_COLORS = {
   learning: 'var(--amber)',
   action: 'var(--violet)'
 };
+
+document.addEventListener('DOMContentLoaded', initModule);
 
 function initModule(){
   var params = new URLSearchParams(window.location.search);

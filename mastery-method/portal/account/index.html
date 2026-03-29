@@ -65,22 +65,8 @@
 </style>
 </head>
 
-<!-- CONTENT FLASH PROTECTION -->
-<body style="visibility:hidden">
-
-<script>
-/* PORTAL ACCESS GUARD */
-(function(){
-  if(localStorage.getItem('mm_portal_access')!=='granted'){
-    window.location.replace('/mastery-method/portal/');
-    return;
-  }
-  document.addEventListener('DOMContentLoaded',function(){
-    document.body.style.visibility='visible';
-    initAccount();
-  });
-})();
-</script>
+<!-- Route protection is server-side via api/portal-serve.js -->
+<body>
 
 <nav class="portal-nav" role="navigation" aria-label="Portal navigation">
   <div class="portal-nav-inner">
@@ -114,21 +100,7 @@
   <h1 class="account-heading">Account</h1>
   <p class="account-sub">Your portal access details and settings.</p>
 
-  <!--
-    FIX 3 — HONEST ACCOUNT LANGUAGE
-    This page intentionally does NOT claim:
-    - A subscription tier or billing status
-    - Real account management (email, password, billing)
-    - Any subscription infrastructure that does not exist yet
-    These will be added when real subscriber management is implemented.
-    Current framing: portal access + contact details + session controls.
-  -->
-
-  <!-- PROTOTYPE NOTICE — honest about current state -->
-  <div class="prototype-notice">
-    <div class="prototype-notice-title">Portal access — current state</div>
-    <p>This portal uses a shared access code rather than a personal account. Full subscriber accounts — with individual logins, billing management, and personal profiles — are planned for a future release. For now, your access is managed directly by Kirsty.</p>
-  </div>
+  <!-- ACCESS DETAILS -->
 
   <!-- ACCESS DETAILS -->
   <div class="account-section">
@@ -154,7 +126,7 @@
       <span class="account-row-val">Included</span>
     </div>
     <div class="account-notice">
-      <p><strong>Access is shared, not personal.</strong> Your access code gives the enrolled family access to all portal content. It is not tied to an individual email account at this stage. Keep your access code private — treat it like a password.</p>
+      <p><strong>Access is invite-based.</strong> Your portal access is tied to the invite link Kirsty sent when you enrolled. Your session persists for 30 days on this device. If you need a new link, contact Kirsty.</p>
     </div>
   </div>
 
@@ -198,9 +170,10 @@
 
 <script>
 function exitPortal(){
-  localStorage.removeItem('mm_portal_access');
-  window.location.href='/mastery-method/portal/';
+  window.location.href='/api/auth/logout';
 }
+
+document.addEventListener('DOMContentLoaded', initAccount);
 
 function initAccount(){
   // Derive stats from localStorage — honest, no fabrication

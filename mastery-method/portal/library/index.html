@@ -62,22 +62,8 @@
 </style>
 </head>
 
-<!-- CONTENT FLASH PROTECTION — body stays hidden until gate check passes -->
-<body style="visibility:hidden">
-
-<script>
-/* PORTAL ACCESS GUARD — see dashboard/index.html for full comment */
-(function(){
-  if(localStorage.getItem('mm_portal_access')!=='granted'){
-    window.location.replace('/mastery-method/portal/');
-    return;
-  }
-  document.addEventListener('DOMContentLoaded',function(){
-    document.body.style.visibility='visible';
-    initLibrary();
-  });
-})();
-</script>
+<!-- Route protection is server-side via api/portal-serve.js -->
+<body>
 
 <nav class="portal-nav" role="navigation" aria-label="Portal navigation">
   <div class="portal-nav-inner">
@@ -209,10 +195,8 @@
 </div>
 
 <script>
-/* PORTAL ACCESS GUARD — library filter + progress tracking */
 function exitPortal(){
-  localStorage.removeItem('mm_portal_access');
-  window.location.href='/mastery-method/portal/';
+  window.location.href='/api/auth/logout';
 }
 
 /* Filter logic — show/hide cards by data-pillar attribute */
@@ -248,6 +232,8 @@ function initLibrary(){
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', initLibrary);
 </script>
 
 </body>

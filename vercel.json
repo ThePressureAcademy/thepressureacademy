@@ -1,4 +1,43 @@
 {
+  "functions": {
+    "api/portal-serve.js": {
+      "includeFiles": "mastery-method/portal/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/mastery-method/portal/dashboard",
+      "destination": "/api/portal-serve?page=dashboard"
+    },
+    {
+      "source": "/mastery-method/portal/dashboard/:path*",
+      "destination": "/api/portal-serve?page=dashboard"
+    },
+    {
+      "source": "/mastery-method/portal/library",
+      "destination": "/api/portal-serve?page=library"
+    },
+    {
+      "source": "/mastery-method/portal/library/:path*",
+      "destination": "/api/portal-serve?page=library"
+    },
+    {
+      "source": "/mastery-method/portal/module",
+      "destination": "/api/portal-serve?page=module"
+    },
+    {
+      "source": "/mastery-method/portal/module/:path*",
+      "destination": "/api/portal-serve?page=module"
+    },
+    {
+      "source": "/mastery-method/portal/account",
+      "destination": "/api/portal-serve?page=account"
+    },
+    {
+      "source": "/mastery-method/portal/account/:path*",
+      "destination": "/api/portal-serve?page=account"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -15,6 +54,19 @@
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
+        }
+      ]
+    },
+    {
+      "source": "/mastery-method/portal/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-cache, no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         }
       ]
     }

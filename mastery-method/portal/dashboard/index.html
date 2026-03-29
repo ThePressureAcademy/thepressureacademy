@@ -115,38 +115,11 @@
 </head>
 
 <!--
-  CONTENT FLASH PROTECTION (Fix 1)
-  body starts invisible. The inline gate check below either redirects
-  (body stays hidden during redirect) or reveals content once confirmed.
-  This prevents any protected content from being visible before auth evaluation.
+  Route protection is handled server-side by api/portal-serve.js.
+  This page is only returned by the server when a valid mm_session cookie
+  is present. No client-side visibility trick is needed.
 -->
-<body style="visibility:hidden">
-
-<script>
-/*
- * PORTAL ACCESS GUARD — PROTOTYPE GATE
- * ─────────────────────────────────────────────────────────────────────────────
- * Checks localStorage for the access flag set on successful gate entry.
- * Body is invisible at load — if no access, redirect fires before any
- * content is visible (no flash). If access confirmed, content is revealed.
- *
- * This is NOT a security system. Replace with server-side session auth
- * when real subscriber management is implemented.
- * ─────────────────────────────────────────────────────────────────────────────
- */
-(function(){
-  if(localStorage.getItem('mm_portal_access')!=='granted'){
-    // Redirect without revealing protected content
-    window.location.replace('/mastery-method/portal/');
-    return; // body stays hidden during redirect
-  }
-  // Access confirmed — reveal content on DOMContentLoaded
-  document.addEventListener('DOMContentLoaded',function(){
-    document.body.style.visibility='visible';
-    initDashboard();
-  });
-})();
-</script>
+<body>
 
 <!-- ── PORTAL NAV ── -->
 <nav class="portal-nav" role="navigation" aria-label="Portal navigation">
@@ -397,10 +370,11 @@ function initDashboard(){
 }
 
 function exitPortal(){
-  // Clear access flag — does not clear progress data
-  localStorage.removeItem('mm_portal_access');
-  window.location.href = '/mastery-method/portal/';
+  // Server-side logout: clears mm_session cookie via api/auth/logout.js
+  window.location.href = '/api/auth/logout';
 }
+
+document.addEventListener('DOMContentLoaded', initDashboard);
 </script>
 
 </body>
