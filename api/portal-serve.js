@@ -3,7 +3,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  * Portal route handler — real server-side auth gate.
  *
- * All /mastery-method/portal/(dashboard|library|module|account) routes are
+ * All /mastery-method/portal/(dashboard|library|module|account|progress) routes are
  * rewritten here via vercel.json before any HTML is returned to the browser.
  *
  * Flow:
@@ -31,7 +31,7 @@ const path = require('path');
 const crypto = require('crypto');
 
 const SESSION_COOKIE = 'mm_session';
-const ALLOWED_PAGES = ['dashboard', 'library', 'module', 'account'];
+const ALLOWED_PAGES = ['dashboard', 'library', 'module', 'account', 'progress'];
 const GATE_URL = '/mastery-method/portal/';
 
 // ── Cookie parser ────────────────────────────────────────────────────────────
