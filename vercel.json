@@ -36,6 +36,14 @@
     {
       "source": "/mastery-method/portal/account/:path*",
       "destination": "/api/portal-serve?page=account"
+    },
+    {
+      "source": "/mastery-method/portal/progress",
+      "destination": "/api/portal-serve?page=progress"
+    },
+    {
+      "source": "/mastery-method/portal/progress/:path*",
+      "destination": "/api/portal-serve?page=progress"
     }
   ],
   "headers": [
