@@ -111,6 +111,7 @@
   .blueprint-btn svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5}
   @media(max-width:768px){.stats-row{grid-template-columns:1fr 1fr}.dash-main{grid-template-columns:1fr}.stats-row .stat-card:nth-child(3){display:none}}
   @media(max-width:480px){.stats-row{grid-template-columns:1fr}}
+  @media print{body{display:none!important}}
 </style>
 </head>
 
@@ -292,6 +293,11 @@
  *   mm_portal_last     — string: last resource title + pillar accessed
  */
 function initDashboard(){
+  // Record first portal access if not already set
+  if(!localStorage.getItem('mm_portal_joined')){
+    localStorage.setItem('mm_portal_joined', Date.now().toString());
+  }
+
   var joined = parseInt(localStorage.getItem('mm_portal_joined')||'0',10);
   var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
   var lastRaw = localStorage.getItem('mm_portal_last');
@@ -303,15 +309,21 @@ function initDashboard(){
     weekNum = Math.max(1, Math.ceil((daysSince+1)/7));
   }
 
-  // ── Resources viewed (total viewed resources in progress object)
-  var TOTAL_RESOURCES = 12; // total items in library
+  // ── Resources viewed (count against currently available resources only)
+  // 5 real resources released: blueprint, thinking-framework, thinking-activities,
+  // communication-framework, parent-guide. Remaining 7 are staged for future release.
+  var TOTAL_RESOURCES = 5;
   var viewedIds = Object.keys(progress).filter(function(k){return progress[k].viewed;});
-  var resourcesViewed = viewedIds.length;
+  var resourcesViewed = Math.min(viewedIds.length, TOTAL_RESOURCES);
   var overallPct = Math.round((resourcesViewed/TOTAL_RESOURCES)*100);
 
-  // ── Pillar breakdown (viewed per pillar / total per pillar = 3 each)
+  // ── Pillar breakdown (viewed per pillar / real resources per pillar)
+  // thinking: 3 real (blueprint, thinking-framework, thinking-activities)
+  // communication: 1 real (communication-framework)
+  // action: 1 real (parent-guide)
+  // learning: 1 planned, releasing shortly after pilot launch
   var pillars = {thinking:0,communication:0,learning:0,action:0};
-  var PILLAR_TOTAL = 3;
+  var PILLAR_TOTALS = {thinking:3,communication:1,learning:1,action:1};
   viewedIds.forEach(function(id){
     var p = progress[id].pillar;
     if(p && pillars.hasOwnProperty(p)) pillars[p]++;
@@ -348,6 +360,14 @@ function initDashboard(){
     document.getElementById('continue-desc').textContent = 'Pick up where you left off in your '+(lastPillar||'')+' resources.';
     document.getElementById('continue-btn').textContent = 'Continue';
     document.getElementById('continue-btn').innerHTML += ' <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  } else {
+    // Zero state — direct new families to start with the Teaching Blueprint
+    document.getElementById('continue-title').textContent = 'Start here: your Teaching Blueprint';
+    document.getElementById('continue-desc').textContent = 'Kirsty recommends reading your Teaching Blueprint first. It maps where your child currently sits across all four clarity pillars and tells you exactly where to focus your home support this month.';
+    document.getElementById('continue-btn').textContent = 'Open Teaching Blueprint';
+    document.getElementById('continue-btn').href = '/mastery-method/portal/module/?id=blueprint';
+    document.getElementById('continue-btn').setAttribute('aria-label','Open your Teaching Blueprint');
+    document.getElementById('continue-btn').innerHTML += ' <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
   }
 
   // Overall progress bar
@@ -362,7 +382,8 @@ function initDashboard(){
 
   // Pillar bars
   Object.keys(pillars).forEach(function(p){
-    var pct = Math.round((pillars[p]/PILLAR_TOTAL)*100);
+    var total = PILLAR_TOTALS[p] || 1;
+    var pct = Math.round((pillars[p]/total)*100);
     var fill = document.querySelector('[data-pillar="'+p+'"]');
     var pctEl = document.querySelector('[data-pillar-pct="'+p+'"]');
     if(fill) fill.style.width = pct+'%';

@@ -78,6 +78,7 @@
   .timeline-text-title{font-size:.84rem;font-weight:400;color:var(--ink-soft);margin-bottom:2px}
   .timeline-text-meta{font-size:.68rem;color:var(--ink-muted);font-weight:300}
   .timeline-pillar-tag{font-size:.58rem;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:50px;font-weight:500}
+  @media print{body{display:none!important}}
 </style>
 </head>
 
@@ -148,8 +149,8 @@
         <div class="ring-stat-label">Viewed</div>
       </div>
       <div class="ring-stat">
-        <div class="ring-stat-val" id="ring-total">12</div>
-        <div class="ring-stat-label">Total</div>
+        <div class="ring-stat-val" id="ring-total">5</div>
+        <div class="ring-stat-label">Available</div>
       </div>
     </div>
   </div>
@@ -174,7 +175,7 @@
           <span class="pillar-block-pct" data-pct="communication">0%</span>
         </div>
         <div class="pillar-block-bar"><div class="pillar-block-fill" data-fill="communication" style="width:0%;background:var(--rust)"></div></div>
-        <div class="pillar-block-detail" data-detail="communication">0 of 3 resources viewed</div>
+        <div class="pillar-block-detail" data-detail="communication">0 of 1 resource viewed</div>
       </div>
       <div class="pillar-block">
         <div class="pillar-block-header">
@@ -183,7 +184,7 @@
           <span class="pillar-block-pct" data-pct="learning">0%</span>
         </div>
         <div class="pillar-block-bar"><div class="pillar-block-fill" data-fill="learning" style="width:0%;background:var(--amber)"></div></div>
-        <div class="pillar-block-detail" data-detail="learning">0 of 3 resources viewed</div>
+        <div class="pillar-block-detail" data-detail="learning">0 of 1 resource viewed</div>
       </div>
       <div class="pillar-block">
         <div class="pillar-block-header">
@@ -192,7 +193,7 @@
           <span class="pillar-block-pct" data-pct="action">0%</span>
         </div>
         <div class="pillar-block-bar"><div class="pillar-block-fill" data-fill="action" style="width:0%;background:var(--violet)"></div></div>
-        <div class="pillar-block-detail" data-detail="action">0 of 3 resources viewed</div>
+        <div class="pillar-block-detail" data-detail="action">0 of 1 resource viewed</div>
       </div>
     </div>
   </div>
@@ -221,14 +222,19 @@
  *   mm_portal_last     — string: last resource title + pillar accessed
  */
 function initProgress(){
-  var TOTAL_RESOURCES = 12;
-  var PILLAR_TOTAL = 3;
+  // Initialize join timestamp on first portal load (robustness guard)
+  if(!localStorage.getItem('mm_portal_joined')){
+    localStorage.setItem('mm_portal_joined', Date.now().toString());
+  }
+
+  var TOTAL_RESOURCES = 5;
+  var PILLAR_TOTALS = {thinking:3, communication:1, learning:1, action:1};
   var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
   var joined = parseInt(localStorage.getItem('mm_portal_joined')||'0',10);
 
   // ── Viewed resources
   var viewedIds = Object.keys(progress).filter(function(k){return progress[k].viewed;});
-  var resourcesViewed = viewedIds.length;
+  var resourcesViewed = Math.min(viewedIds.length, TOTAL_RESOURCES);
   var overallPct = Math.round((resourcesViewed/TOTAL_RESOURCES)*100);
 
   // ── Pillar breakdown
@@ -242,7 +248,7 @@ function initProgress(){
   if(joined){
     var daysSince = Math.floor((Date.now()-joined)/86400000);
     var weekNum = Math.max(1, Math.ceil((daysSince+1)/7));
-    document.getElementById('progress-sub').textContent = 'Week '+weekNum+' — '+resourcesViewed+' of '+TOTAL_RESOURCES+' resources viewed across all pillars.';
+    document.getElementById('progress-sub').textContent = 'Week '+weekNum+' — '+resourcesViewed+' of '+TOTAL_RESOURCES+' available resources viewed.';
   }
 
   // ── SVG ring
@@ -251,17 +257,19 @@ function initProgress(){
   document.getElementById('ring-circle').setAttribute('stroke-dashoffset', offset);
   document.getElementById('ring-pct').textContent = overallPct+'%';
   document.getElementById('ring-viewed').textContent = resourcesViewed;
+  document.getElementById('ring-total').textContent = TOTAL_RESOURCES;
 
   // ── Pillar bars
   Object.keys(pillars).forEach(function(p){
-    var count = pillars[p];
-    var pct = Math.round((count/PILLAR_TOTAL)*100);
+    var count = Math.min(pillars[p], PILLAR_TOTALS[p] || 1);
+    var total = PILLAR_TOTALS[p] || 1;
+    var pct = Math.round((count/total)*100);
     var fill = document.querySelector('[data-fill="'+p+'"]');
     var pctEl = document.querySelector('[data-pct="'+p+'"]');
     var detailEl = document.querySelector('[data-detail="'+p+'"]');
     if(fill) fill.style.width = pct+'%';
     if(pctEl) pctEl.textContent = pct+'%';
-    if(detailEl) detailEl.textContent = count+' of '+PILLAR_TOTAL+' resources viewed';
+    if(detailEl) detailEl.textContent = count+' of '+total+' resource'+(total===1?'':'s')+' viewed';
   });
 
   // ── Timeline — build from viewed resources with timestamps

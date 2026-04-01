@@ -57,8 +57,15 @@
   .resource-desc{font-size:.75rem;color:var(--ink-muted);font-weight:300;line-height:1.6}
   .resource-meta{margin-top:12px;font-size:.65rem;color:var(--ink-muted);font-weight:300;display:flex;gap:10px}
   .resource-card.hidden{display:none}
+  /* Coming-soon card treatment */
+  .resource-card[data-status="coming-soon"]{opacity:.55;cursor:default}
+  .resource-card[data-status="coming-soon"]:hover{transform:none;box-shadow:var(--shadow-soft)}
+  .resource-prep-badge{font-size:.58rem;letter-spacing:1px;text-transform:uppercase;background:rgba(44,44,56,.06);color:var(--ink-muted);padding:2px 8px;border-radius:50px;font-weight:400}
+  /* Confidentiality notice */
+  .lib-confidentiality{max-width:var(--max-w);margin:0 auto;padding:12px 24px 0;font-size:.65rem;color:var(--ink-muted);opacity:.6;font-weight:300;letter-spacing:.2px}
   @media(max-width:768px){.lib-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:480px){.lib-grid{grid-template-columns:1fr}}
+  @media print{body{display:none!important}}
 </style>
 </head>
 
@@ -97,6 +104,7 @@
   <h1 class="lib-title">Resource library</h1>
   <p class="lib-sub">Materials organised by clarity pillar — matched to your Teaching Blueprint.</p>
 </div>
+<p class="lib-confidentiality">Subscriber resource — for enrolled Mastery Method families only.</p>
 
 <div class="filter-bar" role="group" aria-label="Filter resources by pillar">
   <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">All resources</button>
@@ -137,53 +145,53 @@
     <div class="resource-meta"><span>Guide</span><span>·</span><span>Core module</span></div>
   </a>
 
-  <a href="/mastery-method/portal/module/?id=communication-activities" class="resource-card" data-pillar="communication" data-id="communication-activities" onclick="markViewed('communication-activities','Communication Home Activities','communication')">
-    <div class="resource-type">Communication <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+  <a href="/mastery-method/portal/module/?id=communication-activities" class="resource-card" data-pillar="communication" data-id="communication-activities" data-status="coming-soon" aria-label="Communication Home Activities — in preparation">
+    <div class="resource-type">Communication <span class="resource-prep-badge">In preparation</span></div>
     <div class="resource-title">Communication Home Activities</div>
     <div class="resource-desc">Practical prompts and conversation tools to build expressive clarity at home.</div>
-    <div class="resource-meta"><span>Activities</span><span>·</span><span>Weekly use</span></div>
+    <div class="resource-meta"><span>Activities</span><span>·</span><span>Coming soon</span></div>
   </a>
 
-  <a href="/mastery-method/portal/module/?id=written-expression" class="resource-card" data-pillar="communication" data-id="written-expression" onclick="markViewed('written-expression','Written Expression Guide','communication')">
-    <div class="resource-type">Communication <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+  <a href="/mastery-method/portal/module/?id=written-expression" class="resource-card" data-pillar="communication" data-id="written-expression" data-status="coming-soon" aria-label="Written Expression Guide — in preparation">
+    <div class="resource-type">Communication <span class="resource-prep-badge">In preparation</span></div>
     <div class="resource-title">Written Expression Guide</div>
     <div class="resource-desc">Supporting your child's writing clarity: task comprehension, structure, and self-editing habits.</div>
-    <div class="resource-meta"><span>Guide</span><span>·</span><span>Targeted support</span></div>
+    <div class="resource-meta"><span>Guide</span><span>·</span><span>Coming soon</span></div>
   </a>
 
-  <a href="/mastery-method/portal/module/?id=learning-framework" class="resource-card" data-pillar="learning" data-id="learning-framework" onclick="markViewed('learning-framework','The Learning Framework','learning')">
-    <div class="resource-type">Learning <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+  <a href="/mastery-method/portal/module/?id=learning-framework" class="resource-card" data-pillar="learning" data-id="learning-framework" data-status="coming-soon" aria-label="The Learning Framework — in preparation">
+    <div class="resource-type">Learning <span class="resource-prep-badge">In preparation</span></div>
     <div class="resource-title">The Learning Framework</div>
     <div class="resource-desc">How children absorb and retain new information — memory, retrieval, and study habits.</div>
-    <div class="resource-meta"><span>Guide</span><span>·</span><span>Core module</span></div>
+    <div class="resource-meta"><span>Guide</span><span>·</span><span>Coming soon</span></div>
   </a>
 
-  <a href="/mastery-method/portal/module/?id=learning-activities" class="resource-card" data-pillar="learning" data-id="learning-activities" onclick="markViewed('learning-activities','Learning Home Activities','learning')">
-    <div class="resource-type">Learning <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+  <a href="/mastery-method/portal/module/?id=learning-activities" class="resource-card" data-pillar="learning" data-id="learning-activities" data-status="coming-soon" aria-label="Learning Home Activities — in preparation">
+    <div class="resource-type">Learning <span class="resource-prep-badge">In preparation</span></div>
     <div class="resource-title">Learning Home Activities</div>
-    <div class="resource-desc">Memory and retention activities your child can do in 5–10 minutes, matched to their learning style.</div>
-    <div class="resource-meta"><span>Activities</span><span>·</span><span>Weekly use</span></div>
+    <div class="resource-desc">Memory and retention activities matched to your child's learning style.</div>
+    <div class="resource-meta"><span>Activities</span><span>·</span><span>Coming soon</span></div>
   </a>
 
-  <a href="/mastery-method/portal/module/?id=study-habits" class="resource-card" data-pillar="learning" data-id="study-habits" onclick="markViewed('study-habits','Study Habits Toolkit','learning')">
-    <div class="resource-type">Learning <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+  <a href="/mastery-method/portal/module/?id=study-habits" class="resource-card" data-pillar="learning" data-id="study-habits" data-status="coming-soon" aria-label="Study Habits Toolkit — in preparation">
+    <div class="resource-type">Learning <span class="resource-prep-badge">In preparation</span></div>
     <div class="resource-title">Study Habits Toolkit</div>
     <div class="resource-desc">A structured approach to building consistent, effective study patterns without pressure.</div>
-    <div class="resource-meta"><span>Toolkit</span><span>·</span><span>Foundational</span></div>
+    <div class="resource-meta"><span>Toolkit</span><span>·</span><span>Coming soon</span></div>
   </a>
 
-  <a href="/mastery-method/portal/module/?id=action-framework" class="resource-card" data-pillar="action" data-id="action-framework" onclick="markViewed('action-framework','The Action Framework','action')">
-    <div class="resource-type">Action <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+  <a href="/mastery-method/portal/module/?id=action-framework" class="resource-card" data-pillar="action" data-id="action-framework" data-status="coming-soon" aria-label="The Action Framework — in preparation">
+    <div class="resource-type">Action <span class="resource-prep-badge">In preparation</span></div>
     <div class="resource-title">The Action Framework</div>
     <div class="resource-desc">How children start tasks, manage time, and follow through — the execution pillar.</div>
-    <div class="resource-meta"><span>Guide</span><span>·</span><span>Core module</span></div>
+    <div class="resource-meta"><span>Guide</span><span>·</span><span>Coming soon</span></div>
   </a>
 
-  <a href="/mastery-method/portal/module/?id=action-activities" class="resource-card" data-pillar="action" data-id="action-activities" onclick="markViewed('action-activities','Action Home Activities','action')">
-    <div class="resource-type">Action <span class="resource-viewed-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Viewed</span></div>
+  <a href="/mastery-method/portal/module/?id=action-activities" class="resource-card" data-pillar="action" data-id="action-activities" data-status="coming-soon" aria-label="Action Home Activities — in preparation">
+    <div class="resource-type">Action <span class="resource-prep-badge">In preparation</span></div>
     <div class="resource-title">Action Home Activities</div>
     <div class="resource-desc">Short exercises to build task initiation and follow-through habits at home.</div>
-    <div class="resource-meta"><span>Activities</span><span>·</span><span>Weekly use</span></div>
+    <div class="resource-meta"><span>Activities</span><span>·</span><span>Coming soon</span></div>
   </a>
 
   <a href="/mastery-method/portal/module/?id=parent-guide" class="resource-card" data-pillar="action" data-id="parent-guide" onclick="markViewed('parent-guide','Parent Support Guide','action')">
@@ -218,12 +226,17 @@ function setFilter(pillar, btn){
 /* Mark resource as viewed in localStorage and update card badge */
 function markViewed(id, title, pillar){
   var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
-  progress[id] = {viewed:true, pillar:pillar};
+  var existing = progress[id] || {};
+  progress[id] = {viewed:true, pillar:pillar, title:title, viewedAt: existing.viewedAt || Date.now()};
   localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
   localStorage.setItem('mm_portal_last', JSON.stringify({title:title, pillar:pillar}));
 }
 
 function initLibrary(){
+  // Record first portal access timestamp if not already set
+  if(!localStorage.getItem('mm_portal_joined')){
+    localStorage.setItem('mm_portal_joined', Date.now().toString());
+  }
   // Restore viewed state from localStorage
   var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
   document.querySelectorAll('.resource-card').forEach(function(card){

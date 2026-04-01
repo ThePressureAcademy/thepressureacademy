@@ -57,6 +57,12 @@
   .module-complete-btn:hover{background:var(--teal-deep)}
   .module-complete-btn.done{background:rgba(44,44,56,.06);color:var(--ink-muted);cursor:default}
   @media(max-width:768px){.module-layout{grid-template-columns:1fr}.module-sidebar{position:relative;top:0}}
+  /* Content friction — deterrence only. Does not prevent OS-level screenshots. */
+  .module-body{user-select:none;-webkit-user-select:none}
+  .module-body a{user-select:text;-webkit-user-select:text}
+  /* Confidentiality notice */
+  .module-confidentiality{font-size:.62rem;color:var(--ink-muted);font-weight:300;letter-spacing:.3px;opacity:.7;padding:5px 0 14px;border-bottom:1px solid rgba(44,44,56,.05);margin-bottom:20px}
+  @media print{body{display:none!important}}
 </style>
 </head>
 
@@ -163,21 +169,125 @@ var MODULES = {
       { id: 'home-approach', label: 'Home approach', content: '<p>The most effective home approach for building thinking clarity is <strong>slow, narrated reasoning</strong> — thinking out loud with your child rather than providing answers.</p><div class="module-callout">When your child is stuck, try: <strong>"What do we know for certain? What are we unsure about?"</strong> — this builds the habit of separating certainty from uncertainty.</div>' },
       { id: 'activities', label: 'Related activities', content: '<p>The Thinking Home Activities module contains short, practical exercises matched to this framework.</p><p><a href="/mastery-method/portal/module/?id=thinking-activities">Open Thinking Home Activities →</a></p>' }
     ]
+  },
+
+  'thinking-activities': {
+    title: 'Thinking Home Activities',
+    pillar: 'thinking',
+    eyebrow: 'Thinking — weekly practice',
+    meta: ['Activities', '5–10 min each', 'Use 2–3× per week'],
+    sections: [
+      {
+        id: 'how-to-use',
+        label: 'How to use these',
+        content: '<p>These activities work best used <strong>little and often</strong> — 5 to 10 minutes, two or three times a week. Consistency matters more than intensity for building thinking habits.</p><p>They don\'t need to be formal sessions. Use them at dinner, in the car, or on the walk home. The goal is to make slow, narrated thinking feel normal — not like extra schoolwork.</p><div class="module-callout"><strong>The core rule:</strong> Your job is to ask questions, not supply answers. Sit with the discomfort of not-knowing alongside your child. That is exactly the skill being built.</div><p>Start with Activity 2 (Explain It Back) this week — it\'s the easiest to try first. Add the others gradually.</p>'
+      },
+      {
+        id: 'activity-1',
+        label: 'Activity 1 — Know/Unsure',
+        content: '<h3 style="font-family:\'Fraunces\',Georgia,serif;font-size:.95rem;font-weight:500;margin-bottom:8px;color:var(--ink)">The Uncertainty Audit</h3><p>When your child faces a task they\'re finding difficult, ask them to sort what they know from what they don\'t.</p><p><strong>Say:</strong> "Before we try to fix this — what do you know for certain? And what are you genuinely unsure about?"</p><p>Wait. Let them list. Don\'t fill the silence.</p><p>Once they\'ve listed both sides, ask: <strong>"Which unsure thing would help the most to understand first?"</strong></p><div class="module-callout"><strong>Why this works:</strong> Children who struggle often feel globally confused — "I don\'t get any of it." This breaks that into specific, manageable pieces. Naming what you don\'t know is the first act of clear thinking.</div><p><strong>Duration:</strong> 5 minutes · <strong>Use when:</strong> Your child says "I don\'t understand" · <strong>Building:</strong> The habit of separating certainty from uncertainty</p>'
+      },
+      {
+        id: 'activity-2',
+        label: 'Activity 2 — Explain It Back',
+        content: '<h3 style="font-family:\'Fraunces\',Georgia,serif;font-size:.95rem;font-weight:500;margin-bottom:8px;color:var(--ink)">Reverse Teaching</h3><p>After your child has read something or done something in school — ask them to teach it back to you.</p><p><strong>Say:</strong> "I didn\'t hear about that — can you explain it to me as if I know nothing?"</p><p>Listen without correcting. Then ask: <strong>"What\'s the most important thing I should understand from what you just told me?"</strong></p><div class="module-callout"><strong>Why this works:</strong> The ability to explain something clearly is proof of real understanding. Explaining to someone else reveals gaps — and builds genuine clarity in a way that re-reading alone never does.</div><p><strong>Duration:</strong> 5–10 minutes · <strong>Use when:</strong> After school, after reading, after any learning · <strong>Building:</strong> The ability to consolidate and communicate understanding</p><p><strong>If they get stuck mid-explanation:</strong> Don\'t rescue — say: "That\'s fine. What part do you feel clear on so far?"</p>'
+      },
+      {
+        id: 'activity-3',
+        label: 'Activity 3 — Smallest Step',
+        content: '<h3 style="font-family:\'Fraunces\',Georgia,serif;font-size:.95rem;font-weight:500;margin-bottom:8px;color:var(--ink)">The Smallest Possible Step</h3><p>When your child won\'t start something — frozen in front of a blank page, a difficult task, or an unfamiliar problem — use this prompt.</p><p><strong>Say:</strong> "We don\'t need to finish it. What is the absolute smallest thing you could do right now that would count as starting?"</p><p>The answer might be: write one word, draw one line, read the first sentence, write their name at the top. Accept any answer. Then say: "OK — do just that."</p><div class="module-callout"><strong>Why this works:</strong> Task-start difficulty is often about the distance between where a child is and where the finished task is. Shrinking the first step removes the paralysis. Once they start, momentum usually follows.</div><p><strong>Duration:</strong> 2 minutes · <strong>Use when:</strong> Task avoidance, blank-page paralysis, refusal to begin · <strong>Building:</strong> The habit of starting rather than preparing to start</p>'
+      },
+      {
+        id: 'this-week',
+        label: 'This week',
+        content: '<p>Start with <strong>Activity 2 — Reverse Teaching</strong>. No setup required — just ask your child to explain something from their week to you over dinner or in the car. Keep it casual. Don\'t make it feel like a test.</p><p>After you\'ve tried it once or twice, notice:</p><ul><li>Was their explanation organised, or scattered?</li><li>Could they identify the "most important" thing, or did everything feel equally weighted?</li><li>Did they engage willingly, or shut down?</li></ul><p>These observations are worth mentioning at your next check-in with Kirsty. A sentence or two is enough — you don\'t need detailed notes.</p><div class="module-callout"><strong>This week\'s milestone:</strong> If your child engaged with Reverse Teaching more than once — even reluctantly — mark this module as reviewed. That\'s the target for Week 1.</div>'
+      }
+    ]
+  },
+
+  'communication-framework': {
+    title: 'The Communication Framework',
+    pillar: 'communication',
+    eyebrow: 'Communication — core guide',
+    meta: ['Core guide', 'Foundation pillar'],
+    sections: [
+      {
+        id: 'overview',
+        label: 'What this pillar covers',
+        content: '<p>The Communication pillar covers how your child expresses ideas, asks for help, and participates in academic conversation — both spoken and written.</p><p>Communication difficulty in academic settings is rarely about shyness or vocabulary. It\'s almost always about one of three specific gaps:</p><ul><li><strong>Task comprehension</strong> — not fully reading what a question is actually asking</li><li><strong>Verbal expression under pressure</strong> — knowing an answer but being unable to retrieve words quickly in class</li><li><strong>Written structure</strong> — not knowing how to turn ideas into a coherent written response</li></ul><p>Each gap has a different solution. Your Teaching Blueprint identifies which one is your child\'s primary barrier.</p>'
+      },
+      {
+        id: 'three-gaps',
+        label: 'The three gaps in detail',
+        content: '<p><strong>Gap 1 — Task comprehension</strong><br>Many children read questions without fully processing what\'s being asked. They answer a simpler or different question to the one written. This isn\'t a reading problem — it\'s a comprehension habit.<br><em>Signs:</em> answers that are technically correct but don\'t match what was asked; marks lost on work that demonstrates understanding elsewhere.</p><hr style="border:none;border-top:1px solid rgba(44,44,56,.07);margin:14px 0"><p><strong>Gap 2 — Verbal expression</strong><br>Some children who understand content clearly struggle to retrieve and organise words under time pressure or in front of others. This creates a misleading impression of not knowing.<br><em>Signs:</em> long pauses answering direct questions; "I knew it but couldn\'t say it"; stronger in writing than speaking.</p><hr style="border:none;border-top:1px solid rgba(44,44,56,.07);margin:14px 0"><p><strong>Gap 3 — Written structure</strong><br>Organising ideas into written responses with a clear structure. Many children have strong ideas but weak scaffolding — their writing reflects the thinking rather than guiding a reader through it.<br><em>Signs:</em> written work that reads as a list of ideas rather than a developed response; much stronger verbal than written performance.</p>'
+      },
+      {
+        id: 'what-to-look-for',
+        label: 'What to look for at home',
+        content: '<p>Your child\'s communication at home — outside the performance pressure of school — is often more revealing than their formal results.</p><p>Notice:</p><ul><li>When they describe something from school, is the account organised and clear, or scattered and hard to follow?</li><li>When you ask what a homework task requires, can they tell you — or do they shrug and say "I don\'t know what to do"?</li><li>When stuck on written work, is the problem <em>starting</em>, <em>sustaining</em>, or <em>structuring</em> their response?</li><li>Do they avoid speaking up even when they seem to know the answer?</li></ul><div class="module-callout">What you observe at home is real and valuable data. You see your child outside the assessment context — which often reveals their natural clarity level more accurately than teacher feedback alone.</div>'
+      },
+      {
+        id: 'home-approach',
+        label: 'Home approach',
+        content: '<p>The most effective thing you can do for the Communication pillar is create <strong>low-stakes verbal practice</strong> — regular moments where your child organises and expresses ideas without there being a right answer to get wrong.</p><p><strong>Three approaches that work:</strong></p><ul><li><strong>Dinner table narrating</strong> — "Tell me about one thing that happened today, in order." Not a quiz. Just practising narration.</li><li><strong>Read the question aloud first</strong> — When they show you homework, before anything else: "What is this question actually asking you to do?" Read it slowly. Together.</li><li><strong>Sentence starters</strong> — "My point is..." / "The reason I think that is..." / "The most important thing here is..." — give them the starter and let them complete it. This builds the habit of structured response.</li></ul><div class="module-callout"><strong>Important:</strong> Don\'t correct grammar or word choice during low-stakes verbal practice. You\'re building the confidence to express first. Accuracy follows fluency — not the other way around.</div>'
+      },
+      {
+        id: 'related',
+        label: 'Related resources',
+        content: '<p>Two more Communication resources are being added to your library as part of the staged release:</p><ul><li><strong>Communication Home Activities</strong> — short weekly exercises for the three gaps</li><li><strong>Written Expression Guide</strong> — focused support for written structure at home</li></ul><p>Start with this framework guide. When those resources become available, your Teaching Blueprint will indicate which to prioritise for your child specifically.</p><div class="module-callout"><strong>Teaching Blueprint connection:</strong> Your blueprint identifies which communication gap is highest priority for your child. Review it before starting home practice in this pillar — it tells you where to direct your energy.</div>'
+      }
+    ]
+  },
+
+  'parent-guide': {
+    title: 'Parent Support Guide',
+    pillar: 'action',
+    eyebrow: 'Action — parent resource',
+    meta: ['Parent guide', 'Core resource'],
+    sections: [
+      {
+        id: 'mindset',
+        label: 'Coach vs rescuer',
+        content: '<p>The most significant thing a parent can do for their child\'s academic clarity is shift from <strong>rescuing</strong> to <strong>coaching</strong>.</p><p>This is harder than it sounds. Watching your child struggle — especially when you can see the answer — creates a strong pull to step in. But consistent rescuing removes the very experience the child needs to build capability.</p><div class="module-callout"><strong>The coaching mindset:</strong> Your goal is not to solve the problem. Your goal is to help your child develop the capacity to solve the problem. These are genuinely different jobs, and they require different actions from you in the moment.</div><p>This doesn\'t mean stepping back entirely. It means being present in a different way — asking questions instead of giving answers, naming what you observe instead of directing what to do.</p>'
+      },
+      {
+        id: 'three-modes',
+        label: 'The three support modes',
+        content: '<p>Effective home support moves between three modes depending on what your child actually needs.</p><p><strong>1. Teaching mode</strong><br>Use when your child has a genuine knowledge gap and doesn\'t have the foundation to work it out themselves.<br><em>How:</em> explain clearly once, check understanding, then have them apply it themselves before you move on.</p><hr style="border:none;border-top:1px solid rgba(44,44,56,.07);margin:14px 0"><p><strong>2. Prompting mode</strong><br>Use when your child probably knows what to do but is stuck, avoidant, or waiting to be rescued.<br><em>How:</em> ask a question that points toward the next step without taking it for them. "What have you already tried?" / "What do you know about this?" / "What\'s the first thing you\'d need to figure out?"</p><hr style="border:none;border-top:1px solid rgba(44,44,56,.07);margin:14px 0"><p><strong>3. Observing mode</strong><br>Use when your child is working and doesn\'t need you right now.<br><em>How:</em> stay nearby, stay quiet. Don\'t pre-empt difficulty. Let them reach the edge of their capacity and find it themselves, with you available but not intervening.</p><div class="module-callout"><strong>The question to ask before you speak:</strong> "Does my child need new information — or do they need a prompt to use what they already have?" Most of the time, it\'s the second one.</div>'
+      },
+      {
+        id: 'scripts',
+        label: 'What to say when stuck',
+        content: '<p>Practical replacements for the responses that most often pull parents into rescuing:</p><p><strong>Instead of explaining the answer:</strong><br>"What do you think it might be?"</p><p><strong>Instead of "you\'ve done this before":</strong><br>"What did you do last time something felt like this?"</p><p><strong>When they say "I can\'t do this":</strong><br>"I hear it feels difficult. What\'s the very first tiny part of it you could do?"</p><p><strong>When they ask you to do it for them:</strong><br>"I\'m not going to do it for you — that wouldn\'t actually help you. But I\'ll sit here while you try."</p><p><strong>When they\'re frustrated:</strong><br>"Frustration usually means you\'re at the edge of what\'s comfortable. That\'s exactly where the learning is. Want a two-minute break, then try again?"</p><div class="module-callout"><strong>The rule behind all of these:</strong> Respond to the emotion first, the task second. A child who feels heard can think more clearly than one who feels rushed or criticised.</div>'
+      },
+      {
+        id: 'progress-signs',
+        label: 'Signs of real progress',
+        content: '<p>Progress in the Action pillar is often subtle early on. It doesn\'t show in grades first — it shows in changed behaviour.</p><p><strong>Signs things are shifting:</strong></p><ul><li>Your child starts tasks with less warm-up resistance than before</li><li>They attempt a question before saying they don\'t understand it</li><li>They come to you with a specific question rather than "I don\'t get it"</li><li>They can tolerate being wrong and try again without shutting down</li><li>They recover from getting something wrong more quickly</li></ul><p><strong>Signs avoidance is still running the show:</strong></p><ul><li>Long pre-task rituals — sharpening pencils, getting water, rearranging their workspace</li><li>Starting multiple things but finishing none</li><li>Constant checking: "Is this right?" before they\'ve genuinely tried</li><li>Emotional escalation when faced with uncertainty</li></ul><div class="module-callout">Don\'t treat avoidance as defiance — it\'s almost always anxiety. The work is not to punish it but to reduce the uncertainty that drives it, through consistent low-pressure practice.</div>'
+      },
+      {
+        id: 'weekly-rhythm',
+        label: 'Your weekly rhythm',
+        content: '<p>A simple rhythm for supporting the Action pillar at home:</p><p><strong>Start of week:</strong> One quick check-in — "What\'s coming up this week that might feel tricky?" Just naming it reduces anticipatory anxiety.</p><p><strong>Mid-week:</strong> One 10-minute session alongside your child in Prompting mode only. No teaching. No rescuing. Ask one question at a time and wait.</p><p><strong>End of week:</strong> One reflection question — "What did you attempt this week that felt hard at the start?" No grades. No assessment. Just noticing effort.</p><div class="module-callout"><strong>One month from now:</strong> If you run this rhythm consistently, you will likely see the first signs of reduced task avoidance. Not eliminated — reduced. That is the realistic goal at this stage, and it\'s a meaningful one.</div><p>Bring any patterns you notice to your monthly check-in with Kirsty. What you observe at home directly shapes how sessions are directed.</p>'
+      }
+    ]
   }
 };
 
-// Generic stub for modules not yet fully defined
+// Generic stub for modules staged for a future release cycle.
+// These are listed in the library as "In preparation" and link here for
+// families who click through — content will be populated by Kirsty per release.
 var MODULE_STUB = function(id, title, pillar) {
   return {
     title: title || 'Resource',
     pillar: pillar || 'thinking',
-    eyebrow: 'Mastery Method resource',
-    meta: ['Module', 'Pathway resource'],
+    eyebrow: 'Being added shortly',
+    meta: ['In preparation'],
     sections: [
       {
         id: 'content',
-        label: 'Content',
-        content: '<p>This resource is being prepared by Kirsty and will be available shortly. Full content is added as your programme progresses.</p><div class="module-callout">In the meantime, your Teaching Blueprint and the core framework modules are fully available. Start there.</div><p><a href="/mastery-method/portal/library/">← Back to full library</a></p>'
+        label: 'About this resource',
+        content: '<p>This resource is part of the Mastery Method library and is being added as part of a staged content release.</p><p>Kirsty adds resources to the portal in sequence — starting with the foundation modules that apply to every family, then building out the pillar-specific practice materials as your programme progresses.</p><div class="module-callout"><strong>What\'s available now:</strong> Your Teaching Blueprint, The Thinking Framework, Thinking Home Activities, The Communication Framework, and the Parent Support Guide. Start there — they cover the highest-leverage ground for most families in the first weeks.</div><p><a href="/mastery-method/portal/library/">← Back to library</a></p>'
       }
     ]
   };
@@ -193,15 +303,24 @@ var PILLAR_COLORS = {
 document.addEventListener('DOMContentLoaded', initModule);
 
 function initModule(){
+  // Record first portal access timestamp if not already set
+  if(!localStorage.getItem('mm_portal_joined')){
+    localStorage.setItem('mm_portal_joined', Date.now().toString());
+  }
+
   var params = new URLSearchParams(window.location.search);
   var id = params.get('id') || 'blueprint';
+  var isRealModule = !!MODULES[id];
   var module = MODULES[id] || MODULE_STUB(id, id.replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}));
 
-  // Mark as viewed in localStorage
+  // Mark as viewed in localStorage only for real modules (not stubs)
   var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
-  progress[id] = {viewed:true, pillar:module.pillar};
-  localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
-  localStorage.setItem('mm_portal_last', JSON.stringify({title:module.title, pillar:module.pillar}));
+  if(isRealModule){
+    var existingEntry = progress[id] || {};
+    progress[id] = {viewed:true, pillar:module.pillar, title:module.title, viewedAt: existingEntry.viewedAt || Date.now()};
+    localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
+    localStorage.setItem('mm_portal_last', JSON.stringify({title:module.title, pillar:module.pillar}));
+  }
 
   // Update page title
   document.title = module.title + ' — Mastery Method Portal';
@@ -230,6 +349,10 @@ function initModule(){
   var html = '<span class="module-eyebrow" style="color:'+color+'">'+module.eyebrow+'</span>';
   html += '<h1 class="module-title">'+module.title+'</h1>';
   html += '<div class="module-meta">'+metaStr+'</div>';
+  // Confidentiality notice — deterrence/trust signal, not a technical guarantee
+  if(isRealModule){
+    html += '<p class="module-confidentiality">Subscriber resource · Mastery Method · For enrolled families only — please keep within your household.</p>';
+  }
 
   module.sections.forEach(function(sec, i){
     html += '<div class="module-section" data-section="'+sec.id+'" style="display:'+(i===0?'':'none')+'">';
@@ -250,12 +373,25 @@ function initModule(){
 
 function markComplete(id, pillar, title){
   var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
-  progress[id] = {viewed:true, pillar:pillar};
+  var existingEntry = progress[id] || {};
+  progress[id] = {viewed:true, pillar:pillar, title:title, viewedAt: existingEntry.viewedAt || Date.now()};
   localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
   localStorage.setItem('mm_portal_last', JSON.stringify({title:title, pillar:pillar}));
   var btn = document.getElementById('complete-btn');
   if(btn){ btn.textContent='Reviewed ✓'; btn.classList.add('done'); }
 }
+
+/*
+ * Right-click deterrence on module content.
+ * Deterrence only — keyboard shortcuts and DevTools bypass this trivially.
+ * It reduces casual "Save as / Copy" actions without breaking accessibility.
+ * Screen readers are unaffected. CSS user-select is the primary friction layer.
+ */
+document.addEventListener('contextmenu', function(e){
+  if(e.target.closest && e.target.closest('.module-body')){
+    e.preventDefault();
+  }
+});
 </script>
 
 </body>
