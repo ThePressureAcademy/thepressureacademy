@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progress — Mastery Method Portal</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/assets/logos/TPA_House_Favicon.svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+  :root{--rust:#C45B28;--rust-deep:#9A4620;--rust-light:#D4916F;--rust-wash:#FAF0EB;--teal:#4A9B8E;--teal-wash:#EBF5F3;--teal-deep:#3A7D72;--amber:#E8A838;--amber-wash:#FDF5E6;--violet:#8B6AAE;--violet-wash:#F3EFF7;--rose:#D4726A;--rose-wash:#FBEFEE;--ink:#2C2C38;--ink-soft:#4A4A58;--ink-muted:#7A7A8A;--cream:#FAF8F5;--cream-deep:#F2EDE6;--white:#FFFFFF;--radius:10px;--radius-lg:16px;--shadow-soft:0 2px 16px rgba(44,44,56,.05);--shadow-card:0 4px 24px rgba(44,44,56,.07);--shadow-lift:0 8px 32px rgba(44,44,56,.1);--max-w:900px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Outfit',system-ui,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  /* ── PORTAL NAV ── */
+  .portal-nav{background:var(--white);border-bottom:1px solid rgba(44,44,56,.06);position:sticky;top:0;z-index:100}
+  .portal-nav-inner{max-width:1080px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .portal-brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);flex-shrink:0}
+  .portal-mark{height:26px}
+  .portal-wm{font-family:'DM Serif Display',Georgia,serif;font-size:.9rem;line-height:1.2}
+  .portal-wm span{color:var(--ink-muted);font-family:'Outfit',sans-serif;font-size:.58rem;font-weight:300;display:block;margin-top:-1px}
+  .portal-badge{font-size:.56rem;letter-spacing:1.5px;text-transform:uppercase;background:var(--teal-wash);color:var(--teal-deep);padding:2px 8px;border-radius:50px;font-weight:500;flex-shrink:0}
+  .portal-nav-links{display:flex;align-items:center;gap:2px}
+  .portal-nav-link{font-size:.75rem;font-weight:400;color:var(--ink-muted);text-decoration:none;padding:6px 12px;border-radius:50px;transition:all .2s}
+  .portal-nav-link:hover{color:var(--ink);background:rgba(44,44,56,.03)}
+  .portal-nav-link.active{color:var(--ink);font-weight:500}
+  .portal-nav-exit{font-size:.72rem;color:var(--ink-muted);background:none;border:1.5px solid rgba(44,44,56,.1);padding:6px 14px;border-radius:50px;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s}
+  .portal-nav-exit:hover{border-color:rgba(44,44,56,.2);color:var(--ink)}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
+  .nav-toggle svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round}
+  @media(max-width:768px){.portal-nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);border-bottom:1px solid rgba(44,44,56,.06);flex-direction:column;padding:8px 24px;gap:2px}.portal-nav-links.open{display:flex}.portal-nav-link{padding:10px 12px;width:100%}.nav-toggle{display:block}}
+
+  /* ── HEADER ── */
+  .progress-header{padding:36px 24px 0;max-width:var(--max-w);margin:0 auto}
+  .progress-heading{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:400;margin-bottom:4px}
+  .progress-sub{font-size:.82rem;color:var(--ink-muted);font-weight:300}
+
+  /* ── OVERVIEW ROW ── */
+  .overview-row{max-width:var(--max-w);margin:28px auto 0;padding:0 24px;display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:start}
+  @media(max-width:640px){.overview-row{grid-template-columns:1fr}}
+
+  /* ── RING CARD ── */
+  .ring-card{background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-card);text-align:center}
+  .ring-card-title{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink-muted);font-weight:500;margin-bottom:18px}
+  .ring-wrap{display:inline-block;position:relative;margin-bottom:12px}
+  .ring-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+  .ring-center-val{font-family:'DM Serif Display',Georgia,serif;font-size:2rem;font-weight:400;color:var(--ink)}
+  .ring-center-label{font-size:.65rem;color:var(--ink-muted);font-weight:300}
+  .ring-stats{display:flex;justify-content:center;gap:20px;margin-top:4px}
+  .ring-stat{text-align:center}
+  .ring-stat-val{font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;color:var(--ink)}
+  .ring-stat-label{font-size:.6rem;color:var(--ink-muted);font-weight:300;text-transform:uppercase;letter-spacing:1px}
+
+  /* ── PILLARS CARD ── */
+  .pillars-card{background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-card)}
+  .pillars-card-title{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink-muted);font-weight:500;margin-bottom:18px}
+  .pillar-block{margin-bottom:18px}
+  .pillar-block:last-child{margin-bottom:0}
+  .pillar-block-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .pillar-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+  .pillar-block-name{font-family:'Fraunces',Georgia,serif;font-size:.92rem;font-weight:500;flex:1}
+  .pillar-block-pct{font-size:.78rem;color:var(--ink-muted);font-weight:300}
+  .pillar-block-bar{height:6px;background:rgba(44,44,56,.06);border-radius:50px;overflow:hidden}
+  .pillar-block-fill{height:100%;border-radius:50px;transition:width .5s ease}
+  .pillar-block-detail{font-size:.7rem;color:var(--ink-muted);font-weight:300;margin-top:5px}
+
+  /* ── TIMELINE ── */
+  .timeline-section{max-width:var(--max-w);margin:28px auto 0;padding:0 24px 56px}
+  .timeline-card{background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-card)}
+  .timeline-title{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink-muted);font-weight:500;margin-bottom:18px}
+  .timeline-empty{font-size:.82rem;color:var(--ink-muted);font-weight:300;line-height:1.7;padding:12px 0}
+  .timeline-list{list-style:none}
+  .timeline-item{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid rgba(44,44,56,.04)}
+  .timeline-item:last-child{border-bottom:none}
+  .timeline-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .timeline-icon svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .timeline-text{flex:1}
+  .timeline-text-title{font-size:.84rem;font-weight:400;color:var(--ink-soft);margin-bottom:2px}
+  .timeline-text-meta{font-size:.68rem;color:var(--ink-muted);font-weight:300}
+  .timeline-pillar-tag{font-size:.58rem;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:50px;font-weight:500}
+  @media print{body{display:none!important}}
+</style>
+</head>
+
+<!--
+  Route protection is handled server-side by api/portal-serve.js.
+  This page is only returned by the server when a valid mm_session cookie
+  is present. No client-side visibility trick is needed.
+-->
+<body>
+
+<!-- ── PORTAL NAV ── -->
+<nav class="portal-nav" role="navigation" aria-label="Portal navigation">
+  <div class="portal-nav-inner">
+    <a href="/mastery-method" class="portal-brand" aria-label="Mastery Method home">
+      <svg class="portal-mark" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+        <rect x="22" y="4" width="56" height="7" rx="3.5" fill="#C45B28"/>
+        <rect x="22" y="119" width="56" height="7" rx="3.5" fill="#C45B28"/>
+        <line x1="50" y1="11" x2="50" y2="32" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/>
+        <line x1="50" y1="98" x2="50" y2="119" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/>
+        <path d="M50 32 C56 34,64 38,70 44 C74 48,78 54,80 60 Q82 65,80 70 C78 76,74 82,70 86 C64 92,56 96,50 98 C44 96,36 92,30 86 C26 82,22 76,20 70 Q18 65,20 60 C22 54,26 48,30 44 C36 38,44 34,50 32Z" fill="none" stroke="#C45B28" stroke-width="5"/>
+        <g stroke="#D38F5C" stroke-width="2" stroke-opacity=".55" fill="none"><line x1="50" y1="48" x2="38" y2="58"/><line x1="50" y1="48" x2="62" y2="58"/><line x1="38" y1="58" x2="38" y2="74"/><line x1="62" y1="58" x2="62" y2="74"/><line x1="38" y1="74" x2="50" y2="82"/><line x1="62" y1="74" x2="50" y2="82"/><line x1="50" y1="48" x2="50" y2="65"/></g>
+        <circle cx="50" cy="48" r="4" fill="#C45B28"/><circle cx="38" cy="58" r="3.5" fill="#4A9B8E"/><circle cx="62" cy="58" r="3.5" fill="#E8A838"/><circle cx="50" cy="65" r="4.5" fill="#C45B28"/>
+      </svg>
+      <div class="portal-wm">Mastery Method<span>Member Portal</span></div>
+    </a>
+    <span class="portal-badge">Portal</span>
+    <button class="nav-toggle" onclick="document.querySelector('.portal-nav-links').classList.toggle('open')" aria-label="Open menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="portal-nav-links">
+      <a href="/mastery-method/portal/dashboard/" class="portal-nav-link">Dashboard</a>
+      <a href="/mastery-method/portal/library/" class="portal-nav-link">Library</a>
+      <a href="/mastery-method/portal/progress/" class="portal-nav-link active">Progress</a>
+      <a href="/mastery-method/portal/account/" class="portal-nav-link">Account</a>
+    </div>
+    <button class="portal-nav-exit" onclick="exitPortal()" aria-label="Exit portal">Exit portal</button>
+  </div>
+</nav>
+
+<!-- ── HEADER ── -->
+<div class="progress-header">
+  <h1 class="progress-heading">Your progress</h1>
+  <p class="progress-sub" id="progress-sub">Tracking your journey through the four clarity pillars.</p>
+</div>
+
+<!-- ── OVERVIEW ROW ── -->
+<div class="overview-row">
+
+  <!-- RING CARD -->
+  <div class="ring-card" role="region" aria-label="Overall progress summary">
+    <div class="ring-card-title">Overall completion</div>
+    <div class="ring-wrap">
+      <svg width="140" height="140" viewBox="0 0 140 140" role="img" aria-label="Overall progress ring">
+        <circle cx="70" cy="70" r="56" fill="none" stroke="rgba(44,44,56,.07)" stroke-width="10"/>
+        <circle id="ring-circle" cx="70" cy="70" r="56" fill="none" stroke="var(--teal)" stroke-width="10"
+          stroke-linecap="round" stroke-dasharray="351.86"
+          stroke-dashoffset="351.86" transform="rotate(-90 70 70)"
+          style="transition:stroke-dashoffset .6s ease"/>
+      </svg>
+      <div class="ring-center">
+        <div class="ring-center-val" id="ring-pct">0%</div>
+        <div class="ring-center-label">complete</div>
+      </div>
+    </div>
+    <div class="ring-stats">
+      <div class="ring-stat">
+        <div class="ring-stat-val" id="ring-viewed">0</div>
+        <div class="ring-stat-label">Viewed</div>
+      </div>
+      <div class="ring-stat">
+        <div class="ring-stat-val" id="ring-total">5</div>
+        <div class="ring-stat-label">Available</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILLARS CARD -->
+  <div class="pillars-card" role="region" aria-label="Progress by clarity pillar">
+    <div class="pillars-card-title">Progress by pillar</div>
+    <div id="pillar-blocks">
+      <div class="pillar-block">
+        <div class="pillar-block-header">
+          <span class="pillar-dot" style="background:var(--teal)"></span>
+          <span class="pillar-block-name">Thinking</span>
+          <span class="pillar-block-pct" data-pct="thinking">0%</span>
+        </div>
+        <div class="pillar-block-bar"><div class="pillar-block-fill" data-fill="thinking" style="width:0%;background:var(--teal)"></div></div>
+        <div class="pillar-block-detail" data-detail="thinking">0 of 3 resources viewed</div>
+      </div>
+      <div class="pillar-block">
+        <div class="pillar-block-header">
+          <span class="pillar-dot" style="background:var(--rust)"></span>
+          <span class="pillar-block-name">Communication</span>
+          <span class="pillar-block-pct" data-pct="communication">0%</span>
+        </div>
+        <div class="pillar-block-bar"><div class="pillar-block-fill" data-fill="communication" style="width:0%;background:var(--rust)"></div></div>
+        <div class="pillar-block-detail" data-detail="communication">0 of 1 resource viewed</div>
+      </div>
+      <div class="pillar-block">
+        <div class="pillar-block-header">
+          <span class="pillar-dot" style="background:var(--amber)"></span>
+          <span class="pillar-block-name">Learning</span>
+          <span class="pillar-block-pct" data-pct="learning">0%</span>
+        </div>
+        <div class="pillar-block-bar"><div class="pillar-block-fill" data-fill="learning" style="width:0%;background:var(--amber)"></div></div>
+        <div class="pillar-block-detail" data-detail="learning">0 of 1 resource viewed</div>
+      </div>
+      <div class="pillar-block">
+        <div class="pillar-block-header">
+          <span class="pillar-dot" style="background:var(--violet)"></span>
+          <span class="pillar-block-name">Action</span>
+          <span class="pillar-block-pct" data-pct="action">0%</span>
+        </div>
+        <div class="pillar-block-bar"><div class="pillar-block-fill" data-fill="action" style="width:0%;background:var(--violet)"></div></div>
+        <div class="pillar-block-detail" data-detail="action">0 of 1 resource viewed</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── ACTIVITY TIMELINE ── -->
+<div class="timeline-section">
+  <div class="timeline-card" role="region" aria-label="Activity timeline">
+    <div class="timeline-title">Activity timeline</div>
+    <div id="timeline-content">
+      <div class="timeline-empty">No activity recorded yet. Start exploring your <a href="/mastery-method/portal/library/" style="color:var(--teal-deep);text-decoration:underline">resource library</a> to see your progress here.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/*
+ * PROGRESS PAGE — derived from localStorage only.
+ * No stats are hardcoded or fabricated. All values reflect actual recorded
+ * user activity within this browser session/storage.
+ *
+ * localStorage keys used:
+ *   mm_portal_joined   — timestamp (ms) of first portal access
+ *   mm_portal_progress — JSON object: { resourceId: { pillar, viewed: bool, title, viewedAt } }
+ *   mm_portal_last     — string: last resource title + pillar accessed
+ */
+function initProgress(){
+  // Initialize join timestamp on first portal load (robustness guard)
+  if(!localStorage.getItem('mm_portal_joined')){
+    localStorage.setItem('mm_portal_joined', Date.now().toString());
+  }
+
+  var TOTAL_RESOURCES = 5;
+  var PILLAR_TOTALS = {thinking:3, communication:1, learning:1, action:1};
+  var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
+  var joined = parseInt(localStorage.getItem('mm_portal_joined')||'0',10);
+
+  // ── Viewed resources
+  var viewedIds = Object.keys(progress).filter(function(k){return progress[k].viewed;});
+  var resourcesViewed = Math.min(viewedIds.length, TOTAL_RESOURCES);
+  var overallPct = Math.round((resourcesViewed/TOTAL_RESOURCES)*100);
+
+  // ── Pillar breakdown
+  var pillars = {thinking:0,communication:0,learning:0,action:0};
+  viewedIds.forEach(function(id){
+    var p = progress[id].pillar;
+    if(p && pillars.hasOwnProperty(p)) pillars[p]++;
+  });
+
+  // ── Update subtitle
+  if(joined){
+    var daysSince = Math.floor((Date.now()-joined)/86400000);
+    var weekNum = Math.max(1, Math.ceil((daysSince+1)/7));
+    document.getElementById('progress-sub').textContent = 'Week '+weekNum+' — '+resourcesViewed+' of '+TOTAL_RESOURCES+' available resources viewed.';
+  }
+
+  // ── SVG ring
+  var circumference = 351.86;
+  var offset = circumference - (overallPct/100)*circumference;
+  document.getElementById('ring-circle').setAttribute('stroke-dashoffset', offset);
+  document.getElementById('ring-pct').textContent = overallPct+'%';
+  document.getElementById('ring-viewed').textContent = resourcesViewed;
+  document.getElementById('ring-total').textContent = TOTAL_RESOURCES;
+
+  // ── Pillar bars
+  Object.keys(pillars).forEach(function(p){
+    var count = Math.min(pillars[p], PILLAR_TOTALS[p] || 1);
+    var total = PILLAR_TOTALS[p] || 1;
+    var pct = Math.round((count/total)*100);
+    var fill = document.querySelector('[data-fill="'+p+'"]');
+    var pctEl = document.querySelector('[data-pct="'+p+'"]');
+    var detailEl = document.querySelector('[data-detail="'+p+'"]');
+    if(fill) fill.style.width = pct+'%';
+    if(pctEl) pctEl.textContent = pct+'%';
+    if(detailEl) detailEl.textContent = count+' of '+total+' resource'+(total===1?'':' resource')+'s viewed';
+  });
+
+  // ── Timeline — build from viewed resources with timestamps
+  var timelineItems = [];
+  viewedIds.forEach(function(id){
+    var item = progress[id];
+    if(item.viewedAt){
+      timelineItems.push({
+        title: item.title || id,
+        pillar: item.pillar || 'unknown',
+        viewedAt: item.viewedAt
+      });
+    }
+  });
+
+  if(timelineItems.length > 0){
+    // Sort newest first
+    timelineItems.sort(function(a,b){return b.viewedAt - a.viewedAt;});
+
+    var pillarColors = {thinking:'var(--teal)',communication:'var(--rust)',learning:'var(--amber)',action:'var(--violet)'};
+    var pillarBgs = {thinking:'var(--teal-wash)',communication:'var(--rust-wash)',learning:'var(--amber-wash)',action:'var(--violet-wash)'};
+
+    var html = '<ul class="timeline-list">';
+    timelineItems.forEach(function(item){
+      var color = pillarColors[item.pillar] || 'var(--ink-muted)';
+      var bg = pillarBgs[item.pillar] || 'rgba(44,44,56,.05)';
+      var d = new Date(item.viewedAt);
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      var dateStr = d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear();
+
+      html += '<li class="timeline-item">';
+      html += '<span class="timeline-icon" style="background:'+bg+';color:'+color+'"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>';
+      html += '<div class="timeline-text"><div class="timeline-text-title">'+item.title+'</div>';
+      html += '<div class="timeline-text-meta">'+dateStr+' · <span class="timeline-pillar-tag" style="background:'+bg+';color:'+color+'">'+item.pillar+'</span></div></div>';
+      html += '</li>';
+    });
+    html += '</ul>';
+
+    document.getElementById('timeline-content').innerHTML = html;
+  }
+}
+
+function exitPortal(){
+  window.location.href = '/api/auth/logout';
+}
+
+document.addEventListener('DOMContentLoaded', initProgress);
+</script>
+
+</body>
+</html>

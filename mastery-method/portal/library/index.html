@@ -93,6 +93,7 @@
     <div class="portal-nav-links">
       <a href="/mastery-method/portal/dashboard/" class="portal-nav-link">Dashboard</a>
       <a href="/mastery-method/portal/library/" class="portal-nav-link active">Library</a>
+      <a href="/mastery-method/portal/progress/" class="portal-nav-link">Progress</a>
       <a href="/mastery-method/portal/account/" class="portal-nav-link">Account</a>
     </div>
     <button class="portal-nav-exit" onclick="exitPortal()" aria-label="Exit portal">Exit portal</button>
@@ -225,7 +226,8 @@ function setFilter(pillar, btn){
 /* Mark resource as viewed in localStorage and update card badge */
 function markViewed(id, title, pillar){
   var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
-  progress[id] = {viewed:true, pillar:pillar};
+  var existing = progress[id] || {};
+  progress[id] = {viewed:true, pillar:pillar, title:title, viewedAt: existing.viewedAt || Date.now()};
   localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
   localStorage.setItem('mm_portal_last', JSON.stringify({title:title, pillar:pillar}));
 }

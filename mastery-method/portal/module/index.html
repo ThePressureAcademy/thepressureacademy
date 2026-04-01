@@ -90,6 +90,7 @@
     <div class="portal-nav-links">
       <a href="/mastery-method/portal/dashboard/" class="portal-nav-link">Dashboard</a>
       <a href="/mastery-method/portal/library/" class="portal-nav-link">Library</a>
+      <a href="/mastery-method/portal/progress/" class="portal-nav-link">Progress</a>
       <a href="/mastery-method/portal/account/" class="portal-nav-link">Account</a>
     </div>
     <button class="portal-nav-exit" onclick="exitPortal()" aria-label="Exit portal">Exit portal</button>
@@ -315,7 +316,8 @@ function initModule(){
   // Mark as viewed in localStorage only for real modules (not stubs)
   var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
   if(isRealModule){
-    progress[id] = {viewed:true, pillar:module.pillar};
+    var existingEntry = progress[id] || {};
+    progress[id] = {viewed:true, pillar:module.pillar, title:module.title, viewedAt: existingEntry.viewedAt || Date.now()};
     localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
     localStorage.setItem('mm_portal_last', JSON.stringify({title:module.title, pillar:module.pillar}));
   }
@@ -371,7 +373,8 @@ function initModule(){
 
 function markComplete(id, pillar, title){
   var progress = JSON.parse(localStorage.getItem('mm_portal_progress')||'{}');
-  progress[id] = {viewed:true, pillar:pillar};
+  var existingEntry = progress[id] || {};
+  progress[id] = {viewed:true, pillar:pillar, title:title, viewedAt: existingEntry.viewedAt || Date.now()};
   localStorage.setItem('mm_portal_progress', JSON.stringify(progress));
   localStorage.setItem('mm_portal_last', JSON.stringify({title:title, pillar:pillar}));
   var btn = document.getElementById('complete-btn');

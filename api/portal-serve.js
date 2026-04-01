@@ -31,7 +31,7 @@ const path = require('path');
 const crypto = require('crypto');
 
 const SESSION_COOKIE = 'mm_session';
-const ALLOWED_PAGES = ['dashboard', 'library', 'module', 'account'];
+const ALLOWED_PAGES = ['dashboard', 'library', 'module', 'account', 'progress'];
 const GATE_URL = '/mastery-method/portal/';
 
 // ── Cookie parser ────────────────────────────────────────────────────────────
