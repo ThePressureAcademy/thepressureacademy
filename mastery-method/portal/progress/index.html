@@ -269,7 +269,7 @@ function initProgress(){
     var detailEl = document.querySelector('[data-detail="'+p+'"]');
     if(fill) fill.style.width = pct+'%';
     if(pctEl) pctEl.textContent = pct+'%';
-    if(detailEl) detailEl.textContent = count+' of '+total+' resource'+(total===1?'':' resource')+'s viewed';
+    if(detailEl) detailEl.textContent = count+' of '+total+' resource'+(total===1?'':'s')+' viewed';
   });
 
   // ── Timeline — build from viewed resources with timestamps
