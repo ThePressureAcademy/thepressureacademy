@@ -4,46 +4,26 @@
       "includeFiles": "mastery-method/portal/**"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/mastery-method/portal/dashboard",
-      "destination": "/api/portal-serve?page=dashboard"
+      "src": "^/mastery-method/portal/dashboard(?:/.*)?$",
+      "dest": "/api/portal-serve?page=dashboard"
     },
     {
-      "source": "/mastery-method/portal/dashboard/:path*",
-      "destination": "/api/portal-serve?page=dashboard"
+      "src": "^/mastery-method/portal/library(?:/.*)?$",
+      "dest": "/api/portal-serve?page=library"
     },
     {
-      "source": "/mastery-method/portal/library",
-      "destination": "/api/portal-serve?page=library"
+      "src": "^/mastery-method/portal/module(?:/.*)?$",
+      "dest": "/api/portal-serve?page=module"
     },
     {
-      "source": "/mastery-method/portal/library/:path*",
-      "destination": "/api/portal-serve?page=library"
+      "src": "^/mastery-method/portal/account(?:/.*)?$",
+      "dest": "/api/portal-serve?page=account"
     },
     {
-      "source": "/mastery-method/portal/module",
-      "destination": "/api/portal-serve?page=module"
-    },
-    {
-      "source": "/mastery-method/portal/module/:path*",
-      "destination": "/api/portal-serve?page=module"
-    },
-    {
-      "source": "/mastery-method/portal/account",
-      "destination": "/api/portal-serve?page=account"
-    },
-    {
-      "source": "/mastery-method/portal/account/:path*",
-      "destination": "/api/portal-serve?page=account"
-    },
-    {
-      "source": "/mastery-method/portal/progress",
-      "destination": "/api/portal-serve?page=progress"
-    },
-    {
-      "source": "/mastery-method/portal/progress/:path*",
-      "destination": "/api/portal-serve?page=progress"
+      "src": "^/mastery-method/portal/progress(?:/.*)?$",
+      "dest": "/api/portal-serve?page=progress"
     }
   ],
   "headers": [
