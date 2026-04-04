@@ -1,104 +1,125 @@
-# CLAUDE.md — The Pressure Academy
+# CLAUDE.md - The Pressure Academy Repo Operating Guide
 
-## What This Repo Is
+## Purpose
 
-This is the static website for **The Pressure Academy** (thepressureacademy.com). It is a premium, systems-led coaching and wellness business. The primary commercial focus is launching the **Pressure Planner** digital product.
+This repository contains production website code for **The Pressure Academy**.
+It is not a static-only concept stub.
+It includes:
 
-## Business Boundaries
+- The TPA public site and homepage experience
+- The Mastery Method public pages
+- The Mastery Method portal gate and protected portal pages
+- Vercel route configuration in `vercel.json`
+- Serverless functions in `api/`
 
-- This repo is for The Pressure Academy ONLY
-- Do NOT mix in Pressure Systems, LiftIQ, Raymonds Lift & Shift, or any unrelated brands
-- The ecosystem includes: Pressure Planner, Pressure Blueprint, Mastery Method, Pressure Tested, Pressure Over Force — all under the TPA umbrella
-- The Pressure Planner is the PRIMARY revenue product. All other ecosystem elements support it.
+## Source Of Truth
 
-## Stack
+Use this authority order:
 
-- Static HTML/CSS/JS (no build system)
-- Deployed on Vercel
-- Forms via Formspree
-- Fonts: DM Sans + JetBrains Mono (Google Fonts)
-- Animation: GSAP 3.12.7 (CDN)
-- No backend, no database, no auth
+1. Current repo code on `main`
+2. Current verified route and config behavior in the repo
+3. Current verified deployment metadata
+4. Internal docs
 
-## Architecture Priorities
+If a markdown doc conflicts with code, the code wins.
 
-1. Product launch readiness (Pressure Planner)
-2. Conversion path clarity (hero → product → CTA → capture)
-3. Mobile-first responsive design
-4. Accessibility (WCAG 2.1 AA baseline)
-5. Performance (minimal dependencies, CDN assets)
-6. SEO fundamentals
+Do not reuse old audit claims without re-verifying them.
+Stale internal docs exist in this repo and are not automatically canonical.
 
-## Design Standards
+## High-Level Architecture
 
-- Dark theme: `--bg: #0A0A0A`, `--cream: #FFF8F0`
-- Primary accent: `--rust: #C45B28`
-- Secondary accent: `--gold: #E8A838`
-- Fonts: DM Sans (body), JetBrains Mono (code/badges)
-- Border radius: 18px (large), 12px (small)
-- Premium, disciplined, systems-driven aesthetic
-- NO cheap template patterns, stock photo grids, or generic gym aesthetics
+- **TPA public site:** [index.html](./index.html)
+- **Privacy policy:** [privacy-policy.html](./privacy-policy.html)
+- **Mastery Method public pages:** `mastery-method/*`
+- **Mastery Method portal gate:** `mastery-method/portal/index.html`
+- **Protected portal pages:** `mastery-method/portal/dashboard`, `library`, `module`, `account`, `progress`
+- **Vercel config:** [vercel.json](./vercel.json)
+- **Serverless functions:** `api/portal-serve.js`, `api/auth/activate.js`, `api/auth/logout.js`
+- **Assets:** `assets/`
+- **Internal docs:** `docs/`
 
-## File Structure
+## Important Repo Reality
 
-```
-index.html          — Homepage (all CSS/JS inline)
-privacy-policy.html — Privacy policy
-assets/logos/        — SVG brand marks (locked — do not regenerate)
-assets/social/       — OG image
-docs/                — Architecture, decisions, deployment docs
-vercel.json          — Vercel config (cache headers)
-robots.txt           — SEO
-sitemap.xml          — SEO
-```
+- This repo is deployed on Vercel.
+- The portal is not a fake mock. Protected routes are handled through `api/` and `vercel.json`.
+- `api/auth/activate.js` validates invite tokens and issues a signed session cookie.
+- `api/portal-serve.js` validates the session cookie before serving protected portal HTML.
+- Portal pages also use browser storage for some client-side progress state.
+- Do not claim "no backend", "no auth", or "no serverless" in this repo.
 
-## Locked Assets — Do Not Modify
+## Form Endpoint Map
 
-- All files in `assets/logos/` — these are approved brand marks
-- `assets/social/TPA_OG_1200x630.png` — approved OG image
-- Font choices: DM Sans + JetBrains Mono
-- Colour system (rust, gold, cream, bg values)
+These mappings are verified in current repo code:
 
-## Coding Standards
+- `https://formspree.io/f/meerjgde`
+  - TPA parent-site forms only
+  - Verified current use: homepage planner capture forms in `index.html`
 
-- All CSS and JS is currently inline in `index.html` — maintain this pattern until a deliberate extraction is planned
-- Use semantic HTML5 elements
-- Include `aria-label` on interactive elements
-- Support `prefers-reduced-motion`
-- Use CSS custom properties for theming
-- Keep GSAP animations performance-safe (transform/opacity only)
+- `https://formspree.io/f/xwvwkqqg`
+  - Mastery Method only
+  - Verified current use: `mastery-method/book/index.html`
+  - Verified current use: `mastery-method/scorecard/index.html`
 
-## Privacy and Minors
+Do not merge, swap, or "simplify" these endpoints without first verifying the live code paths that use them.
 
-- The Mastery Method targets children ages ~3-15
-- Guardian/parent involvement is required for child-related features
-- Do not collect child data without consent mechanisms
-- Privacy policy is at `privacy-policy.html` — keep it aligned with actual capabilities
-- Do not fabricate legal claims or compliance statements
+## Verified Form Behavior
 
-## Deployment Rules
+- TPA homepage forms currently use hidden `intent=planner-access`
+- TPA homepage forms currently use hidden `source=post-demo-cta` and `source=join-section`
+- Mastery Method booking uses dynamic `intent` values: `call`, `assessment`, `info`
+- Mastery Method booking uses `source=mastery-method-book`
+- Mastery Method scorecard uses `intent=scorecard-lead`
+- Mastery Method scorecard uses `source=clarity-scorecard`
 
-- Site deploys via Vercel from the repository
-- Do NOT commit secrets, API keys, or credentials
-- All asset paths must be relative (no absolute filesystem paths)
-- Test all changes work with relative paths from repo root
-- Verify logo rendering, privacy policy link, and OG image after any structural change
+## Docs: What To Trust Carefully
 
-## Formspree Forms
+- Treat docs as scoped working notes unless they are confirmed against code.
+- Some older docs describe:
+  - no auth / no backend
+  - old Formspree mappings
+  - portal as future work
+  - historical handover states that no longer match the repo
 
-- Endpoint: `https://formspree.io/f/meerjgde`
-- Each form includes a hidden `intent` field to segment submissions
-- Intents: `planner-access`, `blueprint-info`, `mastery-enquiry`, `academy-updates`
-- Each form includes a hidden `source` field for tracking
+Before editing docs, verify the relevant code path first.
 
-## Definition of Done
+## Strategy Caution
 
-A change is done when:
-1. HTML is valid and renders correctly
-2. All relative asset paths work
-3. Mobile layout is responsive
-4. Accessibility basics are maintained
-5. No broken links
-6. Privacy policy link works
-7. Forms submit correctly
-8. No secrets committed
+Do not overstate product strategy as if it is fully settled.
+Current code reality is mixed:
+
+- The TPA homepage is Pressure Planner-led
+- Mastery Method is a large, active subsystem with its own public flow
+- A protected Mastery Method portal exists in production code
+
+If you need strategic truth, verify code first and then check scoped docs.
+
+## Analytics And Tracking
+
+No analytics provider is verified as installed in current repo code.
+Do not claim analytics, event tracking, funnel measurement, or dashboard visibility exists unless you add and verify it.
+
+## CSS / JS Editing Caution
+
+- The homepage and Mastery Method pages are primarily self-contained HTML with inline CSS/JS
+- Do not assume external CSS files in `assets/css/` are live
+- Verify references before editing shared-looking assets
+
+## Portal / Auth Editing Caution
+
+Files that can break protected access if edited carelessly:
+
+- [vercel.json](./vercel.json)
+- [api/portal-serve.js](./api/portal-serve.js)
+- [api/auth/activate.js](./api/auth/activate.js)
+- [api/auth/logout.js](./api/auth/logout.js)
+
+Do not weaken portal route protection based on old docs or convenience.
+
+## Operating Rules For Agents
+
+- Verify code before updating docs
+- Do not invent infrastructure facts
+- Do not invent compliance, analytics, or medical claims
+- Do not assume old docs are canonical
+- Keep TPA-site and Mastery Method form handling distinct
+- Keep edits scoped and evidence-led
