@@ -9,6 +9,7 @@ These are the current governance references for repo work:
 - [../CLAUDE.md](../CLAUDE.md)
 - [REPO_GOVERNANCE_AND_ENDPOINTS.md](./REPO_GOVERNANCE_AND_ENDPOINTS.md)
 - [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md)
+- [ANALYTICS_BASELINE_PLAN.md](./ANALYTICS_BASELINE_PLAN.md)
 
 ## Scoped Reference
 
