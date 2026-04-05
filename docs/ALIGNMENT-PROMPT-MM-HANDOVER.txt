@@ -1,3 +1,9 @@
+================================================================
+SUPERSEDED - NOT CANONICAL
+This handover prompt reflects a March 2026 build-state snapshot and contains assumptions that no longer define current repo truth.
+Use CLAUDE.md, docs/REPO_GOVERNANCE_AND_ENDPOINTS.md, and docs/DOC_AUTHORITY_INDEX.md instead.
+================================================================
+
 ==================================================
 ALIGNMENT PROMPT — MASTERY METHOD BUILD HANDOVER
 ==================================================

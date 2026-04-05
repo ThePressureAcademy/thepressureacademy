@@ -1,3 +1,9 @@
+================================================================
+HISTORICAL REFERENCE ONLY - NOT CANONICAL
+This tree snapshot reflects an older repo layout and must not be treated as current structure authority.
+Use current repo files plus docs/DOC_AUTHORITY_INDEX.md instead.
+================================================================
+
 .
 ├── index.html
 ├── privacy-policy.html

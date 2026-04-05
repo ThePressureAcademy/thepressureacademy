@@ -1,3 +1,8 @@
+> [!NOTE]
+> HISTORICAL REFERENCE ONLY - NOT CANONICAL.
+> This file is a point-in-time assessment, not a live governance source.
+> Use [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md) and current repo code before relying on any recommendation here.
+
 # Final Verdict — The Pressure Academy
 
 **Date:** 2026-03-19 (revised)

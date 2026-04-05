@@ -1,4 +1,10 @@
 ================================================================
+SUPERSEDED - NOT CANONICAL
+This reel-script pack uses older CLARITY-era CTA and delivery assumptions that no longer define the current funnel.
+Use docs/MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md and docs/DOC_AUTHORITY_INDEX.md instead.
+================================================================
+
+================================================================
 MASTERY METHOD — SOCIAL MEDIA REEL SCRIPTS
 Lead Magnet: "Why Your Child Knows It But Can't Show It"
 ================================================================

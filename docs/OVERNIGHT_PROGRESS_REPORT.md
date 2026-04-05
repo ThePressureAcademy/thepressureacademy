@@ -1,3 +1,8 @@
+> [!NOTE]
+> HISTORICAL REFERENCE ONLY - NOT CANONICAL.
+> This progress report captures a single branch/session snapshot from March 2026 and includes assumptions that no longer represent current repo authority.
+> Use [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md) and current repo code before reusing it.
+
 # Overnight Progress Report
 
 **Date:** 19 March 2026

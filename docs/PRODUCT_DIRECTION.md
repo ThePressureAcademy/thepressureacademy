@@ -1,3 +1,8 @@
+> [!CAUTION]
+> OPERATOR DECISION REQUIRED - NOT IMPLEMENTATION AUTHORITY.
+> This strategy note reflects one commercial direction, but current repo reality is mixed. Do not treat it as settled canon without operator confirmation.
+> Use [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md) and current repo code before acting on it.
+
 # Product Direction — The Pressure Academy
 
 **Date:** 19 March 2026

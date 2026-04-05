@@ -1,3 +1,8 @@
+> [!WARNING]
+> SUPERSEDED - NOT CANONICAL.
+> This file assumes a pre-launch Pressure Planner state and outdated endpoint usage that no longer match the repo.
+> Use [../CLAUDE.md](../CLAUDE.md), [REPO_GOVERNANCE_AND_ENDPOINTS.md](./REPO_GOVERNANCE_AND_ENDPOINTS.md), and [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md).
+
 # Launch Readiness — Pressure Planner
 
 **Date:** 19 March 2026

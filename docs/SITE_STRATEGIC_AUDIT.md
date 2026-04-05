@@ -1,3 +1,8 @@
+> [!NOTE]
+> HISTORICAL REFERENCE ONLY - NOT CANONICAL.
+> This strategic audit is a point-in-time evaluation of an older site state. It must not override current governance or repo evidence.
+> Use [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md) before acting on it.
+
 # Site Strategic Audit — The Pressure Academy
 
 **Date:** 2026-03-19 (revised)

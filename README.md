@@ -1,12 +1,16 @@
+> [!NOTE]
+> SCOPED REFERENCE ONLY.
+> This README is a general repo orientation file. It must not override verified code, [CLAUDE.md](./CLAUDE.md), or [docs/REPO_GOVERNANCE_AND_ENDPOINTS.md](./docs/REPO_GOVERNANCE_AND_ENDPOINTS.md).
+
 # The Pressure Academy
 
 **[thepressureacademy.com](https://thepressureacademy.com)**
 
-Static website for The Pressure Academy — home of the **Pressure Planner**, a daily performance scoring system for shift workers, grapplers, and parents.
+Production website repository for The Pressure Academy, including the public site, Mastery Method public pages, and Mastery Method portal/auth handling.
 
 ## Quick Start
 
-This is a static site with no build step. To preview locally:
+The frontend is primarily HTML/CSS/JS with no build step. To preview locally:
 
 ```bash
 # Any static server works
@@ -25,44 +29,43 @@ Open `http://localhost:8000` and verify:
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | Static HTML/CSS/JS (single page) |
+| Frontend | HTML/CSS/JS (homepage plus multi-page Mastery Method sections) |
 | Hosting | Vercel |
 | Forms | Formspree |
+| Serverless / Auth | `api/` functions for portal activation, logout, and protected-page serving |
 | Fonts | DM Sans + JetBrains Mono (Google Fonts) |
 | Animation | GSAP 3.12.7 (CDN) |
 
-No build system, no framework, no backend, no database.
+No frontend build system or framework is currently used. This repo does include serverless functions and portal session handling.
 
 ## Project Structure
 
 ```
 index.html              ← Homepage (CSS/JS inline)
 privacy-policy.html     ← Privacy policy
+mastery-method/         ← Mastery Method public pages and portal pages
+api/                    ← Serverless functions for portal access
 assets/
   logos/                 ← SVG brand marks (locked)
   social/               ← OG image
 docs/
-  ARCHITECTURE_AUDIT.md  ← Current state analysis
-  PRODUCT_DIRECTION.md   ← Commercial priorities
-  DECISIONS.md           ← Decision record
-  DEPLOYMENT_CHECKLIST.md
-  AI_ALIGNMENT.md
+  REPO_GOVERNANCE_AND_ENDPOINTS.md ← Canonical governance and endpoint map
+  DOC_AUTHORITY_INDEX.md ← Doc authority and status guide
 vercel.json             ← Vercel config
 robots.txt              ← SEO
 sitemap.xml             ← SEO
-CLAUDE.md               ← Agent alignment guide
+CLAUDE.md               ← Canonical agent operating guide
 ```
 
 ## Current Focus
 
-The Pressure Planner digital product is the primary launch target. The website is positioned to:
+The repo currently contains mixed but real production surfaces:
 
-1. Explain the product clearly above the fold
-2. Let visitors try the interactive demo
-3. Capture early access emails via Formspree
-4. Use the broader ecosystem (Blueprint, Mastery Method, etc.) as supporting authority
+1. TPA public-site traffic and lead capture
+2. Mastery Method booking and scorecard flows
+3. Mastery Method portal activation and protected portal serving
 
-See [docs/PRODUCT_DIRECTION.md](docs/PRODUCT_DIRECTION.md) for full commercial context.
+For authority rules and verified endpoint usage, start with [docs/DOC_AUTHORITY_INDEX.md](docs/DOC_AUTHORITY_INDEX.md).
 
 ## Deployment
 
@@ -76,8 +79,9 @@ The site deploys to Vercel from this repository. See [docs/DEPLOYMENT_CHECKLIST.
 
 ## Documentation
 
-- [CLAUDE.md](CLAUDE.md) — Agent alignment and coding standards
-- [docs/ARCHITECTURE_AUDIT.md](docs/ARCHITECTURE_AUDIT.md) — Technical audit
+- [CLAUDE.md](CLAUDE.md) — canonical agent operating guide
+- [docs/REPO_GOVERNANCE_AND_ENDPOINTS.md](docs/REPO_GOVERNANCE_AND_ENDPOINTS.md) — canonical governance and endpoint map
+- [docs/DOC_AUTHORITY_INDEX.md](docs/DOC_AUTHORITY_INDEX.md) — which docs are canonical, scoped, or historical
 - [docs/PRODUCT_DIRECTION.md](docs/PRODUCT_DIRECTION.md) — Business direction
 - [docs/DECISIONS.md](docs/DECISIONS.md) — Decision record
 - [docs/AI_ALIGNMENT.md](docs/AI_ALIGNMENT.md) — Visual/interaction alignment

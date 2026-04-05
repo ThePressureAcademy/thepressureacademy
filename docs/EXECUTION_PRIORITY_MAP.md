@@ -1,3 +1,8 @@
+> [!NOTE]
+> HISTORICAL REFERENCE ONLY - NOT CANONICAL.
+> This sprint-ordering document reflects a March 2026 planning snapshot. It must not be treated as current implementation authority.
+> Use [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md) before acting on any older execution plan.
+
 # Execution Priority Map — The Pressure Academy
 
 **Date:** 2026-03-19 (revised)

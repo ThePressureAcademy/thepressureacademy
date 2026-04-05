@@ -1,3 +1,8 @@
+> [!NOTE]
+> HISTORICAL REFERENCE ONLY - NOT CANONICAL.
+> This decision log records earlier development choices and assumptions. It must not override current repo code or governance docs.
+> Use [../CLAUDE.md](../CLAUDE.md), [REPO_GOVERNANCE_AND_ENDPOINTS.md](./REPO_GOVERNANCE_AND_ENDPOINTS.md), and [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md).
+
 # Decision Record — The Pressure Academy
 
 Decisions made during development, with rationale. Newest first.

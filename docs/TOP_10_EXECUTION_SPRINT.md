@@ -1,3 +1,8 @@
+> [!NOTE]
+> HISTORICAL REFERENCE ONLY - NOT CANONICAL.
+> This sprint plan records an earlier implementation sequence and should not control current remediation work.
+> Use [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md) before acting on it.
+
 # Top 10 Execution Sprint — The Pressure Academy
 
 **Date:** 2026-03-20

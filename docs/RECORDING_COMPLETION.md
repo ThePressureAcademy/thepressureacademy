@@ -1,3 +1,8 @@
+> [!NOTE]
+> HISTORICAL REFERENCE ONLY - NOT CANONICAL.
+> This is a dated content-production guide for an earlier planner launch assumption. It does not control current repo implementation.
+> Use [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md) before relying on it.
+
 # Recording & Editing Completion Guide
 
 **Date:** 19 March 2026

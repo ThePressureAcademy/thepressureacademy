@@ -1,3 +1,8 @@
+> [!NOTE]
+> HISTORICAL REFERENCE ONLY - NOT CANONICAL.
+> This motion audit is retained for reference, but it does not define current implementation truth or priorities.
+> Use [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md) before acting on it.
+
 # Interaction & Motion Audit — The Pressure Academy
 
 **Date:** 2026-03-19 (revised)

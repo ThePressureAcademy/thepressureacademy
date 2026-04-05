@@ -1,3 +1,8 @@
+> [!WARNING]
+> SUPERSEDED - NOT CANONICAL.
+> This document refers to old standalone build artifacts and pre-governance assumptions. Do not use it to guide current implementation.
+> Use [../CLAUDE.md](../CLAUDE.md), [REPO_GOVERNANCE_AND_ENDPOINTS.md](./REPO_GOVERNANCE_AND_ENDPOINTS.md), and [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md).
+
 # TPA AI Alignment — v6.7
 
 ## Canonical build state

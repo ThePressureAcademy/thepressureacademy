@@ -1,4 +1,10 @@
 ================================================================
+SUPERSEDED - NOT CANONICAL
+This funnel draft predates the current locked scorecard-first governance and contains stale CTA assumptions.
+Use docs/MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md and docs/DOC_AUTHORITY_INDEX.md instead.
+================================================================
+
+================================================================
 MASTERY METHOD — FULL FUNNEL ARCHITECTURE
 "The Clarity Funnel"
 ================================================================

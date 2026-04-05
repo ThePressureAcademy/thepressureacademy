@@ -1,4 +1,10 @@
 ================================================================
+SUPERSEDED - NOT CANONICAL
+This design-system architecture assumes shared CSS layer files that are not verified as active repo authority.
+Use current page code and docs/DOC_AUTHORITY_INDEX.md before reusing any rule here.
+================================================================
+
+================================================================
 THE PRESSURE ACADEMY — DESIGN SYSTEM ARCHITECTURE
 ================================================================
 Version: 1.0

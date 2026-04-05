@@ -1,3 +1,8 @@
+> [!NOTE]
+> HISTORICAL REFERENCE ONLY - NOT CANONICAL.
+> This ranked opportunity list reflects an earlier planner-focused execution pass and does not control current remediation work.
+> Use [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md) and current repo evidence before reusing any item here.
+
 # Improvement Opportunities — The Pressure Academy
 
 **Date:** 2026-03-19 (revised)
