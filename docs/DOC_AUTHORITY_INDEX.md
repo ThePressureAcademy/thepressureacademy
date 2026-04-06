@@ -17,6 +17,8 @@ These can be used only for the domain named below. They are not repo-wide truth:
 
 - [../README.md](../README.md) - general repo orientation only
 - [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md) - deployment checklist only
+- [MASTERY_METHOD_INTAKE_DEPLOYMENT_SYSTEM.md](./MASTERY_METHOD_INTAKE_DEPLOYMENT_SYSTEM.md) - Mastery Method intake, interpretation, approval, placement, and deployment operations only
+- [MASTERY_METHOD_PILOT_1_LAUNCH_CHECKLIST.md](./MASTERY_METHOD_PILOT_1_LAUNCH_CHECKLIST.md) - Pilot 1 launch readiness and go/no-go gate only
 - [PORTAL_ACCESS_ADMIN.md](./PORTAL_ACCESS_ADMIN.md) - portal access operations only
 - [MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md](./MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md) - Mastery Method scorecard funnel content only
 - [mastery-method-clarity-pathway-definition.txt](./mastery-method-clarity-pathway-definition.txt) - Mastery Method offer architecture only
