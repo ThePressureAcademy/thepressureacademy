@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Clarity Scorecard — How Clear Is Your Child's Learning? | Mastery Method</title>
-<meta name="description" content="A free 3-minute scorecard to understand where your child's learning clarity gaps are — and what to do about them.">
+<title>The Clarity Scorecard | Mastery Method</title>
+<meta name="description" content="A free 3-minute scorecard that shows where your child is getting stuck across the four clarity pillars.">
 <link rel="canonical" href="https://thepressureacademy.com/mastery-method/scorecard">
-<meta property="og:title" content="The Clarity Scorecard — Free 3-Minute Learning Scorecard">
-<meta property="og:description" content="A free 3-minute scorecard to understand where your child's learning clarity gaps are — and what to do about them.">
+<meta property="og:title" content="The Clarity Scorecard | Mastery Method">
+<meta property="og:description" content="A free 3-minute scorecard that shows where your child is getting stuck across the four clarity pillars.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thepressureacademy.com/mastery-method/scorecard">
 <meta property="og:image" content="https://thepressureacademy.com/assets/social/MM_OG_1200x630.png">
 <meta property="og:site_name" content="Mastery Method by The Pressure Academy">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Clarity Scorecard — Free 3-Minute Learning Scorecard">
-<meta name="twitter:description" content="A free 3-minute scorecard to understand where your child's learning clarity gaps are — and what to do about them.">
+<meta name="twitter:title" content="The Clarity Scorecard | Mastery Method">
+<meta name="twitter:description" content="A free 3-minute scorecard that shows where your child is getting stuck across the four clarity pillars.">
 <meta name="twitter:image" content="https://thepressureacademy.com/assets/social/MM_OG_1200x630.png">
 <link rel="icon" type="image/svg+xml" href="/assets/logos/TPA_House_Favicon.svg">
 <style>
@@ -23,7 +23,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Outfit',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh}
 
-  /* ── LAYOUT ── */
+  /* â”€â”€ LAYOUT â”€â”€ */
   .scorecard{max-width:var(--max-w);margin:0 auto;padding:24px 24px 60px}
   .sc-header{text-align:center;padding:40px 0 32px}
   .sc-badge{display:inline-block;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--rust);border:1px solid var(--rust-wash);padding:4px 14px;border-radius:50px;margin-bottom:20px;font-weight:500}
@@ -34,17 +34,17 @@
   .sc-meta span{display:flex;align-items:center;gap:5px}
   .sc-dot{width:5px;height:5px;border-radius:50%;background:var(--teal)}
 
-  /* ── PROGRESS BAR ── */
+  /* â”€â”€ PROGRESS BAR â”€â”€ */
   .progress-wrap{margin-bottom:32px}
   .progress-info{display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink-muted);margin-bottom:6px;font-weight:400}
   .progress-bar{height:4px;background:var(--cream-deep);border-radius:2px;overflow:hidden}
   .progress-fill{height:100%;background:var(--rust);border-radius:2px;transition:width .4s ease;width:0%}
 
-  /* ── STEP CONTAINER ── */
+  /* â”€â”€ STEP CONTAINER â”€â”€ */
   .step{display:none}
   .step.active{display:block}
 
-  /* ── PILLAR HEADER ── */
+  /* â”€â”€ PILLAR HEADER â”€â”€ */
   .pillar-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding:16px 20px;border-radius:var(--radius);border-left:3px solid}
   .pillar-header.thinking{background:var(--rust-wash);border-left-color:var(--rust)}
   .pillar-header.communication{background:var(--teal-wash);border-left-color:var(--teal)}
@@ -57,12 +57,12 @@
   .pillar-header.action .pillar-label{color:var(--violet)}
   .pillar-name{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:500}
 
-  /* ── QUESTION ── */
+  /* â”€â”€ QUESTION â”€â”€ */
   .question{background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-soft);margin-bottom:16px}
   .q-number{font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-muted);font-weight:500;margin-bottom:8px}
   .q-text{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:500;line-height:1.45;margin-bottom:20px}
 
-  /* ── SLIDER ── */
+  /* â”€â”€ SLIDER â”€â”€ */
   .slider-wrap{padding:0 4px}
   .slider-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--ink-muted);margin-bottom:8px;font-weight:300}
   input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:var(--cream-deep);outline:none;margin:8px 0 4px}
@@ -71,7 +71,7 @@
   input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--rust);cursor:pointer;border:none;box-shadow:0 2px 8px rgba(196,91,40,.25)}
   .slider-value{text-align:center;font-family:'DM Serif Display',Georgia,serif;font-size:1.8rem;color:var(--rust);margin:8px 0 0;line-height:1}
 
-  /* ── MULTIPLE CHOICE ── */
+  /* â”€â”€ MULTIPLE CHOICE â”€â”€ */
   .choices{display:grid;gap:8px}
   .choice{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:var(--radius);background:var(--cream);cursor:pointer;border:1.5px solid transparent;transition:all .2s;font-size:.88rem;color:var(--ink-soft);font-weight:400}
   .choice:hover{border-color:rgba(44,44,56,.08)}
@@ -81,7 +81,7 @@
   .choice-radio-dot{width:8px;height:8px;border-radius:50%;background:var(--rust);opacity:0;transition:opacity .15s}
   .choice.selected .choice-radio-dot{opacity:1}
 
-  /* ── BUTTONS ── */
+  /* â”€â”€ BUTTONS â”€â”€ */
   .btn-row{display:flex;gap:10px;margin-top:28px}
   .btn-next{flex:1;padding:14px 24px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:500;background:var(--rust);color:var(--white);border:none;cursor:pointer;transition:all .25s}
   .btn-next:hover{background:var(--rust-deep);transform:translateY(-1px)}
@@ -89,7 +89,7 @@
   .btn-back{padding:14px 20px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:500;background:transparent;color:var(--ink-muted);border:1.5px solid rgba(44,44,56,.1);cursor:pointer;transition:all .2s}
   .btn-back:hover{border-color:rgba(44,44,56,.2)}
 
-  /* ── EMAIL CAPTURE ── */
+  /* â”€â”€ EMAIL CAPTURE â”€â”€ */
   .email-step{text-align:center;padding:32px 0}
   .email-step h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.6rem;font-weight:400;margin-bottom:8px}
   .email-step p{font-size:.9rem;color:var(--ink-muted);font-weight:300;margin-bottom:24px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7}
@@ -100,7 +100,7 @@
   .email-field button:hover{background:var(--rust-deep)}
   .email-privacy{font-size:.68rem;color:var(--ink-muted);margin-top:12px;font-weight:300}
 
-  /* ── RESULTS ── */
+  /* â”€â”€ RESULTS â”€â”€ */
   .results{display:none;padding:20px 0}
   .results.show{display:block}
   .results-header{text-align:center;margin-bottom:36px}
@@ -169,7 +169,7 @@
   <div class="sc-header">
     <div class="sc-badge">Free Clarity Scorecard</div>
     <h1>The <em>Clarity</em> Scorecard</h1>
-    <p>Answer 16 quick questions about your child's learning patterns. Get a personalised clarity profile across four pillars — and understand where the real gaps are.</p>
+    <p>Answer 16 quick questions and get a clarity profile across the four pillars. You will see where your child is holding steady and where support is needed.</p>
     <div class="sc-meta">
       <span><span class="sc-dot"></span> Takes 3 minutes</span>
       <span><span class="sc-dot"></span> 100% free</span>
@@ -208,7 +208,7 @@
   <div class="step" id="step-email">
     <div class="email-step">
       <h2>Your results are ready</h2>
-      <p>Enter your email to see your child's personalised Clarity Profile — including which pillar needs the most attention and what you can do about it.</p>
+      <p>Enter your email and we will show your child's Clarity Profile, including the pillar that needs the most attention.</p>
       <div class="email-field" style="flex-direction:column;gap:10px">
         <input type="text" id="nameInput" placeholder="Your first name" style="flex:1;padding:13px 18px;border:1.5px solid rgba(44,44,56,.1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s">
         <input type="email" id="emailInput" placeholder="your@email.com">
@@ -231,7 +231,8 @@
   <div class="results" id="resultsSection">
     <div class="results-header">
       <h2>Your child's <em>Clarity Profile</em></h2>
-      <p>Based on your answers, here's where your child's clarity is strongest — and where the gaps are.</p>
+      <p>Based on your answers, here's where your child's clarity is strongest â€” and where the gaps are.</p>
+      <p>Here is where your child looks strongest right now, and where support is likely needed most.</p>
     </div>
 
     <div class="total-score">
@@ -292,11 +293,11 @@
 (function(){
   'use strict';
 
-  // ══ QUESTION DATA ══
+  // â•â• QUESTION DATA â•â•
   var questions = [
     // THINKING (4 questions)
     {pillar:'thinking',pillarName:'Clarity of Thinking',type:'slider',
-     text:'When your child reads a question or task instruction, how well do they understand what\'s being asked — on the first read?',
+     text:'When your child reads a question or task instruction, how well do they understand what\'s being asked â€” on the first read?',
      low:'Rarely understands',high:'Almost always understands'},
     {pillar:'thinking',pillarName:'Clarity of Thinking',type:'choice',
      text:'When faced with a multi-step task, your child typically:',
@@ -317,13 +318,13 @@
     {pillar:'communication',pillarName:'Clarity of Communication',type:'choice',
      text:'Your child understands a concept verbally but needs to write about it. They typically:',
      options:[
-       {text:'Write very little or nothing — the page stays mostly blank',score:2},
+       {text:'Write very little or nothing â€” the page stays mostly blank',score:2},
        {text:'Write the minimum required with little detail',score:4},
        {text:'Get some ideas down but struggle to organise them',score:7},
        {text:'Write clearly and structure their ideas well',score:10}
      ]},
     {pillar:'communication',pillarName:'Clarity of Communication',type:'slider',
-     text:'How confident is your child at explaining their thinking or reasoning — to you, a teacher, or a classmate?',
+     text:'How confident is your child at explaining their thinking or reasoning â€” to you, a teacher, or a classmate?',
      low:'Very unconfident',high:'Very confident'},
     {pillar:'communication',pillarName:'Clarity of Communication',type:'slider',
      text:'When your child is stuck, how likely are they to ask a clear, specific question rather than just saying "I don\'t get it"?',
@@ -350,7 +351,7 @@
        {text:'Use it to adjust their work independently',score:10}
      ]},
     {pillar:'learning',pillarName:'Clarity of Learning',type:'slider',
-     text:'How well can your child describe their own progress — what they\'re getting better at, and what still needs work?',
+     text:'How well can your child describe their own progress â€” what they\'re getting better at, and what still needs work?',
      low:'Can\'t describe it at all',high:'Describes it clearly'},
     {pillar:'learning',pillarName:'Clarity of Learning',type:'choice',
      text:'When studying for a test, your child typically:',
@@ -379,7 +380,7 @@
     {pillar:'action',pillarName:'Clarity of Action',type:'choice',
      text:'Your child\'s relationship with routines around learning is best described as:',
      options:[
-       {text:'No routine — every day is different and often chaotic',score:2},
+       {text:'No routine â€” every day is different and often chaotic',score:2},
        {text:'We try but it falls apart regularly',score:4},
        {text:'There\'s a loose routine that works most days',score:7},
        {text:'They have a clear routine they mostly follow independently',score:10}
@@ -390,7 +391,7 @@
   var currentQ = 0;
   var container = document.getElementById('questionsContainer');
 
-  // ══ BUILD QUESTIONS ══
+  // â•â• BUILD QUESTIONS â•â•
   function buildQuestions(){
     for(var i=0;i<questions.length;i++){
       var q = questions[i];
@@ -432,7 +433,7 @@
     return {thinking:1,communication:2,learning:3,action:4}[p];
   }
 
-  // ══ NAVIGATION ══
+  // â•â• NAVIGATION â•â•
   window.startScorecard = function(){
     document.getElementById('step-start').classList.remove('active');
     document.getElementById('step-q-0').classList.add('active');
@@ -485,10 +486,10 @@
     document.getElementById('progressFill').style.width = pct+'%';
     document.getElementById('progressCount').textContent = 'Question '+(n+1)+' of 16';
     var pillarNum = getPillarNum(questions[n].pillar);
-    document.getElementById('progressLabel').textContent = 'Pillar '+pillarNum+' of 4 — '+questions[n].pillarName;
+    document.getElementById('progressLabel').textContent = 'Pillar '+pillarNum+' of 4 â€” '+questions[n].pillarName;
   }
 
-  // ══ RESULTS ══
+  // â•â• RESULTS â•â•
   window.showResults = function(){
     var email = document.getElementById('emailInput').value;
     if(!email || email.indexOf('@') < 0){
@@ -533,9 +534,9 @@
     // Level label
     var level = document.getElementById('totalLevel');
     if(total >= 80){ level.textContent = 'Strong clarity foundation'; level.style.background = '#EBF5F3'; level.style.color = '#3A7D72'; }
-    else if(total >= 55){ level.textContent = 'Developing — some gaps to address'; level.style.background = '#FDF5E6'; level.style.color = '#946A20'; }
+    else if(total >= 55){ level.textContent = 'Developing â€” some gaps to address'; level.style.background = '#FDF5E6'; level.style.color = '#946A20'; }
     else if(total >= 35){ level.textContent = 'Significant clarity gaps'; level.style.background = '#FAF0EB'; level.style.color = '#C45B28'; }
-    else { level.textContent = 'Critical clarity gaps — support recommended'; level.style.background = '#FBEFEE'; level.style.color = '#D4726A'; }
+    else { level.textContent = 'Critical clarity gaps â€” support recommended'; level.style.background = '#FBEFEE'; level.style.color = '#D4726A'; }
 
     // Pillar descriptions
     var descs = {
@@ -561,10 +562,10 @@
 
     var pillarNames = {thinking:'Clarity of Thinking',communication:'Clarity of Communication',learning:'Clarity of Learning',action:'Clarity of Action'};
     var insights = {
-      thinking:'This often shows up as a child who reads a question multiple times and still doesn\'t know where to start. The issue isn\'t reading ability — it\'s task comprehension. <strong>A structured Clarity Assessment can identify exactly where the breakdown happens and what kind of support makes the biggest difference.</strong>',
-      communication:'This is the classic "knows it but can\'t show it" pattern. Your child likely understands far more than their written work suggests. <strong>The gap between internal understanding and external expression is one of the most common clarity barriers — and one of the most fixable.</strong>',
-      learning:'Without clarity of learning, children work hard but can\'t tell if they\'re improving. Feedback feels like judgement rather than guidance. <strong>When children understand what they\'re aiming for, their effort becomes purposeful rather than anxious.</strong>',
-      action:'Many capable children struggle not with understanding but with execution — starting without stalling, maintaining focus, and finishing without someone standing over them. <strong>This is often misread as laziness or defiance, but it\'s actually a clarity and regulation gap.</strong>'
+      thinking:'This often looks like reading the same question three times and still not knowing how to begin. The problem is usually task comprehension, not reading. <strong>A structured Clarity Assessment can show where the breakdown is happening and what kind of support will help.</strong>',
+      communication:'This is the child who knows more than the page shows. The gap is not effort. It is getting understanding out into words. <strong>That is one of the most common patterns Kirsty sees, and one of the most workable.</strong>',
+      learning:'When children cannot tell what good looks like, feedback lands like criticism. Work starts to feel heavy and directionless. <strong>Once the target is clearer, effort usually settles down and starts to go somewhere.</strong>',
+      action:'Some children understand the task and still cannot get moving. Starting, staying with it, and finishing can be the real gap. <strong>This is often read as laziness when it is actually a clarity and regulation issue.</strong>'
     };
 
     document.getElementById('insightTitle').textContent = 'Your child\'s biggest clarity gap: '+pillarNames[weakest];
@@ -572,11 +573,11 @@
 
     // Log + submit lead data
     var leadData = {
-      // ── LEAD FIELDS ──
+      // â”€â”€ LEAD FIELDS â”€â”€
       name: document.getElementById('nameInput').value || '',
       email: email,
       yearLevel: document.getElementById('yearLevel').value || '',
-      // ── SCORECARD RESULTS ──
+      // â”€â”€ SCORECARD RESULTS â”€â”€
       totalScore: total,
       thinkingScore: scores.thinking,
       communicationScore: scores.communication,
@@ -584,7 +585,7 @@
       actionScore: scores.action,
       weakestPillar: weakest,
       level: total >= 80 ? 'strong' : (total >= 55 ? 'developing' : (total >= 35 ? 'significant' : 'critical')),
-      // ── META ──
+      // â”€â”€ META â”€â”€
       source: 'clarity-scorecard',
       timestamp: new Date().toISOString()
     };
@@ -617,7 +618,7 @@
     window.scrollTo({top:0,behavior:'smooth'});
   };
 
-  // ══ INIT ══
+  // â•â• INIT â•â•
   buildQuestions();
   // Set default slider values
   for(var i=0;i<questions.length;i++){
