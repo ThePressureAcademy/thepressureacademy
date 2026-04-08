@@ -154,10 +154,12 @@ button {
 }
 
 .lq-brand-copy span {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.67rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.24;
+  max-width: 260px;
   color: var(--lq-text-muted);
 }
 
@@ -1193,6 +1195,11 @@ button {
 @media (max-width: 640px) {
   body.liftiq-body {
     padding-top: 76px;
+  }
+
+  .lq-brand-copy span {
+    font-size: 0.58rem;
+    max-width: 170px;
   }
 
   .lq-actions,
