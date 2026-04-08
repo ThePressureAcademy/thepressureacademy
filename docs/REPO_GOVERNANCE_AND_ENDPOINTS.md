@@ -39,6 +39,21 @@ Verified current pages:
   - Hidden `intent=planner-access`
   - Hidden `source=join-section`
 
+- `liftiq/dispatch-blind-spot-diagnostic/index.html`
+  - Uses `fetch(...)` via shared LiftIQ JS
+  - Sends `intent=liftiq-dispatch-blind-spot-review`
+  - Sends `source=liftiq-diagnostic-page`
+
+- `liftiq/executive-briefing/index.html`
+  - Uses `fetch(...)` via shared LiftIQ JS
+  - Sends `intent=liftiq-executive-design-partner-briefing`
+  - Sends `source=liftiq-executive-briefing-page`
+
+- `liftiq/contact/index.html`
+  - Uses `fetch(...)` via shared LiftIQ JS
+  - Sends `intent=liftiq-general-contact`
+  - Sends `source=liftiq-contact-page`
+
 No Mastery Method page is currently verified to post to this endpoint.
 
 ### `https://formspree.io/f/xwvwkqqg`
