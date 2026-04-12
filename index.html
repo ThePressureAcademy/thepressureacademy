@@ -184,17 +184,25 @@
       }
 
       .brand-mark {
-        width: 42px;
-        height: 42px;
+        width: 46px;
+        height: 46px;
         padding: 10px;
-        border-radius: 14px;
-        background: linear-gradient(
-          180deg,
-          rgba(243, 215, 178, 0.16),
-          rgba(255, 255, 255, 0.04)
-        );
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+        border-radius: 16px;
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(243, 215, 178, 0.12),
+            transparent 58%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(74, 58, 55, 0.95),
+            rgba(43, 33, 35, 0.92)
+          );
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.16),
+          0 12px 28px rgba(0, 0, 0, 0.18);
       }
 
       .brand-copy {
@@ -243,12 +251,17 @@
         display: grid;
         place-items: center;
         border-radius: 18px;
-        background: linear-gradient(
-          180deg,
-          rgba(243, 215, 178, 0.15),
-          rgba(255, 255, 255, 0.04)
-        );
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(243, 215, 178, 0.12),
+            transparent 58%
+          ),
+          linear-gradient(180deg, rgba(74, 58, 55, 0.94), rgba(43, 33, 35, 0.9));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.14),
+          0 10px 24px rgba(0, 0, 0, 0.12);
       }
 
       .product-mark-wrap {
@@ -258,21 +271,21 @@
       }
 
       .section-mark {
-        width: 48px;
-        height: 48px;
-        padding: 11px;
+        width: 52px;
+        height: 52px;
+        padding: 10px;
       }
 
       .cta-mark {
-        width: 28px;
-        height: 28px;
-        padding: 6px;
+        width: 34px;
+        height: 34px;
+        padding: 7px;
         border-radius: 999px;
       }
 
       .footer-mark-chip {
-        width: 44px;
-        height: 44px;
+        width: 48px;
+        height: 48px;
         padding: 10px;
       }
 
@@ -283,6 +296,20 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
+        filter: drop-shadow(0 0 10px rgba(196, 91, 40, 0.12));
+      }
+
+      .shell-button .cta-mark {
+        background: rgba(42, 26, 22, 0.18);
+        border-color: rgba(255, 248, 240, 0.18);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.16),
+          0 10px 20px rgba(109, 42, 12, 0.16);
+      }
+
+      .shell-button .cta-mark img {
+        opacity: 0.92;
+        filter: drop-shadow(0 0 12px rgba(255, 248, 240, 0.12));
       }
 
       .product-lockup-copy,
@@ -1209,12 +1236,29 @@
       }
 
       .ecosystem-icon {
-        width: 54px;
-        height: 54px;
-        padding: 12px;
+        width: 64px;
+        height: 64px;
+        padding: 14px;
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(243, 215, 178, 0.12),
+            transparent 58%
+          ),
+          linear-gradient(180deg, rgba(74, 58, 55, 0.94), rgba(43, 33, 35, 0.9));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.14),
+          0 10px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .ecosystem-icon img,
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 0 10px rgba(196, 91, 40, 0.12));
       }
 
       .ecosystem-actions {
