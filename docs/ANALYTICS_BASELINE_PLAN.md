@@ -5,6 +5,9 @@ This document defines the minimum measurement baseline for The Pressure Academy 
 It is a planning and governance document.
 It does not mean analytics are currently installed.
 
+**Governing canon (display naming):** [MASTERY_METHOD_NAMING_CANON.md](./MASTERY_METHOD_NAMING_CANON.md).
+Formspree `intent` and `source` values (including `source=clarity-scorecard`) are historical analytics keys and must remain stable even as display copy changes. Do not rename analytics keys during the Mastery Method naming migration.
+
 ## Current State
 
 ### Verified in repo
@@ -40,7 +43,7 @@ The goal is a shared event vocabulary and a minimum measurement plan so future i
 |---|---|---|---|---|---|
 | `tpa_home_planner_cta_submit` | Successful submit of the homepage post-demo lead form with `source=post-demo-cta` | [index.html](../index.html) | Measures the highest-intent homepage capture point | A valid lead is submitted from the post-demo CTA path | TPA operator |
 | `tpa_home_join_section_submit` | Successful submit of the homepage join form with `source=join-section` | [index.html](../index.html) | Separates bottom-of-page lead capture from post-demo capture | A valid lead is submitted from the join section | TPA operator |
-| `mm_booking_form_submit` | Successful submit of the Mastery Method booking form | [mastery-method/book/index.html](../mastery-method/book/index.html) | Measures conversion into Clarity Call / Assessment / info requests | A booking/intake request is accepted by the submit flow | TPA operator |
+| `mm_booking_form_submit` | Successful submit of the Mastery Method booking form | [mastery-method/book/index.html](../mastery-method/book/index.html) | Measures conversion into Learning Support Call / Mastery Assessment / info requests | A booking/intake request is accepted by the submit flow | TPA operator |
 | `mm_scorecard_start` | User starts the scorecard flow | [mastery-method/scorecard/index.html](../mastery-method/scorecard/index.html) | Measures entry into the scorecard funnel before lead capture | A visitor begins question flow from the scorecard start screen | TPA operator |
 | `mm_scorecard_submit` | Successful submit of the scorecard lead details/results flow | [mastery-method/scorecard/index.html](../mastery-method/scorecard/index.html) | Measures completed scorecard leads, not just page visits | A scorecard lead payload is accepted by the submit flow | TPA operator |
 

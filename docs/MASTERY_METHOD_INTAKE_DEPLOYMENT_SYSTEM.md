@@ -1,6 +1,7 @@
-# Mastery Method Intake -> Clarity -> Placement -> Approval -> Deployment System
+# Mastery Method Intake -> Interpretation -> Placement -> Approval -> Deployment System
 
-Status: ACTIVE  
+Status: ACTIVE — aligned to Mastery Method Naming Canon (Stage 2A)
+Governing canon: [MASTERY_METHOD_NAMING_CANON.md](./MASTERY_METHOD_NAMING_CANON.md)
 Owner: Kirsty / The Pressure Academy  
 Primary inbox: `masterymethod@thepressureacademy.com`
 
@@ -10,7 +11,7 @@ This document defines the operating model for Mastery Method intake, interpretat
 
 It is not a generic CRM workflow.
 It is not a generic tutoring pipeline.
-It is a clarity-led educational placement and deployment system with explicit human approval gates.
+It is an interpretation-led, curriculum-grounded educational placement and deployment system with explicit human approval gates.
 
 ## Scope
 
@@ -53,7 +54,7 @@ No irreversible action becomes final without her approval unless it has been exp
 
 Mastery Method uses the locked scorecard-first funnel:
 
-`Scorecard -> Nurture -> Clarity Call -> Clarity Assessment -> Clarity Pathway -> Initial Deployment`
+`Scorecard -> Nurture -> Learning Support Call -> Mastery Assessment -> Mastery Pathway -> Initial Deployment`
 
 Rules:
 
@@ -94,7 +95,7 @@ Use these statuses exactly:
 4. `CURRICULUM_MAPPED`
 5. `KIRSTY_REVIEW_REQUIRED`
 6. `PREVIEW_DRAFT_READY`
-7. `CLARITY_CALL_BOOKED`
+7. `LEARNING_SUPPORT_CALL_BOOKED`
 8. `ASSESSMENT_COMPLETE`
 9. `DEPLOYMENT_DRAFT_READY`
 10. `APPROVED_FOR_PORTAL`
@@ -126,13 +127,15 @@ Use when a decision pack is ready for Kirsty's judgment or when any risk flag, c
 
 Use when a parent-facing sneak preview draft exists but has not been sent.
 
-### `CLARITY_CALL_BOOKED`
+### `LEARNING_SUPPORT_CALL_BOOKED`
 
-Use when the family has a confirmed Clarity Call scheduled.
+Use when the family has a confirmed Learning Support Call scheduled.
+
+Previously named `CLARITY_CALL_BOOKED`. Any lead notes, spreadsheet rows, or working files that still carry the old status label should be migrated to the new label at next touch. The status semantics are unchanged.
 
 ### `ASSESSMENT_COMPLETE`
 
-Use when the Clarity Assessment has been completed and there is enough evidence to move toward pathway or deployment planning.
+Use when the Mastery Assessment has been completed and there is enough evidence to move toward pathway or deployment planning.
 
 ### `DEPLOYMENT_DRAFT_READY`
 
@@ -184,7 +187,7 @@ Interpretation must never be presented as fact.
 Include the best next action based on the facts plus curriculum mapping:
 
 - nurture only
-- Clarity Call
+- Learning Support Call
 - Assessment
 - hold for more evidence
 - preview draft for review
@@ -283,7 +286,7 @@ Keep pilot resource allocation minimal and intentional.
 Depending on approval, move into one of the next explicit states:
 
 - `PREVIEW_DRAFT_READY`
-- `CLARITY_CALL_BOOKED`
+- `LEARNING_SUPPORT_CALL_BOOKED`
 - `ASSESSMENT_COMPLETE`
 - `DEPLOYMENT_DRAFT_READY`
 - `APPROVED_FOR_PORTAL`

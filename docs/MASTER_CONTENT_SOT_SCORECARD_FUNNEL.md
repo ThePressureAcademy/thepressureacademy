@@ -2,8 +2,9 @@
 MASTERY METHOD — MASTER CONTENT (SINGLE SOURCE OF TRUTH)
 Scorecard-First Funnel (Locked)
 ================================================================
-Status: CONSOLIDATED + LOCKED
-Date: March 29, 2026
+Status: CONSOLIDATED + LOCKED — aligned to Mastery Method Naming Canon (Stage 2A)
+Governing canon: docs/MASTERY_METHOD_NAMING_CANON.md
+Date: March 29, 2026 (canon alignment: Stage 2A)
 ================================================================
 NON-NEGOTIABLE CTA LOCK
 ================================================================
@@ -34,15 +35,15 @@ STAGE 3 — NURTURE (3-Email Sequence)
   Sent over 5 days after scorecard completion
   Builds authority and confidence
   Introduces free guide as secondary support asset (not as primary CTA)
-  Drives toward Clarity Call
-STAGE 4 — OFFER (Clarity Call)
+  Drives toward Learning Support Call
+STAGE 4 — OFFER (Learning Support Call)
   Free 15-20 min conversation with Kirsty
   Pre-qualified by scorecard + nurture
-  Recommends Clarity Assessment when fit is clear
-STAGE 5 — CONVERSION (Clarity Assessment → Clarity Pathway)
+  Recommends Mastery Assessment when fit is clear
+STAGE 5 — CONVERSION (Mastery Assessment → Mastery Pathway)
   Assessment: $197 one-time
   Produces first Teaching Blueprint
-  Natural entry into Clarity Pathway: $127/mo
+  Natural entry into Mastery Pathway: $127/mo
 STAGE 6 — CLOSE (Welcome Video)
   Sent immediately after Assessment payment
   Emotional anchor + next-step clarity
@@ -63,7 +64,7 @@ DM AUTO-REPLY CTA STACK:
   2) Re-state primary CTA: "Take the free Clarity Scorecard."
   3) Mention free guide only as post-scorecard follow-up bonus.
 EMAIL CTA STACK:
-  - Day 1/3: reinforce scorecard result interpretation + Clarity Call path
+  - Day 1/3: reinforce scorecard result interpretation + Learning Support Call path
   - Guide appears as support resource after completion, never as lead CTA
 ================================================================
 STAGE 1 — REEL SCRIPTS (PATCHED)
@@ -162,8 +163,8 @@ EMAIL 2 (Day 3):
   - Teach clarity vs content model
   - Reinforce weakest pillar insight from scorecard
 EMAIL 3 (Day 5):
-  - Explain Clarity Call → Assessment → Pathway
-  - CTA toward Clarity Call
+  - Explain Learning Support Call → Assessment → Pathway
+  - CTA toward Learning Support Call
 ================================================================
 EXECUTION NOTES (PATCHED + UNAMBIGUOUS)
 ================================================================
@@ -177,8 +178,8 @@ EXECUTION NOTES (PATCHED + UNAMBIGUOUS)
    - Any reel/caption endings that route to guide first
 4) Guide asset usage is locked to post-scorecard nurture only.
 5) Funnel test path (locked):
-   Reel → Scorecard → Nurture (guide as follow-up) → Clarity Call
-   → Clarity Assessment → Clarity Pathway
+   Reel → Scorecard → Nurture (guide as follow-up) → Learning Support Call
+   → Mastery Assessment → Mastery Pathway
 6) Weekly QA pass before publishing reels:
    - Verify on-screen CTA exact phrasing
    - Verify caption CTA exact phrasing
@@ -191,7 +192,7 @@ CHANNEL-SPECIFIC CTA RULES
 Social entry path (Reels, DM, Captions):
   → Scorecard-first. Primary CTA = "Take the free Clarity Scorecard."
 Website default path (all MM pages):
-  → Clarity Call-first. Primary CTA = "Start with a Clarity Call."
+  → Learning Support Call-first. Primary CTA = "Start with a Learning Support Call."
   → Scorecard lives at /mastery-method/scorecard as its own entry.
 Guide position (all channels):
   → Post-scorecard nurture only. NEVER a primary CTA.

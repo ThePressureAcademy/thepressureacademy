@@ -1,6 +1,7 @@
 # Pilot 1 Launch Checklist - Mastery Method
 
-Status: ACTIVE  
+Status: ACTIVE — aligned to Mastery Method Naming Canon (Stage 2A)
+Governing canon: [MASTERY_METHOD_NAMING_CANON.md](./MASTERY_METHOD_NAMING_CANON.md)
 Owner: Kirsty / The Pressure Academy  
 Applies to: Pilot 1 only
 

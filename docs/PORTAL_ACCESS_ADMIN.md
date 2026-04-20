@@ -1,5 +1,8 @@
 # Mastery Method Portal — Access Administration Guide
 
+**Governing canon (display naming):** [MASTERY_METHOD_NAMING_CANON.md](./MASTERY_METHOD_NAMING_CANON.md).
+Portal auth infrastructure, environment variables, and session handling are unchanged by the Stage 2A naming migration. Display naming (Mastery Pathway, Learning Support Call, Mastery Assessment) is governed by the canon.
+
 ## What this is
 
 The Mastery Method portal uses a server-side session system. Each enrolled family receives a personal invite link. Clicking the link activates a 30-day session on their device.
@@ -34,7 +37,7 @@ After setting both variables, redeploy the project from the Vercel dashboard.
 
 ## Enrolling a new family
 
-When a family starts a Clarity Pathway and needs portal access:
+When a family starts a Mastery Pathway and needs portal access:
 
 **Step 1 — Generate a unique token**
 
@@ -79,7 +82,7 @@ No password needed. No account creation. It just works.
 
 ## Revoking access
 
-When a family's Clarity Pathway ends or you need to revoke access:
+When a family's Mastery Pathway ends or you need to revoke access:
 
 1. Go to Vercel dashboard → Project → Settings → Environment Variables
 2. Edit `PORTAL_INVITE_TOKENS`
