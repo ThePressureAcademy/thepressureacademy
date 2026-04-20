@@ -20,8 +20,8 @@ This preserved HTML is not a route and must not be treated as deploy authority.
 
 - The live parent funnel remains:
   - scorecard for child-pattern clarity
-  - Clarity Call for human interpretation and next-step guidance
-  - paid Clarity Assessment only after fit is established
+  - Learning Support Call for human interpretation and next-step guidance
+  - paid Mastery Assessment only after fit is established
 
 ## Re-activation rule
 
