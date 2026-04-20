@@ -1,49 +1,40 @@
 ================================================================
-SUPERSEDED - NOT CANONICAL
-This document defined the Clarity Pathway naming architecture.
-Clarity Pathway has been retired and replaced by Mastery Pathway
-as part of the Stage 1 Mastery Method naming migration.
-
-Current canonical sources:
-- docs/MASTERY_METHOD_NAMING_CANON.md (display naming canon)
-- docs/mastery-method-mastery-pathway-definition.txt (pathway
-  definition and offer architecture under current naming)
-- docs/DOC_AUTHORITY_INDEX.md
-
-Body copy below is retained for historical reference only. It
-must not control implementation, repo edits, or public copy.
-================================================================
-
-================================================================
-MASTERY METHOD — CLARITY PATHWAY
+MASTERY METHOD — MASTERY PATHWAY
 Subscription Definition & Offer Architecture
 ================================================================
-Status: SUPERSEDED (was: LOCKED pending price point)
-Last updated: March 2026
+Status: ACTIVE (pending price point)
+Supersedes: docs/mastery-method-clarity-pathway-definition.txt
+Governing canon: docs/MASTERY_METHOD_NAMING_CANON.md
 
 ================================================================
 NAMING
 ================================================================
 
-Official name: Clarity Pathway
-Usage: "Your family's Clarity Pathway"
-Internal shorthand: CP
+Official name: Mastery Pathway
+Usage: "Your family's Mastery Pathway"
+Internal shorthand: MP
 
 Do NOT use:
+- Clarity Pathway (retired — superseded by Mastery Pathway)
+- Clarity Call (retired — superseded by Learning Support Call)
+- Clarity Assessment (retired — superseded by Mastery Assessment)
+- Clarity Framework (retired — superseded by The Mastery Method Framework)
+- Clarity Pillars / Four Clarity Pillars (retired — use "The Four Pillars")
 - Core Program (retired)
-- Clarity Membership (too SaaS)
+- Clarity Membership (never launched)
 - Guided Support (too generic)
 - Mastery Method Program (redundant)
+- Discovery Call (considered; not chosen)
 
 ================================================================
-WHAT THE CLARITY PATHWAY INCLUDES (MONTHLY)
+WHAT THE MASTERY PATHWAY INCLUDES (MONTHLY)
 ================================================================
 
 1. UPDATED TEACHING BLUEPRINT
    Format: Written/digital document
    Frequency: Updated monthly (or as milestones are reached)
    Contents:
-   - Current focus across the four clarity pillars
+   - Current focus across the four pillars
    - Where the child is progressing
    - Where attention is still needed
    - Specific home reinforcement guidance for the coming period
@@ -64,7 +55,7 @@ WHAT THE CLARITY PATHWAY INCLUDES (MONTHLY)
    Format: Digital (email, PDF, or portal notification)
    Frequency: Weekly
    Contents:
-   - One specific focus area for the week (linked to the current clarity pillar priority)
+   - One specific focus area for the week (linked to the current pillar priority)
    - One practical activity (5-10 minutes, 2-3x per week)
    - "What to notice" prompt (helps the parent observe progress without testing)
    Framing: "Practical, short activities you can fit into your week — not a second homework load."
@@ -72,7 +63,7 @@ WHAT THE CLARITY PATHWAY INCLUDES (MONTHLY)
 4. PARENT RESOURCE LIBRARY / PORTAL ACCESS
    Format: Digital (web-based or simple portal)
    Contents (build over time):
-   - Clarity pillar explainers
+   - Pillar explainers (Thinking, Communication, Learning, Action)
    - Curriculum visibility guides by year level
    - Home support strategy sheets
    - Conversation prompts for parents
@@ -81,43 +72,43 @@ WHAT THE CLARITY PATHWAY INCLUDES (MONTHLY)
    Note: This starts small and grows. Do not over-promise at launch. Frame as "access to our resource library" without implying hundreds of items on day one.
 
 ================================================================
-WHAT THE CLARITY PATHWAY DOES NOT INCLUDE
+WHAT THE MASTERY PATHWAY DOES NOT INCLUDE
 ================================================================
 
 - Ongoing 1:1 teaching sessions with the child
-  (These are available as a separate premium add-on: "Targeted 1:1 Support")
+  (These are available as a separate premium add-on: Targeted 1:1 Sessions)
 - Tutoring in specific school subjects
 - Homework completion service
 - Communication with the child's school on the parent's behalf
 
 ================================================================
-PREMIUM ADD-ON: TARGETED 1:1 SUPPORT
+PREMIUM ADD-ON: TARGETED 1:1 SESSIONS
 ================================================================
 
 Name: Targeted 1:1 Sessions
 Format: Live, teacher-led sessions with the child (via video)
 Frequency: Booked as needed, not bundled monthly
-Purpose: Direct clarity-building work with the child on specific pillar gaps
+Purpose: Direct teacher-led work with the child on specific pillar gaps
 Pricing: Per session or in small bundles (e.g., 4-session pack)
-Framing: "When your child needs focused, expert-led support on a specific clarity gap."
+Framing: "When your child needs focused, expert-led support on a specific pillar gap."
 
 This is the selective premium layer. It is NOT the default.
-The Clarity Pathway is designed to reduce dependence on these sessions over time.
+The Mastery Pathway is designed to reduce dependence on these sessions over time.
 
 ================================================================
 OFFER ARCHITECTURE (FULL STACK)
 ================================================================
 
-STAGE 1 (Launch):
+STAGE 1 (Current):
 ┌──────────────────────────────────────────────────────────┐
-│ FREE         Clarity Call (15-20 min, no obligation)     │
+│ FREE         Learning Support Call (15-20 min)           │
 │              → Qualifies family, explains the system     │
 ├──────────────────────────────────────────────────────────┤
-│ PAID         Clarity Assessment (one-time)               │
+│ PAID         Mastery Assessment (one-time)               │
 │              → Four-pillar diagnostic, detailed report   │
-│              → Produces the first Teaching Blueprint      │
+│              → Produces the first Teaching Blueprint     │
 ├──────────────────────────────────────────────────────────┤
-│ ONGOING      Clarity Pathway (monthly subscription)      │
+│ ONGOING      Mastery Pathway (monthly subscription)      │
 │              → Blueprint updates, check-in call,         │
 │                weekly activities, resource library        │
 ├──────────────────────────────────────────────────────────┤
@@ -126,28 +117,31 @@ STAGE 1 (Launch):
 └──────────────────────────────────────────────────────────┘
 
 Entry flow:
-Clarity Call → Clarity Assessment → Clarity Pathway (+ optional 1:1)
+Clarity Scorecard → Learning Support Call → Mastery Assessment → Mastery Pathway (+ optional Targeted 1:1 Sessions)
 
-The Clarity Call remains the single front door.
-The Assessment is recommended on the call.
-The Pathway is introduced after the Assessment as the natural continuation.
-1:1 sessions are offered when specific gaps need direct teacher-led intervention.
+The Learning Support Call remains the single front door for families
+arriving via the scorecard nurture sequence or direct enquiry.
+The Mastery Assessment is recommended on the call when fit is clear.
+The Mastery Pathway is introduced after the Mastery Assessment as the
+natural continuation.
+Targeted 1:1 Sessions are offered when specific gaps need direct
+teacher-led intervention.
 
 ================================================================
 PRICING LOGIC (for Kirsty to decide)
 ================================================================
 
-Assessment: One-time fee. Should feel substantial enough to signal
-serious diagnostic work, but not so high it creates a barrier.
-Suggested range: $150-$250 AUD. This produces the first blueprint.
+Mastery Assessment: One-time fee. Should feel substantial enough to
+signal serious diagnostic work, but not so high it creates a barrier.
+Suggested range: $150-$250 AUD. This produces the first Teaching Blueprint.
 
-Clarity Pathway: Monthly. Should feel like "expert-guided support
+Mastery Pathway: Monthly. Should feel like "expert-guided support
 that's more affordable than weekly tutoring." The value comparison
 is: 4x weekly tutoring sessions @ $60-80 each = $240-320/month.
-Clarity Pathway should sit below that while delivering more continuity.
+Mastery Pathway should sit below that while delivering more continuity.
 Suggested range: $97-$149 AUD/month.
 
-Targeted 1:1: Per session. Premium pricing.
+Targeted 1:1 Sessions: Per session. Premium pricing.
 Suggested range: $80-$120 AUD per session, or 4-pack at slight discount.
 
 These are frameworks for Kirsty to decide, not locked prices.
@@ -164,7 +158,7 @@ HEADLINE:
 Built by a teacher who helps families find clarity
 — not just extra sessions
 
-BODY (Version 2 — approved for homepage):
+BODY (approved for homepage):
 
 Kirsty is a senior Queensland educator with over 15 years of
 experience across early childhood and primary education. She
@@ -194,6 +188,11 @@ CREDENTIAL TAGS (for HTML):
 - 15+ Years Early Childhood & Primary
 - Mother
 - Trauma-Aware & Wellbeing-Led
+
+Note: the word "clarity" appears in the founder copy as a
+lowercase descriptive benefit word only. This is permitted by
+the naming canon. It must not be capitalised or re-used as a
+product noun anywhere else on active surfaces.
 
 ================================================================
 END OF DOCUMENT

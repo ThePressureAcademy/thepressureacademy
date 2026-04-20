@@ -1,7 +1,18 @@
 ================================================================
 SUPERSEDED - NOT CANONICAL
-This reel-script pack uses older CLARITY-era CTA and delivery assumptions that no longer define the current funnel.
-Use docs/MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md and docs/DOC_AUTHORITY_INDEX.md instead.
+This reel-script pack uses older Clarity-era CTA and delivery
+assumptions that no longer define the current funnel. It also
+references retired product names (Clarity Call, Clarity
+Assessment, Clarity Pathway) that were replaced during the
+Stage 1 Mastery Method naming migration.
+
+Current canonical sources:
+- docs/MASTERY_METHOD_NAMING_CANON.md (display naming canon)
+- docs/MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md (scorecard-first funnel)
+- docs/DOC_AUTHORITY_INDEX.md
+
+Body copy below is retained for historical reference only. It
+must not control implementation, repo edits, or public copy.
 ================================================================
 
 ================================================================

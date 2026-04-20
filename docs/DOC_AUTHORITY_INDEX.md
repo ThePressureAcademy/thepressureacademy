@@ -9,6 +9,7 @@ These are the current governance references for repo work:
 - [../CLAUDE.md](../CLAUDE.md)
 - [REPO_GOVERNANCE_AND_ENDPOINTS.md](./REPO_GOVERNANCE_AND_ENDPOINTS.md)
 - [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md)
+- [MASTERY_METHOD_NAMING_CANON.md](./MASTERY_METHOD_NAMING_CANON.md) - Mastery Method display naming canon (Stage 1)
 - [ANALYTICS_BASELINE_PLAN.md](./ANALYTICS_BASELINE_PLAN.md)
 
 ## Scoped Reference
@@ -21,13 +22,8 @@ These can be used only for the domain named below. They are not repo-wide truth:
 - [MASTERY_METHOD_PILOT_1_LAUNCH_CHECKLIST.md](./MASTERY_METHOD_PILOT_1_LAUNCH_CHECKLIST.md) - Pilot 1 launch readiness and go/no-go gate only
 - [PORTAL_ACCESS_ADMIN.md](./PORTAL_ACCESS_ADMIN.md) - portal access operations only
 - [MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md](./MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md) - Mastery Method scorecard funnel content only
-- [mastery-method-clarity-pathway-definition.txt](./mastery-method-clarity-pathway-definition.txt) - Mastery Method offer architecture only
-
-## Needs Operator Decision
-
-These may inform discussion, but they do not settle implementation truth:
-
-- [PRODUCT_DIRECTION.md](./PRODUCT_DIRECTION.md) - strategic hierarchy is still mixed in current code reality
+- [mastery-method-mastery-pathway-definition.txt](./mastery-method-mastery-pathway-definition.txt) - Mastery Method offer architecture only (supersedes `mastery-method-clarity-pathway-definition.txt`)
+- [PRODUCT_DIRECTION.md](./PRODUCT_DIRECTION.md) - TPA product-direction note, aligned with the Mastery Method naming canon
 
 ## Historical Or Superseded
 
@@ -37,6 +33,7 @@ These are retained for history, audit trail, or content context. They must not c
 - [archive/2026-04-governance-demotions/AI_ALIGNMENT.md](./archive/2026-04-governance-demotions/AI_ALIGNMENT.md)
 - [archive/2026-04-governance-demotions/ALIGNMENT-PROMPT-MM-HANDOVER.txt](./archive/2026-04-governance-demotions/ALIGNMENT-PROMPT-MM-HANDOVER.txt)
 - [archive/2026-04-governance-demotions/ARCHITECTURE_AUDIT.md](./archive/2026-04-governance-demotions/ARCHITECTURE_AUDIT.md)
+- [mastery-method-clarity-pathway-definition.txt](./mastery-method-clarity-pathway-definition.txt) - superseded by `mastery-method-mastery-pathway-definition.txt`; retained for history only
 - [CLARITY_STYLE_QUIZ_IMPLEMENTATION.md](./CLARITY_STYLE_QUIZ_IMPLEMENTATION.md) - retirement note only; `/mastery-method/clarity-style` is not a live route
 - [DECISIONS.md](./DECISIONS.md)
 - [EXECUTION_PRIORITY_MAP.md](./EXECUTION_PRIORITY_MAP.md)
@@ -60,3 +57,4 @@ These are retained for history, audit trail, or content context. They must not c
 3. Verified deployment metadata beats old launch-state assumptions.
 4. Endpoint, auth, and deployment claims must be re-verified before reuse.
 5. Do not revive archived CTA, funnel, or architecture assumptions from historical docs.
+6. Mastery Method display naming is controlled by `MASTERY_METHOD_NAMING_CANON.md`. Any doc that contradicts the canon is out of date and must be updated or demoted before it is used.

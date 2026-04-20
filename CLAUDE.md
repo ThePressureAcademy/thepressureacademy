@@ -88,10 +88,35 @@ Do not overstate product strategy as if it is fully settled.
 Current code reality is mixed:
 
 - The TPA homepage is Pressure Planner-led
-- Mastery Method is a large, active subsystem with its own public flow
+- Mastery Method is treated publicly as an independent premium parent-facing system within TPA, with its own public flow, its own naming canon, and its own offer architecture
+- Internally, Mastery Method still sits within the wider TPA ecosystem, but public-facing copy must not frame it as a sub-offer, authority layer, or dependency of another TPA product
 - A protected Mastery Method portal exists in production code
 
 If you need strategic truth, verify code first and then check scoped docs.
+
+## Mastery Method Naming Canon
+
+All Mastery Method display copy is governed by [docs/MASTERY_METHOD_NAMING_CANON.md](./docs/MASTERY_METHOD_NAMING_CANON.md).
+
+Summary of active canon:
+
+- KEEP: Mastery Method, Clarity Scorecard, Teaching Blueprint, Targeted 1:1 Sessions, and "clarity" as a lowercase benefit word only.
+- RENAME (retired -> current):
+  - Clarity Framework -> The Mastery Method Framework
+  - Clarity Call -> Learning Support Call
+  - Clarity Assessment -> Mastery Assessment
+  - Clarity Pathway -> Mastery Pathway
+  - Clarity Pillars / Four Clarity Pillars -> The Four Pillars (Thinking, Communication, Learning, Action)
+  - Clarity of Thinking / Communication / Learning / Action -> Thinking / Communication / Learning / Action
+
+Rules:
+
+- The canon controls display copy only. Formspree `intent` and `source` keys, URL paths, and analytics keys are decoupled and stable.
+- The route `/mastery-method/clarity` is unchanged in Stage 1; only page content is retitled to The Mastery Method Framework.
+- Historical / archive docs that reference retired names receive a superseded banner only. Their body copy is not rewritten.
+- Every active naming change must be reflected on both surfaces (repo runtime + active local docs) in the same migration pass.
+
+If you are editing Mastery Method copy, read the canon first.
 
 ## Analytics And Tracking
 
