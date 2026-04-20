@@ -36,6 +36,7 @@ These are retained for history, audit trail, or content context. They must not c
 - [AI_ALIGNMENT.md](./AI_ALIGNMENT.md)
 - [ALIGNMENT-PROMPT-MM-HANDOVER.txt](./ALIGNMENT-PROMPT-MM-HANDOVER.txt)
 - [ARCHITECTURE_AUDIT.md](./ARCHITECTURE_AUDIT.md)
+- [CLARITY_STYLE_QUIZ_IMPLEMENTATION.md](./CLARITY_STYLE_QUIZ_IMPLEMENTATION.md) - retirement note only; `/mastery-method/clarity-style` is not a live route
 - [DECISIONS.md](./DECISIONS.md)
 - [EXECUTION_PRIORITY_MAP.md](./EXECUTION_PRIORITY_MAP.md)
 - [FINAL_VERDICT.md](./FINAL_VERDICT.md)
