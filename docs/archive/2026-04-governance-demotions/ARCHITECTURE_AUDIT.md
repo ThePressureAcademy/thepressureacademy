@@ -1,7 +1,7 @@
 > [!WARNING]
-> SUPERSEDED - NOT CANONICAL.
+> ARCHIVED - NOT CANONICAL.
 > This audit predates the current `api/` auth/session implementation and no longer matches repo reality.
-> Use [../CLAUDE.md](../CLAUDE.md), [REPO_GOVERNANCE_AND_ENDPOINTS.md](./REPO_GOVERNANCE_AND_ENDPOINTS.md), and [DOC_AUTHORITY_INDEX.md](./DOC_AUTHORITY_INDEX.md).
+> Use [../../../CLAUDE.md](../../../CLAUDE.md), [../../REPO_GOVERNANCE_AND_ENDPOINTS.md](../../REPO_GOVERNANCE_AND_ENDPOINTS.md), and [../../DOC_AUTHORITY_INDEX.md](../../DOC_AUTHORITY_INDEX.md).
 
 # Architecture Audit — The Pressure Academy
 

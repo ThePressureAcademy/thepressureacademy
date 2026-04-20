@@ -65,11 +65,9 @@ Verified current pages:
 - `mastery-method/book/index.html`
   - Uses `fetch(...)` to submit to `xwvwkqqg`
   - Sends `source=mastery-method-book`
-  - Sends dynamic `intent` values:
-    - `call`
-    - `assessment`
-    - `info`
+  - Sends fixed `intent=call`
   - Sends parent/guardian and child-context intake fields
+  - Sends `call_goal` as the call-preparation selector
 
 - `mastery-method/scorecard/index.html`
   - Uses `fetch(...)` to submit to `xwvwkqqg`
@@ -131,17 +129,16 @@ Do not describe this repo as static-only or auth-free.
   - Scope: historical decision record
   - Not deployment proof
 
-### Stale / superseded / demotion candidates
+### Archived stale / superseded governance docs
 
-These should not be treated as canonical without code verification:
+These have been demoted out of the active `docs/` root and must not be treated as canonical:
 
-- `docs/AI_ALIGNMENT.md`
-- `docs/ALIGNMENT-PROMPT-MM-HANDOVER.txt`
-- `docs/ARCHITECTURE_AUDIT.md`
-- `docs/LAUNCH_READINESS.md`
-- older audit/remediation packs outside the repo root
+- `docs/archive/2026-04-governance-demotions/AI_ALIGNMENT.md`
+- `docs/archive/2026-04-governance-demotions/ALIGNMENT-PROMPT-MM-HANDOVER.txt`
+- `docs/archive/2026-04-governance-demotions/ARCHITECTURE_AUDIT.md`
+- `docs/archive/2026-04-governance-demotions/LAUNCH_READINESS.md`
 
-Stage 2 should relabel, demote, or archive these safely.
+Older audit/remediation packs outside the repo root are still reference only and should stay outside active repo authority.
 
 ## E. Agent Warning
 

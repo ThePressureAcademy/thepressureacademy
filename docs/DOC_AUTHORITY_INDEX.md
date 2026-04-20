@@ -33,16 +33,17 @@ These may inform discussion, but they do not settle implementation truth:
 
 These are retained for history, audit trail, or content context. They must not control implementation:
 
-- [AI_ALIGNMENT.md](./AI_ALIGNMENT.md)
-- [ALIGNMENT-PROMPT-MM-HANDOVER.txt](./ALIGNMENT-PROMPT-MM-HANDOVER.txt)
-- [ARCHITECTURE_AUDIT.md](./ARCHITECTURE_AUDIT.md)
+- [archive/2026-04-governance-demotions/README.md](./archive/2026-04-governance-demotions/README.md) - archive map for demoted governance and handover docs
+- [archive/2026-04-governance-demotions/AI_ALIGNMENT.md](./archive/2026-04-governance-demotions/AI_ALIGNMENT.md)
+- [archive/2026-04-governance-demotions/ALIGNMENT-PROMPT-MM-HANDOVER.txt](./archive/2026-04-governance-demotions/ALIGNMENT-PROMPT-MM-HANDOVER.txt)
+- [archive/2026-04-governance-demotions/ARCHITECTURE_AUDIT.md](./archive/2026-04-governance-demotions/ARCHITECTURE_AUDIT.md)
 - [CLARITY_STYLE_QUIZ_IMPLEMENTATION.md](./CLARITY_STYLE_QUIZ_IMPLEMENTATION.md) - retirement note only; `/mastery-method/clarity-style` is not a live route
 - [DECISIONS.md](./DECISIONS.md)
 - [EXECUTION_PRIORITY_MAP.md](./EXECUTION_PRIORITY_MAP.md)
 - [FINAL_VERDICT.md](./FINAL_VERDICT.md)
 - [IMPROVEMENT_OPPORTUNITIES.md](./IMPROVEMENT_OPPORTUNITIES.md)
 - [INTERACTION_AND_MOTION_AUDIT.md](./INTERACTION_AND_MOTION_AUDIT.md)
-- [LAUNCH_READINESS.md](./LAUNCH_READINESS.md)
+- [archive/2026-04-governance-demotions/LAUNCH_READINESS.md](./archive/2026-04-governance-demotions/LAUNCH_READINESS.md)
 - [mastery-method-funnel-architecture.txt](./mastery-method-funnel-architecture.txt)
 - [mastery-method-reel-scripts.txt](./mastery-method-reel-scripts.txt)
 - [OVERNIGHT_PROGRESS_REPORT.md](./OVERNIGHT_PROGRESS_REPORT.md)
