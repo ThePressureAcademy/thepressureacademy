@@ -21,7 +21,7 @@ These can be used only for the domain named below. They are not repo-wide truth:
 - [MASTERY_METHOD_PILOT_1_LAUNCH_CHECKLIST.md](./MASTERY_METHOD_PILOT_1_LAUNCH_CHECKLIST.md) - Pilot 1 launch readiness and go/no-go gate only
 - [PORTAL_ACCESS_ADMIN.md](./PORTAL_ACCESS_ADMIN.md) - portal access operations only
 - [MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md](./MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md) - Mastery Method scorecard funnel content only
-- [mastery-method-clarity-pathway-definition.txt](./mastery-method-clarity-pathway-definition.txt) - Mastery Method offer architecture only
+- [mastery-method-pathway-definition.txt](./mastery-method-pathway-definition.txt) - Mastery Method offer architecture only
 
 ## Needs Operator Decision
 

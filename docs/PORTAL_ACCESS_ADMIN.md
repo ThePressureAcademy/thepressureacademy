@@ -34,7 +34,7 @@ After setting both variables, redeploy the project from the Vercel dashboard.
 
 ## Enrolling a new family
 
-When a family starts a Clarity Pathway and needs portal access:
+When a family starts a Mastery Pathway and needs portal access:
 
 **Step 1 — Generate a unique token**
 
@@ -79,7 +79,7 @@ No password needed. No account creation. It just works.
 
 ## Revoking access
 
-When a family's Clarity Pathway ends or you need to revoke access:
+When a family's Mastery Pathway ends or you need to revoke access:
 
 1. Go to Vercel dashboard → Project → Settings → Environment Variables
 2. Edit `PORTAL_INVITE_TOKENS`
