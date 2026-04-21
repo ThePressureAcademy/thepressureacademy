@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -23,7 +23,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{font-family:'Outfit',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh}
 
-  /* â”€â”€ LAYOUT â”€â”€ */
+  /* LAYOUT */
   .scorecard{max-width:var(--max-w);margin:0 auto;padding:24px 24px 60px}
   .sc-header{text-align:center;padding:40px 0 32px}
   .sc-badge{display:inline-block;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--rust);border:1px solid var(--rust-wash);padding:4px 14px;border-radius:50px;margin-bottom:20px;font-weight:500}
@@ -34,17 +34,17 @@
   .sc-meta span{display:flex;align-items:center;gap:5px}
   .sc-dot{width:5px;height:5px;border-radius:50%;background:var(--teal)}
 
-  /* â”€â”€ PROGRESS BAR â”€â”€ */
+  /* PROGRESS BAR */
   .progress-wrap{margin-bottom:32px}
   .progress-info{display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink-muted);margin-bottom:6px;font-weight:400}
   .progress-bar{height:4px;background:var(--cream-deep);border-radius:2px;overflow:hidden}
   .progress-fill{height:100%;background:var(--rust);border-radius:2px;transition:width .4s ease;width:0%}
 
-  /* â”€â”€ STEP CONTAINER â”€â”€ */
+  /* STEP CONTAINER */
   .step{display:none}
   .step.active{display:block}
 
-  /* â”€â”€ PILLAR HEADER â”€â”€ */
+  /* PILLAR HEADER */
   .pillar-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding:16px 20px;border-radius:var(--radius);border-left:3px solid}
   .pillar-header.thinking{background:var(--rust-wash);border-left-color:var(--rust)}
   .pillar-header.communication{background:var(--teal-wash);border-left-color:var(--teal)}
@@ -57,12 +57,12 @@
   .pillar-header.action .pillar-label{color:var(--violet)}
   .pillar-name{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:500}
 
-  /* â”€â”€ QUESTION â”€â”€ */
+  /* QUESTION */
   .question{background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-soft);margin-bottom:16px}
   .q-number{font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-muted);font-weight:500;margin-bottom:8px}
   .q-text{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:500;line-height:1.45;margin-bottom:20px}
 
-  /* â”€â”€ SLIDER â”€â”€ */
+  /* SLIDER */
   .slider-wrap{padding:0 4px}
   .slider-labels{display:flex;justify-content:space-between;font-size:.7rem;color:var(--ink-muted);margin-bottom:8px;font-weight:300}
   input[type="range"]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:var(--cream-deep);outline:none;margin:8px 0 4px}
@@ -71,7 +71,7 @@
   input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--rust);cursor:pointer;border:none;box-shadow:0 2px 8px rgba(196,91,40,.25)}
   .slider-value{text-align:center;font-family:'DM Serif Display',Georgia,serif;font-size:1.8rem;color:var(--rust);margin:8px 0 0;line-height:1}
 
-  /* â”€â”€ MULTIPLE CHOICE â”€â”€ */
+  /* MULTIPLE CHOICE */
   .choices{display:grid;gap:8px}
   .choice{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:var(--radius);background:var(--cream);cursor:pointer;border:1.5px solid transparent;transition:all .2s;font-size:.88rem;color:var(--ink-soft);font-weight:400}
   .choice:hover{border-color:rgba(44,44,56,.08)}
@@ -81,7 +81,7 @@
   .choice-radio-dot{width:8px;height:8px;border-radius:50%;background:var(--rust);opacity:0;transition:opacity .15s}
   .choice.selected .choice-radio-dot{opacity:1}
 
-  /* â”€â”€ BUTTONS â”€â”€ */
+  /* BUTTONS */
   .btn-row{display:flex;gap:10px;margin-top:28px}
   .btn-next{flex:1;padding:14px 24px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:500;background:var(--rust);color:var(--white);border:none;cursor:pointer;transition:all .25s}
   .btn-next:hover{background:var(--rust-deep);transform:translateY(-1px)}
@@ -89,7 +89,7 @@
   .btn-back{padding:14px 20px;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:500;background:transparent;color:var(--ink-muted);border:1.5px solid rgba(44,44,56,.1);cursor:pointer;transition:all .2s}
   .btn-back:hover{border-color:rgba(44,44,56,.2)}
 
-  /* â”€â”€ EMAIL CAPTURE â”€â”€ */
+  /* EMAIL CAPTURE */
   .email-step{text-align:center;padding:32px 0}
   .email-step h2{font-family:'DM Serif Display',Georgia,serif;font-size:1.6rem;font-weight:400;margin-bottom:8px}
   .email-step p{font-size:.9rem;color:var(--ink-muted);font-weight:300;margin-bottom:24px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7}
@@ -100,7 +100,7 @@
   .email-field button:hover{background:var(--rust-deep)}
   .email-privacy{font-size:.68rem;color:var(--ink-muted);margin-top:12px;font-weight:300}
 
-  /* â”€â”€ RESULTS â”€â”€ */
+  /* RESULTS */
   .results{display:none;padding:20px 0}
   .results.show{display:block}
   .results-header{text-align:center;margin-bottom:36px}
@@ -169,7 +169,7 @@
   <div class="sc-header">
     <div class="sc-badge">Free Clarity Scorecard</div>
     <h1>The <em>Clarity</em> Scorecard</h1>
-    <p>Answer 16 quick questions and get a clarity profile across the four pillars. You will see where your child is holding steady and where support is needed.</p>
+    <p>Answer 16 quick questions designed for parents of Year 2-3 children who are bright, capable, and not always consistent on the page.</p>
     <div class="sc-meta">
       <span><span class="sc-dot"></span> Takes 3 minutes</span>
       <span><span class="sc-dot"></span> 100% free</span>
@@ -196,7 +196,7 @@
         <div style="padding:12px;border-radius:var(--radius);background:var(--amber-wash);font-size:.82rem;font-weight:500;color:#946A20">Learning</div>
         <div style="padding:12px;border-radius:var(--radius);background:var(--violet-wash);font-size:.82rem;font-weight:500;color:var(--violet)">Action</div>
       </div>
-      <p style="font-size:.78rem;color:var(--ink-muted);font-weight:300;margin-bottom:24px">Each question uses a slider (1-10) or multiple choice. Think about the past month, not one particular day.</p>
+      <p style="font-size:.78rem;color:var(--ink-muted);font-weight:300;margin-bottom:24px">Each question uses a slider (1-10) or multiple choice. Think about the past month of home reading, homework, school tasks, and getting work onto the page.</p>
       <button class="btn-next" onclick="startScorecard()" style="max-width:280px;margin:0 auto;display:block;width:100%">Start the Scorecard</button>
     </div>
   </div>
@@ -214,12 +214,9 @@
         <input type="email" id="emailInput" placeholder="your@email.com">
         <select id="yearLevel" style="padding:13px 18px;border:1.5px solid rgba(44,44,56,.1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--ink-muted);background:var(--white);outline:none;-webkit-appearance:none;cursor:pointer">
           <option value="">Your child's year level (optional)</option>
-          <option value="prep">Prep / Foundation</option>
-          <option value="1">Year 1</option><option value="2">Year 2</option>
-          <option value="3">Year 3</option><option value="4">Year 4</option>
-          <option value="5">Year 5</option><option value="6">Year 6</option>
-          <option value="7">Year 7</option><option value="8">Year 8</option>
-          <option value="other">Other</option>
+          <option value="2">Year 2</option>
+          <option value="3">Year 3</option>
+          <option value="other">Other / not sure</option>
         </select>
         <button onclick="showResults()" style="width:100%">See my results</button>
       </div>
@@ -231,8 +228,7 @@
   <div class="results" id="resultsSection">
     <div class="results-header">
       <h2>Your child's <em>scorecard results</em></h2>
-      <p>Based on your answers, here's where your child's clarity is strongest â€” and where the gaps are.</p>
-      <p>Here is where your child looks strongest right now, and where support is likely needed most.</p>
+      <p>Based on your answers, here is where your child looks strongest right now, and where support is likely needed most.</p>
     </div>
 
     <div class="total-score">
@@ -293,97 +289,97 @@
 (function(){
   'use strict';
 
-  // â•â• QUESTION DATA â•â•
+  // QUESTION DATA
   var questions = [
     // THINKING (4 questions)
     {pillar:'thinking',pillarName:'Thinking',type:'slider',
-     text:'When your child reads a question or task instruction, how well do they understand what\'s being asked â€” on the first read?',
-     low:'Rarely understands',high:'Almost always understands'},
+     text:'When your child is given a school task or homework instruction, how often do they understand what to do without it being explained again?',
+     low:'Rarely without help',high:'Almost always'},
     {pillar:'thinking',pillarName:'Thinking',type:'choice',
-     text:'When faced with a multi-step task, your child typically:',
+     text:'When a task has more than one step, your child typically:',
      options:[
-       {text:'Freezes or says "I don\'t know what to do"',score:2},
-       {text:'Starts somewhere but not always the right place',score:4},
-       {text:'Can break it into parts with some help',score:7},
-       {text:'Breaks it down independently and starts confidently',score:10}
+       {text:'Stops or says "I don\'t know what to do"',score:2},
+       {text:'Starts, but often misses a step or begins in the wrong place',score:4},
+       {text:'Can follow the steps with some adult support',score:7},
+       {text:'Can usually work through the steps with light support',score:10}
      ]},
     {pillar:'thinking',pillarName:'Thinking',type:'slider',
-     text:'How often can your child explain what the "finished product" should look like before they begin working?',
-     low:'Almost never',high:'Almost always'},
+     text:'Before they start, how clear are they on what the work should look like when it is done?',
+     low:'Not clear',high:'Very clear'},
     {pillar:'thinking',pillarName:'Thinking',type:'slider',
-     text:'How well does your child separate important information from irrelevant details in a task?',
-     low:'Struggles significantly',high:'Does this well'},
+     text:'When a page has several instructions, examples, or pictures, how well do they notice the part they actually need to use?',
+     low:'Often misses it',high:'Usually notices it'},
 
     // COMMUNICATION (4 questions)
     {pillar:'communication',pillarName:'Communication',type:'choice',
-     text:'Your child understands a concept verbally but needs to write about it. They typically:',
+     text:'When your child can explain something aloud but needs to put it on the page, they typically:',
      options:[
-       {text:'Write very little or nothing â€” the page stays mostly blank',score:2},
-       {text:'Write the minimum required with little detail',score:4},
-       {text:'Get some ideas down but struggle to organise them',score:7},
-       {text:'Write clearly and structure their ideas well',score:10}
+       {text:'Write very little, even when they seem to understand it',score:2},
+       {text:'Write the minimum with little detail',score:4},
+       {text:'Get some ideas down but need help organising them',score:7},
+       {text:'Usually get their ideas onto the page clearly',score:10}
      ]},
     {pillar:'communication',pillarName:'Communication',type:'slider',
-     text:'How confident is your child at explaining their thinking or reasoning â€” to you, a teacher, or a classmate?',
-     low:'Very unconfident',high:'Very confident'},
+     text:'How confident are they at explaining how they got an answer or why they think something?',
+     low:'Not confident',high:'Very confident'},
     {pillar:'communication',pillarName:'Communication',type:'slider',
-     text:'When your child is stuck, how likely are they to ask a clear, specific question rather than just saying "I don\'t get it"?',
+     text:'When your child is stuck, how likely are they to say what is confusing instead of only saying "I don\'t get it"?',
      low:'Almost never',high:'Almost always'},
     {pillar:'communication',pillarName:'Communication',type:'choice',
-     text:'When asked about their school day, your child usually:',
+     text:'When you ask what they worked on or learned, they usually:',
      options:[
        {text:'Gives one-word answers or "I don\'t know"',score:2},
-       {text:'Gives vague, general answers',score:4},
-       {text:'Can share what happened but not what they learned',score:7},
-       {text:'Can describe what they did and what they learned from it',score:10}
+       {text:'Gives vague answers that are hard to understand',score:4},
+       {text:'Can tell you what happened but not what they learned',score:7},
+       {text:'Can usually explain what they did and what they were learning',score:10}
      ]},
 
     // LEARNING (4 questions)
     {pillar:'learning',pillarName:'Learning',type:'slider',
-     text:'Before starting a piece of work, how clear is your child on what "doing well" actually looks like?',
-     low:'No idea',high:'Very clear'},
+     text:'Before starting a piece of work, how clear are they on what "good work" looks like?',
+     low:'Not clear',high:'Very clear'},
     {pillar:'learning',pillarName:'Learning',type:'choice',
-     text:'When your child receives feedback or correction, they typically:',
+     text:'When your child is corrected or asked to try again, they typically:',
      options:[
        {text:'Shut down, get upset, or refuse to look at it',score:2},
-       {text:'Get discouraged but eventually re-engage',score:4},
-       {text:'Accept it but don\'t really know how to use it',score:7},
-       {text:'Use it to adjust their work independently',score:10}
+       {text:'Get discouraged but come back with support',score:4},
+       {text:'Accept it but need help knowing what to change',score:7},
+       {text:'Can usually make a small fix and keep going',score:10}
      ]},
     {pillar:'learning',pillarName:'Learning',type:'slider',
-     text:'How well can your child describe their own progress â€” what they\'re getting better at, and what still needs work?',
-     low:'Can\'t describe it at all',high:'Describes it clearly'},
+     text:'How well can your child notice when something is getting easier or where they still need help?',
+     low:'Does not notice yet',high:'Notices clearly'},
     {pillar:'learning',pillarName:'Learning',type:'choice',
-     text:'When studying for a test, your child typically:',
+     text:'When practising spelling, reading, maths facts, or another school skill, your child typically:',
      options:[
-       {text:'Doesn\'t know where to start or what to focus on',score:2},
-       {text:'Re-reads everything but can\'t prioritise',score:4},
-       {text:'Has a general idea but needs guidance on strategy',score:7},
-       {text:'Knows exactly what they need to review and how',score:10}
+       {text:'Does not know what to practise unless you sit with them',score:2},
+       {text:'Repeats the task but does not notice what to fix',score:4},
+       {text:'Can practise with guidance and reminders',score:7},
+       {text:'Usually knows what to work on and tries again with purpose',score:10}
      ]},
 
     // ACTION (4 questions)
     {pillar:'action',pillarName:'Action',type:'slider',
-     text:'When it\'s time to start homework, how quickly does your child begin the actual work (not getting ready, sharpening pencils, etc.)?',
-     low:'Takes 20+ minutes to start',high:'Starts within a few minutes'},
+     text:'When it is time for home reading, homework, or a short practice task, how easily do they begin the actual work?',
+     low:'Avoids or delays',high:'Starts with little delay'},
     {pillar:'action',pillarName:'Action',type:'choice',
      text:'Partway through a task, your child typically:',
      options:[
        {text:'Loses focus or gives up before finishing',score:2},
        {text:'Needs regular prompting to stay on track',score:4},
        {text:'Slows down but usually finishes with some reminding',score:7},
-       {text:'Maintains focus and finishes independently',score:10}
+       {text:'Usually stays with it and finishes with light support',score:10}
      ]},
     {pillar:'action',pillarName:'Action',type:'slider',
      text:'How often does your child check their work before saying they\'re finished?',
      low:'Almost never',high:'Almost always'},
     {pillar:'action',pillarName:'Action',type:'choice',
-     text:'Your child\'s relationship with routines around learning is best described as:',
+     text:'Around home reading, homework, or practice time, your child:',
      options:[
-       {text:'No routine â€” every day is different and often chaotic',score:2},
-       {text:'We try but it falls apart regularly',score:4},
-       {text:'There\'s a loose routine that works most days',score:7},
-       {text:'They have a clear routine they mostly follow independently',score:10}
+       {text:'Resists or unravels most days',score:2},
+       {text:'Needs a lot of negotiation and reminders',score:4},
+       {text:'Settles with a predictable routine and some support',score:7},
+       {text:'Usually follows the routine with light support',score:10}
      ]}
   ];
 
@@ -391,7 +387,7 @@
   var currentQ = 0;
   var container = document.getElementById('questionsContainer');
 
-  // â•â• BUILD QUESTIONS â•â•
+  //  BUILD QUESTIONS 
   function buildQuestions(){
     for(var i=0;i<questions.length;i++){
       var q = questions[i];
@@ -433,7 +429,7 @@
     return {thinking:1,communication:2,learning:3,action:4}[p];
   }
 
-  // â•â• NAVIGATION â•â•
+  //  NAVIGATION 
   window.startScorecard = function(){
     document.getElementById('step-start').classList.remove('active');
     document.getElementById('step-q-0').classList.add('active');
@@ -486,10 +482,10 @@
     document.getElementById('progressFill').style.width = pct+'%';
     document.getElementById('progressCount').textContent = 'Question '+(n+1)+' of 16';
     var pillarNum = getPillarNum(questions[n].pillar);
-    document.getElementById('progressLabel').textContent = 'Pillar '+pillarNum+' of 4 â€” '+questions[n].pillarName;
+    document.getElementById('progressLabel').textContent = 'Pillar '+pillarNum+' of 4 - '+questions[n].pillarName;
   }
 
-  // â•â• RESULTS â•â•
+  //  RESULTS 
   window.showResults = function(){
     var email = document.getElementById('emailInput').value;
     if(!email || email.indexOf('@') < 0){
@@ -534,16 +530,16 @@
     // Level label
     var level = document.getElementById('totalLevel');
     if(total >= 80){ level.textContent = 'Strong clarity foundation'; level.style.background = '#EBF5F3'; level.style.color = '#3A7D72'; }
-    else if(total >= 55){ level.textContent = 'Developing â€” some gaps to address'; level.style.background = '#FDF5E6'; level.style.color = '#946A20'; }
-    else if(total >= 35){ level.textContent = 'Significant clarity gaps'; level.style.background = '#FAF0EB'; level.style.color = '#C45B28'; }
-    else { level.textContent = 'Critical clarity gaps â€” support recommended'; level.style.background = '#FBEFEE'; level.style.color = '#D4726A'; }
+    else if(total >= 55){ level.textContent = 'Developing foundation - some gaps to address'; level.style.background = '#FDF5E6'; level.style.color = '#946A20'; }
+    else if(total >= 35){ level.textContent = 'Clear support need'; level.style.background = '#FAF0EB'; level.style.color = '#C45B28'; }
+    else { level.textContent = 'High support need - next step recommended'; level.style.background = '#FBEFEE'; level.style.color = '#D4726A'; }
 
     // Pillar descriptions
     var descs = {
-      thinking: {low:'Your child is likely struggling to decode what tasks are asking before they begin.',mid:'Your child can sometimes break tasks down but needs support with complex or unfamiliar instructions.',high:'Your child generally understands what\'s being asked and can plan before starting.'},
-      communication: {low:'There\'s a significant gap between what your child understands and what they can express.',mid:'Your child can communicate ideas but struggles to organise or structure them clearly.',high:'Your child expresses their thinking clearly in most situations.'},
-      learning: {low:'Your child has little awareness of what success looks like or how to use feedback.',mid:'Your child is developing goal awareness but still needs help making sense of feedback.',high:'Your child understands their goals and can use feedback to improve.'},
-      action: {low:'Starting, sustaining, and completing tasks is a consistent challenge.',mid:'Your child can follow through with some structure but struggles with independence.',high:'Your child has reasonable routines and can manage most tasks independently.'}
+      thinking: {low:'Your child may know more than they can show because the task direction is not landing clearly at the start.',mid:'Your child can often work out what to do, but unfamiliar or multi-step tasks still need support.',high:'Your child usually understands what is being asked and can start with confidence.'},
+      communication: {low:'There may be a clear gap between what your child can say aloud and what appears on the page.',mid:'Your child can share ideas, but needs help organising them into words or written work.',high:'Your child usually explains their thinking clearly enough for others to follow.'},
+      learning: {low:'Your child may not yet notice what is improving, what needs fixing, or how to use correction calmly.',mid:'Your child is beginning to notice progress and feedback, but still needs guidance to use it.',high:'Your child usually understands what they are working on and can use feedback in small ways.'},
+      action: {low:'Getting started, staying with the task, and finishing may be the main pressure points.',mid:'Your child can follow through with predictable support, but consistency is still fragile.',high:'Your child usually gets into the task and finishes with light support.'}
     };
 
     for(var p in scores){
@@ -562,10 +558,10 @@
 
     var pillarNames = {thinking:'Thinking',communication:'Communication',learning:'Learning',action:'Action'};
     var insights = {
-      thinking:'This often looks like reading the same question three times and still not knowing how to begin. The problem is usually task comprehension, not reading. <strong>A structured Mastery Assessment can show where the breakdown is happening and what kind of support will help.</strong>',
-      communication:'This is the child who knows more than the page shows. The gap is not effort. It is getting understanding out into words. <strong>That is one of the most common patterns Kirsty sees, and one of the most workable.</strong>',
-      learning:'When children cannot tell what good looks like, feedback lands like criticism. Work starts to feel heavy and directionless. <strong>Once the target is clearer, effort usually settles down and starts to go somewhere.</strong>',
-      action:'Some children understand the task and still cannot get moving. Starting, staying with it, and finishing can be the real gap. <strong>This is often read as laziness when it is actually a clarity and regulation issue.</strong>'
+      thinking:'This often looks like a capable child looking at the page and still not knowing how to begin. The gap is usually in understanding the task clearly enough to start. <strong>A structured Mastery Assessment can show where the breakdown is happening and what kind of support will help.</strong>',
+      communication:'This is the child who can often tell you the answer but cannot get enough of it onto the page. The gap is not effort. It is turning understanding into clear words or written work. <strong>That pattern is common, and it is workable.</strong>',
+      learning:'When a child cannot tell what good work looks like, correction can feel personal. Work starts to feel heavier than it needs to. <strong>Once the target is clearer, effort usually has somewhere to go.</strong>',
+      action:'Some children understand the task but still struggle to begin, stay with it, or finish without repeated support. <strong>This can look like avoidance, but often the real issue is that the next step is not clear enough yet.</strong>'
     };
 
     document.getElementById('insightTitle').textContent = 'Your child\'s biggest clarity gap: '+pillarNames[weakest];
@@ -573,11 +569,11 @@
 
     // Log + submit lead data
     var leadData = {
-      // â”€â”€ LEAD FIELDS â”€â”€
+      //  LEAD FIELDS 
       name: document.getElementById('nameInput').value || '',
       email: email,
       yearLevel: document.getElementById('yearLevel').value || '',
-      // â”€â”€ SCORECARD RESULTS â”€â”€
+      //  SCORECARD RESULTS 
       totalScore: total,
       thinkingScore: scores.thinking,
       communicationScore: scores.communication,
@@ -585,7 +581,7 @@
       actionScore: scores.action,
       weakestPillar: weakest,
       level: total >= 80 ? 'strong' : (total >= 55 ? 'developing' : (total >= 35 ? 'significant' : 'critical')),
-      // â”€â”€ META â”€â”€
+      //  META 
       source: 'clarity-scorecard',
       timestamp: new Date().toISOString()
     };
@@ -618,7 +614,7 @@
     window.scrollTo({top:0,behavior:'smooth'});
   };
 
-  // â•â• INIT â•â•
+  //  INIT 
   buildQuestions();
   // Set default slider values
   for(var i=0;i<questions.length;i++){
