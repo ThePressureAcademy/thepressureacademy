@@ -1736,6 +1736,18 @@
         font-size: 0.82rem;
       }
 
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
       .reality-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2200,7 +2212,7 @@
                 <input type="hidden" name="source" value="inline-planner" />
                 <input type="hidden" name="intent" value="planner-access" />
                 <label class="capture-field">
-                  <span class="visually-hidden" hidden>Email address</span>
+                  <span class="visually-hidden">Email address</span>
                   <input
                     type="email"
                     name="email"
