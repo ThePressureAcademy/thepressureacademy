@@ -1494,6 +1494,396 @@
           width: 100%;
         }
       }
+
+      /* Stage 1 additions -------------------------------------------- */
+
+      .eyebrow-numbered {
+        font-family: "JetBrains Mono", monospace;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 0.74rem;
+        color: var(--gold);
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .eyebrow-numbered::before {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: linear-gradient(90deg, var(--gold), transparent);
+      }
+
+      .hero-tagline {
+        margin-top: 18px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--sand);
+      }
+
+      .hero-copy h1 {
+        max-width: 14ch;
+      }
+
+      .founder-shell {
+        padding: 40px;
+        background:
+          radial-gradient(
+            circle at 18% 0%,
+            rgba(196, 91, 40, 0.16),
+            transparent 45%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(20, 14, 15, 0.94),
+            rgba(14, 11, 12, 0.96)
+          );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .founder-grid {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+        gap: 30px;
+        align-items: stretch;
+      }
+
+      .founder-portrait {
+        position: relative;
+        min-height: 360px;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background:
+          radial-gradient(
+            circle at 30% 20%,
+            rgba(196, 91, 40, 0.18),
+            transparent 55%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(43, 33, 35, 0.94),
+            rgba(20, 14, 15, 0.98)
+          );
+        display: grid;
+        place-items: center;
+        text-align: center;
+      }
+
+      .founder-portrait .placeholder-mark {
+        width: 96px;
+        height: 96px;
+        padding: 22px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .founder-portrait .placeholder-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0.85;
+      }
+
+      .founder-portrait .placeholder-meta {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        font-family: "JetBrains Mono", monospace;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        color: var(--soft);
+        text-align: left;
+      }
+
+      .founder-copy h2 {
+        margin-top: 14px;
+        font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+        max-width: 18ch;
+      }
+
+      .founder-copy p.lead {
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 38rem;
+      }
+
+      .founder-quote {
+        margin: 26px 0 0;
+        padding: 22px 24px;
+        border-left: 2px solid var(--gold);
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 0 18px 18px 0;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 1.4rem;
+        line-height: 1.25;
+        color: var(--text);
+      }
+
+      .founder-quote cite {
+        display: block;
+        margin-top: 10px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--soft);
+        font-style: normal;
+      }
+
+      .founder-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 22px;
+      }
+
+      .founder-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--soft);
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .planner-capture {
+        padding: 30px;
+        background:
+          radial-gradient(
+            circle at 0% 0%,
+            rgba(74, 155, 142, 0.18),
+            transparent 42%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.02)
+          ),
+          var(--panel);
+      }
+
+      .planner-capture-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+        gap: 28px;
+        align-items: center;
+      }
+
+      .planner-capture h3 {
+        font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+        max-width: 18ch;
+        margin-top: 12px;
+      }
+
+      .planner-capture p.capture-lead {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+        max-width: 34rem;
+      }
+
+      .capture-form {
+        display: grid;
+        gap: 12px;
+      }
+
+      .capture-field {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: stretch;
+      }
+
+      .capture-field input[type="email"] {
+        padding: 15px 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        background: rgba(8, 8, 9, 0.32);
+        color: var(--text);
+        outline: none;
+        transition:
+          border-color 180ms ease,
+          background 180ms ease,
+          transform 180ms ease;
+      }
+
+      .capture-field input[type="email"]:focus {
+        border-color: rgba(240, 191, 114, 0.34);
+        background: rgba(8, 8, 9, 0.42);
+        transform: translateY(-1px);
+      }
+
+      .capture-form .form-status {
+        min-height: 22px;
+        font-size: 0.86rem;
+        color: var(--sand);
+      }
+
+      .capture-fineprint {
+        margin: 6px 0 0;
+        color: var(--soft);
+        font-size: 0.82rem;
+      }
+
+      .reality-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .reality-card {
+        padding: 24px;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: grid;
+        gap: 14px;
+      }
+
+      .reality-card blockquote {
+        margin: 0;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 1.18rem;
+        line-height: 1.3;
+        color: var(--text);
+      }
+
+      .reality-card cite {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--soft);
+        font-style: normal;
+      }
+
+      .reality-card.placeholder blockquote {
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .ecosystem-card-line {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .ecosystem-meta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 16px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--soft);
+      }
+
+      [data-reveal].revealed > * {
+        animation: tpa-stagger 520ms ease both;
+      }
+
+      [data-reveal].revealed > *:nth-child(2) {
+        animation-delay: 80ms;
+      }
+
+      [data-reveal].revealed > *:nth-child(3) {
+        animation-delay: 160ms;
+      }
+
+      [data-reveal].revealed > *:nth-child(4) {
+        animation-delay: 240ms;
+      }
+
+      [data-reveal].revealed > *:nth-child(5) {
+        animation-delay: 320ms;
+      }
+
+      @keyframes tpa-stagger {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        [data-reveal] {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+
+        [data-reveal].revealed > * {
+          animation: none;
+        }
+
+        .shell-button:hover,
+        .shell-button:focus-visible,
+        .ghost-button:hover,
+        .ghost-button:focus-visible,
+        .trust-card:hover,
+        .ecosystem-card:hover,
+        .proof-card:hover,
+        .faq-card:hover,
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 1080px) {
+        .founder-grid,
+        .planner-capture-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .reality-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .founder-shell,
+        .planner-capture {
+          padding: 24px;
+        }
+
+        .reality-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .capture-field {
+          grid-template-columns: 1fr;
+        }
+
+        .founder-portrait {
+          min-height: 220px;
+        }
+
+        .founder-quote {
+          font-size: 1.2rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1515,10 +1905,10 @@
           </a>
           <nav class="header-nav" aria-label="Primary">
             <div class="nav-links">
-              <a href="#planner">Pressure Planner</a>
-              <a href="#system">Why it works</a>
+              <a href="#founder">Founder</a>
+              <a href="#planner">Planner</a>
               <a href="#ecosystem">Ecosystem</a>
-              <a href="#mastery-method">Mastery Method</a>
+              <a href="#reality">Reality</a>
               <a href="#faq">FAQ</a>
             </div>
           </nav>
@@ -1546,10 +1936,11 @@
           </div>
         </div>
         <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
-          <a href="#planner">Pressure Planner</a>
-          <a href="#system">Why it works</a>
+          <a href="#founder">Founder</a>
+          <a href="#planner">Planner</a>
           <a href="#ecosystem">Ecosystem</a>
           <a href="#mastery-method">Mastery Method</a>
+          <a href="#reality">Reality</a>
           <a href="#faq">FAQ</a>
           <a class="ghost-button" href="#join">Join the field test</a>
           <a class="shell-button" href="https://planner.thepressureacademy.com/"
@@ -1565,34 +1956,16 @@
         <section class="hero">
           <div class="hero-grid">
             <article class="hero-copy" data-reveal>
-              <div class="product-lockup hero-product-lockup">
-                <span class="product-mark-wrap">
-                  <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                </span>
-                <span class="product-lockup-copy">
-                  <strong>Pressure Planner</strong>
-                  <span>One screen. One directive. Every day.</span>
-                </span>
-              </div>
-              <div class="hero-pill-row">
-                <span class="hero-pill">Built for shift workers</span>
-                <span class="hero-pill">Train. Parent. Do not guess.</span>
-                <span class="hero-pill">Start Setup in under 60 seconds</span>
-              </div>
-              <div class="eyebrow" style="margin-top: 22px">
-                The Pressure Academy
-              </div>
-              <h1>One screen. One directive. Every day.</h1>
+              <div class="eyebrow">The Pressure Academy</div>
+              <h1>Turn pressure into progress.</h1>
               <p class="lead">
-                Built for shift workers who train, parent, and refuse to guess.
-                Pressure Planner is the flagship daily decision system inside
-                The Pressure Academy.
+                Pressure is not the problem. Guessing under pressure is.
+                Decision systems for people carrying real load &mdash; built by
+                an operator, tested in reality.
               </p>
-              <p class="hero-support-copy">
-                The homepage explains the logic more fully than the live product
-                does. The live Planner stays intentionally clean, lightweight,
-                and fast.
-              </p>
+              <div class="hero-tagline">
+                Built under pressure. Tested in reality.
+              </div>
               <div class="hero-actions">
                 <a
                   class="shell-button"
@@ -1604,38 +1977,42 @@
                   >Start Setup</a
                 >
                 <a class="ghost-button" href="#planner"
-                  >See how the score thinks</a
+                  >See how it decides</a
                 >
+              </div>
+              <div class="product-lockup hero-product-lockup">
+                <span class="product-mark-wrap">
+                  <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
+                </span>
+                <span class="product-lockup-copy">
+                  <strong>Pressure Planner</strong>
+                  <span>One screen. One directive. Every day.</span>
+                </span>
               </div>
               <div class="trust-strip">
                 <div class="trust-card">
-                  <div class="metric-label">Live truth</div>
-                  <strong>One screen. One directive. Every day.</strong>
+                  <div class="metric-label">Mechanism</div>
+                  <strong>Six variables. One score. One directive.</strong>
                   <p>
-                    The live Planner is deliberately lightweight. The value is
-                    clarity, not feature sprawl.
+                    The system reads your day before it asks for action, then
+                    narrows the next move so attention can hold.
                   </p>
                 </div>
                 <div class="trust-card">
-                  <div class="metric-label">Mechanism</div>
-                  <strong
-                    >Six variables inform one score and one daily
-                    directive.</strong
-                  >
+                  <div class="metric-label">Live now</div>
+                  <strong>Web model up. Mobile in build.</strong>
                   <p>
-                    The homepage can unpack the thinking. The live tool stays
-                    fast enough to use in the middle of a real day.
+                    Save the live Planner to your home screen and use it in
+                    real conditions. The 14-day field test shapes the mobile
+                    release.
                   </p>
                 </div>
                 <div class="trust-card">
                   <div class="metric-label">Brand house</div>
-                  <strong
-                    >Planner first, backed by a wider pressure
-                    ecosystem.</strong
-                  >
+                  <strong>Planner leads. The ecosystem backs it.</strong>
                   <p>
-                    The homepage leads with the flagship while still showing the
-                    system thinking behind it.
+                    The flagship is the entry point. Mastery Method, Blueprint,
+                    Tested, and Pressure Over Force prove the depth behind it.
                   </p>
                 </div>
               </div>
@@ -1677,34 +2054,64 @@
           </div>
         </section>
 
+        <section class="section-block" id="founder">
+          <div class="surface-panel founder-shell" data-reveal>
+            <div class="founder-grid">
+              <!-- TODO: replace .founder-portrait placeholder with approved Cody Raymond founder photography. -->
+              <!-- Required: assets/founder/cody-portrait.{jpg,webp}. Do not use Kirsty-portrait.jpg or stock imagery. -->
+              <figure
+                class="founder-portrait"
+                role="img"
+                aria-label="Founder portrait placeholder"
+              >
+                <span class="placeholder-mark">
+                  <img src="/assets/logos/TPA_House_Mark.svg" alt="" />
+                </span>
+                <span class="placeholder-meta"
+                  >Founder portrait &middot; pending capture</span
+                >
+              </figure>
+              <div class="founder-copy">
+                <span class="eyebrow-numbered">01 / Origin</span>
+                <h2>Built between real work, training, and family load.</h2>
+                <p class="lead">
+                  Cody Raymond is a crane operator, a father, and a grappler.
+                  The Pressure Academy started because guessing under load was
+                  costing him real ground &mdash; on shift, on the mat, and at
+                  home. Every system in the house exists because it had to
+                  earn its place in a real day before it earned a name.
+                </p>
+                <div class="founder-tags">
+                  <span class="founder-tag">Crane operator</span>
+                  <span class="founder-tag">Father</span>
+                  <span class="founder-tag">Grappler</span>
+                  <span class="founder-tag">System builder</span>
+                </div>
+                <blockquote class="founder-quote">
+                  &ldquo;Pressure over force. Decisions over drift.&rdquo;
+                  <cite>Cody Raymond &middot; Founder</cite>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="section-block" id="planner">
           <div class="surface-panel section-shell" data-reveal>
             <div class="section-header">
-              <div class="section-lockup">
-                <span class="section-mark">
-                  <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                </span>
-                <span class="section-copy">
-                  <strong>Pressure Planner</strong>
-                  <span>Live model truth</span>
-                </span>
-              </div>
+              <span class="eyebrow-numbered">02 / The Planner</span>
               <h2>
-                Start with the live model. Use the homepage to understand the
-                logic.
+                Six variables. One score. Clearer decisions under load.
               </h2>
               <p>
-                The live Planner is intentionally light: one screen, one
-                directive, every day. This homepage preview expands the logic so
-                you can judge the system without mistaking it for a bigger app
-                than it is today.
+                Move the sliders. Switch personas. The directive moves with
+                you. This is a homepage preview of the logic &mdash; the live
+                Planner stays one screen, one directive, every day.
               </p>
               <div class="chip-row planner-truth-row">
-                <span class="truth-chip"
-                  >One screen. One directive. Every day.</span
-                >
-                <span class="truth-chip">Start Setup</span>
-                <span class="truth-chip">Takes under 60 seconds</span>
+                <span class="truth-chip">Start Setup in under 60 seconds</span>
+                <span class="truth-chip">Save it to your home screen</span>
+                <span class="truth-chip">14-day field test</span>
               </div>
             </div>
             <div class="planner-lab">
@@ -1756,21 +2163,65 @@
                     </p>
                   </div>
                 </div>
-                <p class="planner-footnote">
-                  This is a homepage signal preview, not the live product UI.
-                  The clean Planner path lives at
+                <div class="product-truth-note">
+                  <strong>Truth note:</strong> this is a homepage preview of
+                  the logic. The live Planner is lighter, faster, and lives at
                   <a
                     class="text-button"
                     href="https://planner.thepressureacademy.com/"
                     >planner.thepressureacademy.com</a
-                  >.
-                </p>
-                <div class="product-truth-note">
-                  <strong>Truth note:</strong> the live Planner stays lighter
-                  than this explanation layer. Setup is fast, the screen stays
-                  clean, and the mobile release is still being shaped.
+                  >. Mobile release still in build.
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block" id="planner-capture">
+          <div class="surface-panel planner-capture" data-reveal>
+            <div class="planner-capture-grid">
+              <div>
+                <span class="eyebrow-numbered">Early access</span>
+                <h3>Get the Planner field-test invite.</h3>
+                <p class="capture-lead">
+                  Send your email and we will send the 14-day Pressure Planner
+                  field-test instructions, plus one note when the mobile app
+                  lands. Nothing else.
+                </p>
+              </div>
+              <form
+                class="capture-form"
+                id="planner-capture-form"
+                action="https://formspree.io/f/meerjgde"
+                method="POST"
+                novalidate
+              >
+                <input type="hidden" name="path" value="planner-pilot" />
+                <input type="hidden" name="source" value="inline-planner" />
+                <input type="hidden" name="intent" value="planner-access" />
+                <label class="capture-field">
+                  <span class="visually-hidden" hidden>Email address</span>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email address"
+                    autocomplete="email"
+                    required
+                  />
+                  <button class="shell-button" type="submit">
+                    Send me the invite
+                  </button>
+                </label>
+                <p class="capture-fineprint">
+                  Manual review. No newsletter. Save the live Planner to your
+                  home screen and run it for 14 days under real load.
+                </p>
+                <div
+                  class="form-status"
+                  id="planner-capture-status"
+                  aria-live="polite"
+                ></div>
+              </form>
             </div>
           </div>
         </section>
@@ -1816,139 +2267,14 @@
           </div>
         </section>
 
-        <section class="section-block">
-          <div class="surface-panel section-shell" data-reveal>
-            <div class="section-header">
-              <div class="section-lockup">
-                <span class="section-mark">
-                  <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                </span>
-                <span class="section-copy">
-                  <strong>Founding field test</strong>
-                  <span>14-day pilot funnel</span>
-                </span>
-              </div>
-              <h2>Run the Planner for 14 days before the app lands.</h2>
-              <p>
-                This is the current pilot path. Save the live Planner to your
-                home screen, use it in real life for 14 days, and send feedback
-                before the mobile launch. The goal is proof under real load, not
-                casual interest.
-              </p>
-            </div>
-            <div class="pilot-grid">
-              <div class="pilot-panel">
-                <div class="chip-row pilot-label-row">
-                  <span class="signal-chip">Founding trial</span>
-                  <span class="signal-chip">14 days</span>
-                  <span class="signal-chip">Home screen first</span>
-                </div>
-                <h3 style="margin-top: 18px; font-size: clamp(2rem, 4vw, 3rem)">
-                  Save it. Use it daily. Tell us what holds up.
-                </h3>
-                <p>
-                  Pressure Planner is live now as a clean web model. The pilot
-                  matters because daily use reveals what a landing page never
-                  can: where the directive helps, where it slips, and what the
-                  mobile release needs to earn.
-                </p>
-                <div class="pilot-meta">
-                  <div class="pilot-meta-item">
-                    <strong>What you get</strong>
-                    <p>
-                      Live access now, a lightweight tool you can save to your
-                      home screen, and an early voice in what the mobile app
-                      becomes.
-                    </p>
-                  </div>
-                  <div class="pilot-meta-item">
-                    <strong>What we want back</strong>
-                    <p>
-                      Consistent real-world use for 14 days and honest feedback
-                      on clarity, friction, and where the system needs to be
-                      stronger.
-                    </p>
-                  </div>
-                </div>
-                <div class="pilot-actions">
-                  <a
-                    class="shell-button"
-                    href="https://planner.thepressureacademy.com/"
-                    ><span class="cta-mark"
-                      ><img
-                        src="/assets/logos/Pressure_Planner_Mark_mono.svg"
-                        alt="" /></span
-                    >Start Setup</a
-                  >
-                  <a
-                    class="ghost-button"
-                    href="#join"
-                    data-prefill-path="planner-pilot"
-                    data-prefill-message="I want to join the 14-day Pressure Planner field test, save the live model to my home screen, and send feedback before mobile launch."
-                    >Join the founding round</a
-                  >
-                </div>
-                <p class="planner-footnote">
-                  Start Setup takes under 60 seconds. Save the Planner to your
-                  home screen so it stays one tap away while the mobile app is
-                  still being built.
-                </p>
-              </div>
-              <div class="pilot-steps">
-                <article class="pilot-step">
-                  <div class="mini-chip">Step 1</div>
-                  <strong>Start with the live model</strong>
-                  <p>
-                    Open the real Planner, run Start Setup, and keep the first
-                    experience honest and fast.
-                  </p>
-                </article>
-                <article class="pilot-step">
-                  <div class="mini-chip">Step 2</div>
-                  <strong>Save it to your home screen</strong>
-                  <p>
-                    Treat it like a working daily tool, not a tab you forget.
-                    The pilot is about repeated use under real conditions.
-                  </p>
-                </article>
-                <article class="pilot-step">
-                  <div class="mini-chip">Step 3</div>
-                  <strong>Use it for 14 days</strong>
-                  <p>
-                    Run shifts, training, parenting, fatigue, and recovery
-                    through the system long enough to see what actually holds.
-                  </p>
-                </article>
-                <article class="pilot-step">
-                  <div class="mini-chip">Step 4</div>
-                  <strong>Send feedback before mobile release</strong>
-                  <p>
-                    Tell us where the directive helped, where it felt thin, and
-                    what the mobile build should preserve or improve.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section class="section-block" id="ecosystem">
           <div class="surface-panel section-shell" data-reveal>
             <div class="section-header">
-              <div class="section-lockup">
-                <span class="section-mark">
-                  <img src="/assets/logos/TPA_House_Mark.svg" alt="" />
-                </span>
-                <span class="section-copy">
-                  <strong>The Pressure Academy</strong>
-                  <span>The brand house</span>
-                </span>
-              </div>
-              <h2>A flagship product, backed by a serious ecosystem.</h2>
+              <span class="eyebrow-numbered">03 / The house</span>
+              <h2>One academy. Five systems. One discipline.</h2>
               <p>
-                The homepage should not flatten the brand. Pressure Planner
-                leads because it is the current conversion priority. The wider
-                ecosystem shows the depth behind that flagship.
+                Pressure Planner is the entry point. The rest of the house is
+                where the same operating logic shows up in different arenas.
               </p>
             </div>
             <div class="ecosystem-grid">
@@ -1969,33 +2295,11 @@
                   >
                     Pressure Planner
                   </h3>
-                  <p>
-                    One screen. One directive. Every day. Built for shift
-                    workers who train, parent, and refuse to guess.
+                  <p class="ecosystem-card-line">
+                    Daily decision engine. One screen. One directive. Every
+                    day.
                   </p>
                 </div>
-                <ul class="bullet-list">
-                  <li>
-                    <span class="list-index">A</span
-                    ><span
-                      >Best entry point for users who need immediate daily
-                      utility.</span
-                    >
-                  </li>
-                  <li>
-                    <span class="list-index">B</span
-                    ><span
-                      >Clear bridge from homepage to live product path.</span
-                    >
-                  </li>
-                  <li>
-                    <span class="list-index">C</span
-                    ><span
-                      >Strongest proof of The Pressure Academy's systems
-                      thinking.</span
-                    >
-                  </li>
-                </ul>
                 <div class="ecosystem-actions">
                   <a
                     class="shell-button"
@@ -2006,12 +2310,8 @@
                         alt="" /></span
                     >Start Setup</a
                   >
-                  <a
-                    class="ghost-button"
-                    href="#join"
-                    data-prefill-path="planner-pilot"
-                    data-prefill-message="I want to join the 14-day Pressure Planner field test, save the live model to my home screen, and send feedback before mobile launch."
-                    >Join the founding round</a
+                  <a class="ghost-button" href="#planner-capture"
+                    >Get the field-test invite</a
                   >
                 </div>
               </article>
@@ -2020,10 +2320,9 @@
                   <img src="/assets/logos/Mastery_Method_Mark.svg" alt="" />
                 </div>
                 <h3 style="margin-top: 18px">Mastery Method</h3>
-                <p>
-                  The education arm of the ecosystem. Structured support for
-                  children and families who need a calmer, more deliberate
-                  learning system.
+                <p class="ecosystem-card-line">
+                  Family and education clarity. A calmer system for the
+                  learners and parents who need it.
                 </p>
                 <div class="ecosystem-actions">
                   <a class="ghost-button" href="/mastery-method"
@@ -2036,21 +2335,22 @@
                   <img src="/assets/logos/Pressure_Blueprint_Mark.svg" alt="" />
                 </div>
                 <h3 style="margin-top: 18px">Pressure Blueprint</h3>
-                <p>
-                  The grappling and positional logic layer. It matters here
-                  because it shows the same systems discipline operating in
-                  another arena.
+                <p class="ecosystem-card-line">
+                  Grappling and positional logic. Same discipline, different
+                  arena.
                 </p>
+                <div class="ecosystem-meta">In build</div>
               </article>
               <article class="ecosystem-card">
                 <div class="ecosystem-icon">
                   <img src="/assets/logos/Pressure_Tested_Mark.svg" alt="" />
                 </div>
                 <h3 style="margin-top: 18px">Pressure Tested</h3>
-                <p>
-                  Apparel and proof-of-work signal. It gives the brand house a
-                  visible edge instead of feeling purely digital or abstract.
+                <p class="ecosystem-card-line">
+                  Earned standard. Proof of work. A physical edge to a
+                  digital-first house.
                 </p>
+                <div class="ecosystem-meta">In build</div>
               </article>
               <article class="ecosystem-card">
                 <div class="ecosystem-icon">
@@ -2060,84 +2360,53 @@
                   />
                 </div>
                 <h3 style="margin-top: 18px">Pressure Over Force</h3>
-                <p>
-                  The culture and content layer. Ideas, language, and proof that
-                  keep the brand from feeling thin or generic.
+                <p class="ecosystem-card-line">
+                  Philosophy. Language. Culture. The reason the systems sound
+                  the way they do.
                 </p>
+                <div class="ecosystem-meta">Content layer</div>
               </article>
             </div>
           </div>
         </section>
 
-        <section class="section-block">
+        <section class="section-block" id="reality">
           <div class="surface-panel section-shell" data-reveal>
             <div class="section-header">
-              <div class="section-lockup">
-                <span class="section-mark">
-                  <img src="/assets/logos/TPA_House_Mark.svg" alt="" />
-                </span>
-                <span class="section-copy">
-                  <strong>System proof</strong>
-                  <span>Locked marks with real meaning</span>
-                </span>
-              </div>
-              <h2>
-                The same systems thinking shows up across the whole Pressure
-                house.
-              </h2>
+              <span class="eyebrow-numbered">04 / Reality</span>
+              <h2>Tested in reality, not in slides.</h2>
               <p>
-                This is how the brand earns trust. Planner is not presented as
-                an isolated app. It is the current flagship expression of a
-                wider operating philosophy.
+                The Planner is being run by operators, parents, and grapplers
+                under real load right now. Quotes from the field test are
+                being collected as the 14-day pilot runs.
               </p>
             </div>
-            <div class="proof-grid">
-              <article class="proof-card">
-                <div class="mark-cluster">
-                  <span class="section-mark">
-                    <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                  </span>
-                  <span class="metric-label">Pressure Planner</span>
-                </div>
-                <h3 style="margin-top: 18px">Live model now, mobile later</h3>
-                <p>
-                  The homepage can carry richer explanation, but the live
-                  product truth stays simple: one screen, one directive, every
-                  day.
-                </p>
+            <!-- TODO: replace placeholder reality cards with 2-3 real quotes from operator / parent / grappler users once the field test produces them. -->
+            <div class="reality-grid">
+              <article class="reality-card">
+                <span class="metric-label">Founder</span>
+                <blockquote>
+                  &ldquo;I built it because guessing under load was costing me
+                  ground. The score gives me one read, and one move, before
+                  the day gets noisy.&rdquo;
+                </blockquote>
+                <cite>Cody Raymond &middot; Founder</cite>
               </article>
-              <article class="proof-card">
-                <div class="mark-cluster">
-                  <span class="section-mark">
-                    <img
-                      src="/assets/logos/Pressure_Blueprint_Mark.svg"
-                      alt=""
-                    />
-                  </span>
-                  <span class="metric-label">Pressure Blueprint</span>
-                </div>
-                <h3 style="margin-top: 18px">
-                  Blueprint proves the discipline
-                </h3>
-                <p>
-                  The same systems logic appears in the grappling layer, which
-                  helps the homepage feel like a built house of methods rather
-                  than a single isolated product.
-                </p>
+              <article class="reality-card placeholder">
+                <span class="metric-label">Operator &middot; placeholder</span>
+                <blockquote>
+                  Operator quote pending. To be sourced from a 14-day field
+                  test participant working a shift-work rotation.
+                </blockquote>
+                <cite>Field test &middot; coming soon</cite>
               </article>
-              <article class="proof-card">
-                <div class="mark-cluster">
-                  <span class="section-mark">
-                    <img src="/assets/logos/Pressure_Tested_Mark.svg" alt="" />
-                  </span>
-                  <span class="metric-label">Pressure Tested</span>
-                </div>
-                <h3 style="margin-top: 18px">Proof-of-work matters too</h3>
-                <p>
-                  Pressure Tested gives the brand a harder edge and a future
-                  physical signal, which makes the digital flagship feel more
-                  grounded.
-                </p>
+              <article class="reality-card placeholder">
+                <span class="metric-label">Grappler &middot; placeholder</span>
+                <blockquote>
+                  Grappler quote pending. To be sourced from a training
+                  participant using the Planner during a competition block.
+                </blockquote>
+                <cite>Field test &middot; coming soon</cite>
               </article>
             </div>
           </div>
@@ -2192,49 +2461,36 @@
           <div class="join-panel" data-reveal>
             <div class="join-grid">
               <div>
-                <div class="section-lockup">
-                  <span class="section-mark">
-                    <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                  </span>
-                  <span class="section-copy">
-                    <strong>Founding Trial Intake</strong>
-                    <span>Pressure Planner pilot or another Pressure path</span>
-                  </span>
-                </div>
+                <span class="eyebrow-numbered">Step in</span>
                 <h2
                   style="
-                    margin-top: 18px;
-                    font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+                    margin-top: 14px;
+                    font-size: clamp(2.4rem, 4.5vw, 4.2rem);
                   "
                 >
-                  Join the founding round or tell us where you fit.
+                  If you want a full path, tell us where you fit.
                 </h2>
                 <p>
-                  Use this form if you want to run the 14-day Pressure Planner
-                  field test or if another part of the house is the better next
-                  step. Every request is reviewed manually.
+                  Use this form to join the 14-day Pressure Planner field test
+                  or to ask about another part of the house. Every request is
+                  reviewed manually.
                 </p>
-                <ul class="insight-list" style="margin-top: 24px">
+                <ul class="insight-list" style="margin-top: 22px">
                   <li>
                     <span class="list-index">1</span
-                    ><span
-                      >Tell us whether you want the 14-day Planner field test or
-                      another path in the house</span
-                    >
+                    ><span>Start with the live model. Run Start Setup.</span>
                   </li>
                   <li>
                     <span class="list-index">2</span
-                    ><span
-                      >Tell us what kind of pressure you want the system to help
-                      you read more clearly</span
-                    >
+                    ><span>Save it to your home screen. Treat it like a tool.</span>
                   </li>
                   <li>
                     <span class="list-index">3</span
-                    ><span
-                      >We respond with the cleanest next step instead of
-                      dropping you into a generic funnel</span
-                    >
+                    ><span>Use it for 14 days under real load.</span>
+                  </li>
+                  <li>
+                    <span class="list-index">4</span
+                    ><span>Send honest feedback before the mobile release.</span>
                   </li>
                 </ul>
               </div>
@@ -2244,12 +2500,15 @@
                 action="https://formspree.io/f/meerjgde"
                 method="POST"
               >
+                <input type="hidden" name="source" value="join-section" />
+                <input type="hidden" name="intent" value="planner-access" />
                 <div class="field-grid">
                   <label class="field">
                     <input
                       type="text"
                       name="name"
                       placeholder="Your name"
+                      autocomplete="name"
                       required
                     />
                   </label>
@@ -2258,6 +2517,7 @@
                       type="email"
                       name="email"
                       placeholder="Email address"
+                      autocomplete="email"
                       required
                     />
                   </label>
@@ -2349,15 +2609,16 @@
                     >Pressure Planner</a
                   >
                   <a href="#planner">Planner preview</a>
-                  <a href="#join">14-day field test</a>
+                  <a href="#planner-capture">Field-test invite</a>
+                  <a href="#join">Founding round</a>
                 </div>
               </div>
               <div class="footer-column">
                 <div class="section-label">Ecosystem</div>
                 <div class="footer-links">
                   <a href="/mastery-method">Mastery Method</a>
-                  <a href="#ecosystem">Pressure Blueprint</a>
-                  <a href="#ecosystem">Pressure Tested</a>
+                  <a href="#founder">Founder</a>
+                  <a href="#reality">Reality</a>
                   <a href="/privacy-policy.html">Privacy Policy</a>
                 </div>
               </div>
@@ -2652,26 +2913,35 @@
         });
       }
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("revealed");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.18 },
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
       );
 
-      document
-        .querySelectorAll("[data-reveal]")
-        .forEach((element) => observer.observe(element));
+      if (reducedMotion.matches) {
+        document
+          .querySelectorAll("[data-reveal]")
+          .forEach((element) => element.classList.add("revealed"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("revealed");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.18 },
+        );
+
+        document
+          .querySelectorAll("[data-reveal]")
+          .forEach((element) => observer.observe(element));
+      }
 
       const joinForm = document.getElementById("join-form");
       const joinPath = document.getElementById("join-path");
       const joinMessage = document.getElementById("join-message");
-      const formStatus = document.getElementById("form-status");
 
       document.querySelectorAll("[data-prefill-path]").forEach((link) => {
         link.addEventListener("click", () => {
@@ -2684,31 +2954,44 @@
         });
       });
 
-      if (joinForm && formStatus) {
-        joinForm.addEventListener("submit", async (event) => {
+      function bindFormspreeForm(form, statusEl, successMessage) {
+        if (!form || !statusEl) return;
+        form.addEventListener("submit", async (event) => {
           event.preventDefault();
-          const submitButton = joinForm.querySelector('button[type="submit"]');
-          formStatus.textContent = "Sending your request...";
+          if (!form.reportValidity()) return;
+          const submitButton = form.querySelector('button[type="submit"]');
+          statusEl.textContent = "Sending your request...";
           if (submitButton) submitButton.disabled = true;
-          const formData = new FormData(joinForm);
+          const formData = new FormData(form);
           try {
-            const response = await fetch(joinForm.action, {
+            const response = await fetch(form.action, {
               method: "POST",
               body: formData,
               headers: { Accept: "application/json" },
             });
             if (!response.ok) throw new Error("Form submission failed.");
-            joinForm.reset();
-            formStatus.textContent =
-              "Request received. We will follow up with the right next step.";
+            form.reset();
+            statusEl.textContent = successMessage;
           } catch (error) {
-            formStatus.textContent =
+            statusEl.textContent =
               "Something blocked the form. Please try again in a moment.";
           } finally {
             if (submitButton) submitButton.disabled = false;
           }
         });
       }
+
+      bindFormspreeForm(
+        joinForm,
+        document.getElementById("form-status"),
+        "Request received. We will follow up with the right next step.",
+      );
+
+      bindFormspreeForm(
+        document.getElementById("planner-capture-form"),
+        document.getElementById("planner-capture-status"),
+        "Invite request received. Watch your inbox for the field-test details.",
+      );
 
       renderPersonaButtons();
       renderControls();
