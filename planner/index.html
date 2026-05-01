@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pressure Planner | The Pressure Academy</title>
+    <meta
+      name="description"
+      content="Pressure Planner: six variables, one score, one directive. Decision support for people carrying real load."
+    />
+    <link rel="canonical" href="https://thepressureacademy.com/planner" />
+
+    <meta property="og:site_name" content="The Pressure Academy" />
+    <meta property="og:title" content="Pressure Planner" />
+    <meta
+      property="og:description"
+      content="Six variables. One score. One directive. Built for people carrying real load."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thepressureacademy.com/planner" />
+    <meta
+      property="og:image"
+      content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pressure Planner" />
+    <meta
+      name="twitter:description"
+      content="Six variables. One score. One directive. Built for people carrying real load."
+    />
+    <meta
+      name="twitter:image"
+      content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      href="/assets/logos/Pressure_Planner_Mark.svg"
+    />
+    <link
+      rel="icon"
+      href="/assets/logos/Pressure_Planner_Mark.svg"
+      type="image/svg+xml"
+    />
+    <meta name="theme-color" content="#120f10" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #120f10;
+        --panel: rgba(34, 27, 30, 0.92);
+        --line: rgba(255, 255, 255, 0.1);
+        --text: #f7f1ea;
+        --muted: #d0c2b6;
+        --soft: #b09c8f;
+        --rust: #c45b28;
+        --rust-bright: #ef7d43;
+        --sand: #f3d7b2;
+        --teal: #4a9b8e;
+        --gold: #f0bf72;
+        --shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+        --radius-lg: 28px;
+        --radius-md: 22px;
+        --radius-sm: 16px;
+        --container: min(720px, calc(100vw - 32px));
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        font-family: "Outfit", Arial, sans-serif;
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(196, 91, 40, 0.18),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 85% 12%,
+            rgba(74, 155, 142, 0.14),
+            transparent 24%
+          ),
+          linear-gradient(180deg, #171213 0%, #0e0b0c 100%);
+        color: var(--text);
+        line-height: 1.5;
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input {
+        font: inherit;
+        color: inherit;
+      }
+
+      button {
+        border: 0;
+        background: none;
+        cursor: pointer;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .planner-shell {
+        width: var(--container);
+        margin: 0 auto;
+        padding: 28px 0 48px;
+        display: grid;
+        gap: 24px;
+      }
+
+      .planner-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .planner-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .planner-brand .mark {
+        width: 42px;
+        height: 42px;
+        padding: 9px;
+        border-radius: 14px;
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(243, 215, 178, 0.12),
+            transparent 58%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(74, 58, 55, 0.95),
+            rgba(43, 33, 35, 0.92)
+          );
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.16),
+          0 10px 24px rgba(0, 0, 0, 0.16);
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+      }
+
+      .planner-brand .mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .planner-brand .text {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
+      }
+
+      .planner-brand .text strong {
+        font-size: 0.96rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .planner-brand .text em {
+        font-style: normal;
+        display: block;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--soft);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .back-link {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--soft);
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        transition:
+          color 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease;
+      }
+
+      .back-link:hover,
+      .back-link:focus-visible {
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .planner-header h1 {
+        margin: 0;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: clamp(2.4rem, 6vw, 3.6rem);
+        letter-spacing: -0.04em;
+        line-height: 0.95;
+      }
+
+      .planner-header p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 1rem;
+        max-width: 38ch;
+      }
+
+      .persona-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .persona-button {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--muted);
+        font-size: 0.88rem;
+        transition:
+          color 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease,
+          transform 180ms ease;
+      }
+
+      .persona-button[aria-pressed="true"],
+      .persona-button:hover,
+      .persona-button:focus-visible {
+        color: var(--text);
+        border-color: rgba(240, 191, 114, 0.28);
+        background: rgba(196, 91, 40, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .persona-button[aria-pressed="true"] {
+        background: rgba(196, 91, 40, 0.18);
+      }
+
+      .control-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .control-item {
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(8, 8, 9, 0.32);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .control-item header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      .control-item strong {
+        font-size: 0.96rem;
+      }
+
+      .control-item .value {
+        font-family: "JetBrains Mono", monospace;
+        color: var(--sand);
+        font-size: 0.86rem;
+      }
+
+      .control-item .desc {
+        color: var(--soft);
+        font-size: 0.82rem;
+        margin-top: 6px;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--rust-bright);
+      }
+
+      .directive {
+        padding: 24px;
+        border-radius: var(--radius-lg);
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(74, 155, 142, 0.16),
+            transparent 40%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.02)
+          ),
+          var(--panel);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        box-shadow: var(--shadow);
+      }
+
+      .directive-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 16px;
+      }
+
+      .directive-score {
+        font-family: "Fraunces", Georgia, serif;
+        font-size: clamp(2.6rem, 9vw, 3.4rem);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+      }
+
+      .directive-band {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 32px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .directive-band::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, var(--sand), var(--rust-bright));
+        box-shadow: 0 0 16px rgba(240, 191, 114, 0.3);
+      }
+
+      .directive h2 {
+        margin: 0;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: clamp(1.6rem, 4vw, 2.1rem);
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+      }
+
+      .directive p {
+        margin: 14px 0 0;
+        color: var(--muted);
+      }
+
+      .directive .shift {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+        font-size: 0.92rem;
+        color: var(--soft);
+      }
+
+      .directive .shift strong {
+        color: var(--text);
+        display: block;
+        margin-bottom: 4px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .save-hint {
+        padding: 14px 16px;
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .save-hint strong {
+        color: var(--text);
+      }
+
+      .planner-footer {
+        margin-top: 8px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--soft);
+      }
+
+      .planner-footer a {
+        color: var(--soft);
+        transition: color 180ms ease;
+      }
+
+      .planner-footer a:hover,
+      .planner-footer a:focus-visible {
+        color: var(--text);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .persona-button:hover,
+        .persona-button:focus-visible,
+        .back-link:hover,
+        .back-link:focus-visible {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .planner-topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .directive-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="planner-shell">
+      <div class="planner-topbar">
+        <a class="planner-brand" href="/" aria-label="The Pressure Academy">
+          <span class="mark"
+            ><img src="/assets/logos/Pressure_Planner_Mark.svg" alt=""
+          /></span>
+          <span class="text">
+            <strong>Pressure Planner</strong>
+            <em>One screen. One directive.</em>
+          </span>
+        </a>
+        <a class="back-link" href="/">&larr; The Pressure Academy</a>
+      </div>
+
+      <header class="planner-header">
+        <h1>How does today decide?</h1>
+        <p>
+          Read your day across six variables. The system returns one score and
+          one directive &mdash; what to do next, under real load.
+        </p>
+      </header>
+
+      <div
+        class="persona-row"
+        id="persona-row"
+        role="group"
+        aria-label="Quick presets"
+      ></div>
+
+      <section
+        class="control-grid"
+        id="control-grid"
+        aria-label="Pressure variables"
+      ></section>
+
+      <section class="directive" aria-live="polite">
+        <div class="directive-header">
+          <strong class="directive-score" id="planner-score">74</strong>
+          <span class="directive-band" id="planner-band">High signal day</span>
+        </div>
+        <h2 id="planner-title">Press while the window is open.</h2>
+        <p id="planner-body">
+          Today supports decisive movement. Protect the highest-value block,
+          reduce noise, and act before the window closes.
+        </p>
+        <div class="shift">
+          <strong>What changes</strong>
+          <span id="planner-shift"
+            >You stop mistaking a workable day for a perfect day.</span
+          >
+        </div>
+      </section>
+
+      <div class="save-hint">
+        <strong>Use it daily.</strong> Save this page to your home screen. The
+        Pressure Planner is intentionally lightweight &mdash; one tap, one
+        screen, one directive.
+      </div>
+
+      <footer class="planner-footer">
+        <a href="/">&larr; Home</a>
+        <a href="/privacy-policy.html">Privacy</a>
+        <span>&copy; 2026 The Pressure Academy</span>
+      </footer>
+    </main>
+
+    <script>
+      const plannerInputs = [
+        {
+          key: "energy",
+          label: "Energy",
+          description: "How much usable output is actually available?",
+          value: 76,
+        },
+        {
+          key: "clarity",
+          label: "Clarity",
+          description: "How clean is your thinking right now?",
+          value: 72,
+        },
+        {
+          key: "friction",
+          label: "Friction",
+          description:
+            "How much resistance is the environment creating?",
+          value: 42,
+          invert: true,
+        },
+        {
+          key: "recovery",
+          label: "Recovery",
+          description: "How much capacity have you restored?",
+          value: 64,
+        },
+        {
+          key: "constraint",
+          label: "Constraint",
+          description: "How boxed in does the day feel?",
+          value: 38,
+          invert: true,
+        },
+        {
+          key: "intent",
+          label: "Intent",
+          description: "How clear is the priority you are protecting?",
+          value: 81,
+        },
+      ];
+
+      const personaData = [
+        {
+          id: "founder",
+          label: "Founder",
+          values: {
+            energy: 71,
+            clarity: 74,
+            friction: 46,
+            recovery: 58,
+            constraint: 41,
+            intent: 85,
+          },
+        },
+        {
+          id: "parent",
+          label: "Parent",
+          values: {
+            energy: 54,
+            clarity: 57,
+            friction: 63,
+            recovery: 42,
+            constraint: 67,
+            intent: 69,
+          },
+        },
+        {
+          id: "operator",
+          label: "Operator",
+          values: {
+            energy: 67,
+            clarity: 62,
+            friction: 49,
+            recovery: 60,
+            constraint: 44,
+            intent: 76,
+          },
+        },
+      ];
+
+      const directiveRules = [
+        {
+          min: 80,
+          band: "Prime window",
+          title: "Advance with precision.",
+          body: "You have real signal and usable capacity. Protect the highest-leverage block and move before the day gets diluted.",
+          shift:
+            "The day can carry meaningful pressure without becoming reckless.",
+        },
+        {
+          min: 62,
+          band: "High signal day",
+          title: "Press while the window is open.",
+          body: "Today supports decisive movement. Protect the highest-value block, reduce noise, and act before the window closes.",
+          shift: "You stop mistaking a workable day for a perfect day.",
+        },
+        {
+          min: 46,
+          band: "Guard the lane",
+          title: "Protect the lane you can still hold.",
+          body: "The system is asking for narrower execution. Keep the priority visible, trim obligations, and avoid splintering attention.",
+          shift:
+            "The day becomes manageable because the decision surface gets smaller.",
+        },
+        {
+          min: 28,
+          band: "Recovery bias",
+          title: "Reset before you push again.",
+          body: "Capacity is leaking. Strip the day back, recover what is recoverable, and avoid calling burnout discipline.",
+          shift:
+            "You stop forcing output from a system that needs repair first.",
+        },
+        {
+          min: 0,
+          band: "Constraint day",
+          title: "Contain the damage and reduce exposure.",
+          body: "This is not the day for expansion. Protect essentials, cut optional load, and make the smallest useful move available.",
+          shift:
+            "You stop treating a constrained day like a test of character.",
+        },
+      ];
+
+      const personaRow = document.getElementById("persona-row");
+      const controlGrid = document.getElementById("control-grid");
+      const plannerScore = document.getElementById("planner-score");
+      const plannerBand = document.getElementById("planner-band");
+      const plannerTitle = document.getElementById("planner-title");
+      const plannerBody = document.getElementById("planner-body");
+      const plannerShift = document.getElementById("planner-shift");
+
+      function renderPersonaButtons() {
+        personaRow.innerHTML = "";
+        personaData.forEach((persona, index) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "persona-button";
+          button.setAttribute("aria-pressed", index === 0 ? "true" : "false");
+          button.dataset.id = persona.id;
+          button.textContent = persona.label;
+          button.addEventListener("click", () => {
+            personaRow.querySelectorAll(".persona-button").forEach((b) => {
+              b.setAttribute("aria-pressed", "false");
+            });
+            button.setAttribute("aria-pressed", "true");
+            plannerInputs.forEach((item) => {
+              if (persona.values[item.key] != null) {
+                item.value = persona.values[item.key];
+                const slider = controlGrid.querySelector(
+                  `input[data-key="${item.key}"]`,
+                );
+                const value = controlGrid.querySelector(
+                  `#${item.key}-value`,
+                );
+                if (slider) slider.value = item.value;
+                if (value) value.textContent = item.value;
+              }
+            });
+            updatePlannerState();
+          });
+          personaRow.appendChild(button);
+        });
+      }
+
+      function renderControls() {
+        controlGrid.innerHTML = "";
+        plannerInputs.forEach((item) => {
+          const wrapper = document.createElement("label");
+          wrapper.className = "control-item";
+          wrapper.innerHTML = `
+            <header>
+              <strong>${item.label}</strong>
+              <span class="value" id="${item.key}-value">${item.value}</span>
+            </header>
+            <input type="range" min="0" max="100" value="${item.value}" data-key="${item.key}" aria-label="${item.label}" />
+            <div class="desc">${item.description}</div>
+          `;
+          controlGrid.appendChild(wrapper);
+        });
+
+        controlGrid
+          .querySelectorAll('input[type="range"]')
+          .forEach((input) => {
+            input.addEventListener("input", () => {
+              const key = input.dataset.key;
+              const numericValue = Number(input.value);
+              const target = plannerInputs.find((item) => item.key === key);
+              if (!target) return;
+              target.value = numericValue;
+              const valueDisplay = document.getElementById(`${key}-value`);
+              if (valueDisplay) valueDisplay.textContent = numericValue;
+              updatePlannerState();
+            });
+          });
+      }
+
+      function getDirective(score) {
+        return (
+          directiveRules.find((rule) => score >= rule.min) ||
+          directiveRules[directiveRules.length - 1]
+        );
+      }
+
+      function calculateScore() {
+        const total = plannerInputs.reduce((sum, item) => {
+          const normalized = item.invert ? 100 - item.value : item.value;
+          return sum + normalized;
+        }, 0);
+        return Math.round(total / plannerInputs.length);
+      }
+
+      function updatePlannerState() {
+        const score = calculateScore();
+        const directive = getDirective(score);
+        plannerScore.textContent = score;
+        plannerBand.textContent = directive.band;
+        plannerTitle.textContent = directive.title;
+        plannerBody.textContent = directive.body;
+        plannerShift.textContent = directive.shift;
+      }
+
+      renderPersonaButtons();
+      renderControls();
+      updatePlannerState();
+    </script>
+  </body>
+</html>
