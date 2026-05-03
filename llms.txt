@@ -4,7 +4,7 @@
 > This file lists public-facing pages only. Protected portal routes and internal docs are intentionally excluded.
 
 - https://thepressureacademy.com/ — Main homepage for The Pressure Academy and its public site entry point.
-- https://thepressureacademy.com/planner — Pressure Planner: six variables, one score, one directive. Lightweight standalone tool intended to be saved to home screen.
+- https://thepressureacademy.com/planner — Pressure Planner: TPA-branded public entry route. Bridges to the live Planner runtime currently hosted on Manus at planner.thepressureacademy.com. The full Planner application source is governed separately; this URL is the canonical brand surface.
 - https://thepressureacademy.com/privacy-policy.html — Privacy policy covering site forms, Mastery Method booking, scorecard submissions, and portal/session handling.
 - https://thepressureacademy.com/mastery-method/ — Mastery Method overview and main public landing page.
 - https://thepressureacademy.com/mastery-method/about — Background on Mastery Method and its approach.
