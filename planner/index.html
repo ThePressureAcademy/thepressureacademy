@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pressure Planner | The Pressure Academy</title>
+    <meta
+      name="description"
+      content="Pressure Planner — opening the live Planner runtime."
+    />
+
+    <!--
+      Route truth (governed):
+      - This file is the TPA-branded /planner entry route.
+      - It is a bridge, not the Pressure Planner application.
+      - The actual Planner runtime is currently hosted on Manus at
+        https://planner.thepressureacademy.com/
+      - The full Planner source belongs in the governed source repo
+        ThePressureAcademy/pressure-planner-app, NOT in this static
+        homepage repo.
+      - A transparent rewrite/proxy is intentionally deferred until
+        assets, /api/*, OAuth callbacks, cookies, tRPC endpoints, and
+        SPA navigation are all verified end-to-end through Vercel.
+      - See docs/planner/PLANNER_ROUTE_BRIDGE.md for the full
+        governance note and the eventual source-owned path.
+    -->
+
+    <link rel="canonical" href="https://thepressureacademy.com/planner" />
+    <meta name="robots" content="noindex,follow" />
+    <meta
+      http-equiv="refresh"
+      content="2;url=https://planner.thepressureacademy.com/"
+    />
+
+    <link
+      rel="icon"
+      href="/assets/logos/Pressure_Planner_Mark.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/logos/Pressure_Planner_Mark.svg"
+    />
+    <meta name="theme-color" content="#120f10" />
+
+    <style>
+      :root {
+        --bg-1: #171213;
+        --bg-2: #0e0b0c;
+        --line: rgba(255, 255, 255, 0.12);
+        --text: #f7f1ea;
+        --muted: #d0c2b6;
+        --soft: #b09c8f;
+        --rust: #c45b28;
+        --rust-bright: #ef7d43;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          Arial,
+          sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(196, 91, 40, 0.18),
+            transparent 36%
+          ),
+          linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        min-height: 100vh;
+      }
+
+      main {
+        width: min(420px, 100%);
+        text-align: center;
+        display: grid;
+        gap: 22px;
+      }
+
+      .mark {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto;
+        padding: 14px;
+        border-radius: 18px;
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(243, 215, 178, 0.12),
+            transparent 58%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(74, 58, 55, 0.95),
+            rgba(43, 33, 35, 0.92)
+          );
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        display: grid;
+        place-items: center;
+      }
+
+      .mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.6rem;
+        letter-spacing: -0.01em;
+        font-weight: 700;
+      }
+
+      .status {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 24px;
+        border-radius: 999px;
+        color: #fff8f0;
+        background: linear-gradient(
+          135deg,
+          var(--rust) 0%,
+          var(--rust-bright) 100%
+        );
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 18px 38px rgba(196, 91, 40, 0.24);
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .cta:hover,
+      .cta:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 24px 48px rgba(196, 91, 40, 0.3);
+      }
+
+      .meta {
+        margin: 0;
+        color: var(--soft);
+        font-size: 0.78rem;
+        letter-spacing: 0.04em;
+      }
+
+      .meta a {
+        color: var(--soft);
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .meta a:hover,
+      .meta a:focus-visible {
+        color: var(--text);
+      }
+
+      .home-back {
+        display: inline-block;
+        margin-top: 4px;
+        font-size: 0.78rem;
+        color: var(--soft);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+
+      .home-back:hover,
+      .home-back:focus-visible {
+        color: var(--text);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .cta:hover,
+        .cta:focus-visible {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="mark" aria-hidden="true"
+        ><img src="/assets/logos/Pressure_Planner_Mark.svg" alt=""
+      /></span>
+      <h1>Pressure Planner</h1>
+      <p class="status" id="status">Opening Pressure Planner&hellip;</p>
+      <a
+        class="cta"
+        id="open-link"
+        href="https://planner.thepressureacademy.com/"
+        rel="noopener"
+        >Open Pressure Planner</a
+      >
+      <p class="meta">
+        If you are not redirected automatically, use the button above or
+        <a href="https://planner.thepressureacademy.com/" rel="noopener"
+          >planner.thepressureacademy.com</a
+        >.
+      </p>
+      <a class="home-back" href="/">&larr; The Pressure Academy</a>
+      <noscript>
+        <p class="meta" style="margin-top: 8px">
+          JavaScript is disabled. Use the
+          <strong>Open Pressure Planner</strong> button above to continue.
+        </p>
+      </noscript>
+    </main>
+    <script>
+      (function () {
+        var target = "https://planner.thepressureacademy.com/";
+        var delayMs = 700;
+        var status = document.getElementById("status");
+        try {
+          setTimeout(function () {
+            if (status) status.textContent = "Redirecting now…";
+            window.location.replace(target);
+          }, delayMs);
+        } catch (e) {
+          // Manual link still works
+        }
+      })();
+    </script>
+  </body>
+</html>
