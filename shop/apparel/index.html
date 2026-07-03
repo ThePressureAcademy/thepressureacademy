@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pressure Tested Apparel | The Pressure Academy</title>
+    <meta
+      name="description"
+      content="Pressure Tested: heavyweight training apparel from The Pressure Academy. First drop in development — join the release list for first access."
+    />
+    <link rel="canonical" href="https://thepressureacademy.com/shop/apparel/" />
+    <meta property="og:site_name" content="The Pressure Academy" />
+    <meta property="og:title" content="Pressure Tested Apparel | The Pressure Academy" />
+    <meta
+      property="og:description"
+      content="Heavyweight training apparel. Worn under load, not for the feed. First drop in development."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thepressureacademy.com/shop/apparel/" />
+    <meta property="og:image" content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png" />
+    <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+          <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+          <span class="brand-copy">
+            <strong>The Pressure Academy</strong>
+            <span>Built under pressure</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="/shop/">Shop</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/academy-orders/">Academy Orders</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="cart-button" data-cart-open aria-label="Open cart">
+            Cart <span data-cart-count aria-hidden="true"></span>
+          </button>
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/shop/">Shop</a>
+        <a href="/shop/apparel/" aria-current="page">Apparel</a>
+        <a href="/shop/mats/">Mats</a>
+        <a href="/seminars/">Seminars</a>
+        <a href="/blueprints/">Blueprints</a>
+        <a href="/academy-orders/">Academy Orders</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="kicker">Pressure Tested</span>
+          <h1>Worn under load.<br />Not for the feed.</h1>
+          <p class="lead">
+            Heavyweight fabric, minimal print, no billboard energy. Apparel that earns its
+            place in the wash cycle of someone who actually trains.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#drop-list">Get first access at drop</a>
+            <a class="btn-ghost" href="#range">See the range</a>
+          </div>
+          <div class="truth-note" style="margin-top: 26px; max-width: 44rem">
+            <strong>Where this is at:</strong> the first Pressure Tested drop is in
+            development. Nothing below is purchasable yet — pricing locks at release, and
+            the drop list gets first access before anything goes public.
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" id="range">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">First drop range</span>
+            <h2>Four pieces. No filler.</h2>
+          </div>
+          <div class="product-grid" id="apparel-grid"></div>
+          <noscript>
+            <p class="muted">
+              The range renders with JavaScript enabled. To get first access at drop,
+              use the form below or email via the <a href="/contact/">contact page</a>.
+            </p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="section-tight" id="sizing">
+        <div class="container">
+          <div class="panel">
+            <div class="grid-2">
+              <div>
+                <span class="kicker">Size confidence</span>
+                <h2>Buy your size once.</h2>
+                <p class="muted">
+                  Final garment measurements are published with the drop. Until then, this
+                  gives you a provisional read so you can join the list at the right size.
+                </p>
+                <form class="capture-form" id="size-quiz" style="margin-top: 16px">
+                  <div class="field-grid">
+                    <label>
+                      <span class="mono muted">Height</span>
+                      <select id="size-height">
+                        <option value="1">Under 170cm</option>
+                        <option value="2" selected>170–180cm</option>
+                        <option value="3">180–190cm</option>
+                        <option value="4">Over 190cm</option>
+                      </select>
+                    </label>
+                    <label>
+                      <span class="mono muted">Build</span>
+                      <select id="size-build">
+                        <option value="1">Lighter</option>
+                        <option value="2" selected>Average</option>
+                        <option value="3">Heavier / lifting</option>
+                      </select>
+                    </label>
+                  </div>
+                  <button type="button" class="btn-ghost" id="size-suggest">Suggest my size</button>
+                  <p class="form-status" id="size-result" aria-live="polite"></p>
+                </form>
+                <p class="gate-note" style="margin-top: 14px">
+                  Provisional guidance only — confirm against the final size chart at drop.
+                </p>
+              </div>
+              <div>
+                <span class="kicker">Retail logic, ready</span>
+                <h3>What switches on at drop</h3>
+                <ul class="spec-list">
+                  <li>Add-to-cart with the slide-out cart (foundation live on this page now)</li>
+                  <li>Express checkout (Shop Pay / Apple Pay / Google Pay) once a payment provider is connected</li>
+                  <li>Order bump at checkout — pairing planned, nothing pre-sold</li>
+                  <li>Final size chart with garment measurements</li>
+                </ul>
+                <p class="gate-note" style="margin-top: 14px">
+                  No payment provider is connected yet. The cart never takes money, holds
+                  stock, or creates an order in the current state.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" id="drop-list">
+        <div class="container">
+          <div class="panel">
+            <div class="grid-2">
+              <div>
+                <span class="kicker">Drop list</span>
+                <h2>First access. No spam economics.</h2>
+                <p class="muted">
+                  One email when the drop opens, sized and priced. Early list gets first
+                  run before anything goes public.
+                </p>
+              </div>
+              <form
+                class="capture-form"
+                data-capture="apparel-drop-list"
+                action="https://formspree.io/f/meerjgde"
+                method="POST"
+              >
+                <input type="hidden" name="intent" value="apparel-drop-list" />
+                <input type="hidden" name="source" value="shop-apparel" />
+                <input type="hidden" name="product" value="" data-product-field />
+                <div class="field-grid">
+                  <input type="text" name="name" placeholder="Name" required />
+                  <input type="email" name="email" placeholder="Email" required />
+                </div>
+                <label>
+                  <select name="size">
+                    <option value="">Preferred size (optional)</option>
+                    <option>XS</option><option>S</option><option>M</option>
+                    <option>L</option><option>XL</option><option>2XL</option><option>3XL</option>
+                  </select>
+                </label>
+                <button class="btn" type="submit">Join the drop list</button>
+                <div class="form-status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+            <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+            <span class="brand-copy">
+              <strong>The Pressure Academy</strong>
+              <span>Built under pressure</span>
+            </span>
+          </a>
+          <p class="muted" style="margin-top: 14px; max-width: 30rem">
+            Mats, apparel, seminars, and systems for athletes who live under pressure.
+            Not motivation. Architecture.
+          </p>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Shop</span>
+          <div class="footer-links">
+            <a href="/shop/apparel/">Pressure Tested apparel</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/academy-orders/">Academy orders</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Train</span>
+          <div class="footer-links">
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/planner">Pressure Planner</a>
+            <a href="/mastery-method">Mastery Method</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Company</span>
+          <div class="footer-links">
+            <a href="/contact/">Contact</a>
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/">Home</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-micro">
+        <span>Pressure first. Noise second.</span>
+        <span>&copy; 2026 The Pressure Academy</span>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { apparel } from "/js/config/commerce.js";
+      import { initCart, addItem } from "/js/lib/cart.js";
+      import {
+        apparelCard,
+        enhanceCaptureForms,
+        trackProductViews,
+        initMobileNav,
+      } from "/js/lib/commerce-ui.js";
+
+      initMobileNav();
+      initCart();
+
+      const grid = document.getElementById("apparel-grid");
+      grid.innerHTML = apparel.map(apparelCard).join("");
+      trackProductViews(apparel, "shop-apparel");
+
+      // Drop-list CTA on cards scrolls to the capture form with product context.
+      grid.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-drop-list]");
+        if (btn) {
+          const field = document.querySelector("[data-product-field]");
+          if (field) field.value = btn.dataset.dropList;
+          document.getElementById("drop-list").scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+        const add = e.target.closest("[data-add-to-cart]");
+        if (add) {
+          const product = apparel.find((p) => p.id === add.dataset.addToCart);
+          if (product && product.status === "live") {
+            addItem({
+              id: product.id,
+              name: product.name,
+              priceCents: product.priceCents,
+            });
+          }
+        }
+      });
+
+      // Provisional size suggestion (labelled provisional in UI).
+      const sizeMap = {
+        "1-1": "S", "1-2": "M", "1-3": "L",
+        "2-1": "M", "2-2": "L", "2-3": "XL",
+        "3-1": "L", "3-2": "XL", "3-3": "2XL",
+        "4-1": "XL", "4-2": "2XL", "4-3": "3XL",
+      };
+      document.getElementById("size-suggest").addEventListener("click", () => {
+        const h = document.getElementById("size-height").value;
+        const b = document.getElementById("size-build").value;
+        const size = sizeMap[`${h}-${b}`] || "L";
+        document.getElementById("size-result").textContent =
+          `Provisional suggestion: ${size}. Confirm against the final chart at drop.`;
+      });
+
+      enhanceCaptureForms();
+
+    </script>
+  </body>
+</html>

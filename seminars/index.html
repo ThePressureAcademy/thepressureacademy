@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seminars | The Pressure Academy</title>
+    <meta
+      name="description"
+      content="Pressure Academy seminars: athlete-led training events built as systems, not highlight reels. Join the founding list for first access to events."
+    />
+    <link rel="canonical" href="https://thepressureacademy.com/seminars/" />
+    <meta property="og:site_name" content="The Pressure Academy" />
+    <meta property="og:title" content="Seminars | The Pressure Academy" />
+    <meta
+      property="og:description"
+      content="Athlete-led training events built as systems. Small rooms, real coaching, no filler."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thepressureacademy.com/seminars/" />
+    <meta property="og:image" content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png" />
+    <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+          <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+          <span class="brand-copy">
+            <strong>The Pressure Academy</strong>
+            <span>Built under pressure</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="/shop/">Shop</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/seminars/" aria-current="page">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/academy-orders/">Academy Orders</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="cart-button" data-cart-open aria-label="Open cart">
+            Cart <span data-cart-count aria-hidden="true"></span>
+          </button>
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/shop/">Shop</a>
+        <a href="/shop/mats/">Mats</a>
+        <a href="/seminars/" aria-current="page">Seminars</a>
+        <a href="/blueprints/">Blueprints</a>
+        <a href="/academy-orders/">Academy Orders</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="kicker">Live events</span>
+          <h1>Small rooms.<br />Serious coaching.</h1>
+          <p class="lead">
+            Pressure Academy seminars are athlete-led training events built as systems,
+            not photo opportunities. Capped rooms, real mat time, and material you can
+            still use six months later.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#events">See open events</a>
+            <a class="btn-ghost" href="#seminar-list">Get event announcements</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" id="events">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">Open events</span>
+            <h2 id="events-title">Event board</h2>
+          </div>
+          <div class="grid-2" id="events-grid"></div>
+          <noscript>
+            <p class="muted">The event board renders with JavaScript enabled. Join the list below for announcements.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="container">
+          <div class="panel">
+            <span class="kicker">How a Pressure seminar runs</span>
+            <div class="grid-3">
+              <div>
+                <span class="step-num">1</span>
+                <h3>Capped room</h3>
+                <p class="muted">
+                  Events are capped so everyone gets rounds and corrections, not a view of
+                  the back of someone's head. When it is full, it is full.
+                </p>
+              </div>
+              <div>
+                <span class="step-num">2</span>
+                <h3>System, not highlight reel</h3>
+                <p class="muted">
+                  Each event teaches a connected system — positions, pressure, decisions —
+                  so the material survives contact with your next hard round.
+                </p>
+              </div>
+              <div>
+                <span class="step-num">3</span>
+                <h3>Two-step registration</h3>
+                <p class="muted">
+                  Register your spot first, pay second. You are never charged by surprise,
+                  and registration tells us the demand before seats are released.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" id="seminar-list">
+        <div class="container">
+          <div class="panel">
+            <div class="grid-2">
+              <div>
+                <span class="kicker">Founding event list</span>
+                <h2>First rooms fill from this list.</h2>
+                <p class="muted">
+                  Event announcements go here before anywhere else. Tell us your city —
+                  it directly shapes where the first events land.
+                </p>
+              </div>
+              <form
+                class="capture-form"
+                data-capture="seminar-interest"
+                action="https://formspree.io/f/meerjgde"
+                method="POST"
+                id="seminar-interest-form"
+              >
+                <input type="hidden" name="intent" value="seminar-interest" />
+                <input type="hidden" name="source" value="seminars-index" />
+                <div class="field-grid">
+                  <input type="text" name="name" placeholder="Name" required />
+                  <input type="email" name="email" placeholder="Email" required />
+                </div>
+                <div class="field-grid">
+                  <input type="text" name="city" placeholder="Your city" required />
+                  <select name="experience">
+                    <option value="">Experience (optional)</option>
+                    <option value="new">New to grappling</option>
+                    <option value="hobbyist">Regular training</option>
+                    <option value="competitor">Competitor</option>
+                    <option value="coach">Coach / academy owner</option>
+                  </select>
+                </div>
+                <button class="btn" type="submit">Join the founding list</button>
+                <div class="form-status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+            <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+            <span class="brand-copy">
+              <strong>The Pressure Academy</strong>
+              <span>Built under pressure</span>
+            </span>
+          </a>
+          <p class="muted" style="margin-top: 14px; max-width: 30rem">
+            Mats, apparel, seminars, and systems for athletes who live under pressure.
+            Not motivation. Architecture.
+          </p>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Shop</span>
+          <div class="footer-links">
+            <a href="/shop/apparel/">Pressure Tested apparel</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/academy-orders/">Academy orders</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Train</span>
+          <div class="footer-links">
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/planner">Pressure Planner</a>
+            <a href="/mastery-method">Mastery Method</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Company</span>
+          <div class="footer-links">
+            <a href="/contact/">Contact</a>
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/">Home</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-micro">
+        <span>Pressure first. Noise second.</span>
+        <span>&copy; 2026 The Pressure Academy</span>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { publicSeminars } from "/js/config/funnels.js";
+      import { initCart } from "/js/lib/cart.js";
+      import { track, EVENTS } from "/js/lib/events.js";
+      import {
+        enhanceCaptureForms,
+        escapeHtml,
+        initMobileNav,
+      } from "/js/lib/commerce-ui.js";
+
+      initMobileNav();
+      initCart();
+      enhanceCaptureForms(document, (form) => {
+        if (form.dataset.capture === "seminar-interest") {
+          track(EVENTS.SEMINAR_INTEREST_SUBMITTED, {
+            slug: null,
+            mode: "seminar-interest",
+            surface: "seminars-index",
+          });
+        }
+      });
+
+      const STATUS_BADGE = {
+        interest: "Interest open",
+        announced: "Announced",
+        open: "Tickets live",
+        sold_out: "Sold out",
+      };
+      const events = publicSeminars();
+      const grid = document.getElementById("events-grid");
+      if (!events.length) {
+        document.getElementById("events-title").textContent =
+          "No events are open right now.";
+        grid.innerHTML = `
+          <article class="card">
+            <span class="kicker">Straight answer</span>
+            <h3>The first event opens to the founding list before this page.</h3>
+            <p class="muted">
+              We announce events only when the athlete, date, and venue are locked.
+              No phantom events, no fake countdowns. The founding list below hears first.
+            </p>
+            <div class="card-cta"><a class="btn" href="#seminar-list">Join the founding list</a></div>
+          </article>`;
+      } else {
+        grid.innerHTML = events
+          .map(
+            (ev) => `
+          <article class="card">
+            ${STATUS_BADGE[ev.status] ? `<span class="badge">${escapeHtml(STATUS_BADGE[ev.status])}</span>` : ""}
+            <span class="kicker">${escapeHtml(ev.city || "Event")}</span>
+            <h3>${escapeHtml(ev.title)}</h3>
+            <p class="muted">${escapeHtml(ev.subheadline || ev.headline || "")}</p>
+            <div class="card-cta"><a class="btn" href="/seminars/${escapeHtml(ev.slug)}/">${
+              ev.status === "open" ? "Get tickets" : ev.status === "interest" ? "Register interest" : "Event details"
+            }</a></div>
+          </article>`,
+          )
+          .join("");
+      }
+
+      // Registration-start signal: first interaction with the interest form.
+      const form = document.getElementById("seminar-interest-form");
+      let started = false;
+      form.addEventListener(
+        "focusin",
+        () => {
+          if (!started) {
+            started = true;
+            track(EVENTS.SEMINAR_REGISTRATION_STARTED, { surface: "seminars-index" });
+          }
+        },
+        { once: true },
+      );
+
+    </script>
+  </body>
+</html>

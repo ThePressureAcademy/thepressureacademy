@@ -52,8 +52,8 @@ Stale internal docs exist in this repo and are not automatically canonical.
 These mappings are verified in current repo code:
 
 - `https://formspree.io/f/meerjgde`
-  - TPA parent-site forms only
-  - Verified current use: homepage planner capture forms in `index.html`
+  - TPA parent-site and commerce-surface forms only
+  - Verified current use: homepage join form (`index.html`), seminar interest/registration/waitlist (`seminars/`), apparel drop list (`shop/apparel/`), mat enquiry (`shop/mats/`), blueprint waitlist (`blueprints/_blueprint/`), contact (`contact/`), academy orders (`academy-orders/`)
 
 - `https://formspree.io/f/xwvwkqqg`
   - Mastery Method only
@@ -64,8 +64,12 @@ Do not merge, swap, or "simplify" these endpoints without first verifying the li
 
 ## Verified Form Behavior
 
-- TPA homepage forms currently use hidden `intent=planner-access`
-- TPA homepage forms currently use hidden `source=post-demo-cta` and `source=join-section`
+- TPA homepage join form uses hidden `intent=founding-intake`, `source=home-join`
+- Commerce surfaces post distinct hidden values on the same endpoint:
+  `apparel-drop-list`, `mat-enquiry`, `seminar-interest`, `seminar-registration`,
+  `seminar-waitlist` (source `seminar-<slug>`), `blueprint-waitlist`, `contact`,
+  `academy-order-enquiry`
+- Full register: `docs/PRESSURE_ACADEMY_FORMS_AND_LEAD_CAPTURE_REGISTER.md`
 - Mastery Method booking uses dynamic `intent` values: `call`, `assessment`, `info`
 - Mastery Method booking uses `source=mastery-method-book`
 - Mastery Method scorecard uses `intent=scorecard-lead`
@@ -87,7 +91,7 @@ Before editing docs, verify the relevant code path first.
 Do not overstate product strategy as if it is fully settled.
 Current code reality is mixed:
 
-- The TPA homepage is Pressure Planner-led
+- The TPA homepage is a commercial hub (apparel / mats / seminars / blueprints), with Pressure Planner preserved as an ecosystem product
 - Mastery Method is a large, active subsystem with its own public flow
 - A protected Mastery Method portal exists in production code
 

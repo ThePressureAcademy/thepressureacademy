@@ -6,6 +6,13 @@
 - https://thepressureacademy.com/ - Main homepage for The Pressure Academy and its public site entry point.
 - https://thepressureacademy.com/planner - Pressure Planner: TPA-branded public entry route. Bridges to the live Planner runtime currently hosted on Manus at planner.thepressureacademy.com. The full Planner application source is governed separately in 03_PRESSURE_PLANNER_APP/; this URL is the canonical brand surface.
 - https://thepressureacademy.com/privacy-policy.html - Privacy policy covering site forms, Mastery Method booking, scorecard submissions, and portal/session handling.
+- https://thepressureacademy.com/shop/ - Storefront hub: Pressure Tested apparel and academy-grade mats.
+- https://thepressureacademy.com/shop/apparel/ - Pressure Tested apparel line. First drop in development; release-list capture, no live checkout yet.
+- https://thepressureacademy.com/shop/mats/ - Jiu-jitsu mat systems with a floor-size calculator, freight expectations, and quote-based ordering.
+- https://thepressureacademy.com/seminars/ - Athlete-led seminar events. Events are announced only when locked; founding interest list.
+- https://thepressureacademy.com/blueprints/ - The Pressure Blueprint digital training systems. Core system in development; waitlist.
+- https://thepressureacademy.com/academy-orders/ - B2B path for academies, clubs, and schools: mat fit-outs, team apparel, scoped quotes.
+- https://thepressureacademy.com/contact/ - Contact and enquiry routing page.
 - https://thepressureacademy.com/mastery-method/ - Mastery Method overview and main public landing page.
 - https://thepressureacademy.com/mastery-method/about - Background on Mastery Method and its approach.
 - https://thepressureacademy.com/mastery-method/clarity - Public explanation of The Mastery Method Framework.

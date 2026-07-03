@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seminar | The Pressure Academy</title>
+    <meta
+      name="description"
+      content="Pressure Academy seminar event page."
+    />
+    <!--
+      DYNAMIC SLUG TEMPLATE — served for /seminars/[slug] via vercel.json rewrite.
+      Renders from js/config/funnels.js by pathname. Unknown or draft
+      slugs render the honest not-open state. noindex: canonical content is
+      config-driven; index the /seminars/ hub instead until events are live.
+    -->
+    <meta name="robots" content="noindex,follow" />
+    <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+          <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+          <span class="brand-copy">
+            <strong>The Pressure Academy</strong>
+            <span>Built under pressure</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="/shop/">Shop</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/seminars/" aria-current="page">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/academy-orders/">Academy Orders</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="cart-button" data-cart-open aria-label="Open cart">
+            Cart <span data-cart-count aria-hidden="true"></span>
+          </button>
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/shop/">Shop</a>
+        <a href="/shop/mats/">Mats</a>
+        <a href="/seminars/" aria-current="page">Seminars</a>
+        <a href="/blueprints/">Blueprints</a>
+        <a href="/academy-orders/">Academy Orders</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </header>
+
+    <main id="event-main">
+      <!-- Rendered by module script below -->
+      <noscript>
+        <section class="page-hero">
+          <div class="container">
+            <h1>Seminar details need JavaScript</h1>
+            <p class="lead">
+              Browse all events at <a href="/seminars/" style="text-decoration: underline">thepressureacademy.com/seminars</a>.
+            </p>
+          </div>
+        </section>
+      </noscript>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+            <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+            <span class="brand-copy">
+              <strong>The Pressure Academy</strong>
+              <span>Built under pressure</span>
+            </span>
+          </a>
+          <p class="muted" style="margin-top: 14px; max-width: 30rem">
+            Mats, apparel, seminars, and systems for athletes who live under pressure.
+            Not motivation. Architecture.
+          </p>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Shop</span>
+          <div class="footer-links">
+            <a href="/shop/apparel/">Pressure Tested apparel</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/academy-orders/">Academy orders</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Train</span>
+          <div class="footer-links">
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/planner">Pressure Planner</a>
+            <a href="/mastery-method">Mastery Method</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Company</span>
+          <div class="footer-links">
+            <a href="/contact/">Contact</a>
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/">Home</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-micro">
+        <span>Pressure first. Noise second.</span>
+        <span>&copy; 2026 The Pressure Academy</span>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { getSeminar, upsells } from "/js/config/funnels.js";
+      import { initCart } from "/js/lib/cart.js";
+      import { track, EVENTS } from "/js/lib/events.js";
+      import { checkoutAction } from "/js/lib/checkout/stripe-payment-links.js";
+      import {
+        slugFromPath,
+        escapeHtml,
+        enhanceCaptureForms,
+        initMobileNav,
+      } from "/js/lib/commerce-ui.js";
+
+      initMobileNav();
+      initCart();
+
+      const main = document.getElementById("event-main");
+      const slug = slugFromPath("seminars");
+      const ev = slug ? getSeminar(slug) : null;
+
+      track(EVENTS.SEMINAR_VIEWED, { slug, status: ev ? ev.status : "unknown" });
+
+      const STATUS_PILL = {
+        interest: "Interest open",
+        announced: "Announced — registration open",
+        open: "Tickets live",
+        sold_out: "Sold out",
+        closed: "Event closed",
+      };
+
+      function notOpenState() {
+        document.title = "Seminar not open | The Pressure Academy";
+        main.innerHTML = `
+        <section class="page-hero">
+          <div class="container">
+            <span class="kicker">Seminars</span>
+            <h1>This event is not open.</h1>
+            <p class="lead">
+              Either it has not been announced yet, or the link is old. We only publish
+              events with a locked athlete, date, and venue — no phantom event pages.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="/seminars/#seminar-list">Join the founding event list</a>
+              <a class="btn-ghost" href="/seminars/">See the event board</a>
+            </div>
+          </div>
+        </section>`;
+      }
+
+      function closedState(ev) {
+        document.title = `${ev.title} — closed | The Pressure Academy`;
+        main.innerHTML = `
+        <section class="page-hero">
+          <div class="container">
+            <span class="kicker">Seminars</span>
+            <h1>${escapeHtml(ev.title)} has closed.</h1>
+            <p class="lead">
+              This event is finished. The founding list hears about the next room first.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="/seminars/#seminar-list">Join the founding event list</a>
+              <a class="btn-ghost" href="/seminars/">See the event board</a>
+            </div>
+          </div>
+        </section>`;
+      }
+
+      /** Capture form markup for the current funnel state. */
+      function captureForm(ev, mode) {
+        const intents = {
+          interest: ev.leadCaptureIntent || "seminar-interest",
+          registration: "seminar-registration",
+          waitlist: "seminar-waitlist",
+        };
+        const buttons = {
+          interest: "Register interest",
+          registration: "Register my spot",
+          waitlist: "Join the waitlist",
+        };
+        return `
+        <form class="capture-form" data-capture="seminar-${mode}" id="seminar-form"
+              action="https://formspree.io/f/meerjgde" method="POST">
+          <input type="hidden" name="intent" value="${escapeHtml(intents[mode])}" />
+          <input type="hidden" name="source" value="${escapeHtml(ev.source || `seminar-${ev.slug}`)}" />
+          <div class="field-grid">
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+          <button class="btn" type="submit">${buttons[mode]}</button>
+          <div class="form-status" aria-live="polite"></div>
+        </form>`;
+      }
+
+      /**
+       * Checkout / registration panel — the only block allowed to render a
+       * live buy button, and only via the validated adapter action.
+       */
+      function conversionPanel(ev, action) {
+        if (ev.status === "open" && action.available) {
+          return `
+          <div class="step-card">
+            <h3>Secure my spot</h3>
+            ${ev.priceLabel ? `<p class="lead mono">${escapeHtml(ev.priceLabel)}</p>` : ""}
+            <p class="muted">Payment is handled by Stripe on a secure stripe.com checkout page. No card details are entered on this site.</p>
+            <button class="btn btn-block" type="button" id="buy-btn">Secure my spot</button>
+            ${ev.refundPolicyLabel ? `<p class="gate-note">${escapeHtml(ev.refundPolicyLabel)}</p>` : ""}
+          </div>`;
+        }
+        if (ev.status === "sold_out") {
+          return `
+          <div class="step-card">
+            <h3>This room is full.</h3>
+            <p class="muted">Join the waitlist — you get first option if a spot returns, and first call on the next event.</p>
+            ${captureForm(ev, "waitlist")}
+          </div>`;
+        }
+        if (ev.status === "announced" || ev.status === "open") {
+          // "open" without a valid checkoutUrl degrades to announced behaviour.
+          return `
+          <div class="step-card">
+            <h3>Register my spot</h3>
+            <p class="muted">Registration is free and holds nothing against your card. Ticket release goes to registered names first, in order.</p>
+            ${captureForm(ev, "registration")}
+            <p class="gate-note">Payment is not open on this page yet — no card is taken here.</p>
+          </div>`;
+        }
+        // interest (default honest floor)
+        return `
+        <div class="step-card">
+          <h3>Register interest</h3>
+          <p class="muted">Date, venue, and pricing are confirmed to this list before anywhere else. Your reply tells us which city to book.</p>
+          ${captureForm(ev, "interest")}
+          <p class="gate-note">No payment is taken on this page yet.</p>
+        </div>`;
+      }
+
+      function eventPage(ev) {
+        document.title = ev.seoTitle || `${ev.title} | The Pressure Academy`;
+        if (ev.seoDescription) {
+          const meta = document.querySelector('meta[name="description"]');
+          if (meta) meta.setAttribute("content", ev.seoDescription);
+        }
+
+        const action = checkoutAction(ev);
+        // Operator intended live checkout but config fails validation — record
+        // it once. This is a misconfiguration signal, not a visitor action.
+        if (ev.status === "open" && !action.available) action.start();
+
+        const pill = STATUS_PILL[ev.status] && !(ev.status === "open" && !action.available)
+          ? STATUS_PILL[ev.status]
+          : STATUS_PILL.announced;
+        const details = [
+          { label: "Date", value: ev.dateLabel || "Date to be confirmed" },
+          { label: "Time", value: ev.timeLabel },
+          { label: "Venue", value: ev.venueLabel || "Venue to be confirmed" },
+          { label: "Where", value: [ev.city, ev.country].filter(Boolean).join(", ") || null },
+          { label: "Price", value: ev.priceLabel || "Price to be confirmed" },
+          {
+            label: "Capacity",
+            value:
+              ev.capacity != null && ev.spotsRemaining != null
+                ? `${ev.spotsRemaining} of ${ev.capacity} spots remaining`
+                : null,
+          },
+        ].filter((d) => d.value);
+
+        main.innerHTML = `
+        <section class="page-hero">
+          <div class="container">
+            <span class="kicker">${escapeHtml([ev.city, "live event"].filter(Boolean).join(" — ")) || "Live event"}</span>
+            <h1>${escapeHtml(ev.headline || ev.title)}</h1>
+            ${ev.subheadline ? `<p class="lead">${escapeHtml(ev.subheadline)}</p>` : ""}
+            ${
+              ev.athleteName
+                ? `<p class="lead"><strong>${escapeHtml(ev.athleteName)}</strong>${ev.athleteRole ? ` — ${escapeHtml(ev.athleteRole)}` : ""}</p>`
+                : ""
+            }
+            <div class="hero-strip">
+              <span class="badge">${escapeHtml(pill)}</span>
+              ${ev.dateLabel ? `<span class="fact-chip mono">${escapeHtml(ev.dateLabel)}</span>` : ""}
+              ${ev.venueLabel ? `<span class="fact-chip mono">${escapeHtml(ev.venueLabel)}</span>` : ""}
+              ${ev.priceLabel ? `<span class="fact-chip mono">${escapeHtml(ev.priceLabel)}</span>` : ""}
+            </div>
+            ${
+              ev.capacity != null && ev.spotsRemaining != null
+                ? `<div class="urgency-row" style="margin-top:18px"><span class="urgency-chip">${ev.spotsRemaining} of ${ev.capacity} spots remaining</span></div>`
+                : ""
+            }
+            ${ev.heroImage ? `<img src="${escapeHtml(ev.heroImage)}" alt="${escapeHtml(ev.title)}" style="max-width:100%;margin-top:22px;border-radius:4px" loading="lazy" />` : ""}
+            <div class="hero-actions">
+              <a class="btn" href="#register">${ev.status === "open" && action.available ? "Secure my spot" : ev.status === "sold_out" ? "Join the waitlist" : "Register"}</a>
+              ${ev.videoUrl ? `<a class="btn-ghost" href="${escapeHtml(ev.videoUrl)}" rel="noopener">Watch the event brief</a>` : ""}
+            </div>
+          </div>
+        </section>
+
+        <section class="section-tight" id="register">
+          <div class="container">
+            <div class="step-row">
+              ${conversionPanel(ev, action)}
+              ${
+                ev.includedItems && ev.includedItems.length
+                  ? `<div class="step-card">
+                      <h3>What you will learn</h3>
+                      <ul class="spec-list">${ev.includedItems.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>
+                    </div>`
+                  : ""
+              }
+            </div>
+          </div>
+        </section>
+
+        ${
+          ev.whoItIsFor && ev.whoItIsFor.length
+            ? `<section class="section-tight"><div class="container"><div class="panel">
+                <span class="kicker">Who it is for</span>
+                <ul class="spec-list">${ev.whoItIsFor.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>
+              </div></div></section>`
+            : ""
+        }
+
+        <section class="section-tight">
+          <div class="container">
+            <div class="panel">
+              <span class="kicker">Event details</span>
+              <ul class="spec-list">
+                ${details.map((d) => `<li><strong>${escapeHtml(d.label)}:</strong> ${escapeHtml(d.value)}</li>`).join("")}
+              </ul>
+              ${ev.requirements && ev.requirements.length ? `<span class="kicker" style="margin-top:16px;display:block">Requirements</span><ul class="spec-list">${ev.requirements.map((r) => `<li>${escapeHtml(r)}</li>`).join("")}</ul>` : ""}
+              ${ev.refundPolicyLabel ? `<p class="gate-note">${escapeHtml(ev.refundPolicyLabel)}</p>` : ""}
+            </div>
+          </div>
+        </section>
+
+        ${
+          ev.proofItems && ev.proofItems.length
+            ? `<section class="section-tight"><div class="container"><div class="panel">
+                <span class="kicker">From people who trained with us</span>
+                ${ev.proofItems.map((p) => `<figure class="proof-item"><blockquote>${escapeHtml(p.quote)}</blockquote><figcaption class="mono muted">${escapeHtml(p.attribution)}</figcaption></figure>`).join("")}
+              </div></div></section>`
+            : ""
+        }
+
+        <section class="section-tight">
+          <div class="container">
+            <div class="panel">
+              ${
+                ev.status === "open" && action.available
+                  ? `<span class="kicker">Ready?</span><h2>Rooms are released once.</h2><p class="muted">When a capped room fills, it is full.</p><div class="hero-actions"><button class="btn" type="button" id="buy-btn-2">Secure my spot</button><a class="btn-ghost" href="/seminars/#seminar-list">Get event announcements instead</a></div>`
+                  : `<span class="kicker">Stay close</span><h2>The founding list hears first.</h2><p class="muted">Announcements, ticket releases, and city votes go to the list before this page changes.</p><div class="hero-actions"><a class="btn" href="#register">${ev.status === "sold_out" ? "Join the waitlist" : "Register"}</a></div>`
+              }
+            </div>
+          </div>
+        </section>
+
+        <div class="container" id="upsell-slot"></div>`;
+
+        // Capture-form events (interest / registration / waitlist).
+        enhanceCaptureForms(main, (form) => {
+          track(EVENTS.SEMINAR_INTEREST_SUBMITTED, {
+            slug: ev.slug,
+            mode: form.dataset.capture,
+          });
+        });
+        const form = document.getElementById("seminar-form");
+        if (form) {
+          let started = false;
+          let done = false;
+          form.addEventListener("focusin", () => {
+            if (!started) {
+              started = true;
+              track(EVENTS.SEMINAR_REGISTRATION_STARTED, {
+                slug: ev.slug,
+                mode: form.dataset.capture,
+              });
+            }
+          });
+          form.addEventListener("submit", () => { done = true; });
+          document.addEventListener("visibilitychange", () => {
+            if (
+              document.visibilityState === "hidden" && started && !done &&
+              ["announced", "open"].includes(ev.status)
+            ) {
+              track(EVENTS.SEMINAR_CHECKOUT_ABANDONED, { slug: ev.slug, step: 1 });
+            }
+          });
+        }
+
+        // Live checkout wiring — only exists when the adapter validated it.
+        ["buy-btn", "buy-btn-2"].forEach((id) => {
+          const btn = document.getElementById(id);
+          if (btn) btn.addEventListener("click", () => action.start());
+        });
+
+        // Post-purchase upsell placeholder (renders only real config entries).
+        const slot = document.getElementById("upsell-slot");
+        const eligible = upsells.filter((u) => u.id === ev.upsell || u.id === ev.orderBump);
+        if (eligible.length) {
+          slot.innerHTML = `<div class="panel section-tight">
+            <span class="kicker">After the event</span>
+            ${eligible.map((u) => `<p>${escapeHtml(u.label)}</p>`).join("")}
+          </div>`;
+          eligible.forEach((u) => track(EVENTS.UPSELL_VIEWED, { id: u.id, slug: ev.slug }));
+        }
+      }
+
+      if (!ev || ev.status === "draft") notOpenState();
+      else if (ev.status === "closed") closedState(ev);
+      else eventPage(ev);
+
+    </script>
+  </body>
+</html>

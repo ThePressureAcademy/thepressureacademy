@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Pressure Academy | Pressure Planner</title>
+    <title>The Pressure Academy | Mats, Apparel, Seminars, Blueprints</title>
     <meta
       name="description"
-      content="The Pressure Academy. Pressure Planner: one screen, one directive, every day. Built for shift workers who train, parent, and refuse to guess."
+      content="The Pressure Academy: mats, apparel, seminars, and digital training blueprints for athletes who live under pressure. Not motivation. Architecture."
     />
     <link rel="canonical" href="https://thepressureacademy.com/" />
     <meta property="og:site_name" content="The Pressure Academy" />
     <meta
       property="og:title"
-      content="The Pressure Academy | Pressure Planner"
+      content="The Pressure Academy | Mats, Apparel, Seminars, Blueprints"
     />
     <meta
       property="og:description"
-      content="Pressure Planner is the flagship path into The Pressure Academy: one screen, one directive, every day."
+      content="Mats, apparel, seminars, and systems for athletes who live under pressure. Built for training rooms, garages, academies, and competition floors."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thepressureacademy.com/" />
@@ -27,2630 +27,505 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="The Pressure Academy | Pressure Planner"
+      content="The Pressure Academy | Mats, Apparel, Seminars, Blueprints"
     />
     <meta
       name="twitter:description"
-      content="Pressure Planner is the flagship path into The Pressure Academy: one screen, one directive, every day."
+      content="Mats, apparel, seminars, and systems for athletes who live under pressure. Not motivation. Architecture."
     />
     <meta
       name="twitter:image"
       content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png"
     />
-    <link
-      rel="icon"
-      href="/assets/logos/TPA_House_Favicon.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <style>
-      :root {
-        --bg: #120f10;
-        --bg-elevated: rgba(29, 23, 25, 0.9);
-        --panel: rgba(34, 27, 30, 0.92);
-        --panel-strong: rgba(42, 34, 38, 0.98);
-        --line: rgba(255, 255, 255, 0.1);
-        --line-strong: rgba(255, 255, 255, 0.18);
-        --text: #f7f1ea;
-        --muted: #d0c2b6;
-        --soft: #b09c8f;
-        --rust: #c45b28;
-        --rust-bright: #ef7d43;
-        --sand: #f3d7b2;
-        --teal: #4a9b8e;
-        --gold: #f0bf72;
-        --ink: #231b1d;
-        --shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
-        --radius-lg: 32px;
-        --radius-md: 22px;
-        --radius-sm: 16px;
-        --container: min(1180px, calc(100vw - 40px));
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        min-width: 320px;
-        font-family: "Outfit", Arial, sans-serif;
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(196, 91, 40, 0.2),
-            transparent 32%
-          ),
-          radial-gradient(
-            circle at 85% 12%,
-            rgba(74, 155, 142, 0.16),
-            transparent 24%
-          ),
-          linear-gradient(180deg, #171213 0%, #0e0b0c 100%);
-        color: var(--text);
-        line-height: 1.5;
-      }
-
-      body.menu-open {
-        overflow: hidden;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      button,
-      input,
-      textarea {
-        font: inherit;
-      }
-
-      button {
-        border: 0;
-        background: none;
-        cursor: pointer;
-        color: inherit;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      .page-shell {
+      /* Homepage-only extensions to the shared commerce system */
+      .home-hero {
+        padding: clamp(72px, 11vw, 150px) 0 48px;
         position: relative;
-        overflow: clip;
       }
-
-      .page-shell::before,
-      .page-shell::after {
-        content: "";
-        position: fixed;
-        width: 42vw;
-        height: 42vw;
-        border-radius: 999px;
-        filter: blur(90px);
-        pointer-events: none;
-        opacity: 0.4;
-        z-index: 0;
+      .home-hero h1 {
+        max-width: 13ch;
       }
-
-      .page-shell::before {
-        top: -12vw;
-        left: -12vw;
-        background: rgba(196, 91, 40, 0.22);
-      }
-
-      .page-shell::after {
-        top: 18vh;
-        right: -16vw;
-        background: rgba(74, 155, 142, 0.18);
-      }
-
-      .site-header {
-        position: sticky;
-        top: 0;
-        z-index: 30;
-        backdrop-filter: blur(16px);
-        background: rgba(15, 12, 13, 0.72);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .header-inner {
-        width: var(--container);
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 16px 0;
-      }
-
-      .brand-lockup {
-        display: inline-flex;
-        align-items: center;
-        gap: 14px;
-        min-width: 0;
-      }
-
-      .brand-mark {
-        width: 46px;
-        height: 46px;
-        padding: 10px;
-        border-radius: 16px;
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(243, 215, 178, 0.12),
-            transparent 58%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(74, 58, 55, 0.95),
-            rgba(43, 33, 35, 0.92)
-          );
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.16),
-          0 12px 28px rgba(0, 0, 0, 0.18);
-      }
-
-      .brand-copy {
-        min-width: 0;
-      }
-
-      .brand-copy strong,
-      .footer-brand strong {
-        display: block;
-        font-size: 0.98rem;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-      }
-
-      .brand-copy span,
-      .footer-brand span {
-        display: block;
-        font-size: 0.76rem;
-        color: var(--soft);
-        letter-spacing: 0.08em;
+      .hero-sub {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
+        color: var(--soft);
+        margin-top: 20px;
       }
-
-      .section-lockup,
-      .product-lockup,
-      .footer-mark-shelf,
-      .mark-cluster {
-        display: inline-flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .product-lockup {
-        padding: 14px 16px;
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      .section-mark,
-      .product-mark-wrap,
-      .footer-mark-chip,
-      .cta-mark {
-        flex: 0 0 auto;
-        display: grid;
-        place-items: center;
-        border-radius: 18px;
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(243, 215, 178, 0.12),
-            transparent 58%
-          ),
-          linear-gradient(180deg, rgba(74, 58, 55, 0.94), rgba(43, 33, 35, 0.9));
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.14),
-          0 10px 24px rgba(0, 0, 0, 0.12);
-      }
-
-      .product-mark-wrap {
-        width: 60px;
-        height: 60px;
-        padding: 14px;
-      }
-
-      .section-mark {
-        width: 52px;
-        height: 52px;
-        padding: 10px;
-      }
-
-      .cta-mark {
-        width: 34px;
-        height: 34px;
-        padding: 7px;
-        border-radius: 999px;
-      }
-
-      .footer-mark-chip {
-        width: 48px;
-        height: 48px;
-        padding: 10px;
-      }
-
-      .section-mark img,
-      .product-mark-wrap img,
-      .footer-mark-chip img,
-      .cta-mark img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        filter: drop-shadow(0 0 10px rgba(196, 91, 40, 0.12));
-      }
-
-      .shell-button .cta-mark {
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(255, 248, 240, 0.12),
-            transparent 58%
-          ),
-          linear-gradient(180deg, rgba(66, 44, 38, 0.6), rgba(33, 20, 17, 0.68));
-        border-color: rgba(255, 248, 240, 0.22);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.16),
-          0 10px 20px rgba(109, 42, 12, 0.18);
-      }
-
-      .shell-button .cta-mark img {
-        opacity: 0.98;
-        filter: brightness(0) saturate(100%) invert(94%) sepia(16%)
-          saturate(325%) hue-rotate(328deg) brightness(105%) contrast(100%);
-      }
-
-      .product-lockup-copy,
-      .section-copy {
-        display: grid;
-        gap: 5px;
-      }
-
-      .product-lockup-copy strong,
-      .section-copy strong {
-        font-size: 1rem;
-        letter-spacing: 0.01em;
-      }
-
-      .product-lockup-copy span,
-      .section-copy span {
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      .truth-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        min-height: 34px;
-        padding: 0 14px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--muted);
-        font-size: 0.82rem;
-      }
-
-      .truth-chip::before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        border-radius: 999px;
-        background: linear-gradient(180deg, var(--teal), var(--gold));
-        box-shadow: 0 0 14px rgba(74, 155, 142, 0.24);
-      }
-
-      .header-nav {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .nav-links a,
-      .mobile-nav a {
-        padding: 10px 14px;
-        border-radius: 999px;
-        font-size: 0.92rem;
-        color: var(--muted);
-        transition:
-          color 180ms ease,
-          background 180ms ease,
-          transform 180ms ease;
-      }
-
-      .nav-links a:hover,
-      .nav-links a:focus-visible,
-      .mobile-nav a:hover,
-      .mobile-nav a:focus-visible {
-        color: var(--text);
-        background: rgba(255, 255, 255, 0.06);
-        transform: translateY(-1px);
-      }
-
-      .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .menu-button {
-        display: none;
-        width: 46px;
-        height: 46px;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.04);
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .menu-button span {
-        width: 18px;
-        height: 2px;
-        border-radius: 999px;
-        background: var(--text);
-        transition:
-          transform 180ms ease,
-          opacity 180ms ease;
-      }
-
-      .menu-button[aria-expanded="true"] span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-
-      .menu-button[aria-expanded="true"] span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .menu-button[aria-expanded="true"] span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
-
-      .mobile-nav {
-        display: none;
-        width: var(--container);
-        margin: 0 auto;
-        padding: 0 0 16px;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .mobile-nav.open {
-        display: flex;
-      }
-
-      .shell-button,
-      .ghost-button,
-      .text-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        min-height: 52px;
-        padding: 0 22px;
-        border-radius: 999px;
-        font-size: 0.96rem;
-        font-weight: 600;
-        letter-spacing: 0.01em;
-        transition:
-          transform 180ms ease,
-          box-shadow 180ms ease,
-          border-color 180ms ease,
-          background 180ms ease;
-        white-space: nowrap;
-      }
-
-      .shell-button {
-        color: #fff8f0;
-        background: linear-gradient(
-          135deg,
-          var(--rust) 0%,
-          var(--rust-bright) 100%
-        );
-        box-shadow: 0 18px 38px rgba(196, 91, 40, 0.24);
-      }
-
-      .shell-button:hover,
-      .shell-button:focus-visible {
-        transform: translateY(-2px);
-        box-shadow: 0 24px 48px rgba(196, 91, 40, 0.3);
-      }
-
-      .ghost-button {
-        color: var(--text);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      .ghost-button:hover,
-      .ghost-button:focus-visible,
-      .text-button:hover,
-      .text-button:focus-visible {
-        transform: translateY(-2px);
-        border-color: rgba(255, 255, 255, 0.24);
-        background: rgba(255, 255, 255, 0.07);
-      }
-
-      .text-button {
-        min-height: auto;
-        padding: 0;
-        color: var(--sand);
-      }
-
-      main {
+      .split-tile {
         position: relative;
-        z-index: 1;
+        overflow: hidden;
+        min-height: 210px;
+        justify-content: flex-end;
       }
-
-      section {
-        width: var(--container);
-        margin: 0 auto;
+      .split-tile .kicker {
+        margin-bottom: 6px;
       }
-
-      .eyebrow,
-      .metric-label,
-      .section-label,
-      .panel-label,
-      .micro-label {
-        font-family: "JetBrains Mono", monospace;
-        letter-spacing: 0.12em;
+      .lane-tag {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.66rem;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
-        font-size: 0.72rem;
-        color: var(--sand);
+        color: var(--soft);
       }
-
-      .hero {
-        padding: 68px 0 32px;
+      .ticker-wrap {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 14px 0;
+        background: rgba(255, 255, 255, 0.02);
       }
-
-      .hero-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.95fr);
-        gap: 30px;
-        align-items: stretch;
-      }
-
-      .hero-copy,
-      .hero-panel,
-      .surface-panel,
-      .proof-card,
-      .ecosystem-card,
-      .faq-card,
-      .join-panel,
-      .footer-panel {
-        position: relative;
-        border-radius: var(--radius-lg);
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.04),
-            rgba(255, 255, 255, 0.02)
-          ),
-          var(--panel);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-
-      .hero-copy {
-        padding: 34px;
-        min-height: 100%;
-      }
-
-      .hero-copy::after,
-      .hero-panel::after,
-      .surface-panel::after,
-      .ecosystem-card::after,
-      .join-panel::after,
-      .footer-panel::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        pointer-events: none;
-      }
-
-      .hero-copy::before,
-      .hero-panel::before,
-      .surface-panel::before,
-      .join-panel::before,
-      .footer-panel::before {
-        content: "";
-        position: absolute;
-        inset: 0 0 auto 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(243, 215, 178, 0.6),
-          transparent
-        );
-        opacity: 0.7;
-        pointer-events: none;
-      }
-
-      .hero-pill-row,
-      .signal-row,
-      .chip-row {
+      .ticker {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-      }
-
-      .hero-product-lockup,
-      .planner-truth-row,
-      .pilot-label-row {
-        margin-top: 18px;
-      }
-
-      .hero-pill,
-      .signal-chip,
-      .mini-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        min-height: 34px;
-        padding: 0 14px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--muted);
-        font-size: 0.84rem;
-      }
-
-      .hero-pill::before,
-      .signal-chip::before,
-      .mini-chip::before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        background: linear-gradient(180deg, var(--sand), var(--rust-bright));
-        box-shadow: 0 0 16px rgba(240, 191, 114, 0.28);
-      }
-
-      h1,
-      h2,
-      h3 {
-        margin: 0;
-        font-family: "Fraunces", Georgia, serif;
-        line-height: 0.95;
-        letter-spacing: -0.04em;
-      }
-
-      h1 {
-        margin-top: 18px;
-        font-size: clamp(3.35rem, 6.8vw, 6.3rem);
-        max-width: 12ch;
-      }
-
-      .hero-copy p.lead {
-        margin: 24px 0 0;
-        max-width: 34rem;
-        font-size: 1.15rem;
-        color: var(--muted);
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-        margin-top: 28px;
-      }
-
-      .hero-support-copy {
-        max-width: 39rem;
-        margin-top: 18px;
-        color: var(--soft);
-        font-size: 0.96rem;
-      }
-
-      .trust-strip {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 30px;
-      }
-
-      .trust-card {
-        padding: 18px;
-        border-radius: var(--radius-sm);
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          background 180ms ease;
-      }
-
-      .trust-card strong {
-        display: block;
-        margin-top: 10px;
-        font-size: 1rem;
-      }
-
-      .trust-card p {
-        margin: 8px 0 0;
-        color: var(--soft);
-        font-size: 0.92rem;
-      }
-
-      .trust-card:hover,
-      .hero-note:hover,
-      .proof-card:hover,
-      .step-card:hover,
-      .faq-card:hover {
-        transform: translateY(-2px);
-        border-color: rgba(240, 191, 114, 0.18);
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-      .hero-panel {
-        padding: 28px;
-        display: grid;
-        gap: 18px;
-        align-content: start;
-      }
-
-      .hero-score {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 18px;
-        align-items: center;
-        padding: 20px;
-        border-radius: 24px;
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(240, 191, 114, 0.16),
-            transparent 48%
-          ),
-          rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .score-ring {
-        width: 112px;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        padding: 12px;
-        background: conic-gradient(
-          var(--teal) 0 35%,
-          var(--gold) 35% 68%,
-          var(--rust) 68% 100%
-        );
-        display: grid;
-        place-items: center;
-      }
-
-      .score-ring span {
-        display: grid;
-        place-items: center;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background: #171112;
-        text-align: center;
-        font-family: "Fraunces", Georgia, serif;
-        font-size: 1.9rem;
-      }
-
-      .score-meta h2 {
-        font-size: clamp(1.95rem, 3vw, 2.6rem);
-      }
-
-      .score-meta p {
-        margin: 10px 0 0;
-        color: var(--muted);
-      }
-
-      .score-bars {
-        display: grid;
-        gap: 12px;
-      }
-
-      .score-bar {
-        display: grid;
-        gap: 8px;
-      }
-
-      .score-bar header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        color: var(--muted);
-        font-size: 0.86rem;
-      }
-
-      .score-bar-track {
-        position: relative;
-        height: 11px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        overflow: hidden;
-      }
-
-      .score-bar-fill {
-        position: absolute;
-        inset: 0 auto 0 0;
-        width: 50%;
-        border-radius: inherit;
-        background: linear-gradient(
-          90deg,
-          var(--teal),
-          var(--gold),
-          var(--rust)
-        );
-        transition: width 260ms ease;
-      }
-
-      .hero-notes {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .hero-note {
-        padding: 16px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          background 180ms ease;
-      }
-
-      .hero-note strong,
-      .info-item strong,
-      .faq-card strong {
-        display: block;
-        font-size: 0.98rem;
-      }
-
-      .hero-note p,
-      .info-item p {
-        margin: 8px 0 0;
-        color: var(--soft);
-        font-size: 0.92rem;
-      }
-
-      .section-block {
-        padding: 34px 0 0;
-      }
-
-      .section-shell {
-        padding: 34px;
-      }
-
-      .section-header {
-        display: grid;
-        gap: 18px;
-        margin-bottom: 26px;
-      }
-
-      .section-header .section-lockup {
-        margin-bottom: 2px;
-      }
-
-      .section-header h2 {
-        font-size: clamp(2.4rem, 4vw, 4.1rem);
-        max-width: 12ch;
-      }
-
-      .section-header p {
-        margin: 0;
-        max-width: 42rem;
-        color: var(--muted);
-        font-size: 1.04rem;
-      }
-
-      .planner-lab,
-      .join-grid,
-      .two-column,
-      .ecosystem-grid,
-      .footer-grid {
-        display: grid;
-        gap: 22px;
-      }
-
-      .planner-lab,
-      .join-grid,
-      .two-column {
-        grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-        align-items: start;
-      }
-
-      .planner-controls,
-      .planner-output,
-      .info-stack,
-      .trial-panel,
-      .pilot-panel,
-      .pilot-steps,
-      .mechanism-panel,
-      .ecosystem-feature,
-      .footer-column {
-        padding: 26px;
-        border-radius: 26px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .persona-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 22px;
-      }
-
-      .persona-button {
-        padding: 10px 14px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--muted);
-        transition: all 180ms ease;
-      }
-
-      .persona-button.active,
-      .persona-button:hover,
-      .persona-button:focus-visible {
-        color: var(--text);
-        border-color: rgba(240, 191, 114, 0.28);
-        background: rgba(196, 91, 40, 0.12);
-        transform: translateY(-1px);
-      }
-
-      .control-grid {
-        display: grid;
-        gap: 16px;
-      }
-
-      .control-item {
-        padding: 18px 18px 16px;
-        border-radius: 22px;
-        background: rgba(8, 8, 9, 0.22);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-      }
-
-      .control-item header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 10px;
-      }
-
-      .control-item strong {
-        font-size: 0.98rem;
-      }
-
-      .control-item span {
-        color: var(--soft);
-        font-size: 0.84rem;
-      }
-
-      input[type="range"] {
-        width: 100%;
-        accent-color: var(--rust-bright);
-      }
-
-      .planner-output {
-        display: grid;
-        gap: 18px;
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(74, 155, 142, 0.14),
-            transparent 36%
-          ),
-          rgba(255, 255, 255, 0.035);
-      }
-
-      .product-truth-note {
-        padding: 16px 18px;
-        border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.03);
-        color: var(--soft);
-        font-size: 0.92rem;
-      }
-
-      .product-truth-note strong {
-        color: var(--text);
-      }
-
-      .directive-card {
-        padding: 22px;
-        border-radius: 24px;
-        background: rgba(8, 8, 9, 0.28);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .directive-grid {
-        display: grid;
-        grid-template-columns: 116px 1fr;
-        gap: 18px;
-        align-items: center;
-      }
-
-      .directive-score {
-        display: grid;
-        gap: 8px;
-      }
-
-      .directive-score strong {
-        font-family: "Fraunces", Georgia, serif;
-        font-size: 3.2rem;
-        line-height: 0.9;
-      }
-
-      .directive-copy h3 {
-        font-size: 2rem;
-      }
-
-      .directive-copy p,
-      .planner-footnote,
-      .trial-panel p,
-      .mechanism-panel p,
-      .ecosystem-card p,
-      .faq-card p,
-      .join-panel p,
-      .footer-panel p,
-      .footer-note {
-        margin: 10px 0 0;
-        color: var(--muted);
-      }
-
-      .insight-list,
-      .step-list,
-      .bullet-list {
-        display: grid;
-        gap: 12px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .insight-list li,
-      .step-list li,
-      .bullet-list li {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 12px;
-        align-items: start;
-      }
-
-      .list-index {
-        width: 26px;
-        height: 26px;
-        border-radius: 999px;
-        display: grid;
-        place-items: center;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.76rem;
-        color: var(--ink);
-        background: linear-gradient(180deg, var(--sand), var(--gold));
-        margin-top: 1px;
-      }
-
-      .info-stack {
-        display: grid;
-        gap: 16px;
-      }
-
-      .info-item {
-        padding: 18px;
-        border-radius: 20px;
-        background: rgba(8, 8, 9, 0.24);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-      }
-
-      .system-grid,
-      .proof-grid,
-      .faq-grid {
-        display: grid;
-        gap: 18px;
-      }
-
-      .system-grid,
-      .proof-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .proof-card {
-        padding: 24px;
-        transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          background 180ms ease;
-      }
-
-      .proof-card h3,
-      .ecosystem-card h3 {
-        font-size: 1.5rem;
-      }
-
-      .proof-card .metric-label {
-        color: var(--gold);
-      }
-
-      .steps-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
-      }
-
-      .pilot-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-        gap: 20px;
-        align-items: stretch;
-      }
-
-      .pilot-panel {
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(196, 91, 40, 0.14),
-            transparent 42%
-          ),
-          rgba(255, 255, 255, 0.035);
-      }
-
-      .pilot-steps {
-        display: grid;
-        gap: 14px;
-      }
-
-      .pilot-step {
-        padding: 18px;
-        border-radius: 20px;
-        background: rgba(8, 8, 9, 0.24);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-      }
-
-      .pilot-step strong {
-        display: block;
-        font-size: 1rem;
-      }
-
-      .pilot-step p {
-        margin: 8px 0 0;
-        color: var(--soft);
-        font-size: 0.92rem;
-      }
-
-      .pilot-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 22px;
-      }
-
-      .pilot-meta {
-        display: grid;
-        gap: 12px;
-        margin-top: 18px;
-      }
-
-      .pilot-meta-item {
-        padding: 16px 18px;
-        border-radius: 18px;
-        background: rgba(8, 8, 9, 0.24);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .pilot-meta-item strong {
-        display: block;
-        font-size: 0.98rem;
-      }
-
-      .pilot-meta-item p {
-        margin: 8px 0 0;
-        color: var(--soft);
-      }
-
-      .step-card {
-        padding: 22px;
-        border-radius: 24px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          background 180ms ease;
-      }
-
-      .step-card h3 {
-        font-size: 1.42rem;
-        margin-top: 12px;
-      }
-
-      .step-card p {
-        margin: 10px 0 0;
-        color: var(--soft);
-      }
-
-      .ecosystem-grid {
-        grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 0.9fr));
-      }
-
-      .ecosystem-feature {
-        display: grid;
-        gap: 18px;
-        min-height: 100%;
-      }
-
-      .ecosystem-lockup {
-        display: grid;
-        gap: 16px;
-      }
-
-      .ecosystem-card {
-        padding: 24px;
-        min-height: 100%;
-        transition:
-          transform 220ms ease,
-          border-color 220ms ease,
-          background 220ms ease;
-      }
-
-      .ecosystem-card:hover,
-      .ecosystem-card:focus-within {
-        transform: translateY(-3px);
-        border-color: rgba(240, 191, 114, 0.22);
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.05),
-            rgba(255, 255, 255, 0.025)
-          ),
-          var(--panel-strong);
-      }
-
-      .ecosystem-icon {
-        width: 64px;
-        height: 64px;
-        padding: 14px;
-        border-radius: 18px;
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(243, 215, 178, 0.12),
-            transparent 58%
-          ),
-          linear-gradient(180deg, rgba(74, 58, 55, 0.94), rgba(43, 33, 35, 0.9));
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.14),
-          0 10px 24px rgba(0, 0, 0, 0.12);
-      }
-
-      .ecosystem-icon img,
-      .brand-mark img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        filter: drop-shadow(0 0 10px rgba(196, 91, 40, 0.12));
-      }
-
-      .ecosystem-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: auto;
-      }
-
-      .faq-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .faq-card {
-        padding: 24px;
-        transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          background 180ms ease;
-      }
-
-      .join-panel {
-        padding: 34px;
-      }
-
-      .join-form {
-        display: grid;
-        gap: 14px;
-      }
-
-      .field-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .field,
-      .field textarea {
-        width: 100%;
-      }
-
-      .field input,
-      .field textarea,
-      .join-form select {
-        width: 100%;
-        padding: 15px 16px;
-        border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        background: rgba(8, 8, 9, 0.28);
-        color: var(--text);
-        outline: none;
-        transition:
-          border-color 180ms ease,
-          transform 180ms ease,
-          background 180ms ease;
-      }
-
-      .field input:focus,
-      .field textarea:focus,
-      .join-form select:focus {
-        border-color: rgba(240, 191, 114, 0.34);
-        background: rgba(8, 8, 9, 0.4);
-        transform: translateY(-1px);
-      }
-
-      .field textarea {
-        min-height: 132px;
-        resize: vertical;
-      }
-
-      .form-status {
-        min-height: 24px;
-        font-size: 0.9rem;
-        color: var(--sand);
-      }
-
-      .footer-wrap {
-        padding: 34px 0 48px;
-      }
-
-      .footer-panel {
-        padding: 30px;
-      }
-
-      .footer-grid {
-        grid-template-columns: minmax(0, 1.1fr) repeat(2, minmax(180px, 0.7fr));
-        align-items: start;
-      }
-
-      .footer-links {
-        display: grid;
-        gap: 10px;
-        margin-top: 14px;
-      }
-
-      .footer-mark-shelf {
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 22px;
-      }
-
-      .footer-links a {
-        color: var(--muted);
-        transition: color 180ms ease;
-      }
-
-      .footer-links a:hover,
-      .footer-links a:focus-visible {
-        color: var(--text);
-      }
-
-      .footer-micro {
-        margin-top: 26px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        color: var(--soft);
-        font-size: 0.82rem;
-      }
-
-      [data-reveal] {
-        opacity: 0;
-        transform: translateY(28px);
-        transition:
-          opacity 560ms ease,
-          transform 560ms ease;
-      }
-
-      [data-reveal].revealed {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @media (max-width: 1080px) {
-        .hero-grid,
-        .planner-lab,
-        .pilot-grid,
-        .join-grid,
-        .two-column,
-        .ecosystem-grid,
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .system-grid,
-        .proof-grid,
-        .steps-grid,
-        .faq-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .header-nav {
-          display: none;
-        }
-
-        .header-actions > a {
-          display: none;
-        }
-
-        .menu-button {
-          display: inline-flex;
-        }
-      }
-
-      @media (max-width: 760px) {
-        :root {
-          --container: min(100vw - 28px, 100%);
-          --radius-lg: 26px;
-        }
-
-        .hero {
-          padding-top: 38px;
-        }
-
-        .hero-copy,
-        .hero-panel,
-        .section-shell,
-        .join-panel,
-        .footer-panel {
-          padding: 24px;
-        }
-
-        .product-lockup {
-          width: 100%;
-        }
-
-        .trust-strip,
-        .hero-notes,
-        .system-grid,
-        .proof-grid,
-        .steps-grid,
-        .faq-grid,
-        .field-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .directive-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .score-ring {
-          width: 96px;
-        }
-
-        h1 {
-          font-size: clamp(2.75rem, 16vw, 4.4rem);
-        }
-
-        .section-header h2 {
-          font-size: clamp(2rem, 11vw, 3.3rem);
-        }
-
-        .hero-actions,
-        .pilot-actions,
-        .ecosystem-actions {
-          flex-direction: column;
-          align-items: stretch;
-        }
-
-        .shell-button,
-        .ghost-button {
-          width: 100%;
-        }
+        justify-content: center;
       }
     </style>
   </head>
   <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <div class="header-inner">
-          <a
-            class="brand-lockup"
-            href="/"
-            aria-label="The Pressure Academy home"
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+          <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+          <span class="brand-copy">
+            <strong>The Pressure Academy</strong>
+            <span>Built under pressure</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="/shop/">Shop</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/academy-orders/">Academy Orders</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <a class="btn" href="/shop/apparel/" style="min-height: 42px; padding: 0 18px">Shop</a>
+          <button type="button" class="cart-button" data-cart-open aria-label="Open cart">
+            Cart <span data-cart-count aria-hidden="true"></span>
+          </button>
+          <button
+            class="menu-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            aria-label="Open menu"
           >
-            <span class="brand-mark">
-              <img src="/assets/logos/TPA_House_Mark.svg" alt="" />
-            </span>
-            <span class="brand-copy">
-              <strong>The Pressure Academy</strong>
-              <span>Decision systems under load</span>
-            </span>
-          </a>
-          <nav class="header-nav" aria-label="Primary">
-            <div class="nav-links">
-              <a href="#planner">Pressure Planner</a>
-              <a href="#system">Why it works</a>
-              <a href="#ecosystem">Ecosystem</a>
-              <a href="#mastery-method">Mastery Method</a>
-              <a href="#faq">FAQ</a>
-            </div>
-          </nav>
-          <div class="header-actions">
-            <a class="ghost-button" href="#join">Join the field test</a>
-            <a
-              class="shell-button"
-              href="/planner"
-              ><span class="cta-mark"
-                ><img src="/assets/logos/Pressure_Planner_Mark_mono.svg" alt=""
-              /></span>
-              Start Setup</a
-            >
-            <button
-              class="menu-button"
-              type="button"
-              aria-expanded="false"
-              aria-controls="mobile-nav"
-              aria-label="Open menu"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/shop/">Shop</a>
+        <a href="/shop/apparel/">Apparel</a>
+        <a href="/shop/mats/">Mats</a>
+        <a href="/seminars/">Seminars</a>
+        <a href="/blueprints/">Blueprints</a>
+        <a href="/academy-orders/">Academy Orders</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- 1. HERO -->
+      <section class="home-hero">
+        <div class="container">
+          <span class="kicker">The Pressure Academy</span>
+          <h1>Built under pressure.</h1>
+          <p class="lead" style="max-width: 40rem">
+            Mats, apparel, seminars, and digital training blueprints for athletes who
+            live under pressure. Built for training rooms, garages, academies, and
+            competition floors.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="/shop/apparel/">Shop Pressure Tested</a>
+            <a class="btn-ghost" href="/seminars/">Seminars</a>
+            <a class="btn-ghost" href="/blueprints/">Blueprints</a>
+          </div>
+          <p class="hero-sub">Not motivation. Architecture.</p>
+        </div>
+      </section>
+
+      <!-- 5. AUTHORITY LAYER (fail-honest ticker) -->
+      <section class="ticker-wrap" aria-label="About the brand">
+        <div class="container">
+          <div class="ticker" id="authority-strip"></div>
+        </div>
+      </section>
+
+      <!-- 2. COMMERCIAL SPLIT -->
+      <section class="section" id="shop-split">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">Four lanes, one standard</span>
+            <h2>Pick your pressure.</h2>
+          </div>
+          <div class="grid-4">
+            <a class="card split-tile" href="/shop/apparel/" data-reveal>
+              <span class="card-mark"><img src="/assets/logos/Pressure_Tested_Mark.svg" alt="" /></span>
+              <span class="lane-tag">Wear it</span>
+              <span class="kicker">Apparel</span>
+              <h3>Pressure Tested</h3>
+              <p class="muted">Heavyweight gear, worn under load. First drop in development.</p>
+            </a>
+            <a class="card split-tile" href="/shop/mats/" data-reveal>
+              <span class="card-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+              <span class="lane-tag">Build on it</span>
+              <span class="kicker">Mats</span>
+              <h3>Training floors</h3>
+              <p class="muted">Garage to full academy. Sized with a real calculator, freighted honestly.</p>
+            </a>
+            <a class="card split-tile" href="/seminars/" data-reveal>
+              <span class="card-mark"><img src="/assets/logos/Pressure_Over_Force_Mark.svg" alt="" /></span>
+              <span class="lane-tag">Show up for it</span>
+              <span class="kicker">Seminars</span>
+              <h3>Live events</h3>
+              <p class="muted">Athlete-led, capped rooms, real coaching. Founding list open.</p>
+            </a>
+            <a class="card split-tile" href="/blueprints/" data-reveal>
+              <span class="card-mark"><img src="/assets/logos/Pressure_Blueprint_Mark.svg" alt="" /></span>
+              <span class="lane-tag">Train it anywhere</span>
+              <span class="kicker">Blueprints</span>
+              <h3>Digital systems</h3>
+              <p class="muted">Position, pressure, decision. Grappling taught as architecture.</p>
+            </a>
           </div>
         </div>
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
-          <a href="#planner">Pressure Planner</a>
-          <a href="#system">Why it works</a>
-          <a href="#ecosystem">Ecosystem</a>
-          <a href="#mastery-method">Mastery Method</a>
-          <a href="#faq">FAQ</a>
-          <a class="ghost-button" href="#join">Join the field test</a>
-          <a class="shell-button" href="/planner"
-            ><span class="cta-mark"
-              ><img src="/assets/logos/Pressure_Planner_Mark_mono.svg" alt=""
-            /></span>
-            Start Setup</a
-          >
-        </nav>
-      </header>
+      </section>
 
-      <main>
-        <section class="hero">
-          <div class="hero-grid">
-            <article class="hero-copy" data-reveal>
-              <div class="product-lockup hero-product-lockup">
-                <span class="product-mark-wrap">
-                  <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                </span>
-                <span class="product-lockup-copy">
-                  <strong>Pressure Planner</strong>
-                  <span>One screen. One directive. Every day.</span>
-                </span>
-              </div>
-              <div class="hero-pill-row">
-                <span class="hero-pill">Built for shift workers</span>
-                <span class="hero-pill">Train. Parent. Do not guess.</span>
-                <span class="hero-pill">Start Setup in under 60 seconds</span>
-              </div>
-              <div class="eyebrow" style="margin-top: 22px">
-                The Pressure Academy
-              </div>
-              <h1>One screen. One directive. Every day.</h1>
-              <p class="lead">
-                Built for shift workers who train, parent, and refuse to guess.
-                Pressure Planner is the flagship daily decision system inside
-                The Pressure Academy.
+      <!-- 3. PRESSURE SYSTEM SECTION -->
+      <section class="section-tight" id="system">
+        <div class="container">
+          <div class="panel" data-reveal>
+            <div class="section-head">
+              <span class="kicker">The Pressure System</span>
+              <h2>This is not a gym. It is a performance system with products.</h2>
+              <p>
+                Everything in the house runs the same logic: reduce noise, hold position,
+                make the next decision under load. The mats are where it happens, the
+                apparel is the proof-of-work, the seminars are the live transfer, and the
+                blueprints are the system in your pocket.
               </p>
-              <p class="hero-support-copy">
-                The homepage explains the logic more fully than the live product
-                does. The live Planner stays intentionally clean, lightweight,
-                and fast.
-              </p>
-              <div class="hero-actions">
-                <a
-                  class="shell-button"
-                  href="/planner"
-                  ><span class="cta-mark"
-                    ><img
-                      src="/assets/logos/Pressure_Planner_Mark_mono.svg"
-                      alt="" /></span
-                  >Start Setup</a
-                >
-                <a class="ghost-button" href="#planner"
-                  >See how the score thinks</a
-                >
+            </div>
+            <div class="grid-3">
+              <div>
+                <h3>For athletes</h3>
+                <p class="muted">
+                  Gear that survives training and systems that survive resistance. Buy the
+                  lane you need, skip the rest.
+                </p>
               </div>
-              <div class="trust-strip">
-                <div class="trust-card">
-                  <div class="metric-label">Live truth</div>
-                  <strong>One screen. One directive. Every day.</strong>
-                  <p>
-                    The live Planner is deliberately lightweight. The value is
-                    clarity, not feature sprawl.
-                  </p>
+              <div>
+                <h3>For academy owners and coaches</h3>
+                <p class="muted">
+                  Floors, team kit, and hosted events through a direct B2B path with
+                  scoped pricing — not a retail cart pretending to be one.
+                </p>
+              </div>
+              <div>
+                <h3>For people carrying real load</h3>
+                <p class="muted">
+                  The software arm runs the same system for daily decisions:
+                  <a href="/planner" id="planner" style="text-decoration: underline">Pressure Planner</a>
+                  — one screen, one directive, every day.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PRODUCT PATH CARDS -->
+      <section class="section-tight">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">Straight buying paths</span>
+            <h2>Know what you came for? Go direct.</h2>
+          </div>
+          <div class="grid-2">
+            <article class="card" data-reveal>
+              <span class="kicker">Fast lane — apparel</span>
+              <h3>See it, size it, get on the drop.</h3>
+              <p class="muted">
+                Retail path with a slide-out cart, size confidence before you commit, and
+                first access at drop through the release list. No payment is taken before
+                the drop is real.
+              </p>
+              <div class="card-cta"><a class="btn" href="/shop/apparel/">Shop apparel</a></div>
+            </article>
+            <article class="card" data-reveal>
+              <span class="kicker">Considered lane — mats</span>
+              <h3>Size the room before you spend a dollar.</h3>
+              <p class="muted">
+                Mat calculator, spec guidance, honest freight expectations, and a quote
+                you approve before anything is charged. Home rooms and full academy floors.
+              </p>
+              <div class="card-cta"><a class="btn-ghost" href="/shop/mats/">Plan a floor</a></div>
+            </article>
+            <article class="card" data-reveal>
+              <span class="kicker">Scarce lane — seminars</span>
+              <h3>Capped rooms. Register first, pay second.</h3>
+              <p class="muted">
+                Events are announced only when athlete, date, and venue are locked. The
+                founding list hears first and fills the room before the public page does.
+              </p>
+              <div class="card-cta"><a class="btn-ghost" href="/seminars/">See events</a></div>
+            </article>
+            <article class="card" data-reveal>
+              <span class="kicker">Depth lane — blueprints</span>
+              <h3>One system, learned properly.</h3>
+              <p class="muted">
+                Digital blueprints teach position, pressure, and decision in order — so
+                what you learn holds up against someone who fights back.
+              </p>
+              <div class="card-cta"><a class="btn-ghost" href="/blueprints/">See blueprints</a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. MAT BUYER SECTION -->
+      <section class="section-tight" id="mats">
+        <div class="container">
+          <div class="panel" data-reveal>
+            <div class="section-head">
+              <span class="kicker">Mats, without the guesswork</span>
+              <h2>The floor is the first coach.</h2>
+            </div>
+            <div class="grid-2">
+              <div>
+                <h3>Home buyer</h3>
+                <p class="muted">
+                  Garage bays and spare rooms usually land between 12 and 20 mats. Run the
+                  calculator, send the result, get a spec and an honest freight figure back.
+                </p>
+                <h3 style="margin-top: 18px">Academy owner</h3>
+                <p class="muted">
+                  Full floors are scoped per venue through
+                  <a href="/academy-orders/" style="text-decoration: underline">academy orders</a>
+                  — coverage, thickness, subfloor, staging, and bulk pricing.
+                </p>
+              </div>
+              <div>
+                <div class="truth-note">
+                  <strong>Shipping clarity:</strong> mats travel as palletised freight, not
+                  parcel post. The exact freight cost is confirmed with you before any
+                  money changes hands.
                 </div>
-                <div class="trust-card">
-                  <div class="metric-label">Mechanism</div>
-                  <strong
-                    >Six variables inform one score and one daily
-                    directive.</strong
-                  >
-                  <p>
-                    The homepage can unpack the thinking. The live tool stays
-                    fast enough to use in the middle of a real day.
-                  </p>
+                <div class="gate-note" style="margin-top: 12px">
+                  Financing for academy fit-outs is in development. If a payment plan
+                  decides it for you, say so in the enquiry — it shapes what we set up.
                 </div>
-                <div class="trust-card">
-                  <div class="metric-label">Brand house</div>
-                  <strong
-                    >Planner first, backed by a wider pressure
-                    ecosystem.</strong
-                  >
-                  <p>
-                    The homepage leads with the flagship while still showing the
-                    system thinking behind it.
-                  </p>
+                <div class="hero-actions">
+                  <a class="btn" href="/shop/mats/#calculator">Size my floor</a>
+                  <a class="btn-ghost" href="/shop/mats/#mat-enquiry">Get a quote</a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. SEMINAR FUNNEL PREVIEW -->
+      <section class="section-tight" id="seminars-preview">
+        <div class="container">
+          <div class="grid-2">
+            <article class="card" data-reveal>
+              <span class="kicker">Live events</span>
+              <h2 style="font-size: clamp(1.7rem, 3vw, 2.4rem)">
+                Seminars run like fight cards: announced when they are real.
+              </h2>
+              <p class="muted">
+                Athlete-led, capped rooms, two-step registration — hold your spot free,
+                pay when seats release. No phantom events, no fake countdowns. The
+                founding list fills rooms before the public page does.
+              </p>
+              <div class="card-cta">
+                <a class="btn" href="/seminars/#seminar-list">Join the founding list</a>
               </div>
             </article>
-            <aside class="hero-panel" data-reveal>
-              <div class="hero-score">
-                <div class="score-ring">
-                  <span id="hero-score">74</span>
-                </div>
-                <div class="score-meta">
-                  <div class="section-label">Today's readout</div>
-                  <h2 id="hero-directive">Press</h2>
-                  <p id="hero-summary">
-                    Energy is available. Friction is moderate. The system calls
-                    for decisive work, not drift.
-                  </p>
-                </div>
-              </div>
-              <div class="score-bars" id="hero-bars"></div>
-              <div class="hero-notes">
-                <div class="hero-note">
-                  <div class="micro-label">Primary use</div>
-                  <strong>Decision support under load</strong>
-                  <p>
-                    Use the directive when your day is noisy, your schedule is
-                    shifting, and guessing is starting to cost you.
-                  </p>
-                </div>
-                <div class="hero-note">
-                  <div class="micro-label">Live state</div>
-                  <strong>Live now as a clean web model</strong>
-                  <p>
-                    Save it to your home screen now. The 14-day field test helps
-                    shape the mobile launch later.
-                  </p>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section class="section-block" id="planner">
-          <div class="surface-panel section-shell" data-reveal>
-            <div class="section-header">
-              <div class="section-lockup">
-                <span class="section-mark">
-                  <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                </span>
-                <span class="section-copy">
-                  <strong>Pressure Planner</strong>
-                  <span>Live model truth</span>
-                </span>
-              </div>
-              <h2>
-                Start with the live model. Use the homepage to understand the
-                logic.
+            <!-- 8. BLUEPRINT PREVIEW -->
+            <article class="card" data-reveal id="blueprint-preview">
+              <span class="kicker">The Pressure Blueprint</span>
+              <h2 style="font-size: clamp(1.7rem, 3vw, 2.4rem)">
+                Stop collecting techniques. Train the system.
               </h2>
-              <p>
-                The live Planner is intentionally light: one screen, one
-                directive, every day. This homepage preview expands the logic so
-                you can judge the system without mistaking it for a bigger app
-                than it is today.
+              <p class="muted">
+                The core grappling system is in development: positional maps, pressure
+                mechanics, and the decision trees for when they defend right. Waitlist
+                gets release access and launch pricing first.
               </p>
-              <div class="chip-row planner-truth-row">
-                <span class="truth-chip"
-                  >One screen. One directive. Every day.</span
-                >
-                <span class="truth-chip">Start Setup</span>
-                <span class="truth-chip">Takes under 60 seconds</span>
+              <div class="card-cta">
+                <a class="btn-ghost" href="/blueprints/pressure-blueprint-core/">Blueprint details</a>
               </div>
-            </div>
-            <div class="planner-lab">
-              <div class="planner-controls">
-                <div class="persona-row" id="persona-row"></div>
-                <div class="control-grid" id="control-grid"></div>
-              </div>
-              <div class="planner-output">
-                <div class="directive-card">
-                  <div class="panel-label">Planner directive</div>
-                  <div class="directive-grid">
-                    <div class="directive-score">
-                      <strong id="planner-score">74</strong>
-                      <span class="signal-chip" id="planner-band"
-                        >High signal day</span
-                      >
-                    </div>
-                    <div class="directive-copy">
-                      <h3 id="planner-title">
-                        Press while the window is open.
-                      </h3>
-                      <p id="planner-body">
-                        Today supports decisive movement. Protect the
-                        highest-value block, reduce noise, and act before the
-                        window closes.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-stack">
-                  <div class="info-item">
-                    <div class="micro-label">What changes</div>
-                    <strong id="planner-shift"
-                      >You stop treating every hard day the same way.</strong
-                    >
-                    <p>
-                      The score clarifies whether the answer is pressure,
-                      protection, recovery, or constraint.
-                    </p>
-                  </div>
-                  <div class="info-item">
-                    <div class="micro-label">Why it matters</div>
-                    <strong
-                      >Generic trackers measure. This system decides.</strong
-                    >
-                    <p>
-                      Pressure Planner is useful because it closes the gap
-                      between signal and action.
-                    </p>
-                  </div>
-                </div>
-                <p class="planner-footnote">
-                  This is a homepage signal preview, not the live product UI.
-                  The clean Planner path lives at
-                  <a
-                    class="text-button"
-                    href="/planner"
-                    >thepressureacademy.com/planner</a
-                  >.
-                </p>
-                <div class="product-truth-note">
-                  <strong>Truth note:</strong> the live Planner stays lighter
-                  than this explanation layer. Setup is fast, the screen stays
-                  clean, and the mobile release is still being shaped.
-                </div>
-              </div>
-            </div>
+            </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="section-block" id="system">
-          <div class="surface-panel section-shell" data-reveal>
-            <div class="section-header">
-              <div class="section-label">Why the system works</div>
-              <h2>It reduces noise before it asks for action.</h2>
-              <p>
-                The Pressure Academy is built around usable decision
-                architecture. Pressure Planner is the flagship expression of
-                that idea: fast input, clear interpretation, and a directive
-                that respects how load actually feels in real life.
+      <!-- ECOSYSTEM CONTINUITY (existing funnels preserved) -->
+      <section class="section-tight" id="ecosystem">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">The wider house</span>
+            <h2>Two more arms, same system.</h2>
+          </div>
+          <div class="grid-2">
+            <article class="card" data-reveal>
+              <span class="card-mark"><img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" /></span>
+              <h3>Pressure Planner</h3>
+              <p class="muted">
+                The daily decision layer. One screen, one directive, every day — live now
+                as a clean web model, with a 14-day field test shaping the mobile launch.
               </p>
-            </div>
-            <div class="system-grid">
-              <article class="proof-card">
-                <div class="metric-label">01</div>
-                <h3>Signal before story</h3>
-                <p>
-                  You do not need another motivational layer. You need a read on
-                  the day that clears the fog first.
-                </p>
-              </article>
-              <article class="proof-card">
-                <div class="metric-label">02</div>
-                <h3>One directive, not ten suggestions</h3>
-                <p>
-                  The system narrows the next move so action stays possible even
-                  when attention is under pressure.
-                </p>
-              </article>
-              <article class="proof-card">
-                <div class="metric-label">03</div>
-                <h3>Built as an operating rhythm</h3>
-                <p>
-                  Planner is not an isolated tool. It opens into a wider
-                  ecosystem of systems, curriculum, and proof-of-work.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-block">
-          <div class="surface-panel section-shell" data-reveal>
-            <div class="section-header">
-              <div class="section-lockup">
-                <span class="section-mark">
-                  <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                </span>
-                <span class="section-copy">
-                  <strong>Founding field test</strong>
-                  <span>14-day pilot funnel</span>
-                </span>
-              </div>
-              <h2>Run the Planner for 14 days before the app lands.</h2>
-              <p>
-                This is the current pilot path. Save the live Planner to your
-                home screen, use it in real life for 14 days, and send feedback
-                before the mobile launch. The goal is proof under real load, not
-                casual interest.
+              <div class="card-cta"><a class="btn-ghost" href="/planner">Start Setup</a></div>
+            </article>
+            <article class="card" data-reveal id="mastery-method">
+              <span class="card-mark"><img src="/assets/logos/Mastery_Method_Mark.svg" alt="" /></span>
+              <h3>Mastery Method</h3>
+              <p class="muted">
+                The education arm: structured support for children and families who need a
+                calmer, more deliberate learning system.
               </p>
-            </div>
-            <div class="pilot-grid">
-              <div class="pilot-panel">
-                <div class="chip-row pilot-label-row">
-                  <span class="signal-chip">Founding trial</span>
-                  <span class="signal-chip">14 days</span>
-                  <span class="signal-chip">Home screen first</span>
-                </div>
-                <h3 style="margin-top: 18px; font-size: clamp(2rem, 4vw, 3rem)">
-                  Save it. Use it daily. Tell us what holds up.
-                </h3>
-                <p>
-                  Pressure Planner is live now as a clean web model. The pilot
-                  matters because daily use reveals what a landing page never
-                  can: where the directive helps, where it slips, and what the
-                  mobile release needs to earn.
-                </p>
-                <div class="pilot-meta">
-                  <div class="pilot-meta-item">
-                    <strong>What you get</strong>
-                    <p>
-                      Live access now, a lightweight tool you can save to your
-                      home screen, and an early voice in what the mobile app
-                      becomes.
-                    </p>
-                  </div>
-                  <div class="pilot-meta-item">
-                    <strong>What we want back</strong>
-                    <p>
-                      Consistent real-world use for 14 days and honest feedback
-                      on clarity, friction, and where the system needs to be
-                      stronger.
-                    </p>
-                  </div>
-                </div>
-                <div class="pilot-actions">
-                  <a
-                    class="shell-button"
-                    href="/planner"
-                    ><span class="cta-mark"
-                      ><img
-                        src="/assets/logos/Pressure_Planner_Mark_mono.svg"
-                        alt="" /></span
-                    >Start Setup</a
-                  >
-                  <a
-                    class="ghost-button"
-                    href="#join"
-                    data-prefill-path="planner-pilot"
-                    data-prefill-message="I want to join the 14-day Pressure Planner field test, save the live model to my home screen, and send feedback before mobile launch."
-                    >Join the founding round</a
-                  >
-                </div>
-                <p class="planner-footnote">
-                  Start Setup takes under 60 seconds. Save the Planner to your
-                  home screen so it stays one tap away while the mobile app is
-                  still being built.
-                </p>
-              </div>
-              <div class="pilot-steps">
-                <article class="pilot-step">
-                  <div class="mini-chip">Step 1</div>
-                  <strong>Start with the live model</strong>
-                  <p>
-                    Open the real Planner, run Start Setup, and keep the first
-                    experience honest and fast.
-                  </p>
-                </article>
-                <article class="pilot-step">
-                  <div class="mini-chip">Step 2</div>
-                  <strong>Save it to your home screen</strong>
-                  <p>
-                    Treat it like a working daily tool, not a tab you forget.
-                    The pilot is about repeated use under real conditions.
-                  </p>
-                </article>
-                <article class="pilot-step">
-                  <div class="mini-chip">Step 3</div>
-                  <strong>Use it for 14 days</strong>
-                  <p>
-                    Run shifts, training, parenting, fatigue, and recovery
-                    through the system long enough to see what actually holds.
-                  </p>
-                </article>
-                <article class="pilot-step">
-                  <div class="mini-chip">Step 4</div>
-                  <strong>Send feedback before mobile release</strong>
-                  <p>
-                    Tell us where the directive helped, where it felt thin, and
-                    what the mobile build should preserve or improve.
-                  </p>
-                </article>
-              </div>
-            </div>
+              <div class="card-cta"><a class="btn-ghost" href="/mastery-method">Explore Mastery Method</a></div>
+            </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="section-block" id="ecosystem">
-          <div class="surface-panel section-shell" data-reveal>
-            <div class="section-header">
-              <div class="section-lockup">
-                <span class="section-mark">
-                  <img src="/assets/logos/TPA_House_Mark.svg" alt="" />
-                </span>
-                <span class="section-copy">
-                  <strong>The Pressure Academy</strong>
-                  <span>The brand house</span>
-                </span>
-              </div>
-              <h2>A flagship product, backed by a serious ecosystem.</h2>
-              <p>
-                The homepage should not flatten the brand. Pressure Planner
-                leads because it is the current conversion priority. The wider
-                ecosystem shows the depth behind that flagship.
-              </p>
-            </div>
-            <div class="ecosystem-grid">
-              <article class="ecosystem-feature">
-                <div class="chip-row">
-                  <span class="signal-chip">Flagship</span>
-                  <span class="signal-chip">Decision layer</span>
-                </div>
-                <div class="ecosystem-lockup">
-                  <div class="ecosystem-icon">
-                    <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                  </div>
-                  <h3
-                    style="
-                      margin-top: 18px;
-                      font-size: clamp(2.2rem, 4vw, 3.3rem);
-                    "
-                  >
-                    Pressure Planner
-                  </h3>
-                  <p>
-                    One screen. One directive. Every day. Built for shift
-                    workers who train, parent, and refuse to guess.
-                  </p>
-                </div>
-                <ul class="bullet-list">
-                  <li>
-                    <span class="list-index">A</span
-                    ><span
-                      >Best entry point for users who need immediate daily
-                      utility.</span
-                    >
-                  </li>
-                  <li>
-                    <span class="list-index">B</span
-                    ><span
-                      >Clear bridge from homepage to live product path.</span
-                    >
-                  </li>
-                  <li>
-                    <span class="list-index">C</span
-                    ><span
-                      >Strongest proof of The Pressure Academy's systems
-                      thinking.</span
-                    >
-                  </li>
-                </ul>
-                <div class="ecosystem-actions">
-                  <a
-                    class="shell-button"
-                    href="/planner"
-                    ><span class="cta-mark"
-                      ><img
-                        src="/assets/logos/Pressure_Planner_Mark_mono.svg"
-                        alt="" /></span
-                    >Start Setup</a
-                  >
-                  <a
-                    class="ghost-button"
-                    href="#join"
-                    data-prefill-path="planner-pilot"
-                    data-prefill-message="I want to join the 14-day Pressure Planner field test, save the live model to my home screen, and send feedback before mobile launch."
-                    >Join the founding round</a
-                  >
-                </div>
-              </article>
-              <article class="ecosystem-card" id="mastery-method">
-                <div class="ecosystem-icon">
-                  <img src="/assets/logos/Mastery_Method_Mark.svg" alt="" />
-                </div>
-                <h3 style="margin-top: 18px">Mastery Method</h3>
-                <p>
-                  The education arm of the ecosystem. Structured support for
-                  children and families who need a calmer, more deliberate
-                  learning system.
-                </p>
-                <div class="ecosystem-actions">
-                  <a class="ghost-button" href="/mastery-method"
-                    >Explore Mastery Method</a
-                  >
-                </div>
-              </article>
-              <article class="ecosystem-card">
-                <div class="ecosystem-icon">
-                  <img src="/assets/logos/Pressure_Blueprint_Mark.svg" alt="" />
-                </div>
-                <h3 style="margin-top: 18px">Pressure Blueprint</h3>
-                <p>
-                  The grappling and positional logic layer. It matters here
-                  because it shows the same systems discipline operating in
-                  another arena.
-                </p>
-              </article>
-              <article class="ecosystem-card">
-                <div class="ecosystem-icon">
-                  <img src="/assets/logos/Pressure_Tested_Mark.svg" alt="" />
-                </div>
-                <h3 style="margin-top: 18px">Pressure Tested</h3>
-                <p>
-                  Apparel and proof-of-work signal. It gives the brand house a
-                  visible edge instead of feeling purely digital or abstract.
-                </p>
-              </article>
-              <article class="ecosystem-card">
-                <div class="ecosystem-icon">
-                  <img
-                    src="/assets/logos/Pressure_Over_Force_Mark.svg"
-                    alt=""
-                  />
-                </div>
-                <h3 style="margin-top: 18px">Pressure Over Force</h3>
-                <p>
-                  The culture and content layer. Ideas, language, and proof that
-                  keep the brand from feeling thin or generic.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-block">
-          <div class="surface-panel section-shell" data-reveal>
-            <div class="section-header">
-              <div class="section-lockup">
-                <span class="section-mark">
-                  <img src="/assets/logos/TPA_House_Mark.svg" alt="" />
-                </span>
-                <span class="section-copy">
-                  <strong>System proof</strong>
-                  <span>Locked marks with real meaning</span>
-                </span>
-              </div>
-              <h2>
-                The same systems thinking shows up across the whole Pressure
-                house.
-              </h2>
-              <p>
-                This is how the brand earns trust. Planner is not presented as
-                an isolated app. It is the current flagship expression of a
-                wider operating philosophy.
-              </p>
-            </div>
-            <div class="proof-grid">
-              <article class="proof-card">
-                <div class="mark-cluster">
-                  <span class="section-mark">
-                    <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                  </span>
-                  <span class="metric-label">Pressure Planner</span>
-                </div>
-                <h3 style="margin-top: 18px">Live model now, mobile later</h3>
-                <p>
-                  The homepage can carry richer explanation, but the live
-                  product truth stays simple: one screen, one directive, every
-                  day.
-                </p>
-              </article>
-              <article class="proof-card">
-                <div class="mark-cluster">
-                  <span class="section-mark">
-                    <img
-                      src="/assets/logos/Pressure_Blueprint_Mark.svg"
-                      alt=""
-                    />
-                  </span>
-                  <span class="metric-label">Pressure Blueprint</span>
-                </div>
-                <h3 style="margin-top: 18px">
-                  Blueprint proves the discipline
-                </h3>
-                <p>
-                  The same systems logic appears in the grappling layer, which
-                  helps the homepage feel like a built house of methods rather
-                  than a single isolated product.
-                </p>
-              </article>
-              <article class="proof-card">
-                <div class="mark-cluster">
-                  <span class="section-mark">
-                    <img src="/assets/logos/Pressure_Tested_Mark.svg" alt="" />
-                  </span>
-                  <span class="metric-label">Pressure Tested</span>
-                </div>
-                <h3 style="margin-top: 18px">Proof-of-work matters too</h3>
-                <p>
-                  Pressure Tested gives the brand a harder edge and a future
-                  physical signal, which makes the digital flagship feel more
-                  grounded.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-block" id="faq">
-          <div class="surface-panel section-shell" data-reveal>
-            <div class="section-header">
-              <div class="section-label">Questions</div>
-              <h2>What people usually need to know before they step in.</h2>
-            </div>
-            <div class="faq-grid">
-              <article class="faq-card">
-                <strong>Is Pressure Planner just another habit tracker?</strong>
-                <p>
-                  No. It is a decision layer. The job is not to log everything.
-                  The job is to reduce ambiguity and shape the next move.
-                </p>
-              </article>
-              <article class="faq-card">
-                <strong>Why lead the homepage with Planner?</strong>
-                <p>
-                  Because it is the clearest flagship product right now, and it
-                  gives new visitors the fastest path into the Pressure
-                  ecosystem.
-                </p>
-              </article>
-              <article class="faq-card">
-                <strong
-                  >What if I am not ready to jump straight into the
-                  product?</strong
-                >
-                <p>
-                  Use the homepage preview, request an invite, and we will route
-                  you toward the cleanest next step instead of forcing a hard
-                  sell.
-                </p>
-              </article>
-              <article class="faq-card">
-                <strong>Where does Mastery Method fit?</strong>
-                <p>
-                  Mastery Method stays as the serious education arm of the brand
-                  house. It belongs here, but it does not need to compete with
-                  the Planner hero for attention.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-block" id="join">
-          <div class="join-panel" data-reveal>
-            <div class="join-grid">
+      <!-- INTAKE (preserved Formspree funnel, extended paths) -->
+      <section class="section-tight" id="join">
+        <div class="container">
+          <div class="panel" data-reveal>
+            <div class="grid-2">
               <div>
-                <div class="section-lockup">
-                  <span class="section-mark">
-                    <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                  </span>
-                  <span class="section-copy">
-                    <strong>Founding Trial Intake</strong>
-                    <span>Pressure Planner pilot or another Pressure path</span>
-                  </span>
-                </div>
-                <h2
-                  style="
-                    margin-top: 18px;
-                    font-size: clamp(2.5rem, 4.5vw, 4.4rem);
-                  "
-                >
-                  Join the founding round or tell us where you fit.
-                </h2>
-                <p>
-                  Use this form if you want to run the 14-day Pressure Planner
-                  field test or if another part of the house is the better next
-                  step. Every request is reviewed manually.
+                <span class="kicker">Direct line</span>
+                <h2>Tell us where you fit.</h2>
+                <p class="muted">
+                  Every request is reviewed by a person and answered with the cleanest
+                  next step — not a drip sequence. Field-test spots for Pressure Planner
+                  run through here too.
                 </p>
-                <ul class="insight-list" style="margin-top: 24px">
-                  <li>
-                    <span class="list-index">1</span
-                    ><span
-                      >Tell us whether you want the 14-day Planner field test or
-                      another path in the house</span
-                    >
-                  </li>
-                  <li>
-                    <span class="list-index">2</span
-                    ><span
-                      >Tell us what kind of pressure you want the system to help
-                      you read more clearly</span
-                    >
-                  </li>
-                  <li>
-                    <span class="list-index">3</span
-                    ><span
-                      >We respond with the cleanest next step instead of
-                      dropping you into a generic funnel</span
-                    >
-                  </li>
-                </ul>
               </div>
               <form
-                class="join-form"
+                class="capture-form"
                 id="join-form"
+                data-capture="founding-intake"
                 action="https://formspree.io/f/meerjgde"
                 method="POST"
               >
+                <input type="hidden" name="intent" value="founding-intake" />
+                <input type="hidden" name="source" value="home-join" />
                 <div class="field-grid">
-                  <label class="field">
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Your name"
-                      required
-                    />
-                  </label>
-                  <label class="field">
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email address"
-                      required
-                    />
-                  </label>
+                  <input type="text" name="name" placeholder="Your name" required />
+                  <input type="email" name="email" placeholder="Email address" required />
                 </div>
-                <label class="field">
+                <label>
                   <select id="join-path" name="path" required>
                     <option value="">What are you here for?</option>
-                    <option value="planner-pilot">
-                      Pressure Planner 14-day field test
-                    </option>
+                    <option value="apparel">Pressure Tested apparel</option>
+                    <option value="mats">Mats / training floor</option>
+                    <option value="seminars">Seminars</option>
+                    <option value="blueprint">Pressure Blueprint</option>
+                    <option value="planner-pilot">Pressure Planner 14-day field test</option>
                     <option value="planner">Pressure Planner</option>
                     <option value="mastery-method">Mastery Method</option>
-                    <option value="blueprint">Pressure Blueprint</option>
-                    <option value="other">
-                      Something else in the ecosystem
-                    </option>
+                    <option value="other">Something else in the ecosystem</option>
                   </select>
                 </label>
-                <label class="field">
+                <label>
                   <textarea
                     id="join-message"
                     name="message"
-                    placeholder="What kind of pressure are you trying to think through, and are you here for the 14-day field test?"
+                    placeholder="What are you building or training for?"
                     required
                   ></textarea>
                 </label>
-                <button class="shell-button" type="submit">
-                  Join the founding round
-                </button>
-                <div
-                  class="form-status"
-                  id="form-status"
-                  aria-live="polite"
-                ></div>
+                <button class="btn" type="submit">Send it</button>
+                <div class="form-status" id="form-status" aria-live="polite"></div>
               </form>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+    </main>
 
-      <footer class="footer-wrap">
-        <section>
-          <div class="footer-panel" data-reveal>
-            <div class="footer-grid">
-              <div class="footer-column">
-                <a
-                  class="brand-lockup footer-brand"
-                  href="/"
-                  aria-label="The Pressure Academy home"
-                >
-                  <span class="brand-mark">
-                    <img src="/assets/logos/TPA_House_Mark.svg" alt="" />
-                  </span>
-                  <span class="brand-copy">
-                    <strong>The Pressure Academy</strong>
-                    <span>Flagship systems. Deliberate pressure.</span>
-                  </span>
-                </a>
-                <p style="max-width: 34rem; margin-top: 18px">
-                  The Pressure Academy is a brand house for systems built under
-                  real load. Pressure Planner leads. The rest of the ecosystem
-                  proves the depth behind it.
-                </p>
-                <div
-                  class="footer-mark-shelf"
-                  aria-label="Pressure ecosystem marks"
-                >
-                  <span class="footer-mark-chip">
-                    <img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" />
-                  </span>
-                  <span class="footer-mark-chip">
-                    <img src="/assets/logos/Mastery_Method_Mark.svg" alt="" />
-                  </span>
-                  <span class="footer-mark-chip">
-                    <img
-                      src="/assets/logos/Pressure_Blueprint_Mark.svg"
-                      alt=""
-                    />
-                  </span>
-                  <span class="footer-mark-chip">
-                    <img src="/assets/logos/Pressure_Tested_Mark.svg" alt="" />
-                  </span>
-                </div>
-              </div>
-              <div class="footer-column">
-                <div class="section-label">Flagship path</div>
-                <div class="footer-links">
-                  <a href="/planner"
-                    >Pressure Planner</a
-                  >
-                  <a href="#planner">Planner preview</a>
-                  <a href="#join">14-day field test</a>
-                </div>
-              </div>
-              <div class="footer-column">
-                <div class="section-label">Ecosystem</div>
-                <div class="footer-links">
-                  <a href="/mastery-method">Mastery Method</a>
-                  <a href="#ecosystem">Pressure Blueprint</a>
-                  <a href="#ecosystem">Pressure Tested</a>
-                  <a href="/privacy-policy.html">Privacy Policy</a>
-                </div>
-              </div>
-            </div>
-            <div class="footer-micro">
-              <span>Pressure first. Noise second.</span>
-              <span>&copy; 2026 The Pressure Academy</span>
-            </div>
+    <!-- 10. FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+            <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+            <span class="brand-copy">
+              <strong>The Pressure Academy</strong>
+              <span>Built under pressure</span>
+            </span>
+          </a>
+          <p class="muted" style="margin-top: 14px; max-width: 30rem">
+            Mats, apparel, seminars, and systems for athletes who live under pressure.
+            Not motivation. Architecture.
+          </p>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Shop</span>
+          <div class="footer-links">
+            <a href="/shop/apparel/">Pressure Tested apparel</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/academy-orders/">Academy orders</a>
           </div>
-        </section>
-      </footer>
-    </div>
-    <script>
-      const plannerInputs = [
-        {
-          key: "energy",
-          label: "Energy",
-          description: "How much usable output is actually available?",
-          value: 76,
-        },
-        {
-          key: "clarity",
-          label: "Clarity",
-          description: "How clean is your thinking right now?",
-          value: 72,
-        },
-        {
-          key: "friction",
-          label: "Friction",
-          description: "How much resistance is the environment creating?",
-          value: 42,
-          invert: true,
-        },
-        {
-          key: "recovery",
-          label: "Recovery",
-          description: "How much capacity have you restored?",
-          value: 64,
-        },
-        {
-          key: "constraint",
-          label: "Constraint",
-          description: "How boxed in does the day feel?",
-          value: 38,
-          invert: true,
-        },
-        {
-          key: "intent",
-          label: "Intent",
-          description: "How clear is the priority you are protecting?",
-          value: 81,
-        },
-      ];
-
-      const personaData = [
-        {
-          id: "founder",
-          label: "Founder mode",
-          values: {
-            energy: 71,
-            clarity: 74,
-            friction: 46,
-            recovery: 58,
-            constraint: 41,
-            intent: 85,
-          },
-        },
-        {
-          id: "parent",
-          label: "Parent load",
-          values: {
-            energy: 54,
-            clarity: 57,
-            friction: 63,
-            recovery: 42,
-            constraint: 67,
-            intent: 69,
-          },
-        },
-        {
-          id: "operator",
-          label: "Operator day",
-          values: {
-            energy: 67,
-            clarity: 62,
-            friction: 49,
-            recovery: 60,
-            constraint: 44,
-            intent: 76,
-          },
-        },
-      ];
-
-      const directiveRules = [
-        {
-          min: 80,
-          band: "Prime window",
-          hero: "Advance",
-          title: "Advance with precision.",
-          body: "You have real signal and usable capacity. Protect the highest-leverage block and move before the day gets diluted.",
-          shift:
-            "The day can carry meaningful pressure without becoming reckless.",
-        },
-        {
-          min: 62,
-          band: "High signal day",
-          hero: "Press",
-          title: "Press while the window is open.",
-          body: "Today supports decisive movement. Protect the highest-value block, reduce noise, and act before the window closes.",
-          shift: "You stop mistaking a workable day for a perfect day.",
-        },
-        {
-          min: 46,
-          band: "Guard the lane",
-          hero: "Protect",
-          title: "Protect the lane you can still hold.",
-          body: "The system is asking for narrower execution. Keep the priority visible, trim obligations, and avoid splintering attention.",
-          shift:
-            "The day becomes manageable because the decision surface gets smaller.",
-        },
-        {
-          min: 28,
-          band: "Recovery bias",
-          hero: "Reset",
-          title: "Reset before you push again.",
-          body: "Capacity is leaking. Strip the day back, recover what is recoverable, and avoid calling burnout discipline.",
-          shift:
-            "You stop forcing output from a system that needs repair first.",
-        },
-        {
-          min: 0,
-          band: "Constraint day",
-          hero: "Contain",
-          title: "Contain the damage and reduce exposure.",
-          body: "This is not the day for expansion. Protect essentials, cut optional load, and make the smallest useful move available.",
-          shift:
-            "You stop treating a constrained day like a test of character.",
-        },
-      ];
-
-      const heroBarData = [
-        { label: "Energy", value: 76 },
-        { label: "Clarity", value: 72 },
-        { label: "Intent", value: 81 },
-        { label: "Constraint", value: 38 },
-      ];
-
-      const heroBars = document.getElementById("hero-bars");
-      const personaRow = document.getElementById("persona-row");
-      const controlGrid = document.getElementById("control-grid");
-      const heroScore = document.getElementById("hero-score");
-      const heroDirective = document.getElementById("hero-directive");
-      const heroSummary = document.getElementById("hero-summary");
-      const plannerScore = document.getElementById("planner-score");
-      const plannerBand = document.getElementById("planner-band");
-      const plannerTitle = document.getElementById("planner-title");
-      const plannerBody = document.getElementById("planner-body");
-      const plannerShift = document.getElementById("planner-shift");
-
-      function renderHeroBars() {
-        heroBars.innerHTML = "";
-        heroBarData.forEach((bar) => {
-          const row = document.createElement("div");
-          row.className = "score-bar";
-          row.innerHTML = `
-          <header>
-            <span>${bar.label}</span>
-            <span>${bar.value}</span>
-          </header>
-          <div class="score-bar-track">
-            <div class="score-bar-fill" style="width:${bar.value}%"></div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Train</span>
+          <div class="footer-links">
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/planner">Pressure Planner</a>
+            <a href="/mastery-method">Mastery Method</a>
           </div>
-        `;
-          heroBars.appendChild(row);
-        });
-      }
+        </div>
+        <div class="footer-col">
+          <span class="mono">Company</span>
+          <div class="footer-links">
+            <a href="/contact/">Contact</a>
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/">Home</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-micro">
+        <span>Pressure first. Noise second.</span>
+        <span>&copy; 2026 The Pressure Academy</span>
+      </div>
+    </footer>
 
-      function renderControls() {
-        controlGrid.innerHTML = "";
-        plannerInputs.forEach((item) => {
-          const wrapper = document.createElement("label");
-          wrapper.className = "control-item";
-          wrapper.innerHTML = `
-          <header>
-            <strong>${item.label}</strong>
-            <span id="${item.key}-value">${item.value}</span>
-          </header>
-          <input type="range" min="0" max="100" value="${item.value}" data-key="${item.key}" />
-          <span>${item.description}</span>
-        `;
-          controlGrid.appendChild(wrapper);
-        });
+    <script type="module">
+      import { initCart } from "/js/lib/cart.js";
+      import {
+        renderAuthorityStrip,
+        enhanceCaptureForms,
+        initMobileNav,
+      } from "/js/lib/commerce-ui.js";
+      // Retention/event architecture is live site-wide via events.js:
+      // cart interactions and form captures on this page emit local events.
 
-        controlGrid.querySelectorAll('input[type="range"]').forEach((input) => {
-          input.addEventListener("input", () => {
-            const key = input.dataset.key;
-            const numericValue = Number(input.value);
-            const target = plannerInputs.find((item) => item.key === key);
-            if (!target) return;
-            target.value = numericValue;
-            const valueLabel = document.getElementById(`${key}-value`);
-            if (valueLabel) valueLabel.textContent = numericValue;
-            updatePlannerState();
-          });
-        });
-      }
-
-      function renderPersonaButtons() {
-        personaRow.innerHTML = "";
-        personaData.forEach((persona, index) => {
-          const button = document.createElement("button");
-          button.type = "button";
-          button.className = `persona-button${index === 0 ? " active" : ""}`;
-          button.textContent = persona.label;
-          button.dataset.persona = persona.id;
-          button.addEventListener("click", () => {
-            personaRow
-              .querySelectorAll(".persona-button")
-              .forEach((node) => node.classList.remove("active"));
-            button.classList.add("active");
-            plannerInputs.forEach((item) => {
-              item.value = persona.values[item.key];
-            });
-            renderControls();
-            updatePlannerState();
-          });
-          personaRow.appendChild(button);
-        });
-      }
-
-      function getDirective(score) {
-        return (
-          directiveRules.find((rule) => score >= rule.min) ||
-          directiveRules[directiveRules.length - 1]
-        );
-      }
-
-      function calculateScore() {
-        const total = plannerInputs.reduce((sum, item) => {
-          const normalized = item.invert ? 100 - item.value : item.value;
-          return sum + normalized;
-        }, 0);
-        return Math.round(total / plannerInputs.length);
-      }
-
-      function updatePlannerState() {
-        const score = calculateScore();
-        const directive = getDirective(score);
-
-        plannerScore.textContent = score;
-        plannerBand.textContent = directive.band;
-        plannerTitle.textContent = directive.title;
-        plannerBody.textContent = directive.body;
-        plannerShift.textContent = directive.shift;
-
-        heroScore.textContent = score;
-        heroDirective.textContent = directive.hero;
-        heroSummary.textContent = directive.body;
-
-        heroBarData[0].value = plannerInputs.find(
-          (item) => item.key === "energy",
-        ).value;
-        heroBarData[1].value = plannerInputs.find(
-          (item) => item.key === "clarity",
-        ).value;
-        heroBarData[2].value = plannerInputs.find(
-          (item) => item.key === "intent",
-        ).value;
-        heroBarData[3].value = plannerInputs.find(
-          (item) => item.key === "constraint",
-        ).value;
-        renderHeroBars();
-      }
-
-      const menuButton = document.querySelector(".menu-button");
-      const mobileNav = document.getElementById("mobile-nav");
-
-      if (menuButton && mobileNav) {
-        menuButton.addEventListener("click", () => {
-          const expanded = menuButton.getAttribute("aria-expanded") === "true";
-          menuButton.setAttribute("aria-expanded", String(!expanded));
-          mobileNav.classList.toggle("open");
-          document.body.classList.toggle("menu-open", !expanded);
-        });
-
-        mobileNav.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            menuButton.setAttribute("aria-expanded", "false");
-            mobileNav.classList.remove("open");
-            document.body.classList.remove("menu-open");
-          });
-        });
-      }
+      initMobileNav();
+      initCart();
+      enhanceCaptureForms();
+      renderAuthorityStrip(document.getElementById("authority-strip"));
 
       const observer = new IntersectionObserver(
         (entries) => {
@@ -2661,58 +536,9 @@
             }
           });
         },
-        { threshold: 0.18 },
+        { threshold: 0.15 },
       );
-
-      document
-        .querySelectorAll("[data-reveal]")
-        .forEach((element) => observer.observe(element));
-
-      const joinForm = document.getElementById("join-form");
-      const joinPath = document.getElementById("join-path");
-      const joinMessage = document.getElementById("join-message");
-      const formStatus = document.getElementById("form-status");
-
-      document.querySelectorAll("[data-prefill-path]").forEach((link) => {
-        link.addEventListener("click", () => {
-          const desiredPath = link.getAttribute("data-prefill-path");
-          const suggestedMessage = link.getAttribute("data-prefill-message");
-          if (joinPath && desiredPath) joinPath.value = desiredPath;
-          if (joinMessage && suggestedMessage && !joinMessage.value.trim()) {
-            joinMessage.value = suggestedMessage;
-          }
-        });
-      });
-
-      if (joinForm && formStatus) {
-        joinForm.addEventListener("submit", async (event) => {
-          event.preventDefault();
-          const submitButton = joinForm.querySelector('button[type="submit"]');
-          formStatus.textContent = "Sending your request...";
-          if (submitButton) submitButton.disabled = true;
-          const formData = new FormData(joinForm);
-          try {
-            const response = await fetch(joinForm.action, {
-              method: "POST",
-              body: formData,
-              headers: { Accept: "application/json" },
-            });
-            if (!response.ok) throw new Error("Form submission failed.");
-            joinForm.reset();
-            formStatus.textContent =
-              "Request received. We will follow up with the right next step.";
-          } catch (error) {
-            formStatus.textContent =
-              "Something blocked the form. Please try again in a moment.";
-          } finally {
-            if (submitButton) submitButton.disabled = false;
-          }
-        });
-      }
-
-      renderPersonaButtons();
-      renderControls();
-      updatePlannerState();
+      document.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>

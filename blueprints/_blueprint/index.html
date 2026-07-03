@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blueprint | The Pressure Academy</title>
+    <meta name="description" content="Pressure Blueprint detail page." />
+    <!--
+      DYNAMIC SLUG TEMPLATE — served for /blueprints/[slug] via vercel.json rewrite.
+      Renders from js/config/funnels.js by pathname. Unknown slugs render
+      the honest fallback. noindex until blueprints are on sale.
+    -->
+    <meta name="robots" content="noindex,follow" />
+    <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+          <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+          <span class="brand-copy">
+            <strong>The Pressure Academy</strong>
+            <span>Built under pressure</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="/shop/">Shop</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/" aria-current="page">Blueprints</a>
+            <a href="/academy-orders/">Academy Orders</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="cart-button" data-cart-open aria-label="Open cart">
+            Cart <span data-cart-count aria-hidden="true"></span>
+          </button>
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/shop/">Shop</a>
+        <a href="/shop/mats/">Mats</a>
+        <a href="/seminars/">Seminars</a>
+        <a href="/blueprints/" aria-current="page">Blueprints</a>
+        <a href="/academy-orders/">Academy Orders</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </header>
+
+    <main id="bp-main">
+      <noscript>
+        <section class="page-hero">
+          <div class="container">
+            <h1>Blueprint details need JavaScript</h1>
+            <p class="lead">
+              Browse the library at <a href="/blueprints/" style="text-decoration: underline">thepressureacademy.com/blueprints</a>.
+            </p>
+          </div>
+        </section>
+      </noscript>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+            <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+            <span class="brand-copy">
+              <strong>The Pressure Academy</strong>
+              <span>Built under pressure</span>
+            </span>
+          </a>
+          <p class="muted" style="margin-top: 14px; max-width: 30rem">
+            Mats, apparel, seminars, and systems for athletes who live under pressure.
+            Not motivation. Architecture.
+          </p>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Shop</span>
+          <div class="footer-links">
+            <a href="/shop/apparel/">Pressure Tested apparel</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/academy-orders/">Academy orders</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Train</span>
+          <div class="footer-links">
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/planner">Pressure Planner</a>
+            <a href="/mastery-method">Mastery Method</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Company</span>
+          <div class="footer-links">
+            <a href="/contact/">Contact</a>
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/">Home</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-micro">
+        <span>Pressure first. Noise second.</span>
+        <span>&copy; 2026 The Pressure Academy</span>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { getBlueprint } from "/js/config/funnels.js";
+      import { formatMoney } from "/js/config/regions.js";
+      import { initCart } from "/js/lib/cart.js";
+      import { track, EVENTS } from "/js/lib/events.js";
+      import {
+        slugFromPath,
+        escapeHtml,
+        enhanceCaptureForms,
+        initMobileNav,
+      } from "/js/lib/commerce-ui.js";
+
+      initMobileNav();
+      initCart();
+
+      const main = document.getElementById("bp-main");
+      const slug = slugFromPath("blueprints");
+      const bp = slug ? getBlueprint(slug) : null;
+
+      if (!bp || bp.status === "draft") {
+        document.title = "Blueprint not found | The Pressure Academy";
+        main.innerHTML = `
+        <section class="page-hero">
+          <div class="container">
+            <span class="kicker">Blueprints</span>
+            <h1>That blueprint does not exist.</h1>
+            <p class="lead">The link may be old, or the system has not been announced. The library shows everything that is real.</p>
+            <div class="hero-actions">
+              <a class="btn" href="/blueprints/">Back to the library</a>
+            </div>
+          </div>
+        </section>`;
+      } else {
+        document.title = `${bp.title} | The Pressure Academy`;
+        const onSale = bp.status === "on-sale" && bp.checkoutUrl;
+        main.innerHTML = `
+        <section class="page-hero">
+          <div class="container">
+            <span class="kicker">The Pressure Blueprint</span>
+            <h1>${escapeHtml(bp.title)}</h1>
+            <p class="lead">${escapeHtml(bp.promise)}</p>
+            <div class="hero-strip">
+              <span class="fact-chip mono">${escapeHtml(bp.format)}</span>
+              <span class="fact-chip mono">${
+                bp.priceCents != null ? formatMoney(bp.priceCents) : escapeHtml(bp.priceNote || "Pricing at release")
+              }</span>
+              ${bp.status === "in-development" ? '<span class="fact-chip mono">In development</span>' : ""}
+            </div>
+            <div class="hero-actions">
+              <a class="btn" href="#get" id="primary-cta">${onSale ? "Get the blueprint" : "Join the release waitlist"}</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-tight">
+          <div class="container">
+            <div class="panel">
+              <span class="kicker">Inside the system</span>
+              <ul class="spec-list">
+                ${(bp.modulesPreview || []).map((m) => `<li>${escapeHtml(m)}</li>`).join("")}
+              </ul>
+              <p class="muted" style="margin-top: 12px">
+                The transformation is specific: you stop collecting techniques and start
+                holding positions that produce them. Every module ends with the decision
+                tree for when the opponent defends correctly.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-tight" id="get">
+          <div class="container">
+            <div class="step-row">
+              <div class="step-card">
+                <span class="step-num">1</span>
+                <h3>${onSale ? "Create your access" : "Join the waitlist"}</h3>
+                <p class="muted">${
+                  onSale
+                    ? "Enter your details, then complete payment. Access is delivered by email."
+                    : "Waitlist gets release access and launch pricing first. One email at release — that is the entire sequence."
+                }</p>
+                <form class="capture-form" data-capture="blueprint-lead" id="bp-form"
+                      action="https://formspree.io/f/meerjgde" method="POST">
+                  <input type="hidden" name="intent" value="blueprint-waitlist" />
+                  <input type="hidden" name="source" value="blueprint-${escapeHtml(bp.slug)}" />
+                  <div class="field-grid">
+                    <input type="text" name="name" placeholder="Name" required />
+                    <input type="email" name="email" placeholder="Email" required />
+                  </div>
+                  <button class="btn" type="submit">${onSale ? "Continue — step 1 of 2" : "Join the waitlist"}</button>
+                  <div class="form-status" aria-live="polite"></div>
+                </form>
+              </div>
+              <div class="step-card ${onSale ? "" : "step-locked"}">
+                <span class="step-num">2</span>
+                <h3>Payment</h3>
+                ${
+                  onSale
+                    ? `<a class="btn btn-block" href="${escapeHtml(bp.checkoutUrl)}">Pay ${bp.priceCents != null ? formatMoney(bp.priceCents) : ""}</a>`
+                    : `<p class="muted">Checkout opens at release.</p>
+                       <p class="gate-note">No payment provider is connected to this page yet. Nothing here charges a card.</p>`
+                }
+              </div>
+            </div>
+          </div>
+        </section>`;
+
+        enhanceCaptureForms(main);
+
+        // Funnel event: checkout intent starts at the primary CTA.
+        document.getElementById("primary-cta").addEventListener("click", () => {
+          track(EVENTS.BLUEPRINT_CHECKOUT_STARTED, { slug: bp.slug, gated: !onSale });
+        });
+      }
+
+    </script>
+  </body>
+</html>

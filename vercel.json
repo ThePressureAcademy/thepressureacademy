@@ -80,6 +80,18 @@
     {
       "src": "^/mastery-method/portal/progress(?:/.*)?$",
       "dest": "/api/portal-serve?page=progress"
+    },
+    {
+      "src": "^/seminars/([a-z0-9][a-z0-9-]*)/?$",
+      "dest": "/seminars/_event/index.html"
+    },
+    {
+      "src": "^/blueprints/([a-z0-9][a-z0-9-]*)/?$",
+      "dest": "/blueprints/_blueprint/index.html"
+    },
+    {
+      "src": "^/campaigns/([a-z0-9][a-z0-9-]*)/?$",
+      "dest": "/campaigns/_campaign/index.html"
     }
   ],
   "headers": [

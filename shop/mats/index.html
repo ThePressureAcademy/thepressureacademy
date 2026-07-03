@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jiu-Jitsu Mats | The Pressure Academy</title>
+    <meta
+      name="description"
+      content="Academy-grade jiu-jitsu mats for garages, home rooms, and full academy floors. Size calculator, honest freight, bulk and academy orders."
+    />
+    <link rel="canonical" href="https://thepressureacademy.com/shop/mats/" />
+    <meta property="og:site_name" content="The Pressure Academy" />
+    <meta property="og:title" content="Jiu-Jitsu Mats | The Pressure Academy" />
+    <meta
+      property="og:description"
+      content="Training-floor infrastructure: jigsaw and roll-out mat systems, sized with a real calculator, freighted honestly."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thepressureacademy.com/shop/mats/" />
+    <meta property="og:image" content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png" />
+    <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+          <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+          <span class="brand-copy">
+            <strong>The Pressure Academy</strong>
+            <span>Built under pressure</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="/shop/">Shop</a>
+            <a href="/shop/mats/" aria-current="page">Mats</a>
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/academy-orders/">Academy Orders</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="cart-button" data-cart-open aria-label="Open cart">
+            Cart <span data-cart-count aria-hidden="true"></span>
+          </button>
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/shop/">Shop</a>
+        <a href="/shop/apparel/">Apparel</a>
+        <a href="/shop/mats/" aria-current="page">Mats</a>
+        <a href="/seminars/">Seminars</a>
+        <a href="/blueprints/">Blueprints</a>
+        <a href="/academy-orders/">Academy Orders</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="kicker">Training-floor infrastructure</span>
+          <h1>The room decides<br />how you train.</h1>
+          <p class="lead">
+            Garage, spare room, or full academy floor — mats are infrastructure, not an
+            accessory. Size it properly, spec it once, and never train around a bad floor
+            again.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#calculator">Size my floor</a>
+            <a class="btn-ghost" href="#mat-enquiry">Get a quote</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="container">
+          <div class="grid-2">
+            <article class="card" data-reveal>
+              <span class="kicker">Home buyer</span>
+              <h3>Garage and spare-room floors</h3>
+              <p class="muted">
+                Most home rooms fit between 12 and 20 jigsaw mats. Use the calculator,
+                send us the result, and we come back with a spec and a real freight
+                figure — before you commit to anything.
+              </p>
+              <div class="card-cta"><a class="btn-ghost" href="#calculator">Run the calculator</a></div>
+            </article>
+            <article class="card" data-reveal>
+              <span class="kicker">Academy owner</span>
+              <h3>Full floors and fit-outs</h3>
+              <p class="muted">
+                Full floors are scoped per venue: coverage, thickness, subfloor, wall
+                padding, staging, and freight to your door. That runs through the academy
+                orders path with direct pricing.
+              </p>
+              <div class="card-cta"><a class="btn-ghost" href="/academy-orders/">Academy orders</a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" id="calculator">
+        <div class="container">
+          <div class="panel">
+            <div class="grid-2">
+              <div>
+                <span class="kicker">Mat calculator</span>
+                <h2>Size the floor before you spend a dollar.</h2>
+                <p class="muted">
+                  Enter the room. We calculate mats needed with wall clearance and tell
+                  you how many people can safely train live on it.
+                </p>
+                <form class="capture-form" id="mat-calc" style="margin-top: 16px">
+                  <label>
+                    <span class="mono muted">Preset</span>
+                    <select id="calc-preset">
+                      <option value="">Custom room</option>
+                    </select>
+                  </label>
+                  <div class="field-grid">
+                    <label>
+                      <span class="mono muted">Room width (m)</span>
+                      <input type="number" id="calc-width" min="1" max="60" step="0.1" value="3" />
+                    </label>
+                    <label>
+                      <span class="mono muted">Room length (m)</span>
+                      <input type="number" id="calc-length" min="1" max="60" step="0.1" value="5" />
+                    </label>
+                  </div>
+                  <button type="button" class="btn" id="calc-run">Calculate my floor</button>
+                </form>
+              </div>
+              <div>
+                <div class="card" id="calc-result" hidden>
+                  <span class="kicker">Your floor</span>
+                  <h3 id="calc-mats"></h3>
+                  <ul class="spec-list" id="calc-detail"></ul>
+                  <p class="gate-note" id="calc-note"></p>
+                  <div class="card-cta">
+                    <a class="btn btn-block" href="#mat-enquiry" id="calc-enquire">Send this floor for a quote</a>
+                  </div>
+                </div>
+                <div class="card" id="calc-empty">
+                  <span class="kicker">Output</span>
+                  <p class="muted">
+                    Run the calculator and your mat count, training capacity, and freight
+                    expectation appear here.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" id="systems">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">Mat systems</span>
+            <h2>Reference specs, stated straight.</h2>
+            <p>
+              Final supplier specification and pricing are not locked yet. These are the
+              reference specs we are building the range around — every quote is confirmed
+              against final spec before you pay anything.
+            </p>
+          </div>
+          <div class="product-grid product-grid-3" id="mat-grid"></div>
+          <noscript>
+            <p class="muted">Mat specs render with JavaScript enabled. For a quote, use the enquiry form below.</p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="container">
+          <div class="grid-3">
+            <article class="card">
+              <span class="kicker">Shipping, honestly</span>
+              <h3>Mats travel as freight</h3>
+              <p class="muted" id="freight-message">
+                Mats ship palletised. We confirm the exact freight cost with you before
+                any money changes hands.
+              </p>
+            </article>
+            <article class="card">
+              <span class="kicker">Financing</span>
+              <h3>Spread-the-cost options</h3>
+              <p class="muted">
+                Financing options for academy fit-outs are in development. If a payment
+                plan decides it for you, say so in the enquiry — it shapes what we set up.
+              </p>
+            </article>
+            <article class="card">
+              <span class="kicker">Bulk orders</span>
+              <h3>Teams and multi-room buys</h3>
+              <p class="muted">
+                Ordering above 30 mats or for more than one room? Go through
+                <a href="/academy-orders/" style="text-decoration: underline">academy orders</a>
+                for scoped pricing and staged delivery.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" id="mat-enquiry">
+        <div class="container">
+          <div class="panel">
+            <div class="grid-2">
+              <div>
+                <span class="kicker">Mat enquiry</span>
+                <h2>Scope first. Price second. No pressure games.</h2>
+                <p class="muted">
+                  Tell us the room and how you train. You get back a spec, a mat count, an
+                  honest freight expectation, and a price — then you decide.
+                </p>
+              </div>
+              <form
+                class="capture-form"
+                data-capture="mat-enquiry"
+                action="https://formspree.io/f/meerjgde"
+                method="POST"
+              >
+                <input type="hidden" name="intent" value="mat-enquiry" />
+                <input type="hidden" name="source" value="shop-mats" />
+                <input type="hidden" name="calculator_result" value="" id="calc-payload" />
+                <div class="field-grid">
+                  <input type="text" name="name" placeholder="Name" required />
+                  <input type="email" name="email" placeholder="Email" required />
+                </div>
+                <label>
+                  <select name="buyer_type" required>
+                    <option value="">Where is this floor going?</option>
+                    <option value="home">Home / garage</option>
+                    <option value="academy">Academy / commercial space</option>
+                    <option value="school-club">School or club</option>
+                  </select>
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Room size, how you train (drilling / live / takedowns), and rough timeline."
+                  required
+                ></textarea>
+                <button class="btn" type="submit">Request spec + quote</button>
+                <div class="form-status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+            <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+            <span class="brand-copy">
+              <strong>The Pressure Academy</strong>
+              <span>Built under pressure</span>
+            </span>
+          </a>
+          <p class="muted" style="margin-top: 14px; max-width: 30rem">
+            Mats, apparel, seminars, and systems for athletes who live under pressure.
+            Not motivation. Architecture.
+          </p>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Shop</span>
+          <div class="footer-links">
+            <a href="/shop/apparel/">Pressure Tested apparel</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/academy-orders/">Academy orders</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Train</span>
+          <div class="footer-links">
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/planner">Pressure Planner</a>
+            <a href="/mastery-method">Mastery Method</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Company</span>
+          <div class="footer-links">
+            <a href="/contact/">Contact</a>
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/">Home</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-micro">
+        <span>Pressure first. Noise second.</span>
+        <span>&copy; 2026 The Pressure Academy</span>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { mats, matGuidance } from "/js/config/commerce.js";
+      import { getFreightEstimate } from "/js/lib/logistics-providers.js";
+      import { initCart } from "/js/lib/cart.js";
+      import {
+        matCard,
+        enhanceCaptureForms,
+        trackProductViews,
+        initMobileNav,
+      } from "/js/lib/commerce-ui.js";
+
+      initMobileNav();
+      initCart();
+      enhanceCaptureForms();
+
+      document.getElementById("mat-grid").innerHTML = mats.map(matCard).join("");
+      trackProductViews(mats, "shop-mats");
+
+      const freight = getFreightEstimate({ goods: "mats" });
+      document.getElementById("freight-message").textContent = freight.message;
+
+      // Presets
+      const presetSelect = document.getElementById("calc-preset");
+      matGuidance.presets.forEach((p) => {
+        const opt = document.createElement("option");
+        opt.value = p.id;
+        opt.textContent = `${p.label} (${p.widthM}m x ${p.lengthM}m)`;
+        presetSelect.appendChild(opt);
+      });
+      presetSelect.addEventListener("change", () => {
+        const p = matGuidance.presets.find((x) => x.id === presetSelect.value);
+        if (p) {
+          document.getElementById("calc-width").value = p.widthM;
+          document.getElementById("calc-length").value = p.lengthM;
+        }
+      });
+
+      // Calculator: pure math + stated safety margins. No supplier claims.
+      document.getElementById("calc-run").addEventListener("click", () => {
+        const w = parseFloat(document.getElementById("calc-width").value);
+        const l = parseFloat(document.getElementById("calc-length").value);
+        if (!(w > 0) || !(l > 0)) return;
+
+        const usableW = Math.max(0, w - matGuidance.wallClearanceM);
+        const usableL = Math.max(0, l - matGuidance.wallClearanceM);
+        const matsAcross = Math.floor(usableW);
+        const matsDown = Math.floor(usableL);
+        const count = matsAcross * matsDown;
+        const areaM2 = count; // 1m x 1m reference mats
+        const livePairs = Math.floor(areaM2 / (matGuidance.minTrainingAreaPerPersonM2 * 2));
+
+        const result = document.getElementById("calc-result");
+        const empty = document.getElementById("calc-empty");
+        document.getElementById("calc-mats").textContent =
+          count > 0 ? `${count} jigsaw mats (${matsAcross} x ${matsDown})` : "Room too small for a safe mat layout";
+        document.getElementById("calc-detail").innerHTML = count > 0 ? `
+          <li>${areaM2}m&sup2; matted area with ${matGuidance.wallClearanceM}m wall clearance planned</li>
+          <li>Comfortable live training: ~${Math.max(livePairs, 0)} pair${livePairs === 1 ? "" : "s"} at ${matGuidance.minTrainingAreaPerPersonM2 * 2}m&sup2; per pair</li>
+          <li>40mm recommended if takedowns happen; 30mm for drilling-first rooms</li>` : `
+          <li>Rooms under ~2m x 2m cannot hold usable clearance. Consider a fold-out mat instead.</li>`;
+        document.getElementById("calc-note").textContent =
+          "Reference layout based on 1m x 1m mats. Final spec, price, and freight are confirmed in your quote.";
+        document.getElementById("calc-payload").value =
+          count > 0 ? `${w}m x ${l}m room -> ${count} mats (${matsAcross}x${matsDown}), ~${areaM2}m2` : "room too small";
+        result.hidden = false;
+        empty.hidden = true;
+      });
+
+    </script>
+  </body>
+</html>

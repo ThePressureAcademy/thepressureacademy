@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaign | The Pressure Academy</title>
+    <meta name="description" content="Pressure Academy campaign page." />
+    <!--
+      DYNAMIC SLUG TEMPLATE — served for /campaigns/[slug] via vercel.json rewrite.
+      Campaign entries live in js/config/funnels.js (campaigns array).
+      Unknown slugs render the honest fallback. noindex: campaign pages are
+      traffic-destination pages, not organic-search surfaces.
+    -->
+    <meta name="robots" content="noindex,follow" />
+    <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+          <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+          <span class="brand-copy">
+            <strong>The Pressure Academy</strong>
+            <span>Built under pressure</span>
+          </span>
+        </a>
+        <div class="header-actions">
+          <a class="btn-ghost" href="/">Home</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="campaign-main">
+      <noscript>
+        <section class="page-hero">
+          <div class="container">
+            <h1>This campaign page needs JavaScript</h1>
+            <p class="lead">Start at <a href="/" style="text-decoration: underline">thepressureacademy.com</a>.</p>
+          </div>
+        </section>
+      </noscript>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-micro" style="padding-top: 24px">
+        <span>Pressure first. Noise second.</span>
+        <span>&copy; 2026 The Pressure Academy &middot; <a href="/privacy-policy.html">Privacy</a></span>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { getCampaign } from "/js/config/funnels.js";
+      import {
+        slugFromPath,
+        escapeHtml,
+        enhanceCaptureForms,
+      } from "/js/lib/commerce-ui.js";
+
+      const main = document.getElementById("campaign-main");
+      const slug = slugFromPath("campaigns");
+      const c = slug ? getCampaign(slug) : null;
+
+      if (!c || c.status !== "live") {
+        document.title = "Campaign not live | The Pressure Academy";
+        main.innerHTML = `
+        <section class="page-hero">
+          <div class="container">
+            <span class="kicker">The Pressure Academy</span>
+            <h1>This campaign is not live.</h1>
+            <p class="lead">The link may be old or the campaign has closed. The current paths are always open:</p>
+            <div class="hero-actions">
+              <a class="btn" href="/shop/apparel/">Shop Pressure Tested</a>
+              <a class="btn-ghost" href="/seminars/">Seminars</a>
+              <a class="btn-ghost" href="/blueprints/">Blueprints</a>
+            </div>
+          </div>
+        </section>`;
+      } else {
+        document.title = `${c.title} | The Pressure Academy`;
+        main.innerHTML = `
+        <section class="page-hero">
+          <div class="container">
+            <span class="kicker">Campaign</span>
+            <h1>${escapeHtml(c.title)}</h1>
+            <p class="lead">${escapeHtml(c.heroCopy || "")}</p>
+            ${
+              c.capture
+                ? `<form class="capture-form" data-capture="campaign" style="max-width: 32rem; margin-top: 22px"
+                        action="https://formspree.io/f/meerjgde" method="POST">
+                     <input type="hidden" name="intent" value="${escapeHtml(c.capture.intent)}" />
+                     <input type="hidden" name="source" value="${escapeHtml(c.capture.source)}" />
+                     <div class="field-grid">
+                       <input type="text" name="name" placeholder="Name" required />
+                       <input type="email" name="email" placeholder="Email" required />
+                     </div>
+                     <button class="btn" type="submit">${escapeHtml(c.ctaLabel || "Count me in")}</button>
+                     <div class="form-status" aria-live="polite"></div>
+                   </form>`
+                : `<div class="hero-actions"><a class="btn" href="${escapeHtml(c.ctaHref || "/")}">${escapeHtml(c.ctaLabel || "Continue")}</a></div>`
+            }
+          </div>
+        </section>`;
+        enhanceCaptureForms(main);
+      }
+
+    </script>
+  </body>
+</html>
