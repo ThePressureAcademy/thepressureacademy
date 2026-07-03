@@ -45,6 +45,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
     <style>
       /* Homepage-only extensions to the shared commerce system */
       .home-hero {
@@ -143,6 +144,10 @@
     <main>
       <!-- 1. HERO -->
       <section class="home-hero">
+        <!-- Governed video-loop slot: manifest key "home-hero" is a
+             placeholder (no video exists), so this stays an ambient
+             gradient surface and requests nothing. -->
+        <div class="hero-media" data-video-loop="home-hero" aria-hidden="true"></div>
         <div class="container">
           <span class="kicker">The Pressure Academy</span>
           <h1>Built under pressure.</h1>
@@ -519,6 +524,7 @@
         enhanceCaptureForms,
         initMobileNav,
       } from "/js/lib/commerce-ui.js";
+      import { initMotion } from "/js/lib/media/motion-controller.js";
       // Retention/event architecture is live site-wide via events.js:
       // cart interactions and form captures on this page emit local events.
 
@@ -526,19 +532,9 @@
       initCart();
       enhanceCaptureForms();
       renderAuthorityStrip(document.getElementById("authority-strip"));
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("revealed");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 },
-      );
-      document.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
+      // Scroll reveal, route intensity, and media governance live in the
+      // motion controller (js/lib/media/) — one shared implementation.
+      initMotion();
     </script>
   </body>
 </html>

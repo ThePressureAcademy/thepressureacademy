@@ -1,0 +1,137 @@
+/* ============================================================
+   The Pressure Academy — motion layer (v1)
+   Loads AFTER tpa-commerce.css on commerce pages. Every motion
+   rule is gated behind html.tpa-motion, which is added ONLY by
+   js/lib/media/motion-controller.js when motion is allowed
+   (global flag on, prefers-reduced-motion off). Therefore:
+   no JS, failed JS, reduced motion, and the global kill switch
+   all land on the same static baseline.
+   Cache discipline: assets/* is served immutable — bump ?v= on
+   every edit to this file.
+   ============================================================ */
+
+/* ---------- Static baseline guard (the no-JS fix) ----------
+   tpa-commerce.css hides [data-reveal] unconditionally. Without
+   the controller-added class, content must simply be visible. */
+html:not(.tpa-motion) [data-reveal] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* ---------- Button micro-feedback ---------- */
+html.tpa-motion .btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.985);
+  transition-duration: 60ms;
+}
+html.tpa-motion .btn-ghost:active {
+  transform: translateY(0) scale(0.985);
+  transition-duration: 60ms;
+}
+
+/* ---------- Card lift enhancement ---------- */
+html.tpa-motion .card:hover,
+html.tpa-motion .product-card:hover {
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(239, 125, 67, 0.12);
+}
+html.tpa-motion .split-tile:hover .card-mark {
+  transform: translateY(-2px);
+  transition: transform 200ms ease;
+}
+
+/* ---------- CTA confirmation feedback ---------- */
+@keyframes tpa-confirm-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 125, 67, 0.45); }
+  100% { box-shadow: 0 0 0 18px rgba(239, 125, 67, 0); }
+}
+html.tpa-motion .tpa-confirm-pulse {
+  animation: tpa-confirm-pulse 900ms ease-out 1;
+  border-radius: var(--radius-sm, 8px);
+}
+
+/* Redirect-departure cue (checkout handoff to the payment host) */
+html.tpa-motion body.tpa-departing main {
+  opacity: 0.6;
+  transition: opacity 300ms ease;
+}
+
+/* ---------- Video loop surfaces (poster-first) ----------
+   [data-video-loop] elements ARE the fallback: they must look
+   premium with no video. The <video> is injected by JS only when
+   every governance gate passes, then fades in over the poster. */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-media ~ .container {
+  position: relative;
+  z-index: 1;
+}
+video.tpa-video-loop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+html.tpa-motion .has-video video.tpa-video-loop {
+  opacity: 0.5; /* ambient layer — content stays the subject */
+  transition: opacity 600ms ease;
+}
+
+/* Ambient fallback drift — the "premium without video" state.
+   Transform-only (GPU-cheap), cinematic routes, desktop only. */
+@keyframes tpa-ambient-drift {
+  0% { transform: translate3d(-4%, -3%, 0) scale(1.05); }
+  50% { transform: translate3d(4%, 3%, 0) scale(1.08); }
+  100% { transform: translate3d(-4%, -3%, 0) scale(1.05); }
+}
+.hero-media::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(196, 91, 40, 0.16), transparent 42%),
+    radial-gradient(circle at 78% 82%, rgba(240, 191, 114, 0.07), transparent 46%);
+}
+@media (min-width: 769px) {
+  html.tpa-motion[data-visual-intensity="cinematic"] .hero-media::before {
+    animation: tpa-ambient-drift 22s ease-in-out infinite;
+    will-change: transform;
+  }
+}
+/* Video playing → static gradient underneath, no double motion */
+html.tpa-motion .has-video.hero-media::before {
+  animation: none;
+}
+
+/* ---------- Reduced-motion hard stop (belt and braces) ----------
+   The controller already withholds .tpa-motion under reduced
+   motion; this guards against any future wiring mistake. */
+@media (prefers-reduced-motion: reduce) {
+  html.tpa-motion .tpa-confirm-pulse,
+  html.tpa-motion .hero-media::before,
+  html.tpa-motion[data-visual-intensity="cinematic"] .hero-media::before {
+    animation: none;
+  }
+  html.tpa-motion .btn:active:not(:disabled),
+  html.tpa-motion .btn-ghost:active,
+  html.tpa-motion .split-tile:hover .card-mark {
+    transform: none;
+  }
+  html.tpa-motion body.tpa-departing main {
+    transition: none;
+  }
+  video.tpa-video-loop {
+    display: none;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

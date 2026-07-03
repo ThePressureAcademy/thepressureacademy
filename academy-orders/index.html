@@ -26,6 +26,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
   </head>
   <body>
     <header class="site-header">
@@ -228,22 +229,12 @@
     <script type="module">
       import { initCart } from "/js/lib/cart.js";
       import { enhanceCaptureForms, initMobileNav } from "/js/lib/commerce-ui.js";
+      import { initMotion } from "/js/lib/media/motion-controller.js";
       initMobileNav();
       initCart();
       enhanceCaptureForms();
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("revealed");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 },
-      );
-      document.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
+      // Scroll reveal + media governance: shared motion controller.
+      initMotion();
     </script>
   </body>
 </html>

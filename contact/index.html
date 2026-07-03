@@ -23,6 +23,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
   </head>
   <body>
     <header class="site-header">
@@ -172,12 +173,15 @@
     </footer>
 
     <script type="module">
+      import { initMotion } from "/js/lib/media/motion-controller.js";
       import { initCart } from "/js/lib/cart.js";
       import { enhanceCaptureForms, initMobileNav } from "/js/lib/commerce-ui.js";
       initMobileNav();
       initCart();
       enhanceCaptureForms();
 
+      // Visual Performance Layer: route intensity + media governance.
+      initMotion();
     </script>
   </body>
 </html>
