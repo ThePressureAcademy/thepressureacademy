@@ -27,6 +27,22 @@ It does not mean analytics are currently installed.
 - Platform-side analytics that may be enabled outside code, such as Vercel-side measurement, cannot be confirmed from the repository.
 - Formspree dashboard usage may exist operationally, but dashboard access and current reporting configuration are outside repo evidence.
 
+### Founder / account confirmation
+
+- Planner runtime at `https://planner.thepressureacademy.com/` currently loads external Umami tracking from `https://manus-analytics.com/umami`.
+- Verified website id on that runtime: `40fd432d-dcb5-499d-a4b8-94f3234ae53c`.
+- Dashboard ownership for that Umami instance is unknown from governed business access.
+- Staff login access and reporting approval for that Umami instance are not confirmed.
+- That Umami signal is not approved for governed business reporting at this stage.
+- No verified analytics are active on `thepressureacademy.com`, `thepressureacademy.com/mastery-method`, `thepressureacademy.com/planner`, or `pressuresystems.au`.
+- Vercel Web Analytics and Speed Insights are not confirmed for `thepressureacademy.com` or `pressuresystems.au`.
+
+### Current business ruling
+
+- Current ruling: `ABSENT / NOT GOVERNED` for business reporting.
+- Staff may rely on manual form counts, enquiry tracker counts, outreach tracker counts, sales/admin logs, direct platform-native social metrics, and manual weekly review notes.
+- Staff must not claim analytics-backed decisions, conversion tracking, funnel reporting, GA4, GTM, Meta Pixel, PostHog, Plausible, Hotjar, Microsoft Clarity, Vercel Analytics, Speed Insights, or unified reporting are active.
+
 ## Measurement Baseline Goal
 
 The immediate goal is not a full analytics stack.

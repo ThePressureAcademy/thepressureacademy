@@ -9,56 +9,56 @@
       "src": "^/liftiq/?$",
       "status": 308,
       "headers": {
-        "Location": "https://pressuresystems.au/liftiq/"
+        "Location": "https://dispatchtalon.com/"
       }
     },
     {
       "src": "^/liftiq/how-it-works/?$",
       "status": 308,
       "headers": {
-        "Location": "https://pressuresystems.au/liftiq/how-it-works/"
+        "Location": "https://dispatchtalon.com/"
       }
     },
     {
       "src": "^/liftiq/modules/?$",
       "status": 308,
       "headers": {
-        "Location": "https://pressuresystems.au/liftiq/modules/"
+        "Location": "https://dispatchtalon.com/"
       }
     },
     {
       "src": "^/liftiq/design-partner/?$",
       "status": 308,
       "headers": {
-        "Location": "https://pressuresystems.au/liftiq/design-partner/"
+        "Location": "https://dispatchtalon.com/"
       }
     },
     {
       "src": "^/liftiq/contact/?$",
       "status": 308,
       "headers": {
-        "Location": "https://pressuresystems.au/liftiq/contact/"
+        "Location": "https://dispatchtalon.com/"
       }
     },
     {
       "src": "^/liftiq/dispatch-blind-spot-diagnostic/?$",
       "status": 308,
       "headers": {
-        "Location": "https://pressuresystems.au/liftiq/dispatch-blind-spot-diagnostic/"
+        "Location": "https://dispatchtalon.com/diagnostic/"
       }
     },
     {
       "src": "^/liftiq/executive-briefing/?$",
       "status": 308,
       "headers": {
-        "Location": "https://pressuresystems.au/liftiq/executive-briefing/"
+        "Location": "https://dispatchtalon.com/"
       }
     },
     {
       "src": "^/liftiq/sample-preview/?$",
       "status": 308,
       "headers": {
-        "Location": "https://pressuresystems.au/liftiq/sample-preview/"
+        "Location": "https://dispatchtalon.com/"
       }
     },
     {

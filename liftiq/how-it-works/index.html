@@ -3,22 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How LiftIQ Works | Recommendation Overlay For Dispatch Teams</title>
-  <meta name="description" content="See how LiftIQ is being engineered as decision support for allocation-heavy operations, with visible hard blocks, explainable scoring, and later integration pathways only where justified." />
+  <title>How DispatchTalon Works | Pilot-stage dispatch workflow for labour and lifting operations</title>
+  <meta name="description" content="See how DispatchTalon structures labour-only and plant + labour allocation workflows before dispatch, from job intake and requirements through SmartRank, review flags, allocation, audit, and metrics." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://thepressureacademy.com/liftiq/how-it-works/" />
-  <meta property="og:title" content="How LiftIQ Works" />
-  <meta property="og:description" content="Decision support for allocation-heavy operations with current-state recommendation logic, workflow fit, and planned integration direction." />
+  <link rel="canonical" href="https://pressuresystems.au/liftiq/how-it-works/" />
+  <meta property="og:title" content="How DispatchTalon Works" />
+  <meta property="og:description" content="See how DispatchTalon structures labour-only and plant + labour allocation workflows before dispatch, from job intake and requirements through SmartRank, review flags, allocation, audit, and metrics." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://thepressureacademy.com/liftiq/how-it-works/" />
-  <meta property="og:image" content="https://thepressureacademy.com/assets/social/LiftIQ_System_OG_1200x630.png" />
-  <meta property="og:site_name" content="LiftIQ by The Pressure Academy" />
+  <meta property="og:url" content="https://pressuresystems.au/liftiq/how-it-works/" />
+  <meta property="og:image" content="https://pressuresystems.au/assets/social/DispatchTalon_System_OG_1200x630.png" />
+  <meta property="og:image:alt" content="DispatchTalon by Pressure Systems social card explaining the pilot-stage dispatch workflow and visible recommendation logic." />
+  <meta property="og:site_name" content="DispatchTalon by Pressure Systems" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="How LiftIQ Works" />
-  <meta name="twitter:description" content="A truthful view of LiftIQ's current-state architecture and workflow role." />
-  <meta name="twitter:image" content="https://thepressureacademy.com/assets/social/LiftIQ_System_OG_1200x630.png" />
-  <meta name="theme-color" content="#08111D" />
-  <link rel="icon" type="image/svg+xml" href="/assets/logos/LiftIQ_Favicon.svg" />
+  <meta name="twitter:title" content="How DispatchTalon Works" />
+  <meta name="twitter:description" content="See how DispatchTalon structures labour-only and plant + labour allocation workflows before dispatch, from job intake and requirements through SmartRank, review flags, allocation, audit, and metrics." />
+  <meta name="twitter:image" content="https://pressuresystems.au/assets/social/DispatchTalon_System_OG_1200x630.png" />
+  <meta name="twitter:image:alt" content="DispatchTalon by Pressure Systems social card explaining the pilot-stage dispatch workflow and visible recommendation logic." />
+  <meta name="theme-color" content="#0E1216" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/logos/dispatchtalon/dispatchtalon-favicon-512.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logos/dispatchtalon/dispatchtalon-favicon-32.png" />
+  <link rel="shortcut icon" href="/assets/logos/dispatchtalon/dispatchtalon-favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -26,13 +30,13 @@
 </head>
 <body class="liftiq-body">
   <a class="lq-skip-link" href="#main">Skip to content</a>
-  <nav class="lq-nav" aria-label="LiftIQ">
+  <nav class="lq-nav" aria-label="DispatchTalon">
     <div class="lq-shell lq-nav-inner">
-      <a class="lq-brand" href="/liftiq/">
-        <img class="lq-brand-mark" src="/assets/logos/LiftIQ_Mark.svg" alt="LiftIQ mark" />
-        <span class="lq-brand-copy"><strong>LiftIQ</strong><span>Decision support for allocation-heavy operations</span></span>
+      <a class="lq-brand lq-brand-type" href="/liftiq/" aria-label="DispatchTalon by Pressure Systems">
+        <span class="lq-brand-title">DispatchTalon</span>
+        <span class="lq-brand-subtitle">by Pressure Systems</span>
       </a>
-      <button class="lq-nav-toggle" type="button" aria-label="Open LiftIQ navigation" aria-expanded="false" data-lq-nav-toggle>
+      <button class="lq-nav-toggle" type="button" aria-label="Open DispatchTalon navigation" aria-expanded="false" data-lq-nav-toggle>
         <svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
       </button>
       <div class="lq-nav-links" data-lq-nav-links>
@@ -40,10 +44,12 @@
         <a class="lq-nav-link" data-lq-nav-link href="/liftiq/modules/">Modules</a>
         <a class="lq-nav-link" data-lq-nav-link href="/liftiq/design-partner/">Design partner</a>
         <a class="lq-nav-link" data-lq-nav-link href="/liftiq/contact/">Contact</a>
+        <a class="lq-nav-link lq-nav-link-portal" data-lq-nav-link href="https://liftiq-pilot.fly.dev/console/">Pilot portal access</a>
       </div>
       <div class="lq-nav-actions">
-        <a class="lq-button-secondary" href="/liftiq/executive-briefing/">Request briefing</a>
-        <a class="lq-button" href="/liftiq/dispatch-blind-spot-diagnostic/">Book blind-spot review</a>
+        <a class="lq-utility-link" href="https://liftiq-pilot.fly.dev/console/">Pilot portal access</a>
+        <a class="lq-button-secondary lq-button-context" href="/liftiq/contact/">Send context first</a>
+        <a class="lq-button" href="https://calendly.com/thepressureacademy/liftiq-discovery">Book a DispatchTalon Discovery Call</a>
       </div>
     </div>
   </nav>
@@ -52,11 +58,12 @@
     <section class="lq-page-hero">
       <div class="lq-shell lq-page-hero-grid single">
         <div>
-          <span class="lq-eyebrow"><span class="lq-eyebrow-dot"></span>Current-state architecture</span>
-          <h1 class="lq-page-title">LiftIQ is being built as a read-first recommendation layer for live operational judgement.</h1>
-          <p class="lq-lead">The current demo is a front-end concept. It uses deterministic seeded data and rule-based logic to show how one overlay can rank options, hard-block unsafe matches, and keep the scoring visible under pressure.</p>
+          <span class="lq-eyebrow"><span class="lq-eyebrow-dot"></span>Founding-partner pilot workflow</span>
+          <h1 class="lq-page-title">DispatchTalon structures the decision before dispatch.</h1>
+          <p class="lq-lead">The live pilot supports two workflows: labour-only allocation and plant + labour allocation. Both keep requirements, schedule, worker fit, warnings, override reasons, and audit proof visible before a dispatcher confirms the job.</p>
           <div class="lq-page-links" style="margin-top:24px;">
             <a href="/liftiq/modules/">Module status</a>
+            <a href="https://liftiq-pilot.fly.dev/console/">Pilot portal access</a>
             <a href="/liftiq/design-partner/">Design partner model</a>
             <a href="/liftiq/contact/">Talk to Pressure Systems</a>
           </div>
@@ -68,36 +75,64 @@
       <div class="lq-shell">
         <div class="lq-section-head">
           <span class="lq-kicker">Current logic path</span>
-          <h2>What LiftIQ does now, in truthful terms.</h2>
-          <p>LiftIQ currently demonstrates browser-based recommendation logic, seeded scenarios, and visible hard blocks for missing required credentials. It does not yet ingest live data, write back to dispatch systems, or persist operational audit events.</p>
+          <h2>Current workflow in plain terms.</h2>
+          <p>DispatchTalon turns rough job information into a reviewable allocation path. The dispatcher reviews the data, warnings, ranking, and audit context before confirming the allocation.</p>
         </div>
         <div class="lq-timeline">
           <article class="lq-step">
             <div class="lq-step-num">1</div>
             <div>
-              <h3>Seed the operational context</h3>
-              <p>The governed demo uses fictionalised operator, site, client, and branch records. Every scenario is deterministic, so the output is stable and reviewable.</p>
+              <h3>Set up the company workflow</h3>
+              <p>Choose labour-only or plant + labour mode, then enable the credentials, VOCs, equipment, transport, civil, rail, energy, and asset options the company actually uses.</p>
             </div>
           </article>
           <article class="lq-step">
             <div class="lq-step-num">2</div>
             <div>
-              <h3>Apply recommendation rules</h3>
-              <p>SmartRank weights fit, experience, readiness, and fairness. FatigueGuard applies monitor and block thresholds. The current credential gate blocks missing mandatory requirements.</p>
+              <h3>Import workers and job details</h3>
+              <p>Import workers from CSV or pasted spreadsheet data. Create jobs manually or import briefs from pasted text, .txt, and .md.</p>
             </div>
           </article>
           <article class="lq-step">
             <div class="lq-step-num">3</div>
             <div>
-              <h3>Show ranked options and reasons</h3>
-              <p>The score breakdown panel remains visible because that is one of the strongest current product behaviours. Dispatchers should be able to review the reasoning, not guess what the system did.</p>
+              <h3>Review requirements before creation</h3>
+              <p>Confirm roles, credentials, VOCs, schedule, timezone, one-off requirements, and plant or crane review notes where relevant.</p>
             </div>
           </article>
           <article class="lq-step">
             <div class="lq-step-num">4</div>
             <div>
-              <h3>Keep actions in preview state</h3>
-              <p>The UI currently uses preview and demo actions only. There is no live dispatch write-back, no live notifications, and no immutable audit export.</p>
+              <h3>Add plant context where needed</h3>
+              <p>Plant + labour jobs can reference equipment class, plant number, crane model, travel state, counterweight gap, support transport, and road-access review flags.</p>
+            </div>
+          </article>
+          <article class="lq-step">
+            <div class="lq-step-num">5</div>
+            <div>
+              <h3>Run SmartRank</h3>
+              <p>SmartRank shows worker fit with CredentialGate, FatigueGuard, schedule, availability, and preference signals.</p>
+            </div>
+          </article>
+          <article class="lq-step">
+            <div class="lq-step-num">6</div>
+            <div>
+              <h3>Review warnings and conflicts</h3>
+              <p>Hard blocks, fatigue warnings, schedule conflicts, one-off requirements, and readiness notes stay visible.</p>
+            </div>
+          </article>
+          <article class="lq-step">
+            <div class="lq-step-num">7</div>
+            <div>
+              <h3>Confirm or record an override</h3>
+              <p>The dispatcher remains the decision-maker and records an override reason where the choice needs explanation.</p>
+            </div>
+          </article>
+          <article class="lq-step">
+            <div class="lq-step-num">8</div>
+            <div>
+              <h3>Review audit trail and metrics</h3>
+              <p>Imports, requirements, asset selections, SmartRank, allocations, overrides, and review events feed the audit trail and pilot metrics.</p>
             </div>
           </article>
         </div>
@@ -108,25 +143,33 @@
       <div class="lq-shell">
         <div class="lq-grid-2">
           <article class="lq-panel">
-            <p class="lq-kicker">Current state</p>
-            <h2 class="lq-panel-heading">One governed demo. No backend.</h2>
+            <p class="lq-kicker">Current pilot truth</p>
+            <h2 class="lq-panel-heading">Live pilot console with bounded workflow scope.</h2>
             <ul class="lq-list" style="margin-top:14px;">
-              <li>Seeded front-end data only.</li>
-              <li>Rule-based ranking and hard-block logic inside the browser layer.</li>
-              <li>Preview event log only, not a persisted audit store.</li>
-              <li>White-label overlay positioning across sanitised tenants.</li>
+              <li>Labour-only and plant + labour operating modes.</li>
+              <li>Company requirement catalogue, filtered job intake, one-off requirements, and asset register / plant numbers.</li>
+              <li>Worker import, Job Brief Import, timezone-aware scheduling, schedule conflict detection, SmartRank, CredentialGate, FatigueGuard, audit, and metrics.</li>
+              <li>Crane model, travel-state, counterweight gap, support transport, and road-access review flags for plant + labour work.</li>
             </ul>
           </article>
           <article class="lq-panel">
-            <p class="lq-kicker">Planned direction</p>
-            <h2 class="lq-panel-heading">Read-first integration before any write-back claim.</h2>
+            <p class="lq-kicker">Boundaries still in place</p>
+            <h2 class="lq-panel-heading">Dispatcher-led workflow, not autonomous allocation.</h2>
             <ul class="lq-list" style="margin-top:14px;">
-              <li>Operational source access before deeper workflow automation.</li>
-              <li>Service-layer rule execution if the product progresses beyond the current demo.</li>
-              <li>Explicit override capture and event persistence later, not now.</li>
-              <li>Financial/admin pathways such as Xero and MYOB only if phase-2 discovery supports them.</li>
+              <li>Dispatcher remains the decision-maker and final confirmer.</li>
+              <li>No payroll, invoicing, quote-builder, maintenance, or Fleet Cost & Care replacement claim.</li>
+              <li>No permit, WHS, legal, compliance, or engineering guarantee claim.</li>
+              <li>No route optimisation, permit automation, external calendar sync, OCR/PDF parsing, or inbox ingestion claim.</li>
             </ul>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lq-section">
+      <div class="lq-shell">
+        <div class="lq-callout">
+          <strong>Decision boundary:</strong> DispatchTalon does not approve permits, engineer lifts, guarantee compliance, or replace dispatcher judgement. It surfaces structured review points before a dispatch decision is confirmed.
         </div>
       </div>
     </section>
@@ -135,25 +178,25 @@
       <div class="lq-shell">
         <div class="lq-section-head">
           <span class="lq-kicker">Workflow fit</span>
-          <h2>LiftIQ is intended to sit beside dispatch, workforce, and planning workflows.</h2>
-          <p>It is not being framed as an isolated scoring toy. The product direction is to connect the operational decision layer to the systems already holding job, crew, site, and later financial context, while keeping the maturity claims disciplined.</p>
+          <h2>DispatchTalon sits beside dispatch, workforce, and planning workflows.</h2>
+          <p>The pilot workflow connects company setup, worker data, job context, visible checks, allocation confirmation, and audit proof while keeping maturity claims disciplined.</p>
         </div>
         <div class="lq-highlight-bar">
           <div class="lq-highlight">
             <strong>Dispatch</strong>
-            <span>Ranked crew options, swap logic, late-change triage, and visible reasoning support.</span>
+            <span>Import workers, create jobs, rank worker-fit options, review warnings, and confirm allocations with visible reasoning.</span>
           </div>
           <div class="lq-highlight">
             <strong>Workforce</strong>
-            <span>Credential visibility, fatigue exposure, repeated over-allocation awareness, and clearer planner judgment.</span>
+            <span>Credentials, VOCs, fatigue, availability, and preference signals remain explainable.</span>
           </div>
           <div class="lq-highlight">
             <strong>Audit</strong>
-            <span>Preview event logic now. Persisted event capture only later if a controlled build path justifies it.</span>
+            <span>Allocation-level audit events and pilot metrics sit inside the workflow.</span>
           </div>
           <div class="lq-highlight">
-            <strong>Finance</strong>
-            <span>Planned later alignment with systems such as Xero and MYOB for job-cost and labour-cost context, not current support.</span>
+            <strong>Future integrations</strong>
+            <span>External systems, route workflows, permit workflows, OCR/PDF parsing, inbox ingestion, and calendar sync remain future questions.</span>
           </div>
         </div>
       </div>
@@ -162,7 +205,7 @@
     <section class="lq-section">
       <div class="lq-shell">
         <div class="lq-callout">
-          <strong>Truth boundary:</strong> LiftIQ does not currently support live Xero or MYOB integration, payroll logic, invoice automation, or production-grade reporting. Those are possible later architecture pathways only if client system access and field mapping make them worth building.
+          <strong>Truth boundary:</strong> DispatchTalon does not claim autonomous dispatch, WHS/legal compliance guarantees, payroll logic, invoice automation, route optimisation, permit automation, OCR/PDF parsing, inbox ingestion, external calendar sync, or live external integrations.
         </div>
       </div>
     </section>
@@ -173,11 +216,14 @@
           <div>
             <span class="lq-kicker">Next step</span>
             <h2>Use the workflow story to qualify fit, then move to a controlled conversation.</h2>
-            <p>If your operation already feels the pain of allocation pressure, late checks, and manual scramble, the strongest next move is a Dispatch Blind-Spot Review or a private design-partner briefing.</p>
+            <p>If allocation pressure, late checks, or manual scramble are already visible, the next move is a DispatchTalon Discovery Call or context-first founder review.</p>
           </div>
-          <div class="lq-actions">
-            <a class="lq-button" href="/liftiq/dispatch-blind-spot-diagnostic/">Dispatch diagnostic</a>
-            <a class="lq-button-secondary" href="/liftiq/executive-briefing/">Executive briefing</a>
+          <div>
+            <div class="lq-actions">
+              <a class="lq-button" href="https://calendly.com/thepressureacademy/liftiq-discovery">Book a DispatchTalon Discovery Call</a>
+              <a class="lq-button-secondary lq-button-context" href="/liftiq/contact/">Send context first</a>
+            </div>
+            <p class="lq-micro lq-portal-note">Already in the pilot? <a class="lq-inline-link" href="https://liftiq-pilot.fly.dev/console/">Open the portal.</a></p>
           </div>
         </div>
       </div>
@@ -186,18 +232,20 @@
 
   <footer class="lq-footer">
     <div class="lq-shell">
-      <div class="lq-footer-grid">
-        <div class="lq-footer-brand">
-          <strong>LiftIQ</strong>
-          <p>Decision support for allocation-heavy operations. Helping businesses make better dispatch and workforce decisions under pressure. Current stage: governed concept demo and early product foundation.</p>
-        </div>
-        <div class="lq-footer-col">
-          <h4>LiftIQ</h4>
-          <a href="/liftiq/">Home</a>
-          <a href="/liftiq/how-it-works/">How it works</a>
-          <a href="/liftiq/modules/">Modules</a>
-          <a href="/liftiq/contact/">Contact</a>
-        </div>
+        <div class="lq-footer-grid">
+          <div class="lq-footer-brand">
+            <strong>DispatchTalon</strong>
+            <p>DispatchTalon is a pilot-stage dispatch intelligence layer for labour and lifting operations, with structured job intake, SmartRank, review flags, asset context where needed, audit events, metrics, and tenant-isolated pilot access.</p>
+            <p class="lq-footer-note">Already in the pilot? <a class="lq-inline-link" href="https://liftiq-pilot.fly.dev/console/">Open the portal.</a></p>
+          </div>
+          <div class="lq-footer-col">
+            <h4>DispatchTalon</h4>
+            <a href="/liftiq/">Home</a>
+            <a href="/liftiq/how-it-works/">How it works</a>
+            <a href="/liftiq/modules/">Modules</a>
+            <a href="https://liftiq-pilot.fly.dev/console/">Pilot portal access</a>
+            <a href="/liftiq/contact/">Contact</a>
+          </div>
         <div class="lq-footer-col">
           <h4>Funnels</h4>
           <a href="/liftiq/dispatch-blind-spot-diagnostic/">Dispatch Blind-Spot Diagnostic</a>
@@ -205,14 +253,15 @@
           <a href="/liftiq/design-partner/">Design partner overview</a>
         </div>
         <div class="lq-footer-col">
-          <h4>Ecosystem</h4>
-          <a href="/">The Pressure Academy</a>
-          <a href="/mastery-method/">Mastery Method</a>
+          <h4>Pressure Systems</h4>
+          <a href="/">Pressure Systems home</a>
+          <a href="/#audit">Pressure Systems Audit</a>
+          <a href="mailto:sales@pressuresystems.au">sales@pressuresystems.au</a>
           <a href="/privacy-policy.html">Privacy Policy</a>
         </div>
       </div>
       <div class="lq-footer-bottom">
-        <span>&copy; 2026 LiftIQ by The Pressure Academy</span>
+        <span>&copy; 2026 DispatchTalon by Pressure Systems</span>
         <span>Queensland, Australia</span>
       </div>
     </div>
