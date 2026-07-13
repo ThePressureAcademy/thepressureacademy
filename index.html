@@ -46,6 +46,7 @@
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-media.css?v=1" />
     <style>
       /* Homepage-only extensions to the shared commerce system */
       .home-hero {
@@ -53,7 +54,7 @@
         position: relative;
       }
       .home-hero h1 {
-        max-width: 13ch;
+        max-width: 17ch;
       }
       .hero-sub {
         font-family: var(--font-mono);
@@ -144,17 +145,28 @@
     <main>
       <!-- 1. HERO -->
       <section class="home-hero">
-        <!-- Governed video-loop slot: manifest key "home-hero" is a
-             placeholder (no video exists), so this stays an ambient
-             gradient surface and requests nothing. -->
-        <div class="hero-media" data-video-loop="home-hero" aria-hidden="true"></div>
+        <!-- Governed video-loop slot: the poster img is the always-on
+             surface; the manifest-gated loop (key "home-hero") layers in
+             on desktop only when every governance gate passes. -->
+        <div class="hero-media" data-video-loop="home-hero" aria-hidden="true">
+          <img
+            class="hero-poster"
+            src="/assets/media/tpa-hero-pressure-poster-v1.jpg"
+            alt=""
+            width="1920"
+            height="1097"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
         <div class="container">
           <span class="kicker">The Pressure Academy</span>
-          <h1>Built under pressure.</h1>
+          <h1>Systems for people who perform under pressure.</h1>
           <p class="lead" style="max-width: 40rem">
-            Mats, apparel, seminars, and digital training blueprints for athletes who
-            live under pressure. Built for training rooms, garages, academies, and
-            competition floors.
+            The Pressure Academy turns training, learning, routines, and
+            decision-making into structured systems for real life. Mats, apparel,
+            seminars, and digital training blueprints, built for training rooms,
+            garages, academies, and competition floors.
           </p>
           <div class="hero-actions">
             <a class="btn" href="/shop/apparel/">Shop Pressure Tested</a>
@@ -387,10 +399,20 @@
         <div class="container">
           <div class="section-head">
             <span class="kicker">The wider house</span>
-            <h2>Two more arms, same system.</h2>
+            <h2>Three more arms, same system.</h2>
           </div>
-          <div class="grid-2">
+          <div class="grid-3">
             <article class="card" data-reveal>
+              <div class="card-media">
+                <img
+                  src="/assets/media/pressure-planner-readiness-v1.jpg"
+                  alt="Open paper planner, steaming coffee, and folded training gear on a desk before sunrise"
+                  width="1200"
+                  height="1543"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
               <span class="card-mark"><img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" /></span>
               <h3>Pressure Planner</h3>
               <p class="muted">
@@ -400,6 +422,16 @@
               <div class="card-cta"><a class="btn-ghost" href="/planner">Start Setup</a></div>
             </article>
             <article class="card" data-reveal id="mastery-method">
+              <div class="card-media">
+                <img
+                  src="/assets/media/mastery-method-home-learning-v1.jpg"
+                  alt="Home learning table with worksheets, pencils, and progress cards in warm morning light"
+                  width="1600"
+                  height="914"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
               <span class="card-mark"><img src="/assets/logos/Mastery_Method_Mark.svg" alt="" /></span>
               <h3>Mastery Method</h3>
               <p class="muted">
@@ -407,6 +439,28 @@
                 calmer, more deliberate learning system.
               </p>
               <div class="card-cta"><a class="btn-ghost" href="/mastery-method">Explore Mastery Method</a></div>
+            </article>
+            <article class="card" data-reveal id="academytalon">
+              <div class="card-media">
+                <img
+                  src="/assets/media/academytalon-founder-testing-v1.jpg"
+                  alt="Academy front desk with blank attendance cards, a clipboard, and a belt-tone grading board beside training mats"
+                  width="1600"
+                  height="914"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="badge">In founder testing</span>
+              <h3>AcademyTalon</h3>
+              <p class="muted">
+                The academy operations layer for combat-sports schools: attendance rhythm,
+                grading pathways, competition preparation, and parent visibility.
+                AcademyTalon is in founder testing.
+              </p>
+              <p class="gate-note">
+                No public release yet. Details land here when founder testing completes.
+              </p>
             </article>
           </div>
         </div>

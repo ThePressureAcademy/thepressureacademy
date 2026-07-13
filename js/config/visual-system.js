@@ -150,24 +150,24 @@ export const visualSystem = {
     fallbackMode: "static",
   },
 
-  // ── Video loop registry (future Higgsfield cinematic loops) ──────────────
-  // ALL entries are placeholders: no video file exists in this repo today
-  // (verified in the visual performance audit §2). The loader never requests
-  // a placeholder. Activation procedure: architecture doc §"Adding the first
-  // Higgsfield loop".
+  // ── Video loop registry (Higgsfield cinematic loops) ─────────────────────
+  // First real loop activated 2026-07-13 (Higgsfield batch v1, prompt pack:
+  // docs/design/TPA_HIGGSFIELD_PROMPT_PACK.md). The loader still fail-closes
+  // on any entry whose file goes missing; mobile stays poster-first while
+  // maxMobileVideoLoops is 0.
   videoLoops: {
     "home-hero": {
       key: "home-hero",
-      status: "placeholder", // "placeholder" | "available" | "disabled"
+      status: "available", // "placeholder" | "available" | "disabled"
       provider: "local", // "local" | "cloudflare_stream" | "external" | "higgsfield_export"
-      src: null, // e.g. "/assets/media/home-hero-loop-v1.mp4" once real
-      mobileSrc: null, // lighter encode for small screens, optional
-      poster: null, // REQUIRED before status can be "available"
-      width: 1920,
-      height: 1080,
-      duration: null, // seconds, fill from the real export
-      fileSizeKb: null, // fill from the real export; budget-checked
-      alt: "Ambient training-room loop behind the homepage hero",
+      src: "/assets/media/tpa-hero-pressure-loop-v1.mp4",
+      mobileSrc: null, // mobile never autoplays at current budgets; poster only
+      poster: "/assets/media/tpa-hero-pressure-poster-v1.jpg",
+      width: 1280,
+      height: 720,
+      duration: 8, // seconds, from the real export
+      fileSizeKb: 3780, // real export size; under the 4000 KB budget
+      alt: "Ambient early-morning training-desk loop behind the homepage hero",
       caption: null,
       allowedRoutes: ["^/$"],
       fallbackImage: null, // poster doubles as fallback; separate still optional
