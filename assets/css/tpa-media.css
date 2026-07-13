@@ -1,0 +1,109 @@
+/* The Pressure Academy — static imagery layer (Higgsfield asset system).
+   Presentation for photographic stills and the hero poster surface. Purely
+   static: motion stays in tpa-motion.css + the governed media JS layer.
+
+   Cache rule: this file is new and referenced as tpa-media.css?v=1. /assets/
+   is immutable-cached for a year, so NEVER change this file's content without
+   bumping the ?v= query on every page that links it. */
+
+/* ---------- Hero poster surface (home) ----------
+   The poster <img> is the always-on fallback layer inside .hero-media.
+   The governed <video> (when every gate passes) is injected as a later
+   sibling and stacks above it; the scrim keeps hero copy legible over both.
+   Mobile and reduced-motion visitors see the poster only. */
+.hero-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-media video.tpa-video-loop {
+  z-index: 1;
+}
+/* The loop was rendered FROM the poster frame, so it can run at full opacity:
+   legibility is the scrim's job, not ghosting. Overrides the 0.5 ambient
+   default that applies to loops layered over plain gradients. */
+html.tpa-motion .home-hero .has-video video.tpa-video-loop {
+  opacity: 1;
+}
+.home-hero .hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(11, 8, 9, 0.86) 0%, rgba(11, 8, 9, 0.6) 46%, rgba(11, 8, 9, 0.3) 100%),
+    linear-gradient(180deg, rgba(11, 8, 9, 0.34) 0%, rgba(11, 8, 9, 0.12) 55%, #0b0809 98%);
+}
+
+/* ---------- Card media (wider-house lane cards) ---------- */
+.card-media {
+  margin: -24px -24px 12px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  border-radius: calc(var(--radius-md) - 1px) calc(var(--radius-md) - 1px) 0 0;
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Page hero with a portrait figure (lane pages) ---------- */
+.page-hero-grid {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+.page-hero-figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 5;
+  max-height: 460px;
+}
+.page-hero-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (min-width: 920px) {
+  .page-hero-grid {
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 44px;
+  }
+}
+@media (max-width: 919px) {
+  .page-hero-figure {
+    max-height: 320px;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* ---------- Full-width media band (lane pages, landscape) ---------- */
+.page-media-band {
+  margin: 8px 0 0;
+}
+.page-media-band figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  aspect-ratio: 21 / 9;
+}
+.page-media-band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 640px) {
+  .page-media-band figure {
+    aspect-ratio: 16 / 10;
+  }
+}
