@@ -59,7 +59,8 @@ export const drop01 = Object.freeze({
       id: "core",
       label: "Toā Earth Core",
       audience: "unisex",
-      thesis: "Four earth-toned training silhouettes. Only the first signals are public.",
+      thesis: "Four earth-toned training silhouettes. Three first signals are public.",
+      hiddenProductCount: 1,
       products: [
         {
           id: "toa-core-hoodie",
@@ -88,15 +89,6 @@ export const drop01 = Object.freeze({
           teaser: "A Sand grappling short developed for movement, with construction held back.",
           publicTeaser: true,
         },
-        {
-          id: "toa-core-tee",
-          capsule: "core",
-          category: "tee",
-          name: "Boxy T-Shirt",
-          colour: "washed-stone",
-          teaser: "A Washed Stone boxy tee. Minimal on the surface, deliberate underneath.",
-          publicTeaser: true,
-        },
       ],
     },
     {
@@ -105,6 +97,7 @@ export const drop01 = Object.freeze({
       audience: "women",
       thesis: "Not smaller. Better aligned.",
       principles: ["Movement", "Confidence", "Coverage", "Strength"],
+      hiddenProductCount: 3,
       products: [
         {
           id: "toa-w-cropped-hoodie",
@@ -132,33 +125,6 @@ export const drop01 = Object.freeze({
           colour: "sand",
           teaser: "A Sand high-waist short built from a separate women-specific fit logic.",
           publicTeaser: true,
-        },
-        {
-          id: "toa-w-relaxed-hoodie",
-          capsule: "women",
-          category: "hoodie",
-          name: "Full-Length Relaxed Hoodie",
-          colour: "washed-stone",
-          teaser: null,
-          publicTeaser: false,
-        },
-        {
-          id: "toa-w-crop-tee",
-          capsule: "women",
-          category: "tee",
-          name: "Boxy Crop Tee",
-          colour: "washed-stone",
-          teaser: null,
-          publicTeaser: false,
-        },
-        {
-          id: "toa-w-relaxed-tee",
-          capsule: "women",
-          category: "tee",
-          name: "Relaxed Full-Length Tee",
-          colour: "clay-brown",
-          teaser: null,
-          publicTeaser: false,
         },
       ],
     },
