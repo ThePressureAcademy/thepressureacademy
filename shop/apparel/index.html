@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-media.css?v=1" />
     <style>
-      /* Drop-page-only extensions to the shared commerce system */
       .capsule-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -105,10 +104,69 @@
       .reveal-item .reveal-body {
         padding: 0 18px 16px;
       }
+      .size-guide-block + .size-guide-block {
+        margin-top: 22px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+      }
+      .size-guide-meta {
+        margin: 4px 0 12px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--soft);
+      }
+      .size-table-shell {
+        width: 100%;
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+      .size-table {
+        width: 100%;
+        min-width: 640px;
+        border-collapse: collapse;
+        font-variant-numeric: tabular-nums;
+      }
+      .size-table th,
+      .size-table td {
+        padding: 9px 10px;
+        text-align: left;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        white-space: nowrap;
+      }
+      .size-table th:last-child,
+      .size-table td:last-child {
+        border-right: 0;
+      }
+      .size-table tbody tr:last-child th,
+      .size-table tbody tr:last-child td {
+        border-bottom: 0;
+      }
+      .size-table thead th {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--soft);
+      }
+      .size-table tbody th {
+        font-weight: 700;
+      }
+      .size-notes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        margin: 12px 0 0;
+        padding: 0;
+        list-style: none;
+        color: var(--soft);
+        font-size: 0.85rem;
+      }
       @media (max-width: 860px) {
-        .capsule-grid {
-          grid-template-columns: 1fr;
-        }
+        .capsule-grid,
         .drop-grid {
           grid-template-columns: 1fr;
         }
@@ -267,8 +325,8 @@
             <div class="reveal-body">
               <p class="muted">
                 One locked Pressure Tested mark and wordmark carry the whole drop. No
-                auxiliary marks, no sub-brands, no team badges. If it is not the mark,
-                it is not on the garment.
+                auxiliary marks, no sub-brands, no team badges. If it is not the locked
+                identity, it is not on the garment.
               </p>
             </div>
           </details>
@@ -276,9 +334,9 @@
             <summary>The colour system</summary>
             <div class="reveal-body">
               <p class="muted">
-                Four earth tones govern Drop 01: Clay Brown, Faded Olive, Sand, and
-                Washed Stone. Core garments each own one tone. Women's colour
-                assignments publish with the campaign board.
+                Four earth tones govern Drop 01. Clay Brown carries the core hoodie and
+                two women's pieces. Faded Olive carries both rashguards. Sand carries
+                both shorts. Washed Stone carries the core tee and two women's pieces.
               </p>
             </div>
           </details>
@@ -297,9 +355,9 @@
             <summary>Print restraint</summary>
             <div class="reveal-body">
               <p class="muted">
-                Print zones and patch placement are locked on the technical board and
-                publish with sampling. The default is tonal and quiet. No billboard
-                energy.
+                The technical boards define restrained front, back, patch, hem, and neck
+                zones. The removed auxiliary identity is excluded. Cultural artwork,
+                names, and meanings remain gated pending provenance review.
               </p>
             </div>
           </details>
@@ -307,8 +365,11 @@
             <summary>Fabric and construction</summary>
             <div class="reveal-body">
               <p class="muted">
-                Fabric weights and construction specs publish with sealed samples.
-                Nothing gets claimed before it is measured on an approved garment.
+                The supplied technical packs now govern the development specifications:
+                heavyweight cotton fleece, poly-elastane compression fabric, 4-way
+                stretch woven shorts, and heavyweight combed cotton tees. Product cards
+                show the intended fabric and construction. Final claims still wait for
+                approved sealed samples.
               </p>
             </div>
           </details>
@@ -316,9 +377,9 @@
             <summary>Sampling status</summary>
             <div class="reveal-body">
               <p class="muted">
-                Drop 01 is at technical-specification stage. The next gate is sealed
-                samples, then field testing, then final measurements and pricing.
-                Each gate publishes here when it clears.
+                Drop 01 is at technical-specification stage. Development size boards are
+                available below. The next gate is sealed samples, then field testing,
+                final measurements, pricing, and release approval.
               </p>
             </div>
           </details>
@@ -334,12 +395,12 @@
                 <h2>Four families, measured properly.</h2>
                 <p class="muted">
                   Hoodies, rashguards, shorts, and tees size differently, and the
-                  women's cuts size differently again. Each family gets its own
-                  measurement table instead of one generic chart.
+                  women's cuts size differently again. The supplied development tables
+                  are published as accessible HTML, with missing grading stated plainly.
                 </p>
                 <div id="size-families" style="margin-top: 16px"></div>
                 <p class="gate-note" style="margin-top: 14px">
-                  Development measurement guide. Final garment measurements publish
+                  Development measurements only. Final garment measurements publish
                   after sealed-sample approval.
                 </p>
               </div>
@@ -347,10 +408,10 @@
                 <span class="kicker">Retail logic, ready</span>
                 <h3>What switches on at drop</h3>
                 <ul class="spec-list">
-                  <li>Add-to-cart with the slide-out cart (foundation live on this page now)</li>
-                  <li>Express checkout (Shop Pay / Apple Pay / Google Pay) once a payment provider is connected</li>
-                  <li>Order bump at checkout — pairing planned, nothing pre-sold</li>
-                  <li>Final size chart with garment measurements</li>
+                  <li>Add-to-cart with the slide-out cart when real inventory exists</li>
+                  <li>Express checkout once a payment provider is connected</li>
+                  <li>Optional product pairing only after products are real</li>
+                  <li>Final approved size charts with sealed-sample measurements</li>
                 </ul>
                 <p class="gate-note" style="margin-top: 14px">
                   No payment provider is connected yet. The cart never takes money, holds
@@ -370,9 +431,8 @@
                 <span class="kicker">First access</span>
                 <h2>The list hears first.</h2>
                 <p class="muted">
-                  One email when Drop 01 opens, sized and priced. The list gets first
-                  run before anything goes public. The optional preferences below
-                  shape which piece releases first.
+                  One email when Drop 01 opens, sized and priced. The optional preferences
+                  below shape which piece releases first. No payment is taken here.
                 </p>
               </div>
               <form
@@ -428,8 +488,9 @@
                     <label>
                       <select name="size_band">
                         <option value="">Usual size band (optional)</option>
-                        <option>XS</option><option>S</option><option>M</option>
-                        <option>L</option><option>XL</option><option>2XL</option><option>3XL</option>
+                        <option>XXS</option><option>XS</option><option>S</option><option>M</option>
+                        <option>L</option><option>XL</option><option>2XL</option><option>2XL+</option>
+                        <option>3XL / custom</option>
                       </select>
                     </label>
                   </div>
@@ -543,15 +604,13 @@
         <article class="card drop-card" data-reveal>
           <span class="badge">In development</span>
           <h3>${escapeHtml(p.name)}</h3>
-          ${
-            p.colour
-              ? `<p class="colour-line">${escapeHtml(paletteLabel(p.colour) || "")}</p>`
-              : `<p class="colour-line">Colour publishes with the campaign board</p>`
-          }
+          <p class="colour-line">${escapeHtml(paletteLabel(p.colour) || "Colour pending")}</p>
           <p class="muted">${escapeHtml(p.fitLogic)}</p>
           <ul class="spec-list">
+            <li>${escapeHtml(p.intendedFabric)}</li>
+            <li>${escapeHtml(p.construction)}</li>
             <li>Pricing publishes when it locks</li>
-            <li>Measurements publish after sealed samples</li>
+            <li>Final measurements publish after sealed samples</li>
           </ul>
           <div class="card-cta">
             <button type="button" class="btn-ghost" data-interest="${p.id}" data-interest-capsule="${p.capsule}">
@@ -565,35 +624,61 @@
       document.getElementById("core-grid").innerHTML = coreCapsule.products.map(productCard).join("");
       document.getElementById("women-grid").innerHTML = womenCapsule.products.map(productCard).join("");
 
-      // Size-guide families render from the manifest; tables stay gated until
-      // the sealed-sample pack lands (table === null renders no numbers).
+      const sizeTable = (table) => `
+        <section class="size-guide-block" aria-labelledby="${table.id}-title">
+          <h4 id="${table.id}-title">${escapeHtml(table.label)}</h4>
+          <p class="size-guide-meta">${escapeHtml(table.descriptor)} | ${escapeHtml(table.units)}</p>
+          <div class="size-table-shell" tabindex="0" aria-label="${escapeHtml(table.label)} development size table">
+            <table class="size-table">
+              <thead>
+                <tr>${table.columns.map((column) => `<th scope="col">${escapeHtml(column.label)}</th>`).join("")}</tr>
+              </thead>
+              <tbody>
+                ${table.rows
+                  .map(
+                    (row) => `<tr>${table.columns
+                      .map((column, index) =>
+                        index === 0
+                          ? `<th scope="row">${escapeHtml(String(row[column.key]))}</th>`
+                          : `<td>${escapeHtml(String(row[column.key]))}</td>`,
+                      )
+                      .join("")}</tr>`,
+                  )
+                  .join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>`;
+
       document.getElementById("size-families").innerHTML = sizeGuideFamilies
         .map(
-          (f) => `
-        <details class="reveal-item" data-size-family="${f.id}">
-          <summary>${escapeHtml(f.label)}</summary>
-          <div class="reveal-body">
-            <ul class="spec-list">
-              ${f.covers.map((c) => `<li>${escapeHtml(c)}</li>`).join("")}
-            </ul>
-            <p class="gate-note">${escapeHtml(sizeGuideLabel)}</p>
-            ${f.table === null ? '<p class="muted">Measurement tables land here from the sealed-sample pack.</p>' : ""}
-          </div>
-        </details>`,
+          (family) => `
+            <details class="reveal-item" data-size-family="${family.id}">
+              <summary>${escapeHtml(family.label)}</summary>
+              <div class="reveal-body">
+                <ul class="spec-list">
+                  ${family.covers.map((cover) => `<li>${escapeHtml(cover)}</li>`).join("")}
+                </ul>
+                <p class="gate-note">${escapeHtml(sizeGuideLabel)}</p>
+                ${family.tables.map(sizeTable).join("")}
+                <ul class="size-notes">
+                  ${family.notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}
+                </ul>
+              </div>
+            </details>`,
         )
         .join("");
 
       track(EVENTS.DROP_VIEW, { drop: drop01.id, stage: drop01.publicStage });
 
-      // Capsule selector: filters the reveals, prefills the form, fires the event.
       const sections = { core: document.getElementById("core"), women: document.getElementById("women") };
       const selector = document.getElementById("capsule-select");
-      selector.addEventListener("click", (e) => {
-        const btn = e.target.closest("[data-capsule]");
-        if (!btn) return;
-        const choice = btn.dataset.capsule;
-        selector.querySelectorAll("[data-capsule]").forEach((b) =>
-          b.setAttribute("aria-pressed", String(b === btn)),
+      selector.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-capsule]");
+        if (!button) return;
+        const choice = button.dataset.capsule;
+        selector.querySelectorAll("[data-capsule]").forEach((item) =>
+          item.setAttribute("aria-pressed", String(item === button)),
         );
         sections.core.hidden = choice === "women";
         sections.women.hidden = choice === "core";
@@ -602,47 +687,44 @@
         track(EVENTS.CAPSULE_SELECT, { drop: drop01.id, capsule: choice });
       });
 
-      // Progressive reveals and size guides are measurable, once per open.
-      document.querySelectorAll("[data-reveal-key]").forEach((d) =>
-        d.addEventListener("toggle", () => {
-          if (d.open && !d.dataset.tracked) {
-            d.dataset.tracked = "1";
-            track(EVENTS.PRODUCT_REVEAL, { drop: drop01.id, reveal: d.dataset.revealKey });
+      document.querySelectorAll("[data-reveal-key]").forEach((details) =>
+        details.addEventListener("toggle", () => {
+          if (details.open && !details.dataset.tracked) {
+            details.dataset.tracked = "1";
+            track(EVENTS.PRODUCT_REVEAL, { drop: drop01.id, reveal: details.dataset.revealKey });
           }
         }),
       );
+
       document.getElementById("size-families").addEventListener(
         "toggle",
-        (e) => {
-          const d = e.target.closest("[data-size-family]");
-          if (d && d.open && !d.dataset.tracked) {
-            d.dataset.tracked = "1";
-            track(EVENTS.SIZE_GUIDE_OPEN, { drop: drop01.id, family: d.dataset.sizeFamily });
+        (event) => {
+          const details = event.target.closest("[data-size-family]");
+          if (details && details.open && !details.dataset.tracked) {
+            details.dataset.tracked = "1";
+            track(EVENTS.SIZE_GUIDE_OPEN, { drop: drop01.id, family: details.dataset.sizeFamily });
           }
         },
         true,
       );
 
-      // Register-interest buttons prefill the form and hand off to the list.
       document.querySelectorAll("#core-grid, #women-grid").forEach((grid) =>
-        grid.addEventListener("click", (e) => {
-          const btn = e.target.closest("[data-interest]");
-          if (!btn) return;
+        grid.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-interest]");
+          if (!button) return;
           const productField = document.querySelector("[data-product-field]");
-          if (productField) productField.value = btn.dataset.interest;
+          if (productField) productField.value = button.dataset.interest;
           const firstChoice = document.querySelector('select[name="first_choice"]');
-          if (firstChoice) firstChoice.value = btn.dataset.interest;
+          if (firstChoice) firstChoice.value = button.dataset.interest;
           track(EVENTS.PRODUCT_INTEREST, {
             drop: drop01.id,
-            product: btn.dataset.interest,
-            capsule: btn.dataset.interestCapsule,
+            product: button.dataset.interest,
+            capsule: button.dataset.interestCapsule,
           });
           document.getElementById("drop-list").scrollIntoView({ behavior: "smooth" });
         }),
       );
 
-      // Waitlist funnel state. Payloads carry product, capsule, size band, and
-      // event state only. Names and emails never ride on the event layer.
       const waitlistForm = document.querySelector('form[data-capture="apparel-drop-list"]');
       waitlistForm.addEventListener(
         "focusin",
@@ -659,7 +741,6 @@
         });
       });
 
-      // Visual Performance Layer: route intensity + media governance.
       initMotion();
     </script>
   </body>
