@@ -11,7 +11,7 @@ All rows below post to `https://formspree.io/f/meerjgde` via `enhanceCaptureForm
 | Page | Form purpose | intent | source | User-facing promise | Risk |
 | --- | --- | --- | --- | --- | --- |
 | `/` | Founding-round intake | `founding-intake` | `home-join` | Reply from a person, no drip spam | Old Formspree triage rules keyed on `planner-access` will not match (flagged in QA report §8.4 of the architecture pass) |
-| `/shop/apparel/` | First-drop release list | `apparel-drop-list` | `shop-apparel` | First access at drop; no payment implied | Low |
+| `/shop/apparel/` | Drop 01 first-access list, two-stage: required name/email plus capsule choice (`capsule`: core/women/both), optional preferences (`first_choice`, `size_band`, `context`, `womens_cut`, `release_first`), hidden `drop` + `product` prefill | `apparel-drop-list` | `shop-apparel` | First access when Drop 01 opens; no payment implied | Low; optional fields are preference capture only, no fit/body data leaves the form fields themselves |
 | `/shop/mats/` | Spec + freight quote enquiry (carries `calculator_result`) | `mat-enquiry` | `shop-mats` | A quote, not an order; freight confirmed in quote | Low |
 | `/seminars/` | Founding event list | `seminar-interest` | `seminars-index` | Announcements first; city shapes venue choice | Low |
 | `/seminars/[slug]` (status `interest`) | Per-event interest | `seminar-interest` (or config `leadCaptureIntent`) | config `source`, default `seminar-<slug>` | "No payment is taken on this page yet." | Low |

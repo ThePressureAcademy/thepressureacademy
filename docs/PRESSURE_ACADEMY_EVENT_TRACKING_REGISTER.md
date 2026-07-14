@@ -18,6 +18,23 @@ Common envelope on every event: `{ name, payload, path, ts }`.
 | `seminar_checkout_unavailable` | Render of an event whose config says `status: "open"` but fails adapter validation (misconfiguration signal, once per page view); also fired by any programmatic `action.start()` on an invalid funnel | `slug`, `reasons[]` (machine-readable, e.g. `missing_checkout_url`, `status_not_open:interest`, `checkout_url_not_https`) | Yes |
 | `seminar_checkout_abandoned` | `visibilitychange → hidden` after registration started but not submitted, statuses `announced`/`open` only | `slug`, `step: 1` | Carried over from architecture pass (verified then) |
 
+## Drop 01 apparel funnel events (curiosity phase)
+
+Fired by `/shop/apparel/` from the Drop 01 manifest (`js/config/drops.js`).
+Privacy rule: product id, capsule id, size band, and event state only. Names,
+emails, and any fit or body information never ride on the event layer.
+
+| Event | Trigger | Payload | Verified |
+| --- | --- | --- | --- |
+| `drop_view` | Apparel page load with the drop manifest resolved | `drop`, `stage` | Yes (QA 14 Jul 2026) |
+| `capsule_select` | Capsule selector click (core / women / both); also syncs the waitlist radio and filters the reveals | `drop`, `capsule` | Yes |
+| `product_reveal` | First open of a work-behind-the-work reveal item, once per page view per item | `drop`, `reveal` | Yes |
+| `product_interest` | Register-interest click on a drop card; prefills the waitlist product and first-choice fields | `drop`, `product`, `capsule` | Yes |
+| `size_guide_open` | First open of a size-guide family, once per page view per family | `drop`, `family` | Yes |
+| `waitlist_start` | First `focusin` on the drop-list form | `drop` | Wiring verified via dispatched focusin; the embedded QA pane suppresses focus events on programmatic focus (document unfocused). Real user input fires it. |
+| `waitlist_submit` | Successful drop-list submit, fires alongside generic `lead_captured` | `drop`, `capsule`, `product` | Yes (stubbed-fetch submit) |
+| `release_handoff` | RESERVED. Fires when a waitlist entry hands off to an open release funnel. Nothing fires it in waitlist stage; firing it earlier would be a false claim. | `drop`, `product` | Constant only |
+
 ## Other canonical events (unchanged this phase)
 
 | Event | Trigger | Payload |

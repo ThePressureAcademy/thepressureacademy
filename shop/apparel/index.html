@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pressure Tested Apparel | The Pressure Academy</title>
+    <title>Pressure Tested Drop 01: Toā Earth | The Pressure Academy</title>
     <meta
       name="description"
-      content="Pressure Tested: heavyweight training apparel from The Pressure Academy. First drop in development — join the release list for first access."
+      content="Pressure Tested Drop 01: Toā Earth. Earth-toned training apparel in development: four core pieces and six women-specific cuts under one standard. Join the first-access list."
     />
     <link rel="canonical" href="https://thepressureacademy.com/shop/apparel/" />
     <meta property="og:site_name" content="The Pressure Academy" />
-    <meta property="og:title" content="Pressure Tested Apparel | The Pressure Academy" />
+    <meta property="og:title" content="Pressure Tested Drop 01: Toā Earth | The Pressure Academy" />
     <meta
       property="og:description"
-      content="Heavyweight training apparel. Worn under load, not for the feed. First drop in development."
+      content="Four core pieces and six women-specific cuts, developed under one Pressure Tested standard. In development. First access before anything goes public."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thepressureacademy.com/shop/apparel/" />
@@ -28,6 +28,92 @@
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-media.css?v=1" />
+    <style>
+      /* Drop-page-only extensions to the shared commerce system */
+      .capsule-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .capsule-card {
+        font: inherit;
+        text-align: left;
+        color: inherit;
+        background: var(--surface, rgba(255, 255, 255, 0.02));
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        padding: 22px;
+        cursor: pointer;
+        transition: border-color 0.2s ease;
+      }
+      .capsule-card:hover {
+        border-color: var(--accent, #c45b28);
+      }
+      .capsule-card[aria-pressed="true"] {
+        border-color: var(--accent, #c45b28);
+        box-shadow: inset 0 0 0 1px var(--accent, #c45b28);
+      }
+      .capsule-card h3 {
+        margin: 8px 0 6px;
+      }
+      .drop-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+      .drop-card .colour-line {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.85;
+        margin: 4px 0 8px;
+      }
+      .principle-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 14px 0 6px;
+      }
+      .principle-row .badge {
+        position: static;
+      }
+      .reveal-item {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
+      .reveal-item summary {
+        cursor: pointer;
+        padding: 16px 18px;
+        font-weight: 600;
+        list-style: none;
+      }
+      .reveal-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .reveal-item summary::after {
+        content: "+";
+        float: right;
+        font-family: var(--font-mono);
+        opacity: 0.7;
+      }
+      .reveal-item[open] summary::after {
+        content: "\2212";
+      }
+      .reveal-item .reveal-body {
+        padding: 0 18px 16px;
+      }
+      @media (max-width: 860px) {
+        .capsule-grid {
+          grid-template-columns: 1fr;
+        }
+        .drop-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -75,19 +161,19 @@
           <div class="page-hero-grid">
             <div>
               <span class="kicker">Pressure Tested</span>
-              <h1>Worn under load.<br />Not for the feed.</h1>
+              <h1>Drop 01: Toā Earth</h1>
               <p class="lead">
-                Heavyweight fabric, minimal print, no billboard energy. Apparel that earns its
-                place in the wash cycle of someone who actually trains.
+                Earth-toned. Built for the work. Four core pieces and six women-specific
+                cuts, developed under one Pressure Tested standard.
               </p>
               <div class="hero-actions">
-                <a class="btn" href="#drop-list">Get first access at drop</a>
-                <a class="btn-ghost" href="#range">See the range</a>
+                <a class="btn" href="#capsules">Explore Drop 01</a>
+                <a class="btn-ghost" href="#drop-list">Join first access</a>
               </div>
               <div class="truth-note" style="margin-top: 26px; max-width: 44rem">
-                <strong>Where this is at:</strong> the first Pressure Tested drop is in
-                development. Nothing below is purchasable yet — pricing locks at release, and
-                the drop list gets first access before anything goes public.
+                <strong>Where this is at:</strong> Drop 01 is in development. Nothing is
+                purchasable yet, pricing publishes when it locks, and the first-access
+                list hears before anything goes public.
               </div>
             </div>
             <figure class="page-hero-figure">
@@ -103,19 +189,139 @@
         </div>
       </section>
 
-      <section class="section-tight" id="range">
+      <section class="section-tight" id="capsules">
         <div class="container">
           <div class="section-head">
-            <span class="kicker">First drop range</span>
-            <h2>Four pieces. No filler.</h2>
+            <span class="kicker">One drop, two systems</span>
+            <h2>Pick your path.</h2>
+            <p class="muted" style="max-width: 44rem">
+              Toā Earth is one drop with two product systems built on the same ground:
+              a four-piece unisex core and a six-piece women-specific capsule. Choose a
+              path or take both.
+            </p>
           </div>
-          <div class="product-grid" id="apparel-grid"></div>
+          <div class="capsule-grid" id="capsule-select">
+            <button type="button" class="capsule-card" data-capsule="core" aria-pressed="false">
+              <span class="kicker">Capsule</span>
+              <h3>Toā Earth Core</h3>
+              <p class="muted">Four core pieces. One unisex block. Clay Brown, Faded Olive, Sand, Washed Stone.</p>
+            </button>
+            <button type="button" class="capsule-card" data-capsule="women" aria-pressed="false">
+              <span class="kicker">Capsule</span>
+              <h3>Pressure Tested Women</h3>
+              <p class="muted">Six women-specific cuts. Not smaller. Better aligned.</p>
+            </button>
+            <button type="button" class="capsule-card" data-capsule="both" aria-pressed="true">
+              <span class="kicker">Capsule</span>
+              <h3>Show me both</h3>
+              <p class="muted">The full ten-silhouette drop, one standard across all of it.</p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" id="core">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">Toā Earth Core</span>
+            <h2>Four core pieces. One unisex block.</h2>
+          </div>
+          <div class="drop-grid" id="core-grid"></div>
           <noscript>
             <p class="muted">
-              The range renders with JavaScript enabled. To get first access at drop,
-              use the form below or email via the <a href="/contact/">contact page</a>.
+              The drop renders with JavaScript enabled. To join first access, use the
+              form below or email via the <a href="/contact/">contact page</a>.
             </p>
           </noscript>
+        </div>
+      </section>
+
+      <section class="section-tight" id="women">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">Pressure Tested Women</span>
+            <h2>Not smaller. Better aligned.</h2>
+            <p class="muted" style="max-width: 44rem">
+              A separate alignment system built on the same Drop 01 ground, cut around
+              four principles rather than a shrunk unisex block.
+            </p>
+            <div class="principle-row">
+              <span class="badge">Movement</span>
+              <span class="badge">Confidence</span>
+              <span class="badge">Coverage</span>
+              <span class="badge">Strength</span>
+            </div>
+          </div>
+          <div class="drop-grid" id="women-grid"></div>
+        </div>
+      </section>
+
+      <section class="section-tight" id="work">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">The work behind the work</span>
+            <h2>Restraint is the design.</h2>
+          </div>
+          <details class="reveal-item" data-reveal-key="mark">
+            <summary>The locked mark</summary>
+            <div class="reveal-body">
+              <p class="muted">
+                One locked Pressure Tested mark and wordmark carry the whole drop. No
+                auxiliary marks, no sub-brands, no team badges. If it is not the mark,
+                it is not on the garment.
+              </p>
+            </div>
+          </details>
+          <details class="reveal-item" data-reveal-key="colour">
+            <summary>The colour system</summary>
+            <div class="reveal-body">
+              <p class="muted">
+                Four earth tones govern Drop 01: Clay Brown, Faded Olive, Sand, and
+                Washed Stone. Core garments each own one tone. Women's colour
+                assignments publish with the campaign board.
+              </p>
+            </div>
+          </details>
+          <details class="reveal-item" data-reveal-key="silhouettes">
+            <summary>The silhouette set</summary>
+            <div class="reveal-body">
+              <p class="muted">
+                Ten silhouettes, no filler: a structured hoodie, compression rashguard,
+                grappling shorts, and boxy tee in the core, plus six women-specific
+                cuts spanning two hoodies, a longline rashguard, a high-waist short,
+                and two tees.
+              </p>
+            </div>
+          </details>
+          <details class="reveal-item" data-reveal-key="print">
+            <summary>Print restraint</summary>
+            <div class="reveal-body">
+              <p class="muted">
+                Print zones and patch placement are locked on the technical board and
+                publish with sampling. The default is tonal and quiet. No billboard
+                energy.
+              </p>
+            </div>
+          </details>
+          <details class="reveal-item" data-reveal-key="construction">
+            <summary>Fabric and construction</summary>
+            <div class="reveal-body">
+              <p class="muted">
+                Fabric weights and construction specs publish with sealed samples.
+                Nothing gets claimed before it is measured on an approved garment.
+              </p>
+            </div>
+          </details>
+          <details class="reveal-item" data-reveal-key="sampling">
+            <summary>Sampling status</summary>
+            <div class="reveal-body">
+              <p class="muted">
+                Drop 01 is at technical-specification stage. The next gate is sealed
+                samples, then field testing, then final measurements and pricing.
+                Each gate publishes here when it clears.
+              </p>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -124,37 +330,17 @@
           <div class="panel">
             <div class="grid-2">
               <div>
-                <span class="kicker">Size confidence</span>
-                <h2>Buy your size once.</h2>
+                <span class="kicker">Sizing</span>
+                <h2>Four families, measured properly.</h2>
                 <p class="muted">
-                  Final garment measurements are published with the drop. Until then, this
-                  gives you a provisional read so you can join the list at the right size.
+                  Hoodies, rashguards, shorts, and tees size differently, and the
+                  women's cuts size differently again. Each family gets its own
+                  measurement table instead of one generic chart.
                 </p>
-                <form class="capture-form" id="size-quiz" style="margin-top: 16px">
-                  <div class="field-grid">
-                    <label>
-                      <span class="mono muted">Height</span>
-                      <select id="size-height">
-                        <option value="1">Under 170cm</option>
-                        <option value="2" selected>170–180cm</option>
-                        <option value="3">180–190cm</option>
-                        <option value="4">Over 190cm</option>
-                      </select>
-                    </label>
-                    <label>
-                      <span class="mono muted">Build</span>
-                      <select id="size-build">
-                        <option value="1">Lighter</option>
-                        <option value="2" selected>Average</option>
-                        <option value="3">Heavier / lifting</option>
-                      </select>
-                    </label>
-                  </div>
-                  <button type="button" class="btn-ghost" id="size-suggest">Suggest my size</button>
-                  <p class="form-status" id="size-result" aria-live="polite"></p>
-                </form>
+                <div id="size-families" style="margin-top: 16px"></div>
                 <p class="gate-note" style="margin-top: 14px">
-                  Provisional guidance only — confirm against the final size chart at drop.
+                  Development measurement guide. Final garment measurements publish
+                  after sealed-sample approval.
                 </p>
               </div>
               <div>
@@ -181,11 +367,12 @@
           <div class="panel">
             <div class="grid-2">
               <div>
-                <span class="kicker">Drop list</span>
-                <h2>First access. No spam economics.</h2>
+                <span class="kicker">First access</span>
+                <h2>The list hears first.</h2>
                 <p class="muted">
-                  One email when the drop opens, sized and priced. Early list gets first
-                  run before anything goes public.
+                  One email when Drop 01 opens, sized and priced. The list gets first
+                  run before anything goes public. The optional preferences below
+                  shape which piece releases first.
                 </p>
               </div>
               <form
@@ -196,19 +383,92 @@
               >
                 <input type="hidden" name="intent" value="apparel-drop-list" />
                 <input type="hidden" name="source" value="shop-apparel" />
+                <input type="hidden" name="drop" value="drop-01-toa-earth" />
                 <input type="hidden" name="product" value="" data-product-field />
                 <div class="field-grid">
                   <input type="text" name="name" placeholder="Name" required />
                   <input type="email" name="email" placeholder="Email" required />
                 </div>
-                <label>
-                  <select name="size">
-                    <option value="">Preferred size (optional)</option>
-                    <option>XS</option><option>S</option><option>M</option>
-                    <option>L</option><option>XL</option><option>2XL</option><option>3XL</option>
-                  </select>
-                </label>
-                <button class="btn" type="submit">Join the drop list</button>
+                <fieldset style="border: 0; padding: 0; margin: 10px 0 0">
+                  <legend class="mono muted" style="margin-bottom: 6px">Interested in</legend>
+                  <label style="margin-right: 14px">
+                    <input type="radio" name="capsule" value="core" /> Toā Earth Core
+                  </label>
+                  <label style="margin-right: 14px">
+                    <input type="radio" name="capsule" value="women" /> Pressure Tested Women
+                  </label>
+                  <label>
+                    <input type="radio" name="capsule" value="both" checked /> Both
+                  </label>
+                </fieldset>
+                <details style="margin-top: 12px">
+                  <summary class="mono muted" style="cursor: pointer">
+                    Optional preferences (30 seconds, shapes the release)
+                  </summary>
+                  <div class="field-grid" style="margin-top: 10px">
+                    <label>
+                      <select name="first_choice">
+                        <option value="">First-choice piece (optional)</option>
+                        <optgroup label="Toā Earth Core">
+                          <option value="toa-core-hoodie">Structured Hoodie</option>
+                          <option value="toa-core-rashguard">Compression Rashguard</option>
+                          <option value="toa-core-shorts">Grappling Shorts</option>
+                          <option value="toa-core-tee">Boxy T-Shirt</option>
+                        </optgroup>
+                        <optgroup label="Pressure Tested Women">
+                          <option value="toa-w-cropped-hoodie">Cropped Structured Hoodie</option>
+                          <option value="toa-w-relaxed-hoodie">Full-Length Relaxed Hoodie</option>
+                          <option value="toa-w-longline-rashguard">Longline Compression Rashguard</option>
+                          <option value="toa-w-highwaist-short">High-Waist Grappling Short</option>
+                          <option value="toa-w-crop-tee">Boxy Crop Tee</option>
+                          <option value="toa-w-relaxed-tee">Relaxed Full-Length Tee</option>
+                        </optgroup>
+                      </select>
+                    </label>
+                    <label>
+                      <select name="size_band">
+                        <option value="">Usual size band (optional)</option>
+                        <option>XS</option><option>S</option><option>M</option>
+                        <option>L</option><option>XL</option><option>2XL</option><option>3XL</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="field-grid" style="margin-top: 10px">
+                    <label>
+                      <select name="context">
+                        <option value="">Mostly for (optional)</option>
+                        <option value="training">Training</option>
+                        <option value="lifestyle">Lifestyle</option>
+                        <option value="both">Both</option>
+                      </select>
+                    </label>
+                    <label>
+                      <select name="womens_cut">
+                        <option value="">Preferred women's cut (optional)</option>
+                        <option value="cropped">Cropped</option>
+                        <option value="longline">Longline</option>
+                        <option value="high-waist">High-waist</option>
+                        <option value="relaxed">Relaxed full-length</option>
+                      </select>
+                    </label>
+                  </div>
+                  <label style="display: block; margin-top: 10px">
+                    <select name="release_first">
+                      <option value="">Which piece should release first? (optional)</option>
+                      <option value="core-hoodie">Core Structured Hoodie</option>
+                      <option value="core-rashguard">Core Compression Rashguard</option>
+                      <option value="core-shorts">Core Grappling Shorts</option>
+                      <option value="core-tee">Core Boxy T-Shirt</option>
+                      <option value="women-cropped-hoodie">Women's Cropped Hoodie</option>
+                      <option value="women-relaxed-hoodie">Women's Relaxed Hoodie</option>
+                      <option value="women-longline-rashguard">Women's Longline Rashguard</option>
+                      <option value="women-highwaist-short">Women's High-Waist Short</option>
+                      <option value="women-crop-tee">Women's Boxy Crop Tee</option>
+                      <option value="women-relaxed-tee">Women's Relaxed Tee</option>
+                    </select>
+                  </label>
+                </details>
+                <button class="btn" type="submit" style="margin-top: 12px">Join first access</button>
                 <div class="form-status" aria-live="polite"></div>
               </form>
             </div>
@@ -266,60 +526,138 @@
 
     <script type="module">
       import { initMotion } from "/js/lib/media/motion-controller.js";
-      import { apparel } from "/js/config/commerce.js";
-      import { initCart, addItem } from "/js/lib/cart.js";
-      import {
-        apparelCard,
-        enhanceCaptureForms,
-        trackProductViews,
-        initMobileNav,
-      } from "/js/lib/commerce-ui.js";
+      import { drop01, sizeGuideFamilies, sizeGuideLabel } from "/js/config/drops.js";
+      import { initCart } from "/js/lib/cart.js";
+      import { enhanceCaptureForms, initMobileNav, escapeHtml } from "/js/lib/commerce-ui.js";
+      import { track, EVENTS } from "/js/lib/events.js";
 
       initMobileNav();
       initCart();
 
-      const grid = document.getElementById("apparel-grid");
-      grid.innerHTML = apparel.map(apparelCard).join("");
-      trackProductViews(apparel, "shop-apparel");
-
-      // Drop-list CTA on cards scrolls to the capture form with product context.
-      grid.addEventListener("click", (e) => {
-        const btn = e.target.closest("[data-drop-list]");
-        if (btn) {
-          const field = document.querySelector("[data-product-field]");
-          if (field) field.value = btn.dataset.dropList;
-          document.getElementById("drop-list").scrollIntoView({ behavior: "smooth" });
-          return;
-        }
-        const add = e.target.closest("[data-add-to-cart]");
-        if (add) {
-          const product = apparel.find((p) => p.id === add.dataset.addToCart);
-          if (product && product.status === "live") {
-            addItem({
-              id: product.id,
-              name: product.name,
-              priceCents: product.priceCents,
-            });
-          }
-        }
-      });
-
-      // Provisional size suggestion (labelled provisional in UI).
-      const sizeMap = {
-        "1-1": "S", "1-2": "M", "1-3": "L",
-        "2-1": "M", "2-2": "L", "2-3": "XL",
-        "3-1": "L", "3-2": "XL", "3-3": "2XL",
-        "4-1": "XL", "4-2": "2XL", "4-3": "3XL",
+      const paletteLabel = (id) => {
+        const tone = drop01.palette.find((p) => p.id === id);
+        return tone ? tone.label : null;
       };
-      document.getElementById("size-suggest").addEventListener("click", () => {
-        const h = document.getElementById("size-height").value;
-        const b = document.getElementById("size-build").value;
-        const size = sizeMap[`${h}-${b}`] || "L";
-        document.getElementById("size-result").textContent =
-          `Provisional suggestion: ${size}. Confirm against the final chart at drop.`;
+
+      const productCard = (p) => `
+        <article class="card drop-card" data-reveal>
+          <span class="badge">In development</span>
+          <h3>${escapeHtml(p.name)}</h3>
+          ${
+            p.colour
+              ? `<p class="colour-line">${escapeHtml(paletteLabel(p.colour) || "")}</p>`
+              : `<p class="colour-line">Colour publishes with the campaign board</p>`
+          }
+          <p class="muted">${escapeHtml(p.fitLogic)}</p>
+          <ul class="spec-list">
+            <li>Pricing publishes when it locks</li>
+            <li>Measurements publish after sealed samples</li>
+          </ul>
+          <div class="card-cta">
+            <button type="button" class="btn-ghost" data-interest="${p.id}" data-interest-capsule="${p.capsule}">
+              Register interest
+            </button>
+          </div>
+        </article>`;
+
+      const coreCapsule = drop01.capsules.find((c) => c.id === "core");
+      const womenCapsule = drop01.capsules.find((c) => c.id === "women");
+      document.getElementById("core-grid").innerHTML = coreCapsule.products.map(productCard).join("");
+      document.getElementById("women-grid").innerHTML = womenCapsule.products.map(productCard).join("");
+
+      // Size-guide families render from the manifest; tables stay gated until
+      // the sealed-sample pack lands (table === null renders no numbers).
+      document.getElementById("size-families").innerHTML = sizeGuideFamilies
+        .map(
+          (f) => `
+        <details class="reveal-item" data-size-family="${f.id}">
+          <summary>${escapeHtml(f.label)}</summary>
+          <div class="reveal-body">
+            <ul class="spec-list">
+              ${f.covers.map((c) => `<li>${escapeHtml(c)}</li>`).join("")}
+            </ul>
+            <p class="gate-note">${escapeHtml(sizeGuideLabel)}</p>
+            ${f.table === null ? '<p class="muted">Measurement tables land here from the sealed-sample pack.</p>' : ""}
+          </div>
+        </details>`,
+        )
+        .join("");
+
+      track(EVENTS.DROP_VIEW, { drop: drop01.id, stage: drop01.publicStage });
+
+      // Capsule selector: filters the reveals, prefills the form, fires the event.
+      const sections = { core: document.getElementById("core"), women: document.getElementById("women") };
+      const selector = document.getElementById("capsule-select");
+      selector.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-capsule]");
+        if (!btn) return;
+        const choice = btn.dataset.capsule;
+        selector.querySelectorAll("[data-capsule]").forEach((b) =>
+          b.setAttribute("aria-pressed", String(b === btn)),
+        );
+        sections.core.hidden = choice === "women";
+        sections.women.hidden = choice === "core";
+        const radio = document.querySelector(`input[name="capsule"][value="${choice}"]`);
+        if (radio) radio.checked = true;
+        track(EVENTS.CAPSULE_SELECT, { drop: drop01.id, capsule: choice });
       });
 
-      enhanceCaptureForms();
+      // Progressive reveals and size guides are measurable, once per open.
+      document.querySelectorAll("[data-reveal-key]").forEach((d) =>
+        d.addEventListener("toggle", () => {
+          if (d.open && !d.dataset.tracked) {
+            d.dataset.tracked = "1";
+            track(EVENTS.PRODUCT_REVEAL, { drop: drop01.id, reveal: d.dataset.revealKey });
+          }
+        }),
+      );
+      document.getElementById("size-families").addEventListener(
+        "toggle",
+        (e) => {
+          const d = e.target.closest("[data-size-family]");
+          if (d && d.open && !d.dataset.tracked) {
+            d.dataset.tracked = "1";
+            track(EVENTS.SIZE_GUIDE_OPEN, { drop: drop01.id, family: d.dataset.sizeFamily });
+          }
+        },
+        true,
+      );
+
+      // Register-interest buttons prefill the form and hand off to the list.
+      document.querySelectorAll("#core-grid, #women-grid").forEach((grid) =>
+        grid.addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-interest]");
+          if (!btn) return;
+          const productField = document.querySelector("[data-product-field]");
+          if (productField) productField.value = btn.dataset.interest;
+          const firstChoice = document.querySelector('select[name="first_choice"]');
+          if (firstChoice) firstChoice.value = btn.dataset.interest;
+          track(EVENTS.PRODUCT_INTEREST, {
+            drop: drop01.id,
+            product: btn.dataset.interest,
+            capsule: btn.dataset.interestCapsule,
+          });
+          document.getElementById("drop-list").scrollIntoView({ behavior: "smooth" });
+        }),
+      );
+
+      // Waitlist funnel state. Payloads carry product, capsule, size band, and
+      // event state only. Names and emails never ride on the event layer.
+      const waitlistForm = document.querySelector('form[data-capture="apparel-drop-list"]');
+      waitlistForm.addEventListener(
+        "focusin",
+        () => track(EVENTS.WAITLIST_START, { drop: drop01.id }),
+        { once: true },
+      );
+      enhanceCaptureForms(document, (form) => {
+        if (form !== waitlistForm) return;
+        const capsule = form.querySelector('input[name="capsule"]:checked');
+        track(EVENTS.WAITLIST_SUBMIT, {
+          drop: drop01.id,
+          capsule: capsule ? capsule.value : null,
+          product: form.querySelector("[data-product-field]").value || null,
+        });
+      });
 
       // Visual Performance Layer: route intensity + media governance.
       initMotion();
