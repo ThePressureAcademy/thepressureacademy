@@ -26,14 +26,14 @@ emails, and any fit or body information never ride on the event layer.
 
 | Event | Trigger | Payload | Verified |
 | --- | --- | --- | --- |
-| `drop_view` | Apparel page load with the drop manifest resolved | `drop`, `stage` | Yes (QA 14 Jul 2026) |
-| `capsule_select` | Capsule selector click (core / women / both); also syncs the waitlist radio and filters the reveals | `drop`, `capsule` | Yes |
-| `product_reveal` | First open of a work-behind-the-work reveal item, once per page view per item | `drop`, `reveal` | Yes |
-| `product_interest` | Register-interest click on a drop card; prefills the waitlist product and first-choice fields | `drop`, `product`, `capsule` | Yes |
-| `size_guide_open` | First open of a size-guide family, once per page view per family | `drop`, `family` | Yes |
-| `waitlist_start` | First `focusin` on the drop-list form | `drop` | Wiring verified via dispatched focusin; the embedded QA pane suppresses focus events on programmatic focus (document unfocused). Real user input fires it. |
-| `waitlist_submit` | Successful drop-list submit, fires alongside generic `lead_captured` | `drop`, `capsule`, `product` | Yes (stubbed-fetch submit) |
-| `release_handoff` | RESERVED. Fires when a waitlist entry hands off to an open release funnel. Nothing fires it in waitlist stage; firing it earlier would be a false claim. | `drop`, `product` | Constant only |
+| `drop_view` | Apparel page load with the curiosity manifest resolved | `drop`, `stage` | Yes (QA 14 Jul 2026) |
+| `capsule_select` | Capsule selector click (core / women / both); syncs the first-access radio and filters the public signals | `drop`, `capsule` | Yes |
+| `product_reveal` | First open of a controlled work-behind-the-work reveal, once per page view per reveal | `drop`, `reveal` | Yes |
+| `product_interest` | Click on a public signal or under-wraps card; prefills the governed first-access form | `drop`, `product`, `capsule` | Yes |
+| `size_guide_open` | First interaction with a sizing-family teaser; no size table is exposed | `drop`, `family` | Source-verified after curiosity correction |
+| `waitlist_start` | First `focusin` on the first-access form | `drop` | Wiring verified via dispatched focusin; the embedded QA pane suppresses focus events on programmatic focus (document unfocused). Real user input fires it. |
+| `waitlist_submit` | Successful first-access submit, fires alongside generic `lead_captured` | `drop`, `capsule`, `product` | Yes (stubbed-fetch submit) |
+| `release_handoff` | RESERVED. Fires only when a curiosity entry hands off to a genuinely open release funnel. Nothing fires it during curiosity stage. | `drop`, `product` | Constant only |
 
 ## Other canonical events (unchanged this phase)
 
