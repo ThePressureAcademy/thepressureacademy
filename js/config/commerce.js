@@ -47,8 +47,11 @@ export const brandLines = Object.freeze({
 
 /**
  * Apparel — impulse retail line.
- * All entries are production-stage placeholders: real planned garments,
- * no locked pricing, no stock. Cards must render drop-list capture.
+ * SUPERSEDED for the apparel page by the Drop 01 manifest in
+ * js/config/drops.js (the page renders from the drop, not this array).
+ * Entries below remain as pre-drop line-item references only; the cap moved
+ * to `futureConcepts` in drops.js when it left Drop 01. Same truth rules:
+ * no locked pricing, no stock, capture only.
  */
 export const apparel = [
   {
@@ -84,18 +87,6 @@ export const apparel = [
     priceNote: "Pricing locks at first drop",
     blurb: "Flatlock seams, full-length cut, ranked and unranked options planned.",
     sizes: ["XS", "S", "M", "L", "XL", "2XL"],
-    variants: ["Blackout", "Rust"],
-    image: null,
-  },
-  {
-    id: "pt-cap",
-    line: "pressure-tested",
-    name: "Pressure Tested Cap",
-    status: "placeholder",
-    priceCents: null,
-    priceNote: "Pricing locks at first drop",
-    blurb: "Unstructured, low-profile, embroidered mark. The quiet one.",
-    sizes: ["One size"],
     variants: ["Blackout", "Rust"],
     image: null,
   },

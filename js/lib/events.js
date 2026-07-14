@@ -26,6 +26,17 @@ export const EVENTS = Object.freeze({
   UPSELL_VIEWED: "upsell_viewed",
   PURCHASE_COMPLETED: "purchase_completed",
   LEAD_CAPTURED: "lead_captured",
+  // Drop-level apparel funnel (Drop 01 architecture). Local-only until an
+  // external sink is registered. Privacy rule: no fit or body data rides on
+  // these events; product id, capsule id, size band, and event state only.
+  DROP_VIEW: "drop_view",
+  CAPSULE_SELECT: "capsule_select",
+  PRODUCT_REVEAL: "product_reveal",
+  PRODUCT_INTEREST: "product_interest",
+  SIZE_GUIDE_OPEN: "size_guide_open",
+  WAITLIST_START: "waitlist_start",
+  WAITLIST_SUBMIT: "waitlist_submit",
+  RELEASE_HANDOFF: "release_handoff",
 });
 
 const senders = [];

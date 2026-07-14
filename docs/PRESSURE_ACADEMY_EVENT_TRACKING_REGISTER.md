@@ -18,6 +18,23 @@ Common envelope on every event: `{ name, payload, path, ts }`.
 | `seminar_checkout_unavailable` | Render of an event whose config says `status: "open"` but fails adapter validation (misconfiguration signal, once per page view); also fired by any programmatic `action.start()` on an invalid funnel | `slug`, `reasons[]` (machine-readable, e.g. `missing_checkout_url`, `status_not_open:interest`, `checkout_url_not_https`) | Yes |
 | `seminar_checkout_abandoned` | `visibilitychange → hidden` after registration started but not submitted, statuses `announced`/`open` only | `slug`, `step: 1` | Carried over from architecture pass (verified then) |
 
+## Drop 01 apparel funnel events (curiosity phase)
+
+Fired by `/shop/apparel/` from the Drop 01 manifest (`js/config/drops.js`).
+Privacy rule: product id, capsule id, size band, and event state only. Names,
+emails, and any fit or body information never ride on the event layer.
+
+| Event | Trigger | Payload | Verified |
+| --- | --- | --- | --- |
+| `drop_view` | Apparel page load with the curiosity manifest resolved | `drop`, `stage` | Yes (QA 14 Jul 2026) |
+| `capsule_select` | Capsule selector click (core / women / both); syncs the first-access radio and filters the public signals | `drop`, `capsule` | Yes |
+| `product_reveal` | First open of a controlled work-behind-the-work reveal, once per page view per reveal | `drop`, `reveal` | Yes |
+| `product_interest` | Click on a public signal or under-wraps card; prefills the governed first-access form | `drop`, `product`, `capsule` | Yes |
+| `size_guide_open` | First interaction with a sizing-family teaser; no size table is exposed | `drop`, `family` | Source-verified after curiosity correction |
+| `waitlist_start` | First `focusin` on the first-access form | `drop` | Wiring verified via dispatched focusin; the embedded QA pane suppresses focus events on programmatic focus (document unfocused). Real user input fires it. |
+| `waitlist_submit` | Successful first-access submit, fires alongside generic `lead_captured` | `drop`, `capsule`, `product` | Yes (stubbed-fetch submit) |
+| `release_handoff` | RESERVED. Fires only when a curiosity entry hands off to a genuinely open release funnel. Nothing fires it during curiosity stage. | `drop`, `product` | Constant only |
+
 ## Other canonical events (unchanged this phase)
 
 | Event | Trigger | Payload |
