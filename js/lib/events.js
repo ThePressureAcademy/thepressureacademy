@@ -26,6 +26,17 @@ export const EVENTS = Object.freeze({
   UPSELL_VIEWED: "upsell_viewed",
   PURCHASE_COMPLETED: "purchase_completed",
   LEAD_CAPTURED: "lead_captured",
+
+  // Mastery Method funnel. Names and triggers are defined in
+  // docs/ANALYTICS_BASELINE_PLAN.md and contracted in
+  // docs/PRESSURE_ACADEMY_EVENT_TRACKING_REGISTER.md.
+  // The MM pages are self-contained inline scripts rather than modules, so
+  // they reach these through a small per-page module bridge that exposes
+  // window.tpaTrack / window.TPA_EVENTS. The names still live only here.
+  MM_SCORECARD_START: "mm_scorecard_start",
+  MM_SCORECARD_SUBMIT: "mm_scorecard_submit",
+  MM_BOOKING_START: "mm_booking_start",
+  MM_BOOKING_FORM_SUBMIT: "mm_booking_form_submit",
 });
 
 const senders = [];

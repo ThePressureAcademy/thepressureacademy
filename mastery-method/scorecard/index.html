@@ -431,6 +431,7 @@
 
   //  NAVIGATION 
   window.startScorecard = function(){
+    if (window.tpaTrack) window.tpaTrack(window.TPA_EVENTS.MM_SCORECARD_START, { questions: questions.length });
     document.getElementById('step-start').classList.remove('active');
     document.getElementById('step-q-0').classList.add('active');
     document.getElementById('progressWrap').style.display = 'block';
@@ -607,6 +608,16 @@
       headers: { 'Accept': 'application/json' }
     }).then(function(response) {
       if (!response.ok) throw new Error('Submission failed');
+      // Success path only. Pillar scores and level are non-identifying; the
+      // name and email the visitor submitted are deliberately NOT included,
+      // per the no-PII rule in js/lib/events.js.
+      if (window.tpaTrack) window.tpaTrack(window.TPA_EVENTS.MM_SCORECARD_SUBMIT, {
+        intent: 'scorecard-lead',
+        source: 'clarity-scorecard',
+        weakest_pillar: leadData.weakestPillar,
+        clarity_level: leadData.level,
+        total_score: leadData.totalScore
+      });
     }).catch(function() {
       document.getElementById('scSubmitError').classList.add('show');
     });
@@ -622,6 +633,23 @@
   }
 
 })();
+</script>
+
+<!-- Analytics bridge (docs/ANALYTICS_BASELINE_PLAN.md, Option 3).
+     Reuses the single-source event layer in /js/lib/events.js. This page is a
+     self-contained classic script exposing window.* globals, so converting it
+     to a module would change its scoping and break those globals. The bridge
+     therefore exposes the tracker on window instead, and the canonical event
+     names still live only in events.js.
+     Local-only: track() buffers to window.__tpaEvents. Nothing is transmitted
+     until a sender is registered. -->
+<script type="module">
+  import { track, EVENTS } from "/js/lib/events.js";
+  window.TPA_EVENTS = EVENTS;
+  window.tpaTrack = function (name, payload) {
+    // Instrumentation must never be able to break the funnel it measures.
+    try { track(name, payload || {}); } catch (err) { /* no-op */ }
+  };
 </script>
 </body>
 </html>
