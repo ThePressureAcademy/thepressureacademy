@@ -30,6 +30,34 @@ Common envelope on every event: `{ name, payload, path, ts }`.
 | `purchase_completed` | RESERVED — nothing fires this yet. With Payment Links, completion happens on stripe.com; firing it client-side would be a false claim. It activates with a server-side webhook phase (`STRIPE_WEBHOOK_SECRET` boundary) or a Stripe-confirmed redirect page. |
 | `lead_captured` | Any successful capture-form submit | `intent`, `capture` |
 
+## Mastery Method funnel events
+
+Wired 31 Jul 2026 per `ANALYTICS_BASELINE_PLAN.md` Option 3 (light custom
+instrumentation, operator-approved). The MM pages are self-contained classic
+scripts, so each imports nothing directly: a small `<script type="module">`
+bridge on the page exposes `window.tpaTrack` / `window.TPA_EVENTS` from
+`js/lib/events.js`. Canonical names still live only in `events.js`.
+
+Local-only, as with every event here: `track()` buffers to `window.__tpaEvents`.
+No sender is registered, so nothing leaves the browser.
+
+| Event | Trigger | Payload | Verified |
+| --- | --- | --- | --- |
+| `mm_scorecard_start` | `window.startScorecard()` in `mastery-method/scorecard/index.html`, i.e. the "Start the Scorecard" button on the entry screen | `questions` (count in the flow) | Yes — local QA 31 Jul 2026 |
+| `mm_scorecard_submit` | Success path of the scorecard Formspree POST (`response.ok`), `intent=scorecard-lead` / `source=clarity-scorecard` | `intent`, `source`, `weakest_pillar`, `clarity_level`, `total_score` — deliberately no name or email | Yes — local QA 31 Jul 2026 |
+| `mm_booking_start` | First `focusin` or `change` on any input/select/textarea on `mastery-method/book/index.html`. Fires at most once per page view | none | Yes — local QA 31 Jul 2026 |
+| `mm_booking_form_submit` | Success path of `window.submitForm()` (`response.ok`), `source=mastery-method-book` | `intent` (`call` / `assessment` / `info`), `source` — deliberately no name, email or notes | Yes — local QA 31 Jul 2026 |
+
+**Homepage note.** `ANALYTICS_BASELINE_PLAN.md` lists `tpa_home_planner_cta_submit`
+and `tpa_home_join_section_submit`. Neither was implemented, for two verified
+reasons: their anchors `source=post-demo-cta` and `source=join-section` are
+pre-rebuild values that exist in no current homepage code (and
+`PRESSURE_ACADEMY_FORMS_AND_LEAD_CAPTURE_REGISTER.md` says to retire them), and
+the homepage today has a single form (`intent=founding-intake`,
+`source=home-join`) which `index.html` already instruments by calling
+`enhanceCaptureForms()`, emitting the generic `lead_captured`. No new homepage
+event was added.
+
 ## Future Klaviyo mapping (when keys exist — do not wire yet)
 
 | Local event | Klaviyo profile action |

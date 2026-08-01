@@ -5,6 +5,27 @@ This document defines the minimum measurement baseline for The Pressure Academy 
 It is a planning and governance document.
 It does not mean analytics are currently installed.
 
+## Implementation status (updated 31 July 2026)
+
+Option 3 was operator-approved and the **Mastery Method** events are now wired:
+`mm_scorecard_start`, `mm_scorecard_submit`, `mm_booking_start`,
+`mm_booking_form_submit`. They are declared in `js/lib/events.js` and contracted
+in `PRESSURE_ACADEMY_EVENT_TRACKING_REGISTER.md`. Still no provider and no
+sender: `track()` buffers to `window.__tpaEvents` only, so nothing is
+transmitted. Everything in "Current State" below about there being no provider
+remains true.
+
+**Two events in this plan were NOT implemented, because their anchors are
+stale.** `tpa_home_planner_cta_submit` and `tpa_home_join_section_submit` are
+specified against `source=post-demo-cta` and `source=join-section`. Neither
+value exists in current homepage code, and
+`PRESSURE_ACADEMY_FORMS_AND_LEAD_CAPTURE_REGISTER.md` explicitly lists both as
+pre-rebuild values to retire. The homepage today has a **single** capture form
+(`intent=founding-intake`, `source=home-join`), and `index.html` already calls
+`enhanceCaptureForms()`, which emits the generic `lead_captured` on success. The
+homepage is therefore already measured and needed no change. Those two rows
+below should be treated as superseded, not as outstanding work.
+
 ## Current State
 
 ### Verified in repo

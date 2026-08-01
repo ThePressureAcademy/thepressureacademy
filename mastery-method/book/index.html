@@ -520,6 +520,13 @@
       headers: { 'Accept': 'application/json' }
     }).then(function(response) {
       if (!response.ok) throw new Error('Submission failed');
+      // Success path only. `intent` is the existing call/assessment/info value;
+      // no submitted name, email or notes are included, per the no-PII rule in
+      // js/lib/events.js.
+      if (window.tpaTrack) window.tpaTrack(window.TPA_EVENTS.MM_BOOKING_FORM_SUBMIT, {
+        intent: intent,
+        source: 'mastery-method-book'
+      });
       showSuccess(intent);
     }).catch(function() {
       var btn = document.querySelector('.btn-submit');
@@ -541,6 +548,40 @@
     document.getElementById('formSuccess').classList.add('show');
   }
 })();
+</script>
+
+<!-- Analytics bridge (docs/ANALYTICS_BASELINE_PLAN.md, Option 3).
+     Reuses the single-source event layer in /js/lib/events.js. This page is a
+     self-contained classic script exposing window.* globals, so it is bridged
+     rather than converted to a module. Canonical names live only in events.js.
+     Local-only: track() buffers to window.__tpaEvents. Nothing is transmitted
+     until a sender is registered. -->
+<script type="module">
+  import { track, EVENTS } from "/js/lib/events.js";
+  window.TPA_EVENTS = EVENTS;
+  window.tpaTrack = function (name, payload) {
+    // Instrumentation must never be able to break the funnel it measures.
+    try { track(name, payload || {}); } catch (err) { /* no-op */ }
+  };
+
+  // mm_booking_start: first meaningful interaction with the booking form.
+  // Fires at most once per page view. Bound generically to the first focus or
+  // change on any field, so it does not depend on step IDs that may be
+  // restructured later.
+  (function () {
+    var fired = false;
+    function fire() {
+      if (fired) return;
+      fired = true;
+      window.tpaTrack(EVENTS.MM_BOOKING_START, {});
+    }
+    ["focusin", "change"].forEach(function (evt) {
+      document.addEventListener(evt, function (e) {
+        var t = e.target;
+        if (t && /^(INPUT|SELECT|TEXTAREA)$/.test(t.tagName)) fire();
+      });
+    });
+  })();
 </script>
 
 <footer class="site-footer"><div class="footer-inner">
