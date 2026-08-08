@@ -203,5 +203,26 @@
   }
 })();
 </script>
+
+<script type="module">
+  /* Mastery Method funnel instrumentation. Reuses the single-source event
+     layer in /js/lib/events.js. Contract: docs/ANALYTICS_BASELINE_PLAN.md. */
+  import { track, EVENTS } from "/js/lib/events.js";
+  window.TPA_EVENTS = EVENTS;
+  window.tpaTrack = function (name, payload) {
+    // Instrumentation must never be able to break the funnel it measures.
+    try { track(name, payload || {}); } catch (err) { /* no-op */ }
+  };
+  var tiers = ['learning-support-call', 'mastery-assessment', 'mastery-pathway', 'targeted-1-1'];
+  var cards = document.querySelectorAll('.tier-card');
+  for (var i = 0; i < cards.length; i++) {
+    (function (idx) {
+      var cta = cards[idx].querySelector('.tier-cta');
+      if (cta) cta.addEventListener('click', function () {
+        window.tpaTrack(EVENTS.MM_PRICING_CTA_CLICK, { tier: tiers[idx] || ('tier-' + (idx + 1)) });
+      });
+    })(i);
+  }
+</script>
 </body>
 </html>

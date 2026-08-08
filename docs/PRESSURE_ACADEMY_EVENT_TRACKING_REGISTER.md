@@ -47,6 +47,7 @@ No sender is registered, so nothing leaves the browser.
 | `mm_scorecard_submit` | Success path of the scorecard Formspree POST (`response.ok`), `intent=scorecard-lead` / `source=clarity-scorecard` | `intent`, `source`, `weakest_pillar`, `clarity_level`, `total_score` — deliberately no name or email | Yes — local QA 31 Jul 2026 |
 | `mm_booking_start` | First `focusin` or `change` on any input/select/textarea on `mastery-method/book/index.html`. Fires at most once per page view | none | Yes — local QA 31 Jul 2026 |
 | `mm_booking_form_submit` | Success path of `window.submitForm()` (`response.ok`), `source=mastery-method-book` | `intent` (`call` / `assessment` / `info`), `source` — deliberately no name, email or notes | Yes — local QA 31 Jul 2026 |
+| `mm_pricing_cta_click` | Click on any pricing tier CTA in `mastery-method/pricing/index.html` | `tier` (`learning-support-call` / `mastery-assessment` / `mastery-pathway` / `targeted-1-1`) | Yes — local QA 2026-08-08 |
 
 **Homepage note.** `ANALYTICS_BASELINE_PLAN.md` lists `tpa_home_planner_cta_submit`
 and `tpa_home_join_section_submit`. Neither was implemented, for two verified
