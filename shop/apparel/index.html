@@ -6,7 +6,7 @@
     <title>Pressure Tested Apparel | The Pressure Academy</title>
     <meta
       name="description"
-      content="Pressure Tested: heavyweight training apparel from The Pressure Academy. First drop in development — join the release list for first access."
+      content="Pressure Tested: heavyweight training apparel from The Pressure Academy. First drop in development. join the release list for first access."
     />
     <link rel="canonical" href="https://thepressureacademy.com/shop/apparel/" />
     <meta property="og:site_name" content="The Pressure Academy" />
@@ -22,14 +22,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-media.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
@@ -69,7 +71,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="page-hero">
         <div class="container">
           <div class="page-hero-grid">
@@ -86,7 +88,7 @@
               </div>
               <div class="truth-note" style="margin-top: 26px; max-width: 44rem">
                 <strong>Where this is at:</strong> the first Pressure Tested drop is in
-                development. Nothing below is purchasable yet — pricing locks at release, and
+                development. Nothing below is purchasable yet. pricing locks at release, and
                 the drop list gets first access before anything goes public.
               </div>
             </div>
@@ -154,7 +156,7 @@
                   <p class="form-status" id="size-result" aria-live="polite"></p>
                 </form>
                 <p class="gate-note" style="margin-top: 14px">
-                  Provisional guidance only — confirm against the final size chart at drop.
+                  Provisional guidance only. confirm against the final size chart at drop.
                 </p>
               </div>
               <div>
@@ -163,7 +165,7 @@
                 <ul class="spec-list">
                   <li>Add-to-cart with the slide-out cart (foundation live on this page now)</li>
                   <li>Express checkout (Shop Pay / Apple Pay / Google Pay) once a payment provider is connected</li>
-                  <li>Order bump at checkout — pairing planned, nothing pre-sold</li>
+                  <li>Order bump at checkout. pairing planned, nothing pre-sold</li>
                   <li>Final size chart with garment measurements</li>
                 </ul>
                 <p class="gate-note" style="margin-top: 14px">
@@ -190,7 +192,7 @@
               </div>
               <form
                 class="capture-form"
-                data-capture="apparel-drop-list"
+                data-capture="apparel-drop-list" data-success-message="You are on the apparel release list. No order or payment has been made."
                 action="https://formspree.io/f/meerjgde"
                 method="POST"
               >
@@ -198,17 +200,18 @@
                 <input type="hidden" name="source" value="shop-apparel" />
                 <input type="hidden" name="product" value="" data-product-field />
                 <div class="field-grid">
-                  <input type="text" name="name" placeholder="Name" required />
-                  <input type="email" name="email" placeholder="Email" required />
+                  <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+                  <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
                 </div>
                 <label>
-                  <select name="size">
+                  <span class="field-label">Usual size (optional)</span><select name="size">
                     <option value="">Preferred size (optional)</option>
                     <option>XS</option><option>S</option><option>M</option>
                     <option>L</option><option>XL</option><option>2XL</option><option>3XL</option>
                   </select>
                 </label>
                 <button class="btn" type="submit">Join the drop list</button>
+                <p class="form-help">We use these details to respond to this request. <a href="/privacy-policy.html">Privacy policy</a></p>
                 <div class="form-status" aria-live="polite"></div>
               </form>
             </div>
@@ -228,8 +231,7 @@
             </span>
           </a>
           <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Mats, apparel, seminars, and systems for athletes who live under pressure.
-            Not motivation. Architecture.
+            Plan your life. Train with intent. Turn pressure into progress.
           </p>
         </div>
         <div class="footer-col">
@@ -326,3 +328,4 @@
     </script>
   </body>
 </html>
+

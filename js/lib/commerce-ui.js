@@ -116,12 +116,19 @@ export function renderAuthorityStrip(el) {
  */
 export function enhanceCaptureForms(scope = document, onSuccess = null) {
   scope.querySelectorAll("form[data-capture]").forEach((form) => {
+    if (form.dataset.captureEnhanced) return;
+    form.dataset.captureEnhanced = "true";
     const status = form.querySelector(".form-status");
+    if (status) status.setAttribute("tabindex", "-1");
+    let sending = false;
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      if (sending || !form.reportValidity()) return;
+      sending = true;
       const submit = form.querySelector('button[type="submit"]');
       if (status) status.textContent = "Sending…";
       if (submit) submit.disabled = true;
+      form.setAttribute("aria-busy", "true");
       try {
         const res = await fetch(form.action, {
           method: "POST",
@@ -136,12 +143,18 @@ export function enhanceCaptureForms(scope = document, onSuccess = null) {
         });
         if (typeof onSuccess === "function") onSuccess(form);
         form.reset();
-        if (status)
-          status.textContent = "Received. You are on the list — we reply to real requests, not with drip spam.";
+        if (status) {
+          status.textContent = form.dataset.successMessage || "Thanks. Your enquiry has been sent.";
+          status.focus();
+        }
       } catch {
-        if (status)
-          status.textContent = "Something blocked the send. Try again in a moment.";
+        if (status) {
+          status.textContent = "Your message was not sent. Your answers are still here. Please try again.";
+          status.focus();
+        }
       } finally {
+        sending = false;
+        form.removeAttribute("aria-busy");
         if (submit) submit.disabled = false;
       }
     });
@@ -160,17 +173,24 @@ export function initMobileNav() {
   const btn = document.querySelector(".menu-button");
   const nav = document.getElementById("mobile-nav");
   if (!btn || !nav) return;
-  btn.addEventListener("click", () => {
-    const expanded = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!expanded));
-    nav.classList.toggle("open");
-    document.body.classList.toggle("menu-open", !expanded);
+  const desktop = window.matchMedia("(min-width: 981px)");
+  function setOpen(open, returnFocus = false) {
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    nav.hidden = !open;
+    nav.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    if (returnFocus) btn.focus();
+  }
+  setOpen(false);
+  btn.addEventListener("click", () => setOpen(btn.getAttribute("aria-expanded") !== "true"));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+      setOpen(false, true);
+    }
   });
+  desktop.addEventListener("change", () => { if (desktop.matches) setOpen(false); });
   nav.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => {
-      btn.setAttribute("aria-expanded", "false");
-      nav.classList.remove("open");
-      document.body.classList.remove("menu-open");
-    }),
+    a.addEventListener("click", () => setOpen(false)),
   );
 }

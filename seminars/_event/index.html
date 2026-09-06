@@ -9,7 +9,7 @@
       content="Pressure Academy seminar event page."
     />
     <!--
-      DYNAMIC SLUG TEMPLATE — served for /seminars/[slug] via vercel.json rewrite.
+      DYNAMIC SLUG TEMPLATE. served for /seminars/[slug] via vercel.json rewrite.
       Renders from js/config/funnels.js by pathname. Unknown or draft
       slugs render the honest not-open state. noindex: canonical content is
       config-driven; index the /seminars/ hub instead until events are live.
@@ -19,13 +19,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
   </head>
   <body>
+    <a class="skip-link" href="#event-main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
@@ -64,7 +66,7 @@
       </nav>
     </header>
 
-    <main id="event-main">
+    <main id="event-main" tabindex="-1">
       <!-- Rendered by module script below -->
       <noscript>
         <section class="page-hero">
@@ -89,8 +91,7 @@
             </span>
           </a>
           <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Mats, apparel, seminars, and systems for athletes who live under pressure.
-            Not motivation. Architecture.
+            Plan your life. Train with intent. Turn pressure into progress.
           </p>
         </div>
         <div class="footer-col">
@@ -149,7 +150,7 @@
 
       const STATUS_PILL = {
         interest: "Interest open",
-        announced: "Announced — registration open",
+        announced: "Announced: interest open",
         open: "Tickets live",
         sold_out: "Sold out",
         closed: "Event closed",
@@ -163,11 +164,10 @@
             <span class="kicker">Seminars</span>
             <h1>This event is not open.</h1>
             <p class="lead">
-              Either it has not been announced yet, or the link is old. We only publish
-              events with a locked athlete, date, and venue — no phantom event pages.
+              This link may be old or the event may not be public. Visit the seminar page for current information.
             </p>
             <div class="hero-actions">
-              <a class="btn" href="/seminars/#seminar-list">Join the founding event list</a>
+              <a class="btn" href="/seminars/#seminar-list">Get event updates</a>
               <a class="btn-ghost" href="/seminars/">See the event board</a>
             </div>
           </div>
@@ -175,17 +175,17 @@
       }
 
       function closedState(ev) {
-        document.title = `${ev.title} — closed | The Pressure Academy`;
+        document.title = `${ev.title}. closed | The Pressure Academy`;
         main.innerHTML = `
         <section class="page-hero">
           <div class="container">
             <span class="kicker">Seminars</span>
             <h1>${escapeHtml(ev.title)} has closed.</h1>
             <p class="lead">
-              This event is finished. The founding list hears about the next room first.
+              This event is finished. Join the update list for future seminar announcements.
             </p>
             <div class="hero-actions">
-              <a class="btn" href="/seminars/#seminar-list">Join the founding event list</a>
+              <a class="btn" href="/seminars/#seminar-list">Get event updates</a>
               <a class="btn-ghost" href="/seminars/">See the event board</a>
             </div>
           </div>
@@ -201,25 +201,26 @@
         };
         const buttons = {
           interest: "Register interest",
-          registration: "Register my spot",
+          registration: "Get ticket updates",
           waitlist: "Join the waitlist",
         };
         return `
-        <form class="capture-form" data-capture="seminar-${mode}" id="seminar-form"
+        <form class="capture-form" data-capture="seminar-${mode}" id="seminar-form" data-success-message="You are on the ${mode === 'waitlist' ? 'waitlist' : 'event update list'}. This does not reserve a ticket."
               action="https://formspree.io/f/meerjgde" method="POST">
           <input type="hidden" name="intent" value="${escapeHtml(intents[mode])}" />
           <input type="hidden" name="source" value="${escapeHtml(ev.source || `seminar-${ev.slug}`)}" />
           <div class="field-grid">
-            <input type="text" name="name" placeholder="Name" required />
-            <input type="email" name="email" placeholder="Email" required />
+            <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+            <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
           </div>
           <button class="btn" type="submit">${buttons[mode]}</button>
-          <div class="form-status" aria-live="polite"></div>
+          <p class="form-help">We use these details to respond to this request. <a href="/privacy-policy.html">Privacy policy</a></p>
+                <div class="form-status" aria-live="polite"></div>
         </form>`;
       }
 
       /**
-       * Checkout / registration panel — the only block allowed to render a
+       * Checkout / registration panel. the only block allowed to render a
        * live buy button, and only via the validated adapter action.
        */
       function conversionPanel(ev, action) {
@@ -237,7 +238,7 @@
           return `
           <div class="step-card">
             <h3>This room is full.</h3>
-            <p class="muted">Join the waitlist — you get first option if a spot returns, and first call on the next event.</p>
+            <p class="muted">Join the waitlist to hear about any returned tickets. Joining does not guarantee a place.</p>
             ${captureForm(ev, "waitlist")}
           </div>`;
         }
@@ -245,19 +246,19 @@
           // "open" without a valid checkoutUrl degrades to announced behaviour.
           return `
           <div class="step-card">
-            <h3>Register my spot</h3>
-            <p class="muted">Registration is free and holds nothing against your card. Ticket release goes to registered names first, in order.</p>
+            <h3>Get ticket updates</h3>
+            <p class="muted">Leave your details for ticket updates. This does not reserve a place. Booking conditions will be available when ticket sales open.</p>
             ${captureForm(ev, "registration")}
-            <p class="gate-note">Payment is not open on this page yet — no card is taken here.</p>
+            <p class="gate-note">Bookings are not open yet. No payment is taken.</p>
           </div>`;
         }
         // interest (default honest floor)
         return `
         <div class="step-card">
           <h3>Register interest</h3>
-          <p class="muted">Date, venue, and pricing are confirmed to this list before anywhere else. Your reply tells us which city to book.</p>
+          <p class="muted">Get the event announcement and review the session details before deciding to book.</p>
           ${captureForm(ev, "interest")}
-          <p class="gate-note">No payment is taken on this page yet.</p>
+          <p class="gate-note">This is an interest list. No ticket is reserved and no payment is taken.</p>
         </div>`;
       }
 
@@ -269,7 +270,7 @@
         }
 
         const action = checkoutAction(ev);
-        // Operator intended live checkout but config fails validation — record
+        // Operator intended live checkout but config fails validation. record
         // it once. This is a misconfiguration signal, not a visitor action.
         if (ev.status === "open" && !action.available) action.start();
 
@@ -277,11 +278,11 @@
           ? STATUS_PILL[ev.status]
           : STATUS_PILL.announced;
         const details = [
-          { label: "Date", value: ev.dateLabel || "Date to be confirmed" },
+          { label: "Date", value: ev.dateLabel || "Released with announcement" },
           { label: "Time", value: ev.timeLabel },
-          { label: "Venue", value: ev.venueLabel || "Venue to be confirmed" },
+          { label: "Venue", value: ev.venueLabel || "Released with announcement" },
           { label: "Where", value: [ev.city, ev.country].filter(Boolean).join(", ") || null },
-          { label: "Price", value: ev.priceLabel || "Price to be confirmed" },
+          { label: "Price", value: ev.priceLabel || "Released when bookings open" },
           {
             label: "Capacity",
             value:
@@ -294,12 +295,12 @@
         main.innerHTML = `
         <section class="page-hero">
           <div class="container">
-            <span class="kicker">${escapeHtml([ev.city, "live event"].filter(Boolean).join(" — ")) || "Live event"}</span>
+            <span class="kicker">${escapeHtml([ev.city, "live event"].filter(Boolean).join(". ")) || "Live event"}</span>
             <h1>${escapeHtml(ev.headline || ev.title)}</h1>
             ${ev.subheadline ? `<p class="lead">${escapeHtml(ev.subheadline)}</p>` : ""}
             ${
               ev.athleteName
-                ? `<p class="lead"><strong>${escapeHtml(ev.athleteName)}</strong>${ev.athleteRole ? ` — ${escapeHtml(ev.athleteRole)}` : ""}</p>`
+                ? `<p class="lead"><strong>${escapeHtml(ev.athleteName)}</strong>${ev.athleteRole ? `. ${escapeHtml(ev.athleteRole)}` : ""}</p>`
                 : ""
             }
             <div class="hero-strip">
@@ -315,7 +316,7 @@
             }
             ${ev.heroImage ? `<img src="${escapeHtml(ev.heroImage)}" alt="${escapeHtml(ev.title)}" style="max-width:100%;margin-top:22px;border-radius:4px" loading="lazy" />` : ""}
             <div class="hero-actions">
-              <a class="btn" href="#register">${ev.status === "open" && action.available ? "Secure my spot" : ev.status === "sold_out" ? "Join the waitlist" : "Register"}</a>
+              <a class="btn" href="#register">${ev.status === "open" && action.available ? "Secure my spot" : ev.status === "sold_out" ? "Join the waitlist" : "Get event updates"}</a>
               ${ev.videoUrl ? `<a class="btn-ghost" href="${escapeHtml(ev.videoUrl)}" rel="noopener">Watch the event brief</a>` : ""}
             </div>
           </div>
@@ -373,8 +374,8 @@
             <div class="panel">
               ${
                 ev.status === "open" && action.available
-                  ? `<span class="kicker">Ready?</span><h2>Rooms are released once.</h2><p class="muted">When a capped room fills, it is full.</p><div class="hero-actions"><button class="btn" type="button" id="buy-btn-2">Secure my spot</button><a class="btn-ghost" href="/seminars/#seminar-list">Get event announcements instead</a></div>`
-                  : `<span class="kicker">Stay close</span><h2>The founding list hears first.</h2><p class="muted">Announcements, ticket releases, and city votes go to the list before this page changes.</p><div class="hero-actions"><a class="btn" href="#register">${ev.status === "sold_out" ? "Join the waitlist" : "Register"}</a></div>`
+                  ? `<span class="kicker">Book your place</span><h2>Ready to attend?</h2><p class="muted">Review the event details and booking conditions before paying.</p><div class="hero-actions"><button class="btn" type="button" id="buy-btn-2">Secure my spot</button><a class="btn-ghost" href="/seminars/#seminar-list">Get event announcements instead</a></div>`
+                  : `<span class="kicker">Questions before attending?</span><h2>Find the right fit for your training.</h2><p class="muted"><a class="text-link" href="/seminars/#athlete-guide">Read the athlete guide</a> or <a class="text-link" href="/contact/">ask us about attending</a>.</p><div class="hero-actions"><a class="btn" href="#register">${ev.status === "sold_out" ? "Join the waitlist" : "Get event updates"}</a></div>`
               }
             </div>
           </div>
@@ -413,7 +414,7 @@
           });
         }
 
-        // Live checkout wiring — only exists when the adapter validated it.
+        // Live checkout wiring. only exists when the adapter validated it.
         ["buy-btn", "buy-btn-2"].forEach((id) => {
           const btn = document.getElementById(id);
           if (btn) btn.addEventListener("click", () => action.start());
@@ -440,3 +441,4 @@
     </script>
   </body>
 </html>
+

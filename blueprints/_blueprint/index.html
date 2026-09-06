@@ -6,7 +6,7 @@
     <title>Blueprint | The Pressure Academy</title>
     <meta name="description" content="Pressure Blueprint detail page." />
     <!--
-      DYNAMIC SLUG TEMPLATE — served for /blueprints/[slug] via vercel.json rewrite.
+      DYNAMIC SLUG TEMPLATE. served for /blueprints/[slug] via vercel.json rewrite.
       Renders from js/config/funnels.js by pathname. Unknown slugs render
       the honest fallback. noindex until blueprints are on sale.
     -->
@@ -15,13 +15,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
   </head>
   <body>
+    <a class="skip-link" href="#bp-main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
@@ -60,7 +62,7 @@
       </nav>
     </header>
 
-    <main id="bp-main">
+    <main id="bp-main" tabindex="-1">
       <noscript>
         <section class="page-hero">
           <div class="container">
@@ -84,8 +86,7 @@
             </span>
           </a>
           <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Mats, apparel, seminars, and systems for athletes who live under pressure.
-            Not motivation. Architecture.
+            Plan your life. Train with intent. Turn pressure into progress.
           </p>
         </div>
         <div class="footer-col">
@@ -183,9 +184,7 @@
                 ${(bp.modulesPreview || []).map((m) => `<li>${escapeHtml(m)}</li>`).join("")}
               </ul>
               <p class="muted" style="margin-top: 12px">
-                The transformation is specific: you stop collecting techniques and start
-                holding positions that produce them. Every module ends with the decision
-                tree for when the opponent defends correctly.
+                The planned curriculum connects positions and responses. Use the preview to decide whether it matches what you want to work on with your coach or training partners.
               </p>
             </div>
           </div>
@@ -200,18 +199,19 @@
                 <p class="muted">${
                   onSale
                     ? "Enter your details, then complete payment. Access is delivered by email."
-                    : "Waitlist gets release access and launch pricing first. One email at release — that is the entire sequence."
+                    : "Join for release information. You can review the finished curriculum and price before deciding to buy."
                 }</p>
-                <form class="capture-form" data-capture="blueprint-lead" id="bp-form"
+                <form class="capture-form" data-capture="blueprint-lead" id="bp-form" data-success-message="You are on the Blueprint release list. No order or payment has been made."
                       action="https://formspree.io/f/meerjgde" method="POST">
                   <input type="hidden" name="intent" value="blueprint-waitlist" />
                   <input type="hidden" name="source" value="blueprint-${escapeHtml(bp.slug)}" />
                   <div class="field-grid">
-                    <input type="text" name="name" placeholder="Name" required />
-                    <input type="email" name="email" placeholder="Email" required />
+                    <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+                    <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
                   </div>
-                  <button class="btn" type="submit">${onSale ? "Continue — step 1 of 2" : "Join the waitlist"}</button>
-                  <div class="form-status" aria-live="polite"></div>
+                  <button class="btn" type="submit">${onSale ? "Continue to step 2" : "Join the waitlist"}</button>
+                  <p class="form-help">We use these details to respond to this request. <a href="/privacy-policy.html">Privacy policy</a></p>
+                <div class="form-status" aria-live="polite"></div>
                 </form>
               </div>
               <div class="step-card ${onSale ? "" : "step-locked"}">
@@ -221,7 +221,7 @@
                   onSale
                     ? `<a class="btn btn-block" href="${escapeHtml(bp.checkoutUrl)}">Pay ${bp.priceCents != null ? formatMoney(bp.priceCents) : ""}</a>`
                     : `<p class="muted">Checkout opens at release.</p>
-                       <p class="gate-note">No payment provider is connected to this page yet. Nothing here charges a card.</p>`
+                       <p class="gate-note">The Blueprint is in development. Joining the list does not place an order or take payment.</p>`
                 }
               </div>
             </div>
@@ -241,3 +241,4 @@
     </script>
   </body>
 </html>
+

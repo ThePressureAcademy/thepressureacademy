@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Pressure Academy | Mats, Apparel, Seminars, Blueprints</title>
+    <title>The Pressure Academy | Train with intent</title>
     <meta
       name="description"
-      content="The Pressure Academy: mats, apparel, seminars, and digital training blueprints for athletes who live under pressure. Not motivation. Architecture."
+      content="Plan your life. Train with intent. Turn pressure into progress. Explore training seminars, grappling blueprints, mats, apparel and tools for everyday life."
     />
     <link rel="canonical" href="https://thepressureacademy.com/" />
     <meta property="og:site_name" content="The Pressure Academy" />
     <meta
       property="og:title"
-      content="The Pressure Academy | Mats, Apparel, Seminars, Blueprints"
+      content="The Pressure Academy | Train with intent"
     />
     <meta
       property="og:description"
-      content="Mats, apparel, seminars, and systems for athletes who live under pressure. Built for training rooms, garages, academies, and competition floors."
+      content="Training, planning and learning systems for athletes, families and people carrying real responsibility."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thepressureacademy.com/" />
@@ -27,11 +27,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="The Pressure Academy | Mats, Apparel, Seminars, Blueprints"
+      content="The Pressure Academy | Train with intent"
     />
     <meta
       name="twitter:description"
-      content="Mats, apparel, seminars, and systems for athletes who live under pressure. Not motivation. Architecture."
+      content="Plan your life. Train with intent. Turn pressure into progress."
     />
     <meta
       name="twitter:image"
@@ -41,61 +41,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-media.css?v=1" />
-    <style>
-      /* Homepage-only extensions to the shared commerce system */
-      .home-hero {
-        padding: clamp(72px, 11vw, 150px) 0 48px;
-        position: relative;
-      }
-      .home-hero h1 {
-        max-width: 17ch;
-      }
-      .hero-sub {
-        font-family: var(--font-mono);
-        font-size: 0.78rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--soft);
-        margin-top: 20px;
-      }
-      .split-tile {
-        position: relative;
-        overflow: hidden;
-        min-height: 210px;
-        justify-content: flex-end;
-      }
-      .split-tile .kicker {
-        margin-bottom: 6px;
-      }
-      .lane-tag {
-        display: inline-block;
-        font-family: var(--font-mono);
-        font-size: 0.66rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--soft);
-      }
-      .ticker-wrap {
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        padding: 14px 0;
-        background: rgba(255, 255, 255, 0.02);
-      }
-      .ticker {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-      }
-    </style>
+    <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
@@ -116,7 +71,7 @@
           </div>
         </nav>
         <div class="header-actions">
-          <a class="btn" href="/shop/apparel/" style="min-height: 42px; padding: 0 18px">Shop</a>
+          <a class="btn" href="#start" style="min-height: 44px; padding: 0 18px">Start here</a>
           <button type="button" class="cart-button" data-cart-open aria-label="Open cart">
             Cart <span data-cart-count aria-hidden="true"></span>
           </button>
@@ -142,255 +97,77 @@
       </nav>
     </header>
 
-    <main>
-      <!-- 1. HERO -->
-      <section class="home-hero">
-        <!-- Governed video-loop slot: the poster img is the always-on
-             surface; the manifest-gated loop (key "home-hero") layers in
-             on desktop only when every governance gate passes. -->
-        <div class="hero-media" data-video-loop="home-hero" aria-hidden="true">
-          <img
-            class="hero-poster"
-            src="/assets/media/tpa-hero-pressure-poster-v1.jpg"
-            alt=""
-            width="1920"
-            height="1097"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </div>
-        <div class="container">
-          <span class="kicker">The Pressure Academy</span>
-          <h1>Systems for people who perform under pressure.</h1>
-          <p class="lead" style="max-width: 40rem">
-            The Pressure Academy turns training, learning, routines, and
-            decision-making into structured systems for real life. Mats, apparel,
-            seminars, and digital training blueprints, built for training rooms,
-            garages, academies, and competition floors.
-          </p>
-          <div class="hero-actions">
-            <a class="btn" href="/shop/apparel/">Shop Pressure Tested</a>
-            <a class="btn-ghost" href="/seminars/">Seminars</a>
-            <a class="btn-ghost" href="/blueprints/">Blueprints</a>
+    <main id="main-content" tabindex="-1">
+      <section class="identity-hero" aria-labelledby="home-title">
+        <div class="container identity-hero-grid">
+          <div>
+            <span class="kicker">The Pressure Academy</span>
+            <h1 id="home-title">Turn pressure <span>into progress.</span></h1>
+            <p class="lead">Training, planning and learning systems for people balancing ambition with real life.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#start">Find your next step</a>
+              <a class="btn-ghost" href="/seminars/">Explore seminars</a>
+            </div>
           </div>
-          <p class="hero-sub">Not motivation. Architecture.</p>
+          <figure class="identity-photo">
+            <img src="/assets/media/tpa-hero-pressure-poster-v1.jpg" alt="A notebook, training belt and water bottle laid out for the day ahead" width="1920" height="1097" fetchpriority="high" decoding="async" />
+            <figcaption>Plan your life. Train with intent.</figcaption>
+          </figure>
         </div>
       </section>
 
-      <!-- 5. AUTHORITY LAYER (fail-honest ticker) -->
-      <section class="ticker-wrap" aria-label="About the brand">
-        <div class="container">
-          <div class="ticker" id="authority-strip"></div>
-        </div>
+      <section class="identity-line" aria-label="Our approach">
+        <div class="container"><p>A clear plan. Deliberate practice. A useful next step.</p></div>
       </section>
 
-      <!-- 2. COMMERCIAL SPLIT -->
-      <section class="section" id="shop-split">
-        <div class="container">
+      <section class="section" id="start">
+        <div class="container" id="shop-split">
           <div class="section-head">
-            <span class="kicker">Four lanes, one standard</span>
-            <h2>Pick your pressure.</h2>
+            <span class="kicker">Start where you are</span>
+            <h2>What would help you move forward?</h2>
           </div>
-          <div class="grid-4">
-            <a class="card split-tile" href="/shop/apparel/" data-reveal>
-              <span class="card-mark"><img src="/assets/logos/Pressure_Tested_Mark.svg" alt="" /></span>
-              <span class="lane-tag">Wear it</span>
-              <span class="kicker">Apparel</span>
-              <h3>Pressure Tested</h3>
-              <p class="muted">Heavyweight gear, worn under load. First drop in development.</p>
+          <div class="path-list">
+            <a class="path-link" href="/seminars/" id="seminars-preview">
+              <span class="path-number" aria-hidden="true">01</span>
+              <h3>Learn on the mats</h3>
+              <p class="muted">Explore athlete-led seminars and group training.</p>
+              <span class="path-status">Event interest open</span>
             </a>
-            <a class="card split-tile" href="/shop/mats/" data-reveal>
-              <span class="card-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
-              <span class="lane-tag">Build on it</span>
-              <span class="kicker">Mats</span>
-              <h3>Training floors</h3>
-              <p class="muted">Garage to full academy. Sized with a real calculator, freighted honestly.</p>
+            <a class="path-link" href="/blueprints/" id="blueprint-preview">
+              <span class="path-number" aria-hidden="true">02</span>
+              <h3>Give your training direction</h3>
+              <p class="muted">Pressure Blueprint: connected grappling positions and decisions.</p>
+              <span class="path-status">In development</span>
             </a>
-            <a class="card split-tile" href="/seminars/" data-reveal>
-              <span class="card-mark"><img src="/assets/logos/Pressure_Over_Force_Mark.svg" alt="" /></span>
-              <span class="lane-tag">Show up for it</span>
-              <span class="kicker">Seminars</span>
-              <h3>Live events</h3>
-              <p class="muted">Athlete-led, capped rooms, real coaching. Founding list open.</p>
+            <a class="path-link" href="/shop/mats/#calculator" id="mats">
+              <span class="path-number" aria-hidden="true">03</span>
+              <h3>Build your training space</h3>
+              <p class="muted">Estimate floor coverage, then request a mat and freight quote.</p>
+              <span class="path-status">Planning + enquiries</span>
             </a>
-            <a class="card split-tile" href="/blueprints/" data-reveal>
-              <span class="card-mark"><img src="/assets/logos/Pressure_Blueprint_Mark.svg" alt="" /></span>
-              <span class="lane-tag">Train it anywhere</span>
-              <span class="kicker">Blueprints</span>
-              <h3>Digital systems</h3>
-              <p class="muted">Position, pressure, decision. Grappling taught as architecture.</p>
+            <a class="path-link" href="/shop/apparel/">
+              <span class="path-number" aria-hidden="true">04</span>
+              <h3>Wear Pressure Tested</h3>
+              <p class="muted">Apparel for training days and the life around them.</p>
+              <span class="path-status">First drop in development</span>
             </a>
           </div>
         </div>
       </section>
 
-      <!-- 3. PRESSURE SYSTEM SECTION -->
       <section class="section-tight" id="system">
-        <div class="container">
-          <div class="panel" data-reveal>
-            <div class="section-head">
-              <span class="kicker">The Pressure System</span>
-              <h2>This is not a gym. It is a performance system with products.</h2>
-              <p>
-                Everything in the house runs the same logic: reduce noise, hold position,
-                make the next decision under load. The mats are where it happens, the
-                apparel is the proof-of-work, the seminars are the live transfer, and the
-                blueprints are the system in your pocket.
-              </p>
-            </div>
-            <div class="grid-3">
-              <div>
-                <h3>For athletes</h3>
-                <p class="muted">
-                  Gear that survives training and systems that survive resistance. Buy the
-                  lane you need, skip the rest.
-                </p>
-              </div>
-              <div>
-                <h3>For academy owners and coaches</h3>
-                <p class="muted">
-                  Floors, team kit, and hosted events through a direct B2B path with
-                  scoped pricing — not a retail cart pretending to be one.
-                </p>
-              </div>
-              <div>
-                <h3>For people carrying real load</h3>
-                <p class="muted">
-                  The software arm runs the same system for daily decisions:
-                  <a href="/planner" id="planner" style="text-decoration: underline">Pressure Planner</a>
-                  — one screen, one directive, every day.
-                </p>
-              </div>
-            </div>
+        <div class="container athlete-panel">
+          <div>
+            <span class="kicker">For the athlete with a life outside training</span>
+            <h2>Make the work fit your week.</h2>
+            <p class="muted">You may be starting out, competing, coaching or returning to the mats. Your next step should fit your experience, time and goals.</p>
+            <a class="text-link" href="/contact/">Ask us where to start</a>
           </div>
-        </div>
-      </section>
-
-      <!-- 4. PRODUCT PATH CARDS -->
-      <section class="section-tight">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">Straight buying paths</span>
-            <h2>Know what you came for? Go direct.</h2>
-          </div>
-          <div class="grid-2">
-            <article class="card" data-reveal>
-              <span class="kicker">Fast lane — apparel</span>
-              <h3>See it, size it, get on the drop.</h3>
-              <p class="muted">
-                Retail path with a slide-out cart, size confidence before you commit, and
-                first access at drop through the release list. No payment is taken before
-                the drop is real.
-              </p>
-              <div class="card-cta"><a class="btn" href="/shop/apparel/">Shop apparel</a></div>
-            </article>
-            <article class="card" data-reveal>
-              <span class="kicker">Considered lane — mats</span>
-              <h3>Size the room before you spend a dollar.</h3>
-              <p class="muted">
-                Mat calculator, spec guidance, honest freight expectations, and a quote
-                you approve before anything is charged. Home rooms and full academy floors.
-              </p>
-              <div class="card-cta"><a class="btn-ghost" href="/shop/mats/">Plan a floor</a></div>
-            </article>
-            <article class="card" data-reveal>
-              <span class="kicker">Scarce lane — seminars</span>
-              <h3>Capped rooms. Register first, pay second.</h3>
-              <p class="muted">
-                Events are announced only when athlete, date, and venue are locked. The
-                founding list hears first and fills the room before the public page does.
-              </p>
-              <div class="card-cta"><a class="btn-ghost" href="/seminars/">See events</a></div>
-            </article>
-            <article class="card" data-reveal>
-              <span class="kicker">Depth lane — blueprints</span>
-              <h3>One system, learned properly.</h3>
-              <p class="muted">
-                Digital blueprints teach position, pressure, and decision in order — so
-                what you learn holds up against someone who fights back.
-              </p>
-              <div class="card-cta"><a class="btn-ghost" href="/blueprints/">See blueprints</a></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 6. MAT BUYER SECTION -->
-      <section class="section-tight" id="mats">
-        <div class="container">
-          <div class="panel" data-reveal>
-            <div class="section-head">
-              <span class="kicker">Mats, without the guesswork</span>
-              <h2>The floor is the first coach.</h2>
-            </div>
-            <div class="grid-2">
-              <div>
-                <h3>Home buyer</h3>
-                <p class="muted">
-                  Garage bays and spare rooms usually land between 12 and 20 mats. Run the
-                  calculator, send the result, get a spec and an honest freight figure back.
-                </p>
-                <h3 style="margin-top: 18px">Academy owner</h3>
-                <p class="muted">
-                  Full floors are scoped per venue through
-                  <a href="/academy-orders/" style="text-decoration: underline">academy orders</a>
-                  — coverage, thickness, subfloor, staging, and bulk pricing.
-                </p>
-              </div>
-              <div>
-                <div class="truth-note">
-                  <strong>Shipping clarity:</strong> mats travel as palletised freight, not
-                  parcel post. The exact freight cost is confirmed with you before any
-                  money changes hands.
-                </div>
-                <div class="gate-note" style="margin-top: 12px">
-                  Financing for academy fit-outs is in development. If a payment plan
-                  decides it for you, say so in the enquiry — it shapes what we set up.
-                </div>
-                <div class="hero-actions">
-                  <a class="btn" href="/shop/mats/#calculator">Size my floor</a>
-                  <a class="btn-ghost" href="/shop/mats/#mat-enquiry">Get a quote</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 7. SEMINAR FUNNEL PREVIEW -->
-      <section class="section-tight" id="seminars-preview">
-        <div class="container">
-          <div class="grid-2">
-            <article class="card" data-reveal>
-              <span class="kicker">Live events</span>
-              <h2 style="font-size: clamp(1.7rem, 3vw, 2.4rem)">
-                Seminars run like fight cards: announced when they are real.
-              </h2>
-              <p class="muted">
-                Athlete-led, capped rooms, two-step registration — hold your spot free,
-                pay when seats release. No phantom events, no fake countdowns. The
-                founding list fills rooms before the public page does.
-              </p>
-              <div class="card-cta">
-                <a class="btn" href="/seminars/#seminar-list">Join the founding list</a>
-              </div>
-            </article>
-            <!-- 8. BLUEPRINT PREVIEW -->
-            <article class="card" data-reveal id="blueprint-preview">
-              <span class="kicker">The Pressure Blueprint</span>
-              <h2 style="font-size: clamp(1.7rem, 3vw, 2.4rem)">
-                Stop collecting techniques. Train the system.
-              </h2>
-              <p class="muted">
-                The core grappling system is in development: positional maps, pressure
-                mechanics, and the decision trees for when they defend right. Waitlist
-                gets release access and launch pricing first.
-              </p>
-              <div class="card-cta">
-                <a class="btn-ghost" href="/blueprints/pressure-blueprint-core/">Blueprint details</a>
-              </div>
-            </article>
-          </div>
+          <ul>
+            <li><strong>Know what you are signing up for.</strong>Check the level, format and requirements when a seminar is announced.</li>
+            <li><strong>Connect the positions.</strong>The Blueprint is being built around control, pressure and what to do when an opponent responds.</li>
+            <li><strong>Make room for the rest of life.</strong>Use Pressure Planner to organise the day around training, work and family.</li>
+          </ul>
         </div>
       </section>
 
@@ -399,67 +176,33 @@
         <div class="container">
           <div class="section-head">
             <span class="kicker">The wider house</span>
-            <h2>Three more arms, same system.</h2>
+            <h2>Progress beyond the mats.</h2>
           </div>
-          <div class="grid-3">
+          <div class="grid-3 house-grid">
             <article class="card" data-reveal>
-              <div class="card-media">
-                <img
-                  src="/assets/media/pressure-planner-readiness-v1.jpg"
-                  alt="Open paper planner, steaming coffee, and folded training gear on a desk before sunrise"
-                  width="1200"
-                  height="1543"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
               <span class="card-mark"><img src="/assets/logos/Pressure_Planner_Mark.svg" alt="" /></span>
               <h3>Pressure Planner</h3>
               <p class="muted">
-                The daily decision layer. One screen, one directive, every day — live now
-                as a clean web model, with a 14-day field test shaping the mobile launch.
+                A daily planning tool for training, work and family. Explore the web experience or ask about the field test.
               </p>
-              <div class="card-cta"><a class="btn-ghost" href="/planner">Start Setup</a></div>
+              <div class="card-cta"><a class="btn-ghost" href="/planner" id="planner">Explore Pressure Planner</a></div>
             </article>
             <article class="card" data-reveal id="mastery-method">
-              <div class="card-media">
-                <img
-                  src="/assets/media/mastery-method-home-learning-v1.jpg"
-                  alt="Home learning table with worksheets, pencils, and progress cards in warm morning light"
-                  width="1600"
-                  height="914"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
               <span class="card-mark"><img src="/assets/logos/Mastery_Method_Mark.svg" alt="" /></span>
               <h3>Mastery Method</h3>
               <p class="muted">
-                The education arm: structured support for children and families who need a
-                calmer, more deliberate learning system.
+                Structured learning support for children and families who need a calmer, more deliberate approach.
               </p>
               <div class="card-cta"><a class="btn-ghost" href="/mastery-method">Explore Mastery Method</a></div>
             </article>
             <article class="card" data-reveal id="academytalon">
-              <div class="card-media">
-                <img
-                  src="/assets/media/academytalon-founder-testing-v1.jpg"
-                  alt="Academy front desk with blank attendance cards, a clipboard, and a belt-tone grading board beside training mats"
-                  width="1600"
-                  height="914"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
               <span class="badge">In founder testing</span>
               <h3>AcademyTalon</h3>
               <p class="muted">
-                The academy operations layer for combat-sports schools: attendance rhythm,
-                grading pathways, competition preparation, and parent visibility.
-                AcademyTalon is in founder testing.
+                Tools for combat-sports schools: attendance, grading, competition preparation and parent visibility.
               </p>
               <p class="gate-note">
-                No public release yet. Details land here when founder testing completes.
+                Not publicly available yet.
               </p>
             </article>
           </div>
@@ -473,11 +216,9 @@
             <div class="grid-2">
               <div>
                 <span class="kicker">Direct line</span>
-                <h2>Tell us where you fit.</h2>
+                <h2>Not sure where to start?</h2>
                 <p class="muted">
-                  Every request is reviewed by a person and answered with the cleanest
-                  next step — not a drip sequence. Field-test spots for Pressure Planner
-                  run through here too.
+                  Tell us what you need. We will help you find the relevant product, training update or enquiry path.
                 </p>
               </div>
               <form
@@ -490,12 +231,13 @@
                 <input type="hidden" name="intent" value="founding-intake" />
                 <input type="hidden" name="source" value="home-join" />
                 <div class="field-grid">
-                  <input type="text" name="name" placeholder="Your name" required />
-                  <input type="email" name="email" placeholder="Email address" required />
+                  <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+                  <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
                 </div>
                 <label>
+                  <span class="field-label">What can we help with?</span>
                   <select id="join-path" name="path" required>
-                    <option value="">What are you here for?</option>
+                    <option value="">Choose a topic</option>
                     <option value="apparel">Pressure Tested apparel</option>
                     <option value="mats">Mats / training floor</option>
                     <option value="seminars">Seminars</option>
@@ -507,14 +249,15 @@
                   </select>
                 </label>
                 <label>
+                  <span class="field-label">Your goal or question (optional)</span>
                   <textarea
                     id="join-message"
                     name="message"
-                    placeholder="What are you building or training for?"
-                    required
+                    placeholder="A little context helps us point you in the right direction."
                   ></textarea>
                 </label>
-                <button class="btn" type="submit">Send it</button>
+                <p class="form-help">We use these details to respond to your enquiry. <a href="/privacy-policy.html">Privacy policy</a></p>
+                <button class="btn" type="submit">Send my enquiry</button>
                 <div class="form-status" id="form-status" aria-live="polite"></div>
               </form>
             </div>
@@ -535,8 +278,7 @@
             </span>
           </a>
           <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Mats, apparel, seminars, and systems for athletes who live under pressure.
-            Not motivation. Architecture.
+            Plan your life. Train with intent. Turn pressure into progress.
           </p>
         </div>
         <div class="footer-col">
@@ -574,7 +316,6 @@
     <script type="module">
       import { initCart } from "/js/lib/cart.js";
       import {
-        renderAuthorityStrip,
         enhanceCaptureForms,
         initMobileNav,
       } from "/js/lib/commerce-ui.js";
@@ -585,10 +326,10 @@
       initMobileNav();
       initCart();
       enhanceCaptureForms();
-      renderAuthorityStrip(document.getElementById("authority-strip"));
       // Scroll reveal, route intensity, and media governance live in the
-      // motion controller (js/lib/media/) — one shared implementation.
+      // motion controller (js/lib/media/). one shared implementation.
       initMotion();
     </script>
   </body>
 </html>
+
