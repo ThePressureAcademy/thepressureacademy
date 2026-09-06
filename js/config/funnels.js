@@ -28,10 +28,10 @@ export const seminars = [
     // or seat count, and status "interest" cannot render a buy button.
     slug: "founding-pressure-seminar",
     status: "interest",
-    title: "Founding Pressure Seminar",
-    headline: "The first Pressure Academy live training event.",
+    title: "Seminar interest list",
+    headline: "Get the next training announcement.",
     subheadline:
-      "Register interest for the founding seminar. Date, venue, coach, and pricing are confirmed to the interest list first.",
+      "Join the update list. Coach, date, venue, format and booking details are released with the event announcement. Joining does not reserve a ticket.",
     athleteName: null, // real, agreed names only — never invented
     athleteRole: null, // e.g. "Head coach" / competition credential
     dateLabel: null, // e.g. "Saturday 12 September 2026" — real dates only
@@ -50,23 +50,15 @@ export const seminars = [
     heroImage: null, // rights-cleared imagery only
     videoUrl: null,
     proofItems: [], // real quotes/results only — empty renders no proof section
-    includedItems: [
-      "A connected positional system taught start to finish — not a technique playlist",
-      "Live coaching rounds with corrections, capped so everyone gets mat time",
-      "The written positional map of the material to take home",
-    ],
-    whoItIsFor: [
-      "Grapplers who want a system that survives hard rounds",
-      "Competitors preparing for pressure, not highlight reels",
-      "Coaches and academy owners auditing how we structure material",
-    ],
+    includedItems: [], // event-specific inclusions are published with the announcement
+    whoItIsFor: [], // experience requirements must come from the announced session
     refundPolicyLabel: null, // set the real policy before status "open"
     requirements: [], // gear / experience requirements, only if real
     orderBump: null, // orderBumps[].id reference once a real bump exists
     upsell: "upsell-blueprint-after-seminar", // upsells[].id reference (placeholder, renders label only)
-    seoTitle: "Founding Pressure Seminar | The Pressure Academy",
+    seoTitle: "Seminar updates | The Pressure Academy",
     seoDescription:
-      "Register interest for the first Pressure Academy live training seminar. Date, venue, and pricing to be confirmed. No payment is taken on this page.",
+      "Get Pressure Academy seminar updates. Event and booking details are released with each announcement. No ticket is reserved and no payment is taken.",
   },
 ];
 
@@ -77,8 +69,8 @@ export const blueprints = [
     title: "The Pressure Blueprint — Core System",
     line: "pressure-blueprint",
     promise:
-      "The positional grappling system behind the Pressure house, taught as architecture: position, pressure, decision — in that order.",
-    format: "Digital system: video modules + written positional maps",
+      "A grappling curriculum in development: understand the position, apply pressure with purpose and recognise the next decision.",
+    format: "Planned format: video modules + written positional maps",
     priceCents: null,
     priceNote: "Pricing locks at release",
     checkoutUrl: null,

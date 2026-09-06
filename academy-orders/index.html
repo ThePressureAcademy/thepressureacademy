@@ -22,13 +22,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
@@ -67,14 +69,14 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="page-hero">
         <div class="container">
-          <span class="kicker">B2B — academies, clubs, schools</span>
+          <span class="kicker">B2B. academies, clubs, schools</span>
           <h1>Fit out the floor.<br />Kit out the team.</h1>
           <p class="lead">
             Retail checkout is the wrong tool for a 200m&sup2; floor or forty team hoodies.
-            Academy orders run direct: scope, spec, quote, staged delivery — with one
+            Academy orders run direct: scope, spec, quote, staged delivery. with one
             person owning your order end to end.
           </p>
           <div class="hero-actions">
@@ -101,7 +103,7 @@
               <h3>Pressure Tested, in your numbers</h3>
               <p class="muted">
                 Direct pricing for squads and coaching staff, scoped per order. Academy
-                co-branding is considered case by case — ask.
+                co-branding is considered case by case. ask.
               </p>
             </article>
             <article class="card" data-reveal>
@@ -109,7 +111,7 @@
               <h3>Quotes, invoices, timing</h3>
               <p class="muted">
                 Formal quotes and invoicing for club and school procurement. Financing
-                options for fit-outs are in development — flag it in the enquiry if that
+                options for fit-outs are in development. flag it in the enquiry if that
                 decides it.
               </p>
             </article>
@@ -139,7 +141,7 @@
                 <span class="kicker">Order enquiry</span>
                 <h2>Tell us what you are building.</h2>
                 <p class="muted">
-                  Rough numbers are fine — scope beats precision at this stage. You get a
+                  Rough numbers are fine. scope beats precision at this stage. You get a
                   reply from a person, not a quote bot.
                 </p>
               </div>
@@ -152,25 +154,26 @@
                 <input type="hidden" name="intent" value="academy-order-enquiry" />
                 <input type="hidden" name="source" value="academy-orders" />
                 <div class="field-grid">
-                  <input type="text" name="name" placeholder="Name" required />
-                  <input type="email" name="email" placeholder="Email" required />
+                  <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+                  <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
                 </div>
                 <div class="field-grid">
-                  <input type="text" name="organisation" placeholder="Academy / club / school" required />
-                  <select name="order_type" required>
+                  <label>Academy, club or school<input type="text" name="organisation" autocomplete="organization" required /></label>
+                  <label>Order type<select name="order_type" required>
                     <option value="">Order type</option>
                     <option value="mat-fitout">Mat floor fit-out</option>
                     <option value="team-apparel">Team apparel</option>
                     <option value="both">Both</option>
                     <option value="other">Other</option>
-                  </select>
+                  </select></label>
                 </div>
-                <textarea
+                <label>Your question or requirements<textarea
                   name="message"
                   placeholder="Room size or headcount, location, timeline, and whether financing matters."
                   required
-                ></textarea>
+                ></textarea></label>
                 <button class="btn" type="submit">Send the enquiry</button>
+                <p class="form-help">We use these details to respond to this request. <a href="/privacy-policy.html">Privacy policy</a></p>
                 <div class="form-status" aria-live="polite"></div>
               </form>
             </div>
@@ -190,8 +193,7 @@
             </span>
           </a>
           <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Mats, apparel, seminars, and systems for athletes who live under pressure.
-            Not motivation. Architecture.
+            Plan your life. Train with intent. Turn pressure into progress.
           </p>
         </div>
         <div class="footer-col">
@@ -238,3 +240,4 @@
     </script>
   </body>
 </html>
+

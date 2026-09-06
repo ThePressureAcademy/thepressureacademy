@@ -22,13 +22,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
@@ -68,13 +70,13 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="page-hero">
         <div class="container">
           <span class="kicker">Training-floor infrastructure</span>
           <h1>The room decides<br />how you train.</h1>
           <p class="lead">
-            Garage, spare room, or full academy floor — mats are infrastructure, not an
+            Garage, spare room, or full academy floor. mats are infrastructure, not an
             accessory. Size it properly, spec it once, and never train around a bad floor
             again.
           </p>
@@ -94,7 +96,7 @@
               <p class="muted">
                 Most home rooms fit between 12 and 20 jigsaw mats. Use the calculator,
                 send us the result, and we come back with a spec and a real freight
-                figure — before you commit to anything.
+                figure. before you commit to anything.
               </p>
               <div class="card-cta"><a class="btn-ghost" href="#calculator">Run the calculator</a></div>
             </article>
@@ -173,7 +175,7 @@
             <h2>Reference specs, stated straight.</h2>
             <p>
               Final supplier specification and pricing are not locked yet. These are the
-              reference specs we are building the range around — every quote is confirmed
+              reference specs we are building the range around. every quote is confirmed
               against final spec before you pay anything.
             </p>
           </div>
@@ -200,7 +202,7 @@
               <h3>Spread-the-cost options</h3>
               <p class="muted">
                 Financing options for academy fit-outs are in development. If a payment
-                plan decides it for you, say so in the enquiry — it shapes what we set up.
+                plan decides it for you, say so in the enquiry. it shapes what we set up.
               </p>
             </article>
             <article class="card">
@@ -225,7 +227,7 @@
                 <h2>Scope first. Price second. No pressure games.</h2>
                 <p class="muted">
                   Tell us the room and how you train. You get back a spec, a mat count, an
-                  honest freight expectation, and a price — then you decide.
+                  honest freight expectation, and a price. then you decide.
                 </p>
               </div>
               <form
@@ -238,23 +240,24 @@
                 <input type="hidden" name="source" value="shop-mats" />
                 <input type="hidden" name="calculator_result" value="" id="calc-payload" />
                 <div class="field-grid">
-                  <input type="text" name="name" placeholder="Name" required />
-                  <input type="email" name="email" placeholder="Email" required />
+                  <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+                  <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
                 </div>
                 <label>
-                  <select name="buyer_type" required>
+                  <span class="field-label">Where will you train?</span><select name="buyer_type" required>
                     <option value="">Where is this floor going?</option>
                     <option value="home">Home / garage</option>
                     <option value="academy">Academy / commercial space</option>
                     <option value="school-club">School or club</option>
                   </select>
                 </label>
-                <textarea
+                <label>Your question or requirements<textarea
                   name="message"
                   placeholder="Room size, how you train (drilling / live / takedowns), and rough timeline."
                   required
-                ></textarea>
+                ></textarea></label>
                 <button class="btn" type="submit">Request spec + quote</button>
+                <p class="form-help">We use these details to respond to this request. <a href="/privacy-policy.html">Privacy policy</a></p>
                 <div class="form-status" aria-live="polite"></div>
               </form>
             </div>
@@ -274,8 +277,7 @@
             </span>
           </a>
           <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Mats, apparel, seminars, and systems for athletes who live under pressure.
-            Not motivation. Architecture.
+            Plan your life. Train with intent. Turn pressure into progress.
           </p>
         </div>
         <div class="footer-col">
@@ -384,3 +386,4 @@
     </script>
   </body>
 </html>
+

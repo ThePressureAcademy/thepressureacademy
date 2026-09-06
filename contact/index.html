@@ -19,13 +19,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
@@ -64,7 +66,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="page-hero">
         <div class="container">
           <span class="kicker">Contact</span>
@@ -100,11 +102,11 @@
                 <input type="hidden" name="intent" value="contact" />
                 <input type="hidden" name="source" value="contact-page" />
                 <div class="field-grid">
-                  <input type="text" name="name" placeholder="Name" required />
-                  <input type="email" name="email" placeholder="Email" required />
+                  <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+                  <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
                 </div>
                 <label>
-                  <select name="topic" required>
+                  <span class="field-label">Enquiry topic</span><select name="topic" required>
                     <option value="">What is this about?</option>
                     <option value="apparel">Apparel</option>
                     <option value="mats">Mats</option>
@@ -115,8 +117,9 @@
                     <option value="other">Something else</option>
                   </select>
                 </label>
-                <textarea name="message" placeholder="What do you need?" required></textarea>
-                <button class="btn" type="submit">Send it</button>
+                <label>Your question or requirements<textarea name="message" placeholder="What do you need?" required></textarea></label>
+                <button class="btn" type="submit">Send my enquiry</button>
+                <p class="form-help">We use these details to respond to this request. <a href="/privacy-policy.html">Privacy policy</a></p>
                 <div class="form-status" aria-live="polite"></div>
               </form>
             </div>
@@ -136,8 +139,7 @@
             </span>
           </a>
           <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Mats, apparel, seminars, and systems for athletes who live under pressure.
-            Not motivation. Architecture.
+            Plan your life. Train with intent. Turn pressure into progress.
           </p>
         </div>
         <div class="footer-col">
@@ -185,3 +187,4 @@
     </script>
   </body>
 </html>
+
