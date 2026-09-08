@@ -67,12 +67,18 @@ The repo currently contains mixed but real production surfaces:
 
 For authority rules and verified endpoint usage, start with [docs/DOC_AUTHORITY_INDEX.md](docs/DOC_AUTHORITY_INDEX.md).
 
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before editing. Identity CSS ships by
+filename version; shared config and modules stay under `/js/` because `/assets/`
+is cached as immutable for one year.
+
 ## Deployment
 
 The site deploys to Vercel from this repository. See [docs/DEPLOYMENT_CHECKLIST.md](docs/DEPLOYMENT_CHECKLIST.md) for pre/post deploy checks.
 
 **Key rules:**
-- All asset paths are relative — do not use absolute paths
+- Preserve the existing web URL paths, including root-relative `/assets/` and `/js/` references; do not use local filesystem paths
 - Do not commit secrets or API keys
 - Logo SVGs in `assets/logos/` are locked brand assets — do not regenerate
 - Test locally before pushing

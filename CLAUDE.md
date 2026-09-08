@@ -104,9 +104,10 @@ Do not claim analytics, event tracking, funnel measurement, or dashboard visibil
 
 ## CSS / JS Editing Caution
 
-- The homepage and Mastery Method pages are primarily self-contained HTML with inline CSS/JS
-- Do not assume external CSS files in `assets/css/` are live
-- Verify references before editing shared-looking assets
+- Follow the cache rule in [CONTRIBUTING.md](CONTRIBUTING.md): identity CSS ships by filename version; shared config and modules stay under `/js/`
+- `/assets/` is cached for one year with `immutable`; do not overwrite a shipped identity stylesheet at the same filename
+- Shared runtime configuration belongs in `/js/config/` and shared ES modules in `/js/lib/`, outside that immutable cache rule
+- Verify each page's actual references before editing shared-looking assets; some pages still contain inline CSS/JS and some external assets are unused
 
 ## Portal / Auth Editing Caution
 
