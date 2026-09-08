@@ -37,6 +37,7 @@ export const EVENTS = Object.freeze({
   MM_SCORECARD_SUBMIT: "mm_scorecard_submit",
   MM_BOOKING_START: "mm_booking_start",
   MM_BOOKING_FORM_SUBMIT: "mm_booking_form_submit",
+  MM_PRICING_CTA_CLICK: "mm_pricing_cta_click",
 });
 
 const senders = [];

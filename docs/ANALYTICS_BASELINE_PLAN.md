@@ -9,7 +9,8 @@ It does not mean analytics are currently installed.
 
 Option 3 was operator-approved and the **Mastery Method** events are now wired:
 `mm_scorecard_start`, `mm_scorecard_submit`, `mm_booking_start`,
-`mm_booking_form_submit`. They are declared in `js/lib/events.js` and contracted
+`mm_booking_form_submit`, and `mm_pricing_cta_click` (pricing tier CTA, added
+2026-08-08). They are declared in `js/lib/events.js` and contracted
 in `PRESSURE_ACADEMY_EVENT_TRACKING_REGISTER.md`. Still no provider and no
 sender: `track()` buffers to `window.__tpaEvents` only, so nothing is
 transmitted. Everything in "Current State" below about there being no provider
