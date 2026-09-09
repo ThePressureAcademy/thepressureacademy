@@ -15,14 +15,14 @@
  * Environment variables required (set in Vercel dashboard):
  *   SESSION_SECRET          — random 32+ char string (same as portal-serve.js)
  *   PORTAL_INVITE_TOKENS    — comma-separated list of valid invite tokens
- *                             Example: mm2026-smith-a1b2c3,mm2026-jones-d4e5f6
+ *                             Example: <GENERATE_PRIVATE_RANDOM_TOKEN_2_DO_NOT_USE_THIS_PLACEHOLDER>,<GENERATE_PRIVATE_RANDOM_TOKEN_1_DO_NOT_USE_THIS_PLACEHOLDER>
  *
  * Operating notes for Kirsty:
  *   - Generate a token using any UUID/random string generator
  *   - Add it to PORTAL_INVITE_TOKENS in the Vercel dashboard
  *   - Send the family this link: https://thepressureacademy.com/api/auth/activate?token=TOKEN
  *   - To revoke: remove the token from PORTAL_INVITE_TOKENS and redeploy
- *   - See docs/PORTAL_ACCESS_ADMIN.md for full workflow
+ *   - See the operator-maintained private portal access runbook for the full workflow
  * ─────────────────────────────────────────────────────────────────────────────
  */
 

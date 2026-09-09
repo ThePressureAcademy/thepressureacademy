@@ -1,6 +1,6 @@
 # Pressure Academy Implementation Ledger
 
-Status: `EXECUTED — ALL 7 PHASES BUILT AND QA'D (see PRESSURE_ACADEMY_QA_REPORT.md); commit/push operator-owned`
+Status: `EXECUTED — ALL 7 PHASES BUILT AND QA'D (see the historical QA report in the private operations archive); commit/push operator-owned`
 Date: 3 July 2026
 Depends on: [audit](./PRESSURE_ACADEMY_REVERSE_ENGINEERING_AUDIT.md), [architecture](./PRESSURE_ACADEMY_HYBRID_COMPOSABLE_ARCHITECTURE.md)
 
@@ -59,6 +59,6 @@ Standing constraints for every phase:
 
 ## Phase 7 — QA, performance, accessibility, deployment readiness
 
-- **Create:** `docs/PRESSURE_ACADEMY_CONVERSION_AUDIT.md`, `docs/PRESSURE_ACADEMY_QA_REPORT.md`.
+- **Create:** `docs/PRESSURE_ACADEMY_CONVERSION_AUDIT.md` and the QA report now retained in the private operations archive.
 - **Method:** no project scripts exist (documented), so QA = `node --check` on all new JS, JSON parse of `vercel.json`, local static serve + browser preview (390/768/1280 widths), console/network error sweep, link integrity sweep, event-firing verification, honest-state verification (no fake claims), keyboard/focus/aria pass on interactive components.
 - **Acceptance:** QA report lists commands, results, failures, fixes, remaining blockers; conversion audit scores 12 dimensions with fixes or documented blockers below 8.

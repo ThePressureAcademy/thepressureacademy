@@ -109,6 +109,13 @@ Do not claim analytics, event tracking, funnel measurement, or dashboard visibil
 - Shared runtime configuration belongs in `/js/config/` and shared ES modules in `/js/lib/`, outside that immutable cache rule
 - Verify each page's actual references before editing shared-looking assets; some pages still contain inline CSS/JS and some external assets are unused
 
+## Public Repository Boundary
+
+- Keep QA reports, operator launch/deployment checklists, the portal access runbook, governance archives and retired brand assets in the operator's private operations archive
+- Keep `.vercelignore` exclusions for internal documentation, editor notes, tests and archives
+- Preserve `api/` and `mastery-method/portal/**` in deployments; the portal handler bundles protected HTML through `includeFiles`
+- Removing current files does not purge public Git history or rotate previously exposed credentials
+
 ## Portal / Auth Editing Caution
 
 Files that can break protected access if edited carelessly:

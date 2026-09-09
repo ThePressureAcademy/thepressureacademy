@@ -3,6 +3,26 @@
 Read [CLAUDE.md](CLAUDE.md) and verify the current code before editing. This
 repository deploys to production from `main`.
 
+## Public repository and deployment boundary
+
+This public repository holds product code and contributor documentation. QA
+reports, operator launch and deployment checklists, the portal access runbook,
+the governance archive and retired brand assets are kept in the operator's
+private operations archive. Do not add them back to the public tree. Deleting a
+file from the current tree does not erase earlier public Git history.
+
+`.vercelignore` excludes internal documentation, tests, archives and editor
+notes from deployed files. It is an exclusion list, not a copy of another
+project's allowlist. Keep `api/` and `mastery-method/portal/**` available:
+`api/portal-serve.js` bundles the protected HTML through `vercel.json`'s
+`includeFiles` setting.
+
+Verify deployment exclusions with unauthenticated requests: internal file URLs
+must return 404 while `/mastery-method/portal/` returns 200 and protected pages
+still require a session. A private Git repository alone would not prevent
+Vercel from serving an included file. See the
+[Vercel exclusion reference](https://vercel.com/docs/deployments/vercel-ignore).
+
 ## Cache rule: version identity CSS; keep config and modules under `/js/`
 
 `vercel.json` gives `/assets/(.*)` the header

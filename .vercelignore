@@ -1,0 +1,12 @@
+# Internal source and operator material must not be deployed as public files.
+/docs/
+/CLAUDE.md
+/CONTRIBUTING.md
+/README.md
+/tests/
+/archive/
+/.github/
+/.env.example
+
+# Keep api/ and mastery-method/portal/** in the deployment.
+# api/portal-serve.js needs the protected HTML via vercel.json includeFiles.
