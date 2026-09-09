@@ -16,10 +16,7 @@ These are the current governance references for repo work:
 These can be used only for the domain named below. They are not repo-wide truth:
 
 - [../README.md](../README.md) - general repo orientation only
-- [DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md) - deployment checklist only
 - [MASTERY_METHOD_INTAKE_DEPLOYMENT_SYSTEM.md](./MASTERY_METHOD_INTAKE_DEPLOYMENT_SYSTEM.md) - Mastery Method intake, interpretation, approval, placement, and deployment operations only
-- [MASTERY_METHOD_PILOT_1_LAUNCH_CHECKLIST.md](./MASTERY_METHOD_PILOT_1_LAUNCH_CHECKLIST.md) - Pilot 1 launch readiness and go/no-go gate only
-- [PORTAL_ACCESS_ADMIN.md](./PORTAL_ACCESS_ADMIN.md) - portal access operations only
 - [MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md](./MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md) - Mastery Method scorecard funnel content only
 - [mastery-method-pathway-definition.txt](./mastery-method-pathway-definition.txt) - Mastery Method offer architecture only
 
@@ -29,21 +26,19 @@ These may inform discussion, but they do not settle implementation truth:
 
 - [PRODUCT_DIRECTION.md](./PRODUCT_DIRECTION.md) - strategic hierarchy is still mixed in current code reality
 
+Operator QA reports, launch and deployment checklists, portal access procedures,
+and the governance archive are maintained outside this public repository.
+
 ## Historical Or Superseded
 
 These are retained for history, audit trail, or content context. They must not control implementation:
 
-- [archive/2026-04-governance-demotions/README.md](./archive/2026-04-governance-demotions/README.md) - archive map for demoted governance and handover docs
-- [archive/2026-04-governance-demotions/AI_ALIGNMENT.md](./archive/2026-04-governance-demotions/AI_ALIGNMENT.md)
-- [archive/2026-04-governance-demotions/ALIGNMENT-PROMPT-MM-HANDOVER.txt](./archive/2026-04-governance-demotions/ALIGNMENT-PROMPT-MM-HANDOVER.txt)
-- [archive/2026-04-governance-demotions/ARCHITECTURE_AUDIT.md](./archive/2026-04-governance-demotions/ARCHITECTURE_AUDIT.md)
 - [CLARITY_STYLE_QUIZ_IMPLEMENTATION.md](./CLARITY_STYLE_QUIZ_IMPLEMENTATION.md) - retirement note only; `/mastery-method/clarity-style` is not a live route
 - [DECISIONS.md](./DECISIONS.md)
 - [EXECUTION_PRIORITY_MAP.md](./EXECUTION_PRIORITY_MAP.md)
 - [FINAL_VERDICT.md](./FINAL_VERDICT.md)
 - [IMPROVEMENT_OPPORTUNITIES.md](./IMPROVEMENT_OPPORTUNITIES.md)
 - [INTERACTION_AND_MOTION_AUDIT.md](./INTERACTION_AND_MOTION_AUDIT.md)
-- [archive/2026-04-governance-demotions/LAUNCH_READINESS.md](./archive/2026-04-governance-demotions/LAUNCH_READINESS.md)
 - [mastery-method-funnel-architecture.txt](./mastery-method-funnel-architecture.txt)
 - [mastery-method-reel-scripts.txt](./mastery-method-reel-scripts.txt)
 - [OVERNIGHT_PROGRESS_REPORT.md](./OVERNIGHT_PROGRESS_REPORT.md)

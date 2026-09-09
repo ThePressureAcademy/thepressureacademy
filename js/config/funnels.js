@@ -16,7 +16,7 @@
  * - Numerical scarcity renders ONLY when BOTH `capacity` and `spotsRemaining`
  *   are real numbers maintained by the operator. Either missing = no numbers.
  * - Any absent field degrades honestly (see seminars/_event/index.html).
- * - Launch procedure: docs/PRESSURE_ACADEMY_FIRST_SEMINAR_LAUNCH_GUIDE.md.
+ * - Launch procedure: operator-maintained private First Seminar Launch Guide.
  */
 
 export const seminars = [

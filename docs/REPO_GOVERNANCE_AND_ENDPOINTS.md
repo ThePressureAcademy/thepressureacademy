@@ -106,9 +106,6 @@ Do not describe this repo as static-only or auth-free.
 
 ### Scoped docs that may still be useful
 
-- `docs/PORTAL_ACCESS_ADMIN.md`
-  - Scope: portal invite and session operations
-
 - `docs/MASTER_CONTENT_SOT_SCORECARD_FUNNEL.md`
   - Scope: Mastery Method scorecard-first funnel and CTA rules
   - Not a global TPA architecture source
@@ -129,16 +126,11 @@ Do not describe this repo as static-only or auth-free.
   - Scope: historical decision record
   - Not deployment proof
 
-### Archived stale / superseded governance docs
+### Private operator references
 
-These have been demoted out of the active `docs/` root and must not be treated as canonical:
-
-- `docs/archive/2026-04-governance-demotions/AI_ALIGNMENT.md`
-- `docs/archive/2026-04-governance-demotions/ALIGNMENT-PROMPT-MM-HANDOVER.txt`
-- `docs/archive/2026-04-governance-demotions/ARCHITECTURE_AUDIT.md`
-- `docs/archive/2026-04-governance-demotions/LAUNCH_READINESS.md`
-
-Older audit/remediation packs outside the repo root are still reference only and should stay outside active repo authority.
+Portal access procedures, launch/deployment checklists, QA reports and the retired
+governance archive are maintained in the operator's private operations archive.
+They are not part of the public repository and do not override current code.
 
 ## E. Agent Warning
 

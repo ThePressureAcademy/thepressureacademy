@@ -70,7 +70,7 @@ js/lib/klaviyo-events.js    retention adapter boundary (no-op until key set)
 js/lib/logistics-providers.js  freight/3PL boundary (placeholder quotes only)
 js/lib/checkout/stripe-payment-links.js  First-Dollar phase: validated Payment Link
                             redirect action (no keys, no server); see
-                            PRESSURE_ACADEMY_FIRST_SEMINAR_LAUNCH_GUIDE.md
+                            private First Seminar Launch Guide
 ```
 
 All modules are browser-native ES modules (`<script type="module">`) — no build step introduced.

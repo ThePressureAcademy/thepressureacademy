@@ -75,7 +75,7 @@ is cached as immutable for one year.
 
 ## Deployment
 
-The site deploys to Vercel from this repository. See [docs/DEPLOYMENT_CHECKLIST.md](docs/DEPLOYMENT_CHECKLIST.md) for pre/post deploy checks.
+The site deploys to Vercel from this repository. See [CONTRIBUTING.md](CONTRIBUTING.md) for deployment boundaries and verification. Operator checklists and historical QA material are maintained outside this public repository.
 
 **Key rules:**
 - Preserve the existing web URL paths, including root-relative `/assets/` and `/js/` references; do not use local filesystem paths

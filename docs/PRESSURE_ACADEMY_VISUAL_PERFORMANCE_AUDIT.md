@@ -2,7 +2,7 @@
 
 Status: `COMPLETE — VISUAL PERFORMANCE LAYER, PHASE 1`
 Date: 3 July 2026
-Depends on: [reverse-engineering audit](./PRESSURE_ACADEMY_REVERSE_ENGINEERING_AUDIT.md), [architecture](./PRESSURE_ACADEMY_HYBRID_COMPOSABLE_ARCHITECTURE.md), [QA report](./PRESSURE_ACADEMY_QA_REPORT.md)
+Depends on: [reverse-engineering audit](./PRESSURE_ACADEMY_REVERSE_ENGINEERING_AUDIT.md), [architecture](./PRESSURE_ACADEMY_HYBRID_COMPOSABLE_ARCHITECTURE.md), the QA report retained in the private operations archive
 
 Every claim below was verified against current repo code on this date. Nothing is inferred from older docs.
 
