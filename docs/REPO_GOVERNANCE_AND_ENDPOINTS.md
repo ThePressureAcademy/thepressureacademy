@@ -114,7 +114,7 @@ Do not describe this repo as static-only or auth-free.
   - Scope: Mastery Method intake, interpretation, approval, placement, and deployment workflow
   - Not proof of app infrastructure or automation
 
-- `docs/MASTERY_METHOD_PILOT_1_LAUNCH_CHECKLIST.md`
+- Private Mastery Method Pilot 1 launch checklist (operator-maintained, outside this repository)
   - Scope: Pilot 1 launch readiness, invite gating, and first-session go/no-go operations
   - Not proof that internal pilot tooling or tracking systems already exist
 
