@@ -48,7 +48,7 @@ at that URL for a year, even after a new deployment.
 Run the existing functional checks for runtime changes:
 
 ```bash
-node --test tests/*.test.cjs
+node --test tests/
 git diff --check
 ```
 

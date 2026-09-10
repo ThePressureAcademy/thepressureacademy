@@ -88,6 +88,7 @@ Verified current code behavior:
 
 - `api/portal-serve.js`
   - Validates `mm_session`
+  - Rejects a session whose issuing token is no longer in `PORTAL_INVITE_TOKENS`
   - Refuses access if the session is invalid or missing
   - Serves protected portal HTML only after auth passes
   - Returns private/no-store caching headers
