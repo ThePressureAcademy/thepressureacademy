@@ -21,7 +21,14 @@
  *   - Generate a token using any UUID/random string generator
  *   - Add it to PORTAL_INVITE_TOKENS in the Vercel dashboard
  *   - Send the family this link: https://thepressureacademy.com/api/auth/activate?token=TOKEN
- *   - To revoke: remove the token from PORTAL_INVITE_TOKENS and redeploy
+ *   - To revoke: remove the token from PORTAL_INVITE_TOKENS and redeploy.
+ *     api/portal-serve.js re-checks every session against this list, so the
+ *     family's existing session stops working on their next request served by a
+ *     deployment built after the change. SESSION_SECRET does not need to change.
+ *     Revocation is per token, not per device: every device that used that link
+ *     is signed out together. Never re-add a revoked token value later: the
+ *     session subject is derived from the token, so re-adding it would revive
+ *     any session ever issued from it. Issue that family a new token instead.
  *   - See the operator-maintained private portal access runbook for the full workflow
  * ─────────────────────────────────────────────────────────────────────────────
  */
@@ -68,6 +75,10 @@ function buildCookie(value, maxAge) {
 }
 
 // ── Anonymise token for use as session subject (no PII in session) ───────────
+// api/portal-serve.js recomputes this same HMAC over every currently-listed
+// token to enforce revocation. Any change to the algorithm, the digest encoding
+// or the 12-character truncation must be made in both files in the same commit,
+// and would invalidate every live session.
 function hashToken(token, secret) {
   return crypto.createHmac('sha256', secret).update(token).digest('hex').slice(0, 12);
 }
@@ -86,7 +97,14 @@ module.exports = function handler(req, res) {
   const tokensRaw = process.env.PORTAL_INVITE_TOKENS;
 
   if (!secret || !tokensRaw) {
-    console.error('[activate] Required environment variables not set.');
+    // Names only, never values. Kept in step with the same message in
+    // api/portal-serve.js so the two endpoints report a missing variable the
+    // same way; an environment missing one of these fails both at once.
+    const missing = [
+      !secret && 'SESSION_SECRET',
+      !tokensRaw && 'PORTAL_INVITE_TOKENS',
+    ].filter(Boolean);
+    console.error('[activate] Required environment variables not set:', missing.join(', '));
     return res.redirect(302, GATE_URL + '?error=config');
   }
 
