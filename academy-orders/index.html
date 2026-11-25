@@ -6,7 +6,7 @@
     <title>Academy Orders | The Pressure Academy</title>
     <meta
       name="description"
-      content="B2B buying path for academies, clubs, and schools: mat floor fit-outs, team apparel, and bulk orders with scoped pricing and staged delivery."
+      content="Request a floor, team apparel or combined quote for your academy. Include your room, quantities and delivery destination."
     />
     <link rel="canonical" href="https://thepressureacademy.com/academy-orders/" />
     <meta property="og:site_name" content="The Pressure Academy" />
@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-secondary-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-order-options-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
   </head>
   <body class="academy-secondary orders">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -47,9 +49,10 @@
           <div class="nav-links">
             <a href="/shop/">Shop</a>
             <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/pressure-blueprint-core/">Coach’s PDF</a>
             <a href="/academy-orders/" aria-current="page">Academy orders</a>
+            <a href="/mastery-method/">Family learning</a>
             <a href="/contact/">Contact</a>
-            <a href="/#academy-family">Academy family</a>
           </div>
         </nav>
         <div class="header-actions">
@@ -61,7 +64,9 @@
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
         <a href="/shop/">Shop</a>
         <a href="/seminars/">Seminars</a>
+        <a href="/blueprints/pressure-blueprint-core/">Coach’s PDF</a>
         <a href="/academy-orders/" aria-current="page">Academy orders</a>
+        <a href="/mastery-method/">Family learning</a>
         <a href="/contact/">Contact</a>
         <a href="/#academy-family">Academy family</a>
       </nav>
@@ -91,7 +96,7 @@
               <p class="muted">
                 Our 2 × 1 m tatami mats are AUD $138 each. The minimum is 10 mats, covering 20 m² for AUD $1,380 before freight.
               </p>
-              <a class="text-link" href="/shop/mats/#mat-enquiry">Request tatami mats</a>
+              <a class="text-link" data-quote-for="mat-fitout" href="#order-enquiry">Quote my floor</a>
             </article>
             <article class="card" data-reveal>
               <span class="line-signature"><img src="/assets/logos/Pressure_Tested_Mark.svg" alt="" width="44" height="44" /><span>Pressure Tested</span></span>
@@ -100,15 +105,15 @@
                 Direct pricing for squads and coaching staff, scoped per order. Academy
                 co-branding is considered case by case.
               </p>
-              <a class="text-link" href="/shop/apparel/">View team apparel</a>
+              <a class="text-link" data-quote-for="team-apparel" href="#order-enquiry">Quote my team kit</a>
             </article>
             <article class="card" data-reveal>
 
-              <h2>Quotes and invoices</h2>
+              <h2>Floor and team kit</h2>
               <p class="muted">
-                Formal quotes and invoicing for club and school procurement. Financing
-                options for fit-outs are in development.
+                Request mats and apparel together. We can prepare a formal quote for your club or school and confirm delivery options for your location.
               </p>
+              <a class="text-link" data-quote-for="both" href="#order-enquiry">Quote both</a>
             </article>
           </div>
         </div>
@@ -136,37 +141,51 @@
 
                 <h2>Request a quote</h2>
                 <p class="muted">
-                  Tell us your estimated numbers, location and preferred timing. We’ll reply by email.
+                  Estimates are welcome. We’ll reply with availability, pricing and freight options for your location. You can review the quote before committing.
                 </p>
               </div>
               <form
-                class="capture-form"
+                class="capture-form" id="club-quote"
                 data-capture="academy-order"
+                data-success-message="Your academy enquiry has been sent. We’ll reply by email about your scope, pricing and delivery options."
                 action="https://formspree.io/f/meerjgde"
                 method="POST"
               >
                 <input type="hidden" name="intent" value="academy-order-enquiry" />
                 <input type="hidden" name="source" value="academy-orders" />
+                <label>What are you sourcing?
+                  <select name="order_type" required>
+                    <option value="">Choose an order type</option>
+                    <option value="mat-fitout">Mat floor fit-out</option>
+                    <option value="team-apparel">Team apparel</option>
+                    <option value="both">Mats and team apparel</option>
+                    <option value="other">Other enquiry</option>
+                  </select>
+                </label>
+                <fieldset class="quote-scope" id="floor-scope"><legend>Floor details</legend>
+                  <div class="field-grid">
+                    <label>Room size, if known<input name="floor_dimensions" type="text" maxlength="120" placeholder="e.g. 8 × 6 m" /></label>
+                    <label>Estimated mats, if known<input name="mat_quantity" type="number" min="1" step="1" inputmode="numeric" /></label>
+                  </div>
+                  <p class="form-help">2 m² per mat. Minimum order 10 mats. <a href="/shop/mats/#calculator">Estimate a floor</a></p>
+                </fieldset>
+                <fieldset class="quote-scope" id="kit-scope"><legend>Team kit details</legend>
+                  <div class="field-grid">
+                    <label>Garments, if known<input name="garments" type="text" maxlength="120" placeholder="e.g. tees and hoodies" /></label>
+                    <label>Estimated pieces, if known<input name="apparel_quantity" type="number" min="1" step="1" inputmode="numeric" /></label>
+                  </div>
+                </fieldset>
+                <div class="field-grid">
+                  <label>Delivery town and country<input name="destination" type="text" maxlength="160" placeholder="e.g. Brisbane, Australia" required /></label>
+                  <label>Preferred timing (optional)<input name="timing" type="text" maxlength="100" placeholder="e.g. before our club opens" /></label>
+                </div>
+                <label>Academy, club or school<input type="text" name="organisation" autocomplete="organization" required /></label>
                 <div class="field-grid">
                   <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
                   <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
                 </div>
-                <div class="field-grid">
-                  <label>Academy, club or school<input type="text" name="organisation" autocomplete="organization" required /></label>
-                  <label>Order type<select name="order_type" required>
-                    <option value="">Order type</option>
-                    <option value="mat-fitout">Mat floor fit-out</option>
-                    <option value="team-apparel">Team apparel</option>
-                    <option value="both">Both</option>
-                    <option value="other">Other</option>
-                  </select></label>
-                </div>
-                <label>Your question or requirements<textarea
-                  name="message"
-                  placeholder="Room size or headcount, location, timeline, and whether financing matters."
-                  required
-                ></textarea></label>
-                <button class="btn" type="submit">Send the enquiry</button>
+                <label>Other requirements or questions (optional)<textarea name="message" rows="2" maxlength="2000"></textarea></label>
+                <button class="btn" type="submit">Request my academy quote</button>
                 <p class="form-help">We use these details to respond to this request. <a href="/privacy-policy.html">Privacy policy</a></p>
                 <div class="form-status" aria-live="polite"></div>
               </form>
@@ -220,9 +239,11 @@
     <script type="module">
       import { initCart } from "/js/lib/cart.js";
       import { enhanceCaptureForms, initMobileNav } from "/js/lib/commerce-ui.js";
+      import { initAcademyQuote } from "/js/lib/academy-quote.js";
       import { initMotion } from "/js/lib/media/motion-controller.js";
       initMobileNav();
       initCart();
+      initAcademyQuote(document.getElementById("club-quote"));
       enhanceCaptureForms();
       // Scroll reveal + media governance: shared motion controller.
       initMotion();

@@ -1,0 +1,20 @@
+/* Keep the session choice and its request together on the event ticket. */
+.pixley-options { margin: 1rem 0 0; }
+.pixley-options > div { padding: .85rem 0 .65rem; border-top: 1px solid #b9bcae; }
+.pixley-options dt { color: #43493d; }
+.pixley-options dd { margin: .12rem 0 0; }
+.pixley-options dd strong { display: block; font-size: 1.3rem; color: #282c22; }
+.pixley-options dd > span { display: block; margin-top: .2rem; }
+.pixley-choices, .pixley-record-links { display: flex; flex-wrap: wrap; gap: .2rem 1.5rem; }
+.pixley-choices a, .pixley-record-links a {
+  display: inline-flex; align-items: center; min-height: 2.75rem; color: #74371e;
+  font-weight: 650; text-decoration: underline; text-underline-offset: .2em;
+}
+.pixley-option-kit { padding-top: .75rem; border-top: 1px solid #b9bcae; line-height: 1.5; }
+.pixley-coach-record { max-width: 43ch; margin: 1.5rem 0 0; color: #e4e2d7; }
+.pixley-record-links a { color: #ffb28b; }
+.pixley-kit-disclosure { border-block: 1px solid var(--line-strong); }
+.pixley-kit-disclosure summary { padding: .8rem 0; cursor: pointer; font-weight: 650; }
+.pixley-kit-disclosure summary span { font-size: .925rem; font-weight: 400; display: block; color: var(--muted); }
+.pixley-kit-disclosure[open] { padding-bottom: 1rem; }
+.pixley-kit-disclosure .pixley-kit { margin-top: 0; }

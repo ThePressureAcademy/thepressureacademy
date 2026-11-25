@@ -36,6 +36,7 @@ export function initTatamiPreorders() {
   const result = document.getElementById("calc-result");
   const detail = document.getElementById("calc-detail");
   const useCount = document.getElementById("use-count");
+  const clubQuote = document.getElementById("use-academy-estimate");
   let estimatedCount = null;
 
   function updateColourField() {
@@ -102,9 +103,13 @@ export function initTatamiPreorders() {
     estimatedCount = estimate.orderQuantity;
     const matWord = estimate.count === 1 ? "mat" : "mats";
     const base = `${estimate.area.toLocaleString("en-AU", { maximumFractionDigits: 4 })} m² needs about ${estimate.count} ${matWord} by area.`;
-    detail.textContent = estimate.count < estimate.orderQuantity
+    const quantityNote = estimate.count < estimate.orderQuantity
       ? `${base} The minimum order is ${estimate.orderQuantity} mats.`
       : base;
+    const subtotal = matSubtotal(estimate.orderQuantity);
+    detail.textContent = quantityNote + " Mat subtotal AUD " + dollars.format(subtotal.cents / 100) + " before freight.";
+    const params = new URLSearchParams({ type: "mat-fitout", width_m: width.value, length_m: length.value });
+    clubQuote.href = "/academy-orders/?" + params.toString() + "#order-enquiry";
     result.hidden = false;
     useCount.textContent = `Use ${estimatedCount} mats in my request`;
   });

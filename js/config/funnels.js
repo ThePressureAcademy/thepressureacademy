@@ -91,20 +91,14 @@ export const seminars = [
 export const blueprints = [
   {
     slug: "pressure-blueprint-core",
-    status: "in-development", // renders waitlist funnel, not a buy page
+    status: "free-on-request",
     title: "The Pressure Blueprint — Core System",
     line: "pressure-blueprint",
     promise:
-      "A grappling curriculum in development: understand the position, apply pressure with purpose and recognise the next decision.",
-    format: "Planned format: video modules + written positional maps",
-    priceCents: null,
-    priceNote: "Pricing locks at release",
-    checkoutUrl: null,
-    modulesPreview: [
-      "Positional hierarchy — where pressure actually comes from",
-      "Weight before technique — making control cheap to hold",
-      "Decision trees under load — what to do when they defend right",
-    ],
+      "Teach 30 white-to-blue-belt movements in ten classes. Each lesson gives partners a starting position, a reaction to read and a decision to practise.",
+    format: "Coach’s PDF · Adult gi and no-gi",
+    priceCents: 0,
+    detailPath: "/blueprints/pressure-blueprint-core/",
     upsellIds: [],
   },
 ];
@@ -157,5 +151,5 @@ export function publicSeminars() {
 }
 
 export function publicBlueprints() {
-  return blueprints.filter((b) => ["in-development", "announced", "on-sale"].includes(b.status));
+  return blueprints.filter((b) => ["free-on-request", "in-development", "announced", "on-sale"].includes(b.status));
 }

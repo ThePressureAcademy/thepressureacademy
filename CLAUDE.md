@@ -53,7 +53,7 @@ These mappings are verified in current repo code:
 
 - `https://formspree.io/f/meerjgde`
   - TPA parent-site and commerce-surface forms only
-  - Verified current use: homepage join form (`index.html`), seminar interest/registration/waitlist (`seminars/`), apparel drop list (`shop/apparel/`), mat enquiry (`shop/mats/`), blueprint waitlist (`blueprints/_blueprint/`), contact (`contact/`), academy orders (`academy-orders/`)
+  - Verified current use: homepage join form (`index.html`), seminar interest/registration/waitlist (`seminars/`), apparel drop list (`shop/apparel/`), mat enquiry (`shop/mats/`), Blueprint PDF requests and release waitlists (`blueprints/`), contact (`contact/`), academy orders (`academy-orders/`)
 
 - `https://formspree.io/f/xwvwkqqg`
   - Mastery Method only
