@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
     <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-seminars-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-pixley-collab-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -70,6 +71,10 @@
     </header>
 
     <main id="main-content" tabindex="-1">
+      <section id="payment-return" class="container" aria-labelledby="return-title" tabindex="-1">
+        <h2 id="return-title">Your Pixley booking</h2>
+        <p>Check your email for your payment details. For help with your booking or apparel sizes, <a href="/contact/">contact The Pressure Academy</a>.</p>
+      </section>
       <section class="pixley-poster">
         <div class="container pixley-poster-grid">
           <div>
@@ -89,6 +94,7 @@
               <div><dt>Both seminar days</dt><dd>$300 AUD <small>per person</small></dd></div>
               <div><dt>90-minute semi-private</dt><dd>$1,000 AUD <small>for the group</small></dd></div>
             </dl>
+            <a class="pixley-kit-link" href="#seminar-apparel">Optional Pixley apparel <span>Tee +$69 · Rashguard +$79 AUD</span></a>
           </aside>
         </div>
       </section>
@@ -98,7 +104,7 @@
             <p class="kicker">Day 1 &amp; Day 2</p>
             <h2 id="seminar-title">Request seminar places.</h2>
             <p class="lead">Each day is capped at 20 people. Choose the days you want and how many people will attend.</p>
-            <p class="pixley-note">We’ll email you about availability and the final event details before you decide whether to book. A request is free and does not hold a place.</p>
+            <p class="pixley-note">We’ll email you the dates and confirm availability before payment. You can choose your Pixley apparel when you pay. Sending this request is free and does not hold a place.</p>
           </div>
           <form class="capture-form panel" data-capture="pixley-seminar-request" data-success-message="Your seminar request has been sent. We’ll email you about dates and availability. No place is held and no payment has been taken." action="https://formspree.io/f/meerjgde" method="post" id="pixley-days-form">
             <input type="hidden" name="intent" value="seminar-registration" />
@@ -119,7 +125,28 @@
                 <input name="people" type="number" inputmode="numeric" min="1" max="20" step="1" value="1" required />
               </label>
             </div>
-            <output id="seminar-subtotal" class="pixley-subtotal" aria-live="polite" hidden></output>
+            <fieldset class="pixley-kit" id="seminar-apparel">
+              <legend>Pressure Academy × Pixley</legend>
+              <p>Add a tee or rashguard to your booking. Leave quantities at zero for training only.</p>
+              <label class="kit-choice">
+                <span><strong>Tee</strong><small>+$69 AUD each</small></span>
+                <span class="kit-qty">Qty<input name="tee_quantity" aria-label="Pixley tee quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
+              </label>
+              <label class="kit-sizes">Preferred tee sizes (optional)
+                <input name="tee_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
+              </label>
+              <label class="kit-choice">
+                <span><strong>Rashguard</strong><small>+$79 AUD each</small></span>
+                <span class="kit-qty">Qty<input name="rashguard_quantity" aria-label="Pixley rashguard quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
+              </label>
+              <label class="kit-sizes">Preferred rashguard sizes (optional)
+                <input name="rashguard_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
+              </label>
+            </fieldset>
+            <input type="hidden" name="admission_aud" disabled />
+            <input type="hidden" name="apparel_aud" disabled />
+            <input type="hidden" name="estimated_total_aud" disabled />
+            <output id="seminar-subtotal" class="pixley-quote" data-quote aria-live="polite" hidden></output>
             <div class="field-grid">
               <label>Your name<input name="name" autocomplete="name" required /></label>
               <label>Your email<input name="email" type="email" autocomplete="email" required /></label>
@@ -136,7 +163,7 @@
             <p class="kicker">90-minute semi-private</p>
             <h2 id="group-title">Bring your group.</h2>
             <p class="lead">This Brisbane session is $1,000 AUD in total for one group of up to six people. Use one request for the whole group.</p>
-            <p class="pixley-note">We’ll email the organiser to confirm available times and the Brisbane venue address before payment. Your group is booked only after confirmation.</p>
+            <p class="pixley-note">We’ll email the organiser to confirm the time and Brisbane venue address before payment. Your group can also choose Pixley apparel at checkout.</p>
           </div>
           <form class="capture-form panel" data-capture="pixley-group-request" data-success-message="Your semi-private request has been sent. We’ll email you about scheduling and availability. No session is held and no payment has been taken." action="https://formspree.io/f/meerjgde" method="post" id="pixley-group-form">
             <input type="hidden" name="intent" value="seminar-registration" />
@@ -155,6 +182,28 @@
                 <option value="6">6 people</option>
               </select>
             </label>
+            <fieldset class="pixley-kit">
+              <legend>Pressure Academy × Pixley</legend>
+              <p>Add a tee or rashguard to your booking. Leave quantities at zero for training only.</p>
+              <label class="kit-choice">
+                <span><strong>Tee</strong><small>+$69 AUD each</small></span>
+                <span class="kit-qty">Qty<input name="tee_quantity" aria-label="Pixley tee quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
+              </label>
+              <label class="kit-sizes">Preferred tee sizes (optional)
+                <input name="tee_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
+              </label>
+              <label class="kit-choice">
+                <span><strong>Rashguard</strong><small>+$79 AUD each</small></span>
+                <span class="kit-qty">Qty<input name="rashguard_quantity" aria-label="Pixley rashguard quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
+              </label>
+              <label class="kit-sizes">Preferred rashguard sizes (optional)
+                <input name="rashguard_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
+              </label>
+            </fieldset>
+            <input type="hidden" name="admission_aud" disabled />
+            <input type="hidden" name="apparel_aud" disabled />
+            <input type="hidden" name="estimated_total_aud" disabled />
+            <output id="group-subtotal" class="pixley-quote" data-quote aria-live="polite" hidden></output>
             <div class="field-grid">
               <label>Your name<input name="name" autocomplete="name" required /></label>
               <label>Your email<input name="email" type="email" autocomplete="email" required /></label>

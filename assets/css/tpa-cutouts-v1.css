@@ -1,0 +1,35 @@
+/* Photograph each garment on the page surface, with the full silhouettes intact. */
+.drop-hero, .shop-showcase { background: #e9e8df; color: #26291f; }
+.drop-hero .poster-title, .shop-showcase .collection-title { color: #272a21; }
+.drop-hero .poster-title span, .shop-showcase .collection-title span { color: #963e24; }
+.drop-hero .edition-label, .shop-showcase .edition-label { color: #803b23; }
+.drop-hero .drop-deck, .shop-showcase .collection-heading > p:last-child { color: #41453c; }
+.drop-hero .drop-primary { background: #30352a; color: #fffaf0; }
+.drop-hero .drop-primary:hover { background: #4c5145; }
+.drop-portrait { background: transparent; min-height: clamp(290px, 36vw, 475px); }
+.drop-portrait a { display: block; }
+.drop-portrait .hoodie-link { inset: 0 49% 0 0; }
+.drop-portrait .tee-link { inset: 0 0 0 51%; }
+.drop-portrait img {
+  position: absolute; object-fit: contain; object-position: center; height: 86%; pointer-events: none;
+}
+.drop-portrait .hero-hoodie { width: 110%; max-width: none; top: 3%; left: 0; transform: rotate(-8deg); }
+.drop-portrait .hero-tee { width: 129%; max-width: none; top: 9%; right: 0; transform: rotate(7deg); }
+.drop-portrait .photo-tag { left: 50%; right: auto; bottom: .6rem; transform: translateX(-50%); white-space: nowrap; }
+.shop-showcase { padding-bottom: clamp(1rem, 4vw, 3rem); }
+.shop-showcase .catalogue-item { background: transparent; color: #26291f; }
+.shop-showcase .catalogue-item > div { padding: 1.2rem 0; border-top: 1px solid #a6a899; }
+.shop-showcase .catalogue-photo img {
+  padding: .5rem; aspect-ratio: 5 / 4; height: auto; object-fit: contain; object-position: center;
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .drop-portrait img, .catalogue-photo img { transition: transform .22s ease-out; }
+  .drop-portrait a:hover .hero-hoodie { transform: translateX(-1%) rotate(-10deg); }
+  .drop-portrait a:hover .hero-tee { transform: translateX(1%) rotate(5deg); }
+  .catalogue-photo:hover img { transform: scale(1.025); }
+}
+@media (max-width: 560px) {
+  .drop-portrait { margin: 0 4vw; min-height: 0; height: clamp(220px, 60vw, 318px); }
+  .drop-portrait .hero-hoodie { left: 4%; }
+  .drop-portrait .hero-tee { right: 3%; }
+}

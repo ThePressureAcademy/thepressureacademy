@@ -1,0 +1,49 @@
+.pixley-kit {
+  min-inline-size: 0;
+  margin: .5rem 0 0;
+  padding: .85rem clamp(.85rem, 3vw, 1.45rem) 1.2rem;
+  border: 1px solid #554a40;
+  background: #211e1a;
+}
+.pixley-kit legend {
+  padding-inline: .45rem;
+  color: var(--paper);
+  font: 800 clamp(1.6rem, 3vw, 2.2rem)/1.1 var(--poster-face);
+}
+.pixley-kit > p { color: #d0c9bc; margin: 0 0 .55rem; }
+.pixley-kit .kit-choice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .8rem;
+  padding-block: .75rem;
+  border-top: 1px solid #50483f;
+}
+.kit-choice strong, .kit-choice small { display: block; }
+.kit-choice strong { font-size: 1.05rem; }
+.kit-choice small { color: var(--accent); font-size: .94rem; }
+.kit-qty { display: grid; grid-template-columns: auto 4rem; align-items: center; gap: .55rem; font-size: .875rem; }
+.kit-qty input { width: 100%; text-align: center; padding-inline: .35rem; }
+.pixley-kit .kit-sizes { font-size: .94rem; margin-bottom: .9rem; }
+.pixley-kit .kit-sizes[hidden], .pixley-quote[hidden] { display: none; }
+.pixley-quote { display: grid; gap: .3rem; padding-block: .35rem; color: var(--muted); }
+.pixley-quote > span { display: flex; justify-content: space-between; gap: .8rem; }
+.pixley-quote b { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.pixley-quote > span:last-child {
+  border-top: 1px solid var(--line-strong);
+  color: var(--paper);
+  font-weight: 650;
+  padding-top: .6rem;
+  margin-top: .35rem;
+}
+@media (max-width: 380px) {
+  .kit-qty { grid-template-columns: 3.25rem; gap: .15rem; }
+}
+
+.pixley-kit-link { display: block; margin-top: 1.25rem; padding-top: .9rem; border-top: 1px solid var(--line-strong); color: var(--accent); }
+.pixley-kit-link span { display: block; color: var(--muted); }
+.pixley-kit-link:hover, .pixley-kit-link:focus-visible { text-decoration: underline; }
+#seminar-apparel { scroll-margin-top: 6rem; }
+#payment-return { display: none; }
+#payment-return:target { display: block; scroll-margin-top: 6rem; padding: 1.5rem; border-left: 3px solid var(--accent); }
+#payment-return a { text-decoration: underline; }

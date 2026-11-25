@@ -24,6 +24,9 @@ export function estimateMatFloor(widthM, lengthM) {
 export function initTatamiPreorders() {
   const form = document.getElementById("mat-request");
   const quantity = form.elements.quantity;
+  const otherColour = document.getElementById("other-mat-colour");
+  const colourDetails = document.getElementById("mat-colour-details");
+  const requestedColour = form.elements.requested_colour;
   const summary = document.getElementById("mat-summary");
   const payload = document.getElementById("calc-payload");
   const calc = document.getElementById("mat-calc");
@@ -34,6 +37,14 @@ export function initTatamiPreorders() {
   const detail = document.getElementById("calc-detail");
   const useCount = document.getElementById("use-count");
   let estimatedCount = null;
+
+  function updateColourField() {
+    colourDetails.hidden = !otherColour.checked;
+    requestedColour.disabled = !otherColour.checked;
+    requestedColour.required = otherColour.checked;
+  }
+  document.getElementById("mat-colours").addEventListener("change", updateColourField);
+  updateColourField();
 
   function updateSubtotal() {
     const subtotal = matSubtotal(quantity.valueAsNumber);
@@ -56,6 +67,7 @@ export function initTatamiPreorders() {
   });
   form.addEventListener("reset", () => queueMicrotask(() => {
     payload.disabled = true;
+    updateColourField();
     updateSubtotal();
   }));
   updateSubtotal();

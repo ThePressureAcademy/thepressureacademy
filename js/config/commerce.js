@@ -54,8 +54,8 @@ export const apparel = [
     status: "preorder-request",
     priceCents: 6900,
     blurb: "Charcoal tee with cream lettering on the chest and a patterned back print.",
-    image: "/assets/media/pt-tee-back-v1.webp",
-    frontImage: "/assets/media/pt-tee-front-v1.webp",
+    image: "/assets/media/pt-tee-back-cutout-v2.webp",
+    frontImage: "/assets/media/pt-tee-front-cutout-v2.webp",
   },
   {
     id: "pt-crop-tee",
@@ -73,7 +73,7 @@ export const apparel = [
     status: "preorder-request",
     priceCents: 12900,
     blurb: "Rust hoodie with raised lettering and a tonal design across the back.",
-    image: "/assets/media/pt-hoodie-back-v1.webp",
+    image: "/assets/media/pt-hoodie-back-cutout-v2.webp",
   },
   {
     id: "pt-crop-hoodie",
@@ -97,6 +97,7 @@ export const tatamiMat = Object.freeze({
   widthM: 1,
   coverageM2: 2,
   minimumQuantity: 10,
+  colours: Object.freeze(["Ruby Red", "Matte White", "Jet Black", "Rust Orange", "Night Grey"]),
 });
 
 /** Other floor systems remain reference specifications for custom enquiries. */
