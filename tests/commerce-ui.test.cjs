@@ -132,8 +132,8 @@ test('the generic seminar list publishes no event details or promised inclusions
   const source = fs.readFileSync(path.join(root, 'js/config/funnels.js'), 'utf8').replace(/^export /gm, '');
   const context = vm.createContext({});
   vm.runInContext(source + '\nthis.items = publicSeminars();', context);
-  assert.equal(context.items.length, 1);
-  const item = context.items[0];
+  assert.deepEqual(Array.from(context.items, item => item.slug).sort(), ['founding-pressure-seminar', 'michael-pixley-march-2027']);
+  const item = context.items.find(item => item.slug === 'founding-pressure-seminar');
   assert.equal(item.status, 'interest');
   for (const field of ['athleteName', 'dateLabel', 'timeLabel', 'venueLabel', 'priceLabel', 'checkoutUrl', 'capacity', 'spotsRemaining']) assert.equal(item[field], null);
   assert.equal(item.includedItems.length, 0);

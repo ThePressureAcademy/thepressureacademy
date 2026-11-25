@@ -1,0 +1,60 @@
+.pixley-poster {
+  padding: clamp(2.75rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+.pixley-poster-grid,
+.pixley-request {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: clamp(1.75rem, 6vw, 6rem);
+  align-items: center;
+}
+.pixley-poster h1 {
+  font-family: var(--poster-face);
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  letter-spacing: -.025em;
+  line-height: .94;
+  margin-bottom: 1.5rem;
+}
+.pixley-poster h1 span { color: var(--rust-bright); }
+.pixley-poster .lead, .pixley-request .lead { max-width: 43ch; }
+.pixley-note { color: var(--muted); margin: 1rem 0 0; max-width: 52ch; }
+.pixley-edition {
+  padding: clamp(1.4rem, 3.6vw, 3rem);
+  border: 1px solid var(--line-strong);
+  border-top: 4px solid var(--rust-bright);
+  background: var(--panel);
+}
+.pixley-edition p:last-of-type { max-width: 37ch; }
+.pixley-prices { margin: 0; }
+.pixley-prices > div { padding: .85rem 0; border-bottom: 1px solid var(--line); }
+.pixley-prices > div:first-child { padding-top: 0; }
+.pixley-prices > div:last-child { padding-bottom: 0; border-bottom: 0; }
+.pixley-prices dt { color: var(--muted); }
+.pixley-prices dd {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: .35rem 0 0;
+}
+.pixley-prices small { font-size: 1rem; font-weight: 400; }
+.pixley-section { border-bottom: 1px solid var(--line); }
+.pixley-request { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start; }
+.pixley-request form { gap: 1rem; }
+.pixley-request select { min-height: 48px; }
+.pixley-request input { min-width: 0; }
+.pixley-request .btn { justify-self: start; }
+.pixley-subtotal {
+  color: var(--text);
+  font-weight: 600;
+  padding: .65rem 0;
+  border-block: 1px solid var(--line);
+}
+.pixley-links { display: flex; flex-wrap: wrap; gap: .25rem 2rem; padding-block: 1.5rem; }
+@media (max-width: 800px) {
+  .pixley-poster-grid, .pixley-request { grid-template-columns: 1fr; }
+  .pixley-poster .hero-actions > a { flex: 1 1 12rem; }
+  .pixley-request .btn { justify-self: stretch; }
+}

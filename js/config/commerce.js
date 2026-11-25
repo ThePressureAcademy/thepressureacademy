@@ -45,69 +45,63 @@ export const brandLines = Object.freeze({
   },
 });
 
-/**
- * Apparel — impulse retail line.
- * All entries are production-stage placeholders: real planned garments,
- * no locked pricing, no stock. Cards must render drop-list capture.
- */
+/** Public apparel pre-order prices in Australian cents. Only photographed cuts have images. */
 export const apparel = [
   {
     id: "pt-heavy-tee",
     line: "pressure-tested",
-    name: "Pressure Tested Heavyweight Tee",
-    status: "placeholder",
-    priceCents: null,
-    priceNote: "Pricing locks at first drop",
-    blurb: "Heavyweight cotton (240gsm+ target). Cut for training shoulders, built to survive the wash cycle.",
-    sizes: ["S", "M", "L", "XL", "2XL", "3XL"],
-    variants: ["Blackout", "Bone"],
-    image: null, // no product photography yet — card renders spec frame
+    name: "Pressure Tested Tee",
+    status: "preorder-request",
+    priceCents: 6900,
+    blurb: "Charcoal tee with cream lettering on the chest and a patterned back print.",
+    image: "/assets/media/pt-tee-back-v1.webp",
+    frontImage: "/assets/media/pt-tee-front-v1.webp",
+  },
+  {
+    id: "pt-crop-tee",
+    line: "pressure-tested",
+    name: "Pressure Tested Crop Tee",
+    status: "preorder-request",
+    priceCents: 6500,
+    blurb: "Cropped tee. Product photo to follow.",
+    image: null,
   },
   {
     id: "pt-hoodie",
     line: "pressure-tested",
-    name: "Built Under Pressure Hoodie",
-    status: "placeholder",
-    priceCents: null,
-    priceNote: "Pricing locks at first drop",
-    blurb: "Heavy fleece, minimal print, no billboard energy. The corner-of-the-gym hoodie.",
-    sizes: ["S", "M", "L", "XL", "2XL", "3XL"],
-    variants: ["Blackout"],
-    image: null,
+    name: "Pressure Tested Hoodie",
+    status: "preorder-request",
+    priceCents: 12900,
+    blurb: "Rust hoodie with raised lettering and a tonal design across the back.",
+    image: "/assets/media/pt-hoodie-back-v1.webp",
   },
   {
-    id: "pt-rash-guard",
+    id: "pt-crop-hoodie",
     line: "pressure-tested",
-    name: "Competition Rash Guard",
-    status: "placeholder",
-    priceCents: null,
-    priceNote: "Pricing locks at first drop",
-    blurb: "Flatlock seams, full-length cut, ranked and unranked options planned.",
-    sizes: ["XS", "S", "M", "L", "XL", "2XL"],
-    variants: ["Blackout", "Rust"],
-    image: null,
-  },
-  {
-    id: "pt-cap",
-    line: "pressure-tested",
-    name: "Pressure Tested Cap",
-    status: "placeholder",
-    priceCents: null,
-    priceNote: "Pricing locks at first drop",
-    blurb: "Unstructured, low-profile, embroidered mark. The quiet one.",
-    sizes: ["One size"],
-    variants: ["Blackout", "Rust"],
+    name: "Pressure Tested Crop Hoodie",
+    status: "preorder-request",
+    priceCents: 10900,
+    blurb: "Cropped hoodie. Product photo to follow.",
     image: null,
   },
 ];
 
-/**
- * Mats — high-consideration physical goods.
- * REFERENCE SPECS ONLY: dimensions and densities below are standard industry
- * reference values used for the size-matching calculator. Final supplier
- * specification, pricing, and freight are not locked. UI must say so.
- */
+/** Tatami pre-order offer. Freight and availability are confirmed per request. */
+export const tatamiMat = Object.freeze({
+  id: "tatami-2x1",
+  name: "Tatami mat",
+  status: "preorder-request",
+  currency: "AUD",
+  priceCents: 13800,
+  lengthM: 2,
+  widthM: 1,
+  coverageM2: 2,
+  minimumQuantity: 10,
+});
+
+/** Other floor systems remain reference specifications for custom enquiries. */
 export const mats = [
+  tatamiMat,
   {
     id: "mat-jigsaw-40",
     name: "Academy Jigsaw Mat — 40mm",
@@ -147,12 +141,9 @@ export const mats = [
 ];
 
 /**
- * Size-matching guidance used by the mat calculator (pure math + safety
- * margins, no supplier claims).
+ * Room presets for the floor-area estimator.
  */
 export const matGuidance = Object.freeze({
-  minTrainingAreaPerPersonM2: 3, // live grappling planning figure per pair-half
-  wallClearanceM: 0.5,
   presets: [
     { id: "garage-single", label: "Garage / single car bay", widthM: 3, lengthM: 5 },
     { id: "home-room", label: "Spare room", widthM: 3.5, lengthM: 4 },

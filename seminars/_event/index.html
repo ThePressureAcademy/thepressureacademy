@@ -434,6 +434,7 @@
 
       if (!ev || ev.status === "draft") notOpenState();
       else if (ev.status === "closed") closedState(ev);
+      else if (ev.detailPath) window.location.replace(ev.detailPath + window.location.hash);
       else eventPage(ev);
 
       // Visual Performance Layer: route intensity + media governance.
