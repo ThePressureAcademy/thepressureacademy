@@ -1,61 +1,72 @@
 {
   "functions": {
+    "api/mastery-audit.js": {
+      "includeFiles": "js/config/mm-teacher-prompts.mjs"
+    },
     "api/portal-serve.js": {
       "includeFiles": "mastery-method/portal/**"
     }
   },
   "routes": [
     {
-      "src": "^/liftiq/?$",
+      "src": "^/planner(?:/.*)?$",
+      "status": 307,
+      "headers": {
+        "Location": "/#pressure-planner",
+        "Cache-Control": "no-store"
+      }
+    },
+    {
+      "src": "^/liftiq(?:/index\\.html|/)?$",
       "status": 308,
       "headers": {
         "Location": "https://dispatchtalon.com/"
       }
     },
     {
-      "src": "^/liftiq/how-it-works/?$",
+      "src": "^/liftiq/how-it-works(?:/index\\.html|/)?$",
       "status": 308,
       "headers": {
         "Location": "https://dispatchtalon.com/"
       }
     },
     {
-      "src": "^/liftiq/modules/?$",
+      "src": "^/liftiq/modules(?:/index\\.html|/)?$",
       "status": 308,
       "headers": {
         "Location": "https://dispatchtalon.com/"
       }
     },
     {
-      "src": "^/liftiq/design-partner/?$",
+      "src": "^/liftiq/design-partner(?:/index\\.html|/)?$",
       "status": 308,
       "headers": {
         "Location": "https://dispatchtalon.com/"
       }
     },
     {
-      "src": "^/liftiq/contact/?$",
+      "src": "^/liftiq/contact(?:/index\\.html|/)?$",
       "status": 308,
       "headers": {
         "Location": "https://dispatchtalon.com/"
       }
     },
     {
-      "src": "^/liftiq/dispatch-blind-spot-diagnostic/?$",
+      "src": "^/liftiq/dispatch-blind-spot-diagnostic(?:/index\\.html|/)?$",
       "status": 308,
       "headers": {
         "Location": "https://dispatchtalon.com/diagnostic/"
       }
     },
     {
-      "src": "^/liftiq/executive-briefing/?$",
+      "src": "^/liftiq/executive-briefing(?:/index\\.html|/)?$",
       "status": 308,
       "headers": {
         "Location": "https://dispatchtalon.com/"
       }
     },
     {
-      "src": "^/liftiq/sample-preview/?$",
+      "src": "^/liftiq/sample-preview(?:/index\\.html|/)?$",
       "status": 308,
       "headers": {
         "Location": "https://dispatchtalon.com/"

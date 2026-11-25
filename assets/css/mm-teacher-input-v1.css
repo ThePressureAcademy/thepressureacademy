@@ -1,0 +1,53 @@
+.teacher-page {
+  margin: 0;
+  color: #26392f;
+  background: #faf8f3;
+  font: 1rem/1.55 "Outfit", system-ui, sans-serif;
+}
+.teacher-page *, .teacher-page *::before, .teacher-page *::after { box-sizing: border-box; }
+.teacher-main { width: min(calc(100% - 2rem), 46rem); margin: 0 auto; padding: clamp(2rem, 6vw, 4.75rem) 0 4rem; }
+.teacher-heading { padding-bottom: 1.75rem; }
+.teacher-heading h1, .teacher-main h2, .teacher-main legend {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.12;
+  margin: 0;
+}
+.teacher-heading h1 { font-size: clamp(2.25rem, 6vw, 3.8rem); letter-spacing: -.035em; }
+.teacher-heading p { max-width: 56ch; font-size: 1.125rem; margin: .9rem 0 0; }
+.teacher-message, .teacher-main form > fieldset {
+  background: #fffdfa;
+  border: 1px solid #cbd3c7;
+  padding: clamp(1.1rem, 4vw, 2rem);
+  border-radius: .35rem;
+}
+.teacher-message { border-left: .26rem solid #367565; }
+.teacher-message h2, .teacher-main form > fieldset > legend { font-size: 1.55rem; }
+.teacher-message p { margin: .6rem 0 0; }
+.teacher-main [hidden] { display: none !important; }
+.teacher-main form { display: grid; gap: 1.5rem; }
+.teacher-main fieldset { min-inline-size: 0; margin: 0; }
+.teacher-main form > fieldset > legend { padding: 0 .3rem; }
+.teacher-privacy { margin: 0; color: #404e46; }
+.teacher-privacy a { color: #24574a; text-underline-offset: .15em; }
+.teacher-field + .teacher-field { margin-top: 1rem; }
+.teacher-field > label, .teacher-subjects > legend { display: block; font: 600 1rem/1.45 "Outfit", system-ui, sans-serif; }
+.teacher-field small { font-weight: 400; color: #526156; font-size: .875rem; }
+.teacher-field p { margin: .2rem 0 .4rem; color: #495a50; }
+.teacher-field textarea, .teacher-field select, .teacher-field input[type="text"] {
+  width: 100%; display: block; border: 1px solid #74867a; border-radius: .25rem;
+  color: inherit; font: inherit; background: white; margin-top: .4rem; padding: .65rem .75rem;
+}
+.teacher-field textarea { resize: vertical; }
+.teacher-subjects { border: 0; padding: 0; }
+.teacher-subjects legend { padding: 0; }
+.teacher-subjects > div { display: flex; flex-wrap: wrap; gap: .4rem; padding-top: .4rem; }
+.teacher-subjects label { display: inline-flex; gap: .45rem; align-items: center; padding: .45rem .7rem; min-height: 44px; border: 1px solid #a8b6a9; border-radius: .3rem; cursor: pointer; }
+.teacher-subjects label:has(:checked) { background: #e2eee5; border-color: #367565; }
+.teacher-subjects input { width: 1rem; height: 1rem; accent-color: #285a4c; }
+.teacher-main button { justify-self: start; min-height: 46px; padding: .65rem 1.1rem; border: none; border-radius: .25rem; background: #244e40; color: white; font: 600 1rem/1.45 "Outfit", system-ui, sans-serif; cursor: pointer; }
+.teacher-main button:disabled { opacity: .7; }
+.teacher-message button { margin-top: .8rem; }
+.teacher-error { margin: 0; color: #823d23; }
+.teacher-page :is(a, input, textarea, select, button):focus-visible { outline: 3px solid #986138; outline-offset: 3px; }
+#subject-notes > :not([hidden]) { margin-top: 1rem; }

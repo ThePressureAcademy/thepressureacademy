@@ -1,0 +1,112 @@
+/* Retail stays open and photographic. Seminar information uses a printed event card. */
+.site-header :is(.nav-links, .mobile-nav) a[aria-current="location"] {
+  color: var(--text); text-decoration: underline 2px #f39b6d; text-underline-offset: .4rem;
+}
+.shop-masthead {
+  padding-block: clamp(2.3rem, 5vw, 4.7rem) clamp(1.7rem, 4vw, 3rem);
+  border-bottom: 1px solid #a5a798;
+}
+.shop-masthead .collection-title { font-size: clamp(3.4rem, 8vw, 7.2rem); }
+.shop-masthead > p { max-width: 47ch; margin: .85rem 0; font-size: 1.12rem; color: #44483d; }
+.shop-shortcuts { display: flex; gap: .3rem 1.35rem; flex-wrap: wrap; }
+.shop-shortcuts a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  color: #353b2f; font-size: 1rem; font-weight: 650; text-decoration: underline;
+  text-decoration-color: #888d7e; text-underline-offset: .32em;
+}
+.shop-shortcuts a:is(:hover, :focus-visible) { color: #833b27; text-decoration-color: currentColor; }
+.catalogue-heading {
+  grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding-top: .8rem;
+}
+.catalogue-heading .collection-signature {
+  display: flex; align-items: center; gap: .5rem; margin: 0;
+  font: 800 clamp(1.6rem, 3.2vw, 2.55rem)/1 var(--poster-face);
+  text-transform: uppercase; color: #282b22; letter-spacing: -.01em;
+}
+.catalogue-heading .collection-signature img { width: 3.5rem; height: 3.5rem; flex: none; margin-left: -.65rem; }
+.shop-showcase .catalogue-item h3 { font-size: clamp(1.7rem, 3.4vw, 2.75rem); margin-bottom: .5rem; }
+.catalogue-heading .text-link { color: #5a3020; white-space: nowrap; }
+.shop-showcase .catalogue { row-gap: clamp(.65rem, 1.8vw, 1.5rem); }
+.apparel-masthead {
+  grid-template-columns: minmax(0, 1fr) auto; align-items: center;
+  padding-block: clamp(1.4rem, 3vw, 3rem); border-bottom: 1px solid #a6a899;
+  margin-bottom: clamp(1rem, 2.3vw, 2rem);
+}
+.apparel-lockup { display: flex; align-items: center; gap: clamp(.6rem, 1.3vw, 1.35rem); }
+.apparel-lockup img { width: clamp(4.1rem, 8.5vw, 7.5rem); height: auto; flex: none; margin-left: -.8rem; }
+.apparel-lockup .kicker { margin: 0 0 .45rem; color: #733c26; }
+.apparel-lockup h1 { font-size: clamp(2.7rem, 5.8vw, 6rem); }
+.apparel-request #drop-list::after {
+  content: ''; display: block; width: 10rem; height: 10rem;
+  margin: 1.75rem auto 0 0; background: url('/assets/logos/Pressure_Tested_Mark_mono.svg') left center / contain no-repeat;
+  opacity: .4; pointer-events: none;
+}
+
+.mat-masthead, .seminar-board, .seminar-detail, .event-state-masthead { background: #20251e; }
+.mat-masthead .kicker, .seminar-board .kicker, .seminar-detail .kicker, .event-state-masthead .kicker { color: #ffb88f; }
+.mat-masthead h1, .event-state-masthead h1 {
+  font: 800 clamp(3.15rem, 7.5vw, 7.4rem)/.96 var(--poster-face, "Barlow Condensed", "Arial Narrow", sans-serif);
+  letter-spacing: -.02em; text-transform: uppercase; color: #fff9ed;
+}
+.mat-masthead h1 span, .pixley-poster h1 span { color: #ffae80; }
+.mat-masthead .tatami-price { margin: 1.25rem 0 .5rem; color: #dddcd3; }
+.mat-masthead .tatami-price strong { color: #fff9ed; }
+.mat-masthead .lead, .pixley-poster .lead, .event-state-masthead .lead { color: #e4e2d7; }
+.mat-masthead .floor-plan {
+  position: relative; overflow: hidden; border: 1px solid #6f7165;
+  background-color: #dcdcd2;
+  background-image: linear-gradient(#c8cabe 1px, transparent 1px), linear-gradient(90deg, #c8cabe 1px, transparent 1px);
+  padding: clamp(1.3rem, 3vw, 2.3rem) clamp(1.5rem, 3.6vw, 3.4rem) 1.1rem;
+  color: #252a20;
+}
+.floor-plan .floor-plan-grid { position: relative; z-index: 1; }
+.mat-masthead .floor-plan-grid::before {
+  background-color: #4e5550; border-color: #343b35;
+  background-image: linear-gradient(90deg, #bbc0af 1px, transparent 1px), linear-gradient(#cbd1c5 1px, transparent 1px),
+    repeating-linear-gradient(0deg, transparent 0 3px, #ffffff0e 3px 4px);
+  background-size: 20% 100%, 100% 50%, auto;
+}
+.mat-masthead .floor-plan figcaption {
+  position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .65rem;
+  justify-content: center; margin-top: .9rem; padding: .35rem .5rem; background: #e7e7dd; color: #30372d;
+}
+.floor-plan figcaption strong { font-size: 1.2rem; }
+.floor-plan figcaption span { font-size: .95rem; }
+.mat-masthead .floor-plan[data-house-watermark]::after { top: auto; bottom: -.4rem; right: -.9rem; width: 4.9rem; height: 4.9rem; opacity: .16; }
+
+.pixley-poster .seminar-ticket {
+  position: relative; background: #f0eee3; color: #282c22; border: 0; border-left: .35rem solid #b75933;
+  padding: clamp(1.45rem, 3.4vw, 2.85rem);
+}
+.pixley-poster .seminar-ticket > .kicker { color: #824125; }
+.seminar-ticket[data-house-watermark]::after {
+  top: -.2rem; right: -.2rem; bottom: auto; width: clamp(5rem, 9vw, 8rem); height: clamp(5rem, 9vw, 8rem); opacity: .16;
+}
+.seminar-ticket h2, .seminar-ticket .ticket-heading {
+  max-width: 90%; margin-bottom: .65rem; color: #292e24;
+  font: 800 clamp(2.2rem, 4.2vw, 3.9rem)/.98 var(--poster-face); text-transform: uppercase; letter-spacing: -.015em;
+}
+.seminar-ticket .pixley-prices > div { border-color: #bfc1b3; }
+.ticket-facts { margin: 1.35rem 0 .85rem; }
+.ticket-facts > div { padding: .65rem 0; border-top: 1px solid #b6b9aa; }
+.ticket-facts dt, .seminar-ticket .pixley-prices dt { color: #42483c; }
+.ticket-facts dd { margin: .15rem 0 0; font-weight: 650; }
+.seminar-ticket .text-link, .seminar-ticket .pixley-kit-link { color: #74371e; }
+.seminar-ticket .pixley-kit-link { border-color: #a5aa9b; }
+.seminar-ticket .pixley-kit-link span { color: #42483c; }
+.seminar-board .hero-actions > .text-link { min-height: 48px; align-self: center; }
+
+@media (max-width: 800px) {
+  .apparel-masthead { grid-template-columns: 1fr; gap: .45rem; }
+  .apparel-lockup .kicker { font-size: .875rem; }
+  .apparel-request #drop-list::after { display: none; }
+}
+@media (max-width: 700px) {
+  .shop-masthead[data-house-watermark]::after {
+    top: auto; bottom: .35rem; right: .3rem; width: clamp(2.75rem, 13vw, 5rem);
+  }
+}
+@media print {
+  .apparel-request #drop-list::after { display: none; }
+}

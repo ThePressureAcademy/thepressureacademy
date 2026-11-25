@@ -28,33 +28,7 @@ Rules:
 
 Scope: **TPA parent-site forms only**
 
-Verified current pages:
-
-- `index.html`
-  - Planner capture form
-  - Hidden `intent=planner-access`
-  - Hidden `source=post-demo-cta`
-- `index.html`
-  - Planner join form
-  - Hidden `intent=planner-access`
-  - Hidden `source=join-section`
-
-- `liftiq/dispatch-blind-spot-diagnostic/index.html`
-  - Uses `fetch(...)` via shared LiftIQ JS
-  - Sends `intent=liftiq-dispatch-blind-spot-review`
-  - Sends `source=liftiq-diagnostic-page`
-
-- `liftiq/executive-briefing/index.html`
-  - Uses `fetch(...)` via shared LiftIQ JS
-  - Sends `intent=liftiq-executive-design-partner-briefing`
-  - Sends `source=liftiq-executive-briefing-page`
-
-- `liftiq/contact/index.html`
-  - Uses `fetch(...)` via shared LiftIQ JS
-  - Sends `intent=liftiq-general-contact`
-  - Sends `source=liftiq-contact-page`
-
-No Mastery Method page is currently verified to post to this endpoint.
+The homepage intake sends `intent=founding-intake` and `source=home-join`. See the [forms register](PRESSURE_ACADEMY_FORMS_AND_LEAD_CAPTURE_REGISTER.md) for the shop, seminar, Blueprint, campaign and contact forms. Pressure Planner has a development teaser on the homepage. Old Academy Planner URLs redirect to it. The legacy LiftIQ URLs redirect to DispatchTalon.
 
 ### `https://formspree.io/f/xwvwkqqg`
 
@@ -70,10 +44,15 @@ Verified current pages:
   - Sends `call_goal` as the call-preparation selector
 
 - `mastery-method/scorecard/index.html`
-  - Uses `fetch(...)` to submit to `xwvwkqqg`
+  - Posts directly to this endpoint for a parent-only scorecard. With parent consent, `/api/mastery-audit` forwards the scorecard and returns a signed invitation after intake accepts it.
   - Sends `intent=scorecard-lead`
   - Sends `source=clarity-scorecard`
   - Sends scorecard result fields and optional contact details
+
+- `mastery-method/teacher-input/index.html`
+  - A parent shares a 14-day invitation. Teachers enter homework and observations by year and subject.
+  - The API sends `intent=teacher-homework-input`, `source=mastery-teacher-input` and the same `audit_ref` as the parent record. Staff review these records together.
+  - Invite verification returns the suggested year and expiry. It grants no access to family details, results or portal content.
 
 ## C. Verified Portal/Auth Behavior
 

@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-shop-train-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#event-main">Skip to content</a>
@@ -34,16 +37,13 @@
           <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
           <span class="brand-copy">
             <strong>The Pressure Academy</strong>
-            <span>Built under pressure</span>
           </span>
         </a>
         <nav class="header-nav" aria-label="Primary">
           <div class="nav-links">
             <a href="/shop/">Shop</a>
-            <a href="/shop/mats/">Mats</a>
-            <a href="/seminars/" aria-current="page">Seminars</a>
-            <a href="/blueprints/">Blueprints</a>
-            <a href="/academy-orders/">Academy Orders</a>
+            <a href="/seminars/" aria-current="location">Seminars</a>
+            <a href="/academy-orders/">Academy orders</a>
             <a href="/contact/">Contact</a>
           </div>
         </nav>
@@ -58,18 +58,17 @@
       </div>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
         <a href="/shop/">Shop</a>
-        <a href="/shop/mats/">Mats</a>
-        <a href="/seminars/" aria-current="page">Seminars</a>
-        <a href="/blueprints/">Blueprints</a>
-        <a href="/academy-orders/">Academy Orders</a>
+        <a href="/seminars/" aria-current="location">Seminars</a>
+        <a href="/academy-orders/">Academy orders</a>
         <a href="/contact/">Contact</a>
+        <a href="/#academy-family">Academy family</a>
       </nav>
     </header>
 
     <main id="event-main" tabindex="-1">
       <!-- Rendered by module script below -->
       <noscript>
-        <section class="page-hero">
+        <section class="page-hero event-state-masthead" data-house-watermark>
           <div class="container">
             <h1>Seminar details need JavaScript</h1>
             <p class="lead">
@@ -85,45 +84,35 @@
         <div class="footer-col">
           <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
             <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
-            <span class="brand-copy">
-              <strong>The Pressure Academy</strong>
-              <span>Built under pressure</span>
-            </span>
+            <span class="brand-copy"><strong>The Pressure Academy</strong></span>
           </a>
-          <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Plan your life. Train with intent. Turn pressure into progress.
-          </p>
+          <div class="footer-links"><a href="/#academy-family">Meet the Academy family</a></div>
         </div>
         <div class="footer-col">
           <span class="mono">Shop</span>
           <div class="footer-links">
             <a href="/shop/apparel/">Pressure Tested apparel</a>
-            <a href="/shop/mats/">Mats</a>
+            <a href="/shop/mats/">Tatami mats</a>
             <a href="/academy-orders/">Academy orders</a>
           </div>
         </div>
         <div class="footer-col">
-          <span class="mono">Train</span>
+          <span class="mono">Learn</span>
           <div class="footer-links">
             <a href="/seminars/">Seminars</a>
-            <a href="/blueprints/">Blueprints</a>
-            <a href="/planner">Pressure Planner</a>
-            <a href="/mastery-method">Mastery Method</a>
+            <a href="/blueprints/">Pressure Blueprint</a>
+            <a href="/mastery-method/">Mastery Method</a>
           </div>
         </div>
         <div class="footer-col">
-          <span class="mono">Company</span>
+          <span class="mono">Help</span>
           <div class="footer-links">
             <a href="/contact/">Contact</a>
             <a href="/privacy-policy.html">Privacy policy</a>
-            <a href="/">Home</a>
           </div>
         </div>
       </div>
-      <div class="footer-micro">
-        <span>Pressure first. Noise second.</span>
-        <span>&copy; 2026 The Pressure Academy</span>
-      </div>
+      <div class="footer-micro"><span>&copy; 2026 The Pressure Academy</span></div>
     </footer>
 
     <script type="module">
@@ -159,7 +148,7 @@
       function notOpenState() {
         document.title = "Seminar not open | The Pressure Academy";
         main.innerHTML = `
-        <section class="page-hero">
+        <section class="page-hero event-state-masthead" data-house-watermark>
           <div class="container">
             <span class="kicker">Seminars</span>
             <h1>This event is not open.</h1>
@@ -177,7 +166,7 @@
       function closedState(ev) {
         document.title = `${ev.title}. closed | The Pressure Academy`;
         main.innerHTML = `
-        <section class="page-hero">
+        <section class="page-hero event-state-masthead" data-house-watermark>
           <div class="container">
             <span class="kicker">Seminars</span>
             <h1>${escapeHtml(ev.title)} has closed.</h1>
@@ -293,9 +282,9 @@
         ].filter((d) => d.value);
 
         main.innerHTML = `
-        <section class="page-hero">
+        <section class="page-hero event-state-masthead" data-house-watermark>
           <div class="container">
-            <span class="kicker">${escapeHtml([ev.city, "live event"].filter(Boolean).join(". ")) || "Live event"}</span>
+            <span class="kicker">${escapeHtml(["Academy seminars", ev.city].filter(Boolean).join(" / "))}</span>
             <h1>${escapeHtml(ev.headline || ev.title)}</h1>
             ${ev.subheadline ? `<p class="lead">${escapeHtml(ev.subheadline)}</p>` : ""}
             ${

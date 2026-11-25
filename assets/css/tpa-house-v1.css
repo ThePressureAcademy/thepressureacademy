@@ -1,0 +1,73 @@
+/* Parent site identity. The watermark uses the approved house artwork. */
+:root {
+  --house-paper: #f5f2e9;
+  --house-ink: #191c17;
+  --house-rule: #45483e;
+  --house-copper: #c45b28;
+}
+.site-header {
+  background: var(--house-ink);
+  border-bottom: 1px solid var(--house-rule);
+}
+.site-header .brand-lockup, .site-footer .brand-lockup { gap: .45rem; }
+.site-header .brand-mark, .site-footer .brand-mark {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 3.1rem;
+  width: 3.1rem;
+  height: 3.1rem;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.site-header .brand-copy strong, .site-footer .brand-copy strong { color: #fcf7ea; }
+.site-header .nav-links a, .site-header .mobile-nav a { font-weight: 550; }
+.site-header .nav-links a[aria-current="page"], .site-header .mobile-nav a[aria-current="page"] {
+  text-decoration-color: #f39b6d;
+  text-decoration-thickness: 2px;
+}
+.site-footer { background: #171a15; color: var(--house-paper); border-top: 1px solid var(--house-rule); }
+.site-footer .footer-micro { border-color: var(--house-rule); }
+.line-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  line-height: 1.15;
+  font-weight: 680;
+}
+.line-signature img { flex: 0 0 auto; display: block; object-fit: contain; }
+[data-house-watermark] {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+[data-house-watermark]::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: var(--house-mark-size, clamp(10rem, 28vw, 27rem));
+  aspect-ratio: 1;
+  right: var(--house-mark-right, 3%);
+  top: var(--house-mark-top, 0);
+  background: url('/assets/logos/TPA_House_Mark_mono.svg') center / contain no-repeat;
+  opacity: var(--house-mark-opacity, .24);
+  pointer-events: none;
+}
+@media (max-width: 700px) {
+  [data-house-watermark]::after {
+    width: var(--house-mark-size, clamp(6rem, 26vw, 11rem));
+    right: var(--house-mark-right, -.8rem);
+    opacity: var(--house-mark-opacity, .16);
+  }
+}
+@media (max-width: 440px) {
+  .site-header .brand-mark { width: 2.35rem; height: 2.35rem; flex-basis: 2.35rem; }
+}
+@media (scripting: none) and (max-width: 980px) {
+  .site-header { position: static; }
+  .site-header .menu-button { display: none; }
+  .site-header .mobile-nav { display: flex; flex-flow: row wrap; max-height: none; gap: 0; padding: .25rem 4vw; }
+}
+@media (forced-colors: active), print {
+  [data-house-watermark]::after { display: none; }
+}

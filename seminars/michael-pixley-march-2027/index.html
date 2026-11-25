@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-seminars-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-pixley-collab-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-shop-train-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -40,14 +42,12 @@
           <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
           <span class="brand-copy">
             <strong>The Pressure Academy</strong>
-            <span>Built under pressure</span>
           </span>
         </a>
         <nav class="header-nav" aria-label="Primary">
           <div class="nav-links">
-            <a href="/shop/apparel/">Apparel</a>
-            <a href="/shop/mats/">Tatami mats</a>
-            <a href="/seminars/">Seminars</a>
+            <a href="/shop/">Shop</a>
+            <a href="/seminars/" aria-current="location">Seminars</a>
             <a href="/academy-orders/">Academy orders</a>
             <a href="/contact/">Contact</a>
           </div>
@@ -60,13 +60,11 @@
         </div>
       </div>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
-        <a href="/shop/">All pre-orders</a>
-        <a href="/shop/apparel/">Apparel</a>
-        <a href="/shop/mats/">Tatami mats</a>
-        <a href="/seminars/">Seminars</a>
+        <a href="/shop/">Shop</a>
+        <a href="/seminars/" aria-current="location">Seminars</a>
         <a href="/academy-orders/">Academy orders</a>
         <a href="/contact/">Contact</a>
-        <a href="/blueprints/">Blueprints</a>
+        <a href="/#academy-family">Academy family</a>
       </nav>
     </header>
 
@@ -75,7 +73,7 @@
         <h2 id="return-title">Your Pixley booking</h2>
         <p>Check your email for your payment details. For help with your booking or apparel sizes, <a href="/contact/">contact The Pressure Academy</a>.</p>
       </section>
-      <section class="pixley-poster">
+      <section class="pixley-poster seminar-detail">
         <div class="container pixley-poster-grid">
           <div>
             <p class="kicker">Two-day grappling seminar · March 2027</p>
@@ -87,8 +85,8 @@
               <a class="btn-ghost" href="#group-request">Request a semi-private</a>
             </div>
           </div>
-          <aside class="pixley-edition">
-            <p class="kicker">Session prices</p>
+          <aside class="pixley-edition seminar-ticket" data-house-watermark>
+            <h2 class="ticket-heading">Session prices</h2>
             <dl class="pixley-prices">
               <div><dt>One seminar day</dt><dd>$150 AUD <small>per person</small></dd></div>
               <div><dt>Both seminar days</dt><dd>$300 AUD <small>per person</small></dd></div>
@@ -221,45 +219,35 @@
         <div class="footer-col">
           <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
             <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
-            <span class="brand-copy">
-              <strong>The Pressure Academy</strong>
-              <span>Built under pressure</span>
-            </span>
+            <span class="brand-copy"><strong>The Pressure Academy</strong></span>
           </a>
-          <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Plan your life. Train with intent. Turn pressure into progress.
-          </p>
+          <div class="footer-links"><a href="/#academy-family">Meet the Academy family</a></div>
         </div>
         <div class="footer-col">
           <span class="mono">Shop</span>
           <div class="footer-links">
             <a href="/shop/apparel/">Pressure Tested apparel</a>
-            <a href="/shop/mats/">Mats</a>
+            <a href="/shop/mats/">Tatami mats</a>
             <a href="/academy-orders/">Academy orders</a>
           </div>
         </div>
         <div class="footer-col">
-          <span class="mono">Train</span>
+          <span class="mono">Learn</span>
           <div class="footer-links">
             <a href="/seminars/">Seminars</a>
-            <a href="/blueprints/">Blueprints</a>
-            <a href="/planner">Pressure Planner</a>
-            <a href="/mastery-method">Mastery Method</a>
+            <a href="/blueprints/">Pressure Blueprint</a>
+            <a href="/mastery-method/">Mastery Method</a>
           </div>
         </div>
         <div class="footer-col">
-          <span class="mono">Company</span>
+          <span class="mono">Help</span>
           <div class="footer-links">
             <a href="/contact/">Contact</a>
             <a href="/privacy-policy.html">Privacy policy</a>
-            <a href="/">Home</a>
           </div>
         </div>
       </div>
-      <div class="footer-micro">
-        <span>Pressure first. Noise second.</span>
-        <span>&copy; 2026 The Pressure Academy</span>
-      </div>
+      <div class="footer-micro"><span>&copy; 2026 The Pressure Academy</span></div>
     </footer>
 
     <script type="module" src="/js/lib/pixley-seminar.js"></script>
