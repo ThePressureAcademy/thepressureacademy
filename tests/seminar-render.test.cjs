@@ -79,33 +79,67 @@ test('Pixley requests have a crawlable event page and two native submission path
   assert.deepEqual([...forms[1].matchAll(/<option value="(\d+)"/g)].map(m => +m[1]), [1, 2, 3, 4, 5, 6]);
 });
 
-test('seminar total respects selected days, attendee count and capacity', () => {
-  const people = { valueAsNumber: 1 };
-  const days = { value: '' };
-  const listeners = {};
-  const form = { elements: { people, days }, addEventListener(type, handler) { listeners[type] = handler; } };
-  const subtotal = { hidden: false, textContent: '' };
+test('day and group requests quote admission and both optional garments independently', () => {
+  const catalog = fs.readFileSync(path.join(root, 'js/config/pixley-collab.mjs'), 'utf8').replace(/^export /gm, '');
+  const elements = Object.fromEntries([
+    'request_type', 'people', 'days', 'group_size', 'tee_quantity', 'rashguard_quantity',
+    'tee_sizes', 'rashguard_sizes', 'admission_aud', 'apparel_aud', 'estimated_total_aud',
+  ].map(name => [name, { value: '', valueAsNumber: 0, max: '99', closest() { return this; } }]));
+  const output = { replaceChildren(...rows) { this.rows = rows; } };
+  const form = { elements, querySelector: () => output };
   const document = {
-    getElementById(id) { return id === 'pixley-days-form' ? form : subtotal; },
-    querySelectorAll() { return []; },
+    querySelectorAll: () => [],
+    createElement: () => ({ append(label, amount) { this.label = label; this.amount = amount.textContent; } }),
   };
   const context = vm.createContext({
-    document, initCart() {}, initMobileNav() {}, enhanceCaptureForms() {}, track() {}, EVENTS: {}, queueMicrotask,
+    document, window: { addEventListener() {} }, initMobileNav() {}, enhanceCaptureForms() {},
+    track() {}, EVENTS: {}, form,
   });
-  vm.runInContext(config, context);
+  vm.runInContext(config + '\n' + catalog, context);
   const script = fs.readFileSync(path.join(root, 'js/lib/pixley-seminar.js'), 'utf8').replace(/^import .*;$/gm, '');
   vm.runInContext(script, context);
-  assert.equal(subtotal.hidden, true);
-  for (const [daySelection, count, amount] of [['Day 1', 1, '$150'], ['Day 2', 2, '$300'], ['Both days', 2, '$600'], ['Both days', 20, '$6,000']]) {
-    days.value = daySelection;
-    people.valueAsNumber = count;
-    listeners.input();
-    assert.equal(subtotal.hidden, false);
-    assert.ok(subtotal.textContent.includes(amount + ' AUD'));
+  const update = () => vm.runInContext('updateQuote(form)', context);
+  elements.request_type.value = 'seminar-days';
+  for (const [day, people, tees, rashguards, admission, total] of [
+    ['Day 1', 1, 0, 0, 150, 150], ['Day 1', 1, 1, 0, 150, 219], ['Day 2', 1, 0, 1, 150, 229],
+    ['Both days', 1, 1, 1, 300, 448], ['Both days', 2, 2, 1, 600, 817], ['Day 2', 20, 0, 0, 3000, 3000],
+  ]) {
+    elements.days.value = day;
+    elements.people.valueAsNumber = people;
+    elements.tee_quantity.valueAsNumber = tees;
+    elements.rashguard_quantity.valueAsNumber = rashguards;
+    update();
+    assert.equal(output.hidden, false);
+    assert.equal(elements.admission_aud.value, admission.toFixed(2));
+    assert.equal(elements.apparel_aud.value, (total - admission).toFixed(2));
+    assert.equal(elements.estimated_total_aud.value, total.toFixed(2));
+    assert.equal(elements.tee_sizes.disabled, tees === 0);
+    assert.equal(elements.rashguard_sizes.disabled, rashguards === 0);
   }
-  for (const outOfRange of [0, 21, 1.5, NaN]) {
-    people.valueAsNumber = outOfRange;
-    listeners.input();
-    assert.equal(subtotal.hidden, true);
+  for (const invalid of [0, 21, 1.5, NaN]) {
+    elements.people.valueAsNumber = invalid;
+    update();
+    assert.equal(output.hidden, true);
+    assert.equal(elements.estimated_total_aud.disabled, true);
+  }
+  elements.request_type.value = 'semi-private-group';
+  elements.group_size.value = '6';
+  elements.tee_quantity.valueAsNumber = 1;
+  elements.rashguard_quantity.valueAsNumber = 2;
+  update();
+  assert.equal(elements.estimated_total_aud.value, '1227.00');
+  assert.deepEqual(Array.from(output.rows, row => row.amount), ['$1,000', '$69', '$158', '$1,227 AUD']);
+  for (const invalid of [-1, 1.5, 100, NaN]) {
+    elements.tee_quantity.valueAsNumber = invalid;
+    update();
+    assert.equal(output.hidden, true);
+  }
+  const catalogItems = vm.runInContext('PIXLEY_ADDONS', context);
+  for (const form of pixleyHtml.matchAll(/<form\b[\s\S]*?<\/form>/g)) {
+    for (const item of catalogItems) {
+      assert.ok(form[0].includes('+$' + item.priceCents / 100 + ' AUD each'));
+      assert.ok(form[0].includes('name="' + item.id + '_quantity"'));
+      assert.ok(form[0].includes('name="' + item.id + '_sizes"'));
+    }
   }
 });

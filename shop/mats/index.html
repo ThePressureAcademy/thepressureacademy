@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
     <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
-    <link rel="stylesheet" href="/assets/css/tpa-tatami-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-tatami-v2.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -76,7 +76,7 @@
             <span class="kicker">Mat pre-orders</span>
             <h1 id="mat-title">Tatami mats</h1>
             <p class="tatami-price"><strong>AUD $138</strong> per 2 × 1 m mat</p>
-            <p class="lead">Ten mats cover 20 m². Start there, then add one mat at a time to fit your floor. We’ll check availability and quote delivery to your location.</p>
+            <p class="lead">Ten mats cover 20 m². Choose from five colours and add one mat at a time to fit your floor. We’ll quote delivery to your location.</p>
             <div class="hero-actions">
               <a class="btn" href="#mat-enquiry">Request a mat pre-order</a>
               <a class="btn-ghost" href="#calculator">Calculate my floor</a>
@@ -95,7 +95,7 @@
             <div>
               <h2 id="order-title">Your mat pre-order</h2>
               <p>Minimum 10 mats · 20 m² · AUD $1,380 before freight.</p>
-              <p class="muted">Send your quantity and delivery location. We’ll email you about availability, freight and timing before you decide whether to order. No payment is taken here.</p>
+              <p class="muted">Choose your mat colour and quantity. We’ll email you about availability, freight and timing before you decide whether to order. No payment is taken here.</p>
               <p class="muted">Outside Australia? Enter your destination and we’ll check whether delivery is available.</p>
             </div>
             <form class="capture-form" id="mat-request" data-capture="mat-enquiry"
@@ -108,6 +108,21 @@
               <input type="hidden" name="currency" value="AUD" />
               <input type="hidden" name="unit_price" value="138" />
               <input type="hidden" name="calculator_result" id="calc-payload" disabled />
+              <fieldset class="mat-colours" id="mat-colours" aria-describedby="mat-colour-help">
+                <legend>Mat colour</legend>
+                <div class="mat-colour-options">
+                  <label><input type="radio" name="mat_colour" value="Ruby Red" required /><span class="mat-chip ruby" aria-hidden="true"></span>Ruby Red</label>
+                  <label><input type="radio" name="mat_colour" value="Matte White" required /><span class="mat-chip white" aria-hidden="true"></span>Matte White</label>
+                  <label><input type="radio" name="mat_colour" value="Jet Black" required /><span class="mat-chip black" aria-hidden="true"></span>Jet Black</label>
+                  <label><input type="radio" name="mat_colour" value="Rust Orange" required /><span class="mat-chip orange" aria-hidden="true"></span>Rust Orange</label>
+                  <label><input type="radio" name="mat_colour" value="Night Grey" required /><span class="mat-chip grey" aria-hidden="true"></span>Night Grey</label>
+                  <label><input id="other-mat-colour" type="radio" name="mat_colour" value="Other colour enquiry" required />Other colour</label>
+                </div>
+                <p id="mat-colour-help" class="form-help">Swatches are approximate. For other colours, ask in this request or <a href="/contact/">contact us</a>.</p>
+              </fieldset>
+              <label id="mat-colour-details">Colour requested for an “Other colour” enquiry
+                <input type="text" name="requested_colour" maxlength="120" />
+              </label>
               <label>Number of mats
                 <input type="number" name="quantity" id="mat-quantity" inputmode="numeric" value="10" min="10" step="1" required aria-describedby="quantity-help" />
               </label>

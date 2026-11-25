@@ -39,3 +39,13 @@ test("native mat request keeps the confirmed offer, minimum and destination with
   }
   assert.match(page, /AUD \$1,380 before freight/);
 });
+
+test("the native request sends the catalogue mat colour or a separate custom enquiry", () => {
+  const colours = ["Ruby Red", "Matte White", "Jet Black", "Rust Orange", "Night Grey"];
+  assert.deepEqual(Array.from(vm.runInContext("tatamiMat.colours", context)), colours);
+  const form = page.match(/<form[^>]*id="mat-request"[\s\S]*?<\/form>/)[0];
+  const choices = [...form.matchAll(/type="radio" name="mat_colour" value="([^"]+)" required/g)];
+  assert.deepEqual(choices.map(choice => choice[1]), [...colours, "Other colour enquiry"]);
+  assert.match(form, /name="requested_colour"/);
+  assert.match(form, /<a href="\/contact\/">contact us<\/a>/);
+});

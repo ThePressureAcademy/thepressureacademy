@@ -17,7 +17,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thepressureacademy.com/shop/apparel/" />
-    <meta property="og:image" content="https://thepressureacademy.com/assets/media/pt-tee-back-v1.webp" />
+    <meta property="og:image" content="https://thepressureacademy.com/assets/media/pt-tee-back-cutout-v2.webp" />
     <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-media.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
     <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
-    <link rel="stylesheet" href="/assets/css/tpa-apparel-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-apparel-v2.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -71,28 +71,32 @@
     </header>
 
     <main id="main-content" tabindex="-1" class="apparel">
-      <div class="container">
+      <div class="apparel-showcase">
+        <div class="container">
         <header class="apparel-intro">
           <div>
             <p class="kicker">Apparel pre-orders</p>
             <h1>Pressure Tested<span>.</span></h1>
           </div>
-          <p>Tees and hoodies, in standard and cropped cuts. Explore the first drop, choose your piece and request your size. All prices are in Australian dollars.</p>
+          <p>Explore the back print on the charcoal tee and the raised lettering on the rust hoodie. Choose a full-length or cropped cut.</p>
         </header>
 
         <section id="range" class="apparel-range" aria-label="The first drop">
           <article id="tee" class="apparel-piece">
             <fieldset class="piece-gallery">
-              <legend class="apparel-sr">Choose a view of the Pressure Tested tee</legend>
-              <input class="apparel-sr" type="radio" name="tee-view" id="tee-back" checked />
-              <input class="apparel-sr" type="radio" name="tee-view" id="tee-front" />
+              <legend class="apparel-sr">Choose a view of the full-length Pressure Tested tee</legend>
+              <input class="gallery-radio" type="radio" name="tee-view" id="tee-back" aria-controls="tee-back-panel" checked />
+              <input class="gallery-radio" type="radio" name="tee-view" id="tee-front" aria-controls="tee-front-panel" />
+              <input class="gallery-radio" type="radio" name="tee-view" id="tee-print" aria-controls="tee-print-panel" />
               <div class="piece-photos">
-                <img class="back-photo" src="/assets/media/pt-tee-back-v1.webp" alt="Back of the charcoal tee with a cream patterned emblem around the Pressure Tested lettering" width="864" height="1152" fetchpriority="high" decoding="async" />
-                <img class="front-photo" src="/assets/media/pt-tee-front-v1.webp" alt="Front of the same charcoal tee with bold cream Pressure Tested lettering across the chest" width="864" height="1152" decoding="async" loading="lazy" />
+                <div class="gallery-view back-view" id="tee-back-panel"><img fetchpriority="high" src="/assets/media/pt-tee-back-cutout-v2.webp" srcset="/assets/media/pt-tee-back-cutout-sm-v2.webp 540w, /assets/media/pt-tee-back-cutout-v2.webp 1086w" sizes="(max-width: 670px) 90vw, (max-width: 1360px) 46vw, 604px" width="1086" height="1448" alt="Back of the charcoal tee with the full cream print" decoding="async" /></div>
+                <div class="gallery-view front-view" id="tee-front-panel"><img loading="lazy" src="/assets/media/pt-tee-front-cutout-v2.webp" srcset="/assets/media/pt-tee-front-cutout-sm-v2.webp 540w, /assets/media/pt-tee-front-cutout-v2.webp 1086w" sizes="(max-width: 670px) 90vw, (max-width: 1360px) 46vw, 604px" width="1086" height="1448" alt="Front of the charcoal tee with cream chest lettering and orange hem mark" decoding="async" /></div>
+                <div class="gallery-view print-view" id="tee-print-panel"><img loading="lazy" src="/assets/media/pt-tee-back-cutout-v2.webp" srcset="/assets/media/pt-tee-back-cutout-sm-v2.webp 540w, /assets/media/pt-tee-back-cutout-v2.webp 1086w" sizes="(max-width: 670px) 184vw, (max-width: 1360px) 90vw, 1040px" width="1086" height="1448" alt="Close-up of the cream Pressure Tested lettering inside the patterned oval" decoding="async" /></div>
               </div>
               <div class="gallery-tabs">
                 <label for="tee-back">Back</label>
                 <label for="tee-front">Front</label>
+                <label for="tee-print">Print detail</label>
               </div>
             </fieldset>
             <div class="piece-copy">
@@ -110,9 +114,22 @@
             </div>
           </article>
           <article id="hoodie" class="apparel-piece">
-            <figure class="piece-photos">
-              <img src="/assets/media/pt-hoodie-back-v1.webp" alt="Back of the rust hoodie showing textured Pressure Tested lettering above a tonal face motif" width="864" height="1152" loading="lazy" decoding="async" />
-            </figure>
+            <fieldset class="piece-gallery">
+              <legend class="apparel-sr">Choose a view of the full-length Pressure Tested hoodie</legend>
+              <input class="gallery-radio" type="radio" name="hoodie-view" id="hoodie-back" aria-controls="hoodie-back-panel" checked />
+              <input class="gallery-radio" type="radio" name="hoodie-view" id="hoodie-lettering" aria-controls="hoodie-lettering-panel" />
+              <input class="gallery-radio" type="radio" name="hoodie-view" id="hoodie-motif" aria-controls="hoodie-motif-panel" />
+              <div class="piece-photos">
+                <div class="gallery-view back-view" id="hoodie-back-panel"><img loading="lazy" src="/assets/media/pt-hoodie-back-cutout-v2.webp" srcset="/assets/media/pt-hoodie-back-cutout-sm-v2.webp 540w, /assets/media/pt-hoodie-back-cutout-v2.webp 1086w" sizes="(max-width: 670px) 90vw, (max-width: 1360px) 46vw, 604px" width="1086" height="1448" alt="Back of the rust hoodie with raised lettering and a tonal face motif" decoding="async" /></div>
+                <div class="gallery-view lettering-view" id="hoodie-lettering-panel"><img loading="lazy" src="/assets/media/pt-hoodie-back-cutout-v2.webp" srcset="/assets/media/pt-hoodie-back-cutout-sm-v2.webp 540w, /assets/media/pt-hoodie-back-cutout-v2.webp 1086w" sizes="(max-width: 670px) 184vw, (max-width: 1360px) 90vw, 1040px" width="1086" height="1448" alt="Close-up of the textured Pressure Tested lettering across the hoodie shoulders" decoding="async" /></div>
+                <div class="gallery-view motif-view" id="hoodie-motif-panel"><img loading="lazy" src="/assets/media/pt-hoodie-back-cutout-v2.webp" srcset="/assets/media/pt-hoodie-back-cutout-sm-v2.webp 540w, /assets/media/pt-hoodie-back-cutout-v2.webp 1086w" sizes="(max-width: 670px) 184vw, (max-width: 1360px) 90vw, 1040px" width="1086" height="1448" alt="Close-up of the tonal face artwork below the hoodie lettering" decoding="async" /></div>
+              </div>
+              <div class="gallery-tabs">
+                <label for="hoodie-back">Back</label>
+                <label for="hoodie-lettering">Lettering</label>
+                <label for="hoodie-motif">Motif detail</label>
+              </div>
+            </fieldset>
             <div class="piece-copy">
               <p class="piece-colour">Pictured · Rust / Tonal</p>
               <h2>Pressure Tested Hoodie</h2>
@@ -129,6 +146,9 @@
           </article>
         </section>
 
+        </div>
+      </div>
+      <div class="container">
         <section class="apparel-request" id="preorder" aria-labelledby="request-title">
           <div id="drop-list">
             <p class="kicker">Pre-order request</p>
