@@ -6,14 +6,14 @@
     <title>Blueprints | The Pressure Academy</title>
     <meta
       name="description"
-      content="Explore the Pressure Blueprint grappling curriculum and join the release list for the core system."
+      content="Preview a butterfly guard lesson and request the free Pressure Blueprint coach’s PDF. Ten classes cover 30 white-to-blue-belt grappling movements."
     />
     <link rel="canonical" href="https://thepressureacademy.com/blueprints/" />
     <meta property="og:site_name" content="The Pressure Academy" />
     <meta property="og:title" content="Blueprints | The Pressure Academy" />
     <meta
       property="og:description"
-      content="Explore a grappling curriculum built around position, pressure and decision-making."
+      content="Ten classes for grappling coaches. Read the butterfly guard lesson and request the free 30-movement PDF."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thepressureacademy.com/blueprints/" />
@@ -76,13 +76,13 @@
         <div class="container bp-hero-grid">
           <div>
             <span class="line-signature"><img src="/assets/logos/Pressure_Blueprint_Mark.svg" alt="" width="56" height="56" /><span>Pressure Blueprint</span></span>
-            <h1>Study the position.<br />See your next move.</h1>
+            <h1>Coach the next<br />decision.</h1>
             <p class="lead">
-              The Pressure Blueprint is a grappling curriculum in development. It connects positions, pressure and decisions so you can give each training session a clear focus.
+              Give your class a position and a problem to solve. The Core System links 30 white-to-blue-belt movements across ten adult grappling classes, from takedowns to recognising a submission and releasing on the tap.
             </p>
             <div class="hero-actions">
-              <a class="btn" href="/blueprints/pressure-blueprint-core/">Explore the core system</a>
-              <a class="btn-ghost" href="/seminars/">Explore live seminars</a>
+              <a class="btn" href="/blueprints/pressure-blueprint-core/">Preview the core system</a>
+              <a class="btn-ghost" href="/blueprints/pressure-blueprint-core/#request">Request the free PDF</a>
             </div>
           </div>
           <figure>
@@ -104,38 +104,11 @@
             <h2 id="library-title">Blueprint library</h2>
           </div>
           <div class="grid-2" id="blueprint-grid">
-            <p><a class="text-link" href="/blueprints/pressure-blueprint-core/">Explore the core grappling system</a></p>
+            <p><a class="text-link" href="/blueprints/pressure-blueprint-core/">Preview the Core System and request the free coach’s PDF</a></p>
           </div>
         </div>
       </section>
 
-      <section class="section-tight">
-        <div class="container">
-          <div class="panel">
-            <span class="kicker">A clearer way to study your training</span>
-            <div class="grid-3">
-              <div>
-                <h3>Know what to work on</h3>
-                <p class="muted">
-                  The planned curriculum connects the position, the purpose of the pressure and the next decision.
-                </p>
-              </div>
-              <div>
-                <h3>Review between sessions</h3>
-                <p class="muted">
-                  Video and written positional maps are planned together, giving you more than one way to revisit the material.
-                </p>
-              </div>
-              <div>
-                <h3>One system at a time</h3>
-                <p class="muted">
-                  Choose a focused area to study and take it back to your usual training and coaching.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -205,12 +178,12 @@
             (b) => `
           <article class="card">
             <span class="card-mark"><img src="/assets/logos/Pressure_Blueprint_Mark.svg" alt="" /></span>
-            ${b.status === "in-development" ? '<span class="badge">In development</span>' : ""}
+            ${b.status === "free-on-request" ? '<span class="badge">Free on request</span>' : b.status === "in-development" ? '<span class="badge">In development</span>' : ""}
             <h3>${escapeHtml(b.title)}</h3>
             <p class="muted">${escapeHtml(b.promise)}</p>
             <span class="mono muted">${escapeHtml(b.format)}</span>
             <div class="card-cta"><a class="btn" href="/blueprints/${escapeHtml(b.slug)}/">${
-              b.status === "on-sale" ? "Get the blueprint" : "Details + waitlist"
+              b.status === "free-on-request" ? "Read a sample class" : b.status === "on-sale" ? "Get the blueprint" : "Details + waitlist"
             }</a></div>
           </article>`,
           )

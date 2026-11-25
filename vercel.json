@@ -101,6 +101,10 @@
       "dest": "/seminars/_event/index.html"
     },
     {
+      "src": "^/blueprints/pressure-blueprint-core/?$",
+      "dest": "/blueprints/pressure-blueprint-core/index.html"
+    },
+    {
       "src": "^/blueprints/([a-z0-9][a-z0-9-]*)/?$",
       "dest": "/blueprints/_blueprint/index.html"
     },

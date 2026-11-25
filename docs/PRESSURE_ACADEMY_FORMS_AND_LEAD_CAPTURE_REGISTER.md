@@ -19,7 +19,8 @@ The parent-site rows in this table post to `https://formspree.io/f/meerjgde`. En
 | `/seminars/[slug]` (status `interest`) | Per-event interest | `seminar-interest` (or config `leadCaptureIntent`) | config `source`, default `seminar-<slug>` | "No payment is taken on this page yet." | Low |
 | `/seminars/[slug]` (status `announced` / `open` without valid checkout) | Ticket updates | `seminar-registration` | config `source` / `seminar-<slug>` | Event updates. Joining does not reserve a ticket. | Low |
 | `/seminars/[slug]` (status `sold_out`) | Waitlist | `seminar-waitlist` | config `source` / `seminar-<slug>` | Hear about returned tickets. Joining does not guarantee a place. | Low |
-| `/blueprints/[slug]` | Release waitlist | `blueprint-waitlist` | `blueprint-<slug>` | One email at release | Low |
+| `/blueprints/pressure-blueprint-core/` | Free coach’s PDF (`request_type=core-pdf-request`) | `blueprint-waitlist` | `blueprint-pressure-blueprint-core` | The Academy emails the requested guide. | Reply to the supplied email with the current coach’s PDF attached. The request is not a marketing opt-in. |
+| `/blueprints/[slug]` (other unreleased titles) | Release waitlist | `blueprint-waitlist` | `blueprint-<slug>` | One email at release | Low |
 | `/campaigns/[slug]` | Campaign capture | from campaign config | from campaign config | Per campaign copy | Campaign entries must define both fields |
 | `/contact/` | General enquiry | `contact` | `contact-page` | Reply from a person | Low |
 | `/academy-orders/` | B2B / bulk enquiry | `academy-order-enquiry` | `academy-orders` | Scoped quote | Low |

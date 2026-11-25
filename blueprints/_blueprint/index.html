@@ -151,6 +151,8 @@
             </div>
           </div>
         </section>`;
+      } else if (bp.detailPath) {
+        location.replace(bp.detailPath + location.hash);
       } else {
         document.title = `${bp.title} | The Pressure Academy`;
         const onSale = bp.status === "on-sale" && bp.checkoutUrl;

@@ -1,0 +1,46 @@
+/* The public sample uses the same movement numbers as the printed coach's guide. */
+.bp-core .bp-core-hero {
+  --house-mark-size: clamp(9rem, 21vw, 21rem);
+  --house-mark-right: 18%;
+  --house-mark-top: 0;
+  --house-mark-opacity: .13;
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+.bp-library-link { display: inline-block; color: #5a493a; text-decoration: underline; text-underline-offset: .2em; margin-bottom: clamp(1.5rem, 4vw, 3.25rem); }
+.bp-heading, .bp-lesson-grid, .bp-request-grid { display: grid; align-items: start; gap: clamp(2rem, 7vw, 7rem); }
+.bp-heading { grid-template-columns: minmax(0, 1.6fr) minmax(13rem, .75fr); align-items: end; }
+.bp-heading .lead { max-width: 52ch; }
+.bp-core .aux-hero h1 { max-width: 11ch; }
+.bp-spec { padding: 0; margin: 0; color: #24271f; }
+.bp-spec > div { border-top: 1px solid #a1a291; padding: .85rem 0; }
+.bp-spec dt, .bp-number { font: 600 .9rem/1.4 var(--font-mono); letter-spacing: .03em; }
+.bp-spec dt { margin-bottom: .2rem; color: #804629; }
+.bp-spec dd { margin: 0; font-size: 1.1rem; line-height: 1.45; }
+.bp-lesson, .bp-request { padding-block: clamp(2.75rem, 6vw, 5.5rem); scroll-margin-top: 4.5rem; }
+.bp-lesson { background: #25291f; color: #faf5e8; }
+.bp-lesson .kicker { color: #ffc29c; }
+.bp-lesson-grid { grid-template-columns: minmax(0,.88fr) minmax(0,1.25fr); }
+.bp-core :is(.bp-lesson,.bp-request) h2 { font: 750 clamp(2.35rem, 4.6vw, 4.5rem)/1.02 var(--poster-face); letter-spacing: -.015em; margin: .6rem 0 1rem; }
+.bp-lesson header > p, .bp-request-grid > div > p { max-width: 52ch; font-size: 1.125rem; line-height: 1.55; margin: 0 0 1.15rem; }
+.bp-lesson header > p { color: #e2e4d7; }
+.bp-lesson .text-link { color: #ffc29c; text-underline-offset: .2em; }
+.bp-decisions { list-style: none; margin: 0; padding: 0; }
+.bp-decisions li { display: grid; grid-template-columns: 2.55rem minmax(0,1fr); gap: .9rem; padding: 1.15rem 0; border-top: 1px solid #767d6c; }
+.bp-number { width: 2.5rem; height: 2.5rem; display: grid; place-items: center; color: #ffd2b3; border: 1px solid #8e866f; }
+.bp-decisions h3, .bp-coach-note h3, .bp-request-form h3 { font-size: clamp(1.3rem, 2vw, 1.7rem); line-height: 1.15; margin: .28rem 0; }
+.bp-decisions p, .bp-coach-note p { margin: 0; line-height: 1.5; color: #e2e4d7; }
+.bp-coach-note { border-left: .18rem solid #d87a4b; padding: .15rem 0 .15rem 1rem; margin-top: 1.4rem; }
+.bp-request { background: #f1eee3; color: #22251c; }
+.bp-request-grid { grid-template-columns: 1.05fr 1fr; align-items: start; }
+.bp-request-grid > div > .bp-small { font-size: 1rem; color: #505344; }
+.bp-request .line-signature { color: #733b28; }
+.bp-request-form { align-self: start; padding: clamp(1.3rem, 3vw, 2.5rem); background: #20231d; color: #fff9ed; border-top: .2rem solid #cc6b38; }
+.bp-request-form h3, .bp-request-form p { margin: 0; }
+.bp-request-form .form-status:empty { display: none; }
+.bp-request-form .form-status { color: #ffeecc; }
+@media (max-width: 760px) {
+  .bp-heading, .bp-lesson-grid, .bp-request-grid { grid-template-columns: minmax(0,1fr); }
+  .bp-heading { gap: 1.8rem; }
+  .bp-spec > div { display: grid; grid-template-columns: 5rem 1fr; gap: .65rem; align-items: baseline; }
+  .bp-core .bp-core-hero { --house-mark-right: -.8rem; }
+}
