@@ -1,0 +1,51 @@
+.apparel-glimpse {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) auto;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: clamp(1rem, 5vw, 4.5rem);
+  margin-top: clamp(1.3rem, 4vw, 3.5rem);
+  padding: clamp(1.25rem, 3.6vw, 3.2rem) clamp(1.25rem, 6vw, 6rem);
+  border-block: 1px solid #a4a698;
+  color: #282d23;
+  text-decoration: none;
+}
+/* The circular crop frames the back print without enlarging the photograph. */
+.glimpse-detail {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 18rem);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #dedbd0;
+}
+.glimpse-detail img {
+  display: block;
+  position: absolute;
+  width: 252.5%;
+  max-width: none;
+  height: auto;
+  top: -5.625%;
+  left: -136.875%;
+}
+#first-look-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .5em;
+  font: 700 clamp(1.55rem, 3vw, 2.75rem)/1.05 var(--poster-face);
+}
+#first-look-link > span { color: #803d23; }
+.apparel-glimpse:is(:hover, :focus-visible) #first-look-link {
+  text-decoration: underline;
+  text-decoration-thickness: .065em;
+  text-underline-offset: .17em;
+}
+.apparel-glimpse:focus-visible { outline: 3px solid #803d23; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .apparel-glimpse {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding-inline: .5rem;
+  }
+}
