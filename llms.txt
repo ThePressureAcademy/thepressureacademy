@@ -6,10 +6,11 @@
 - https://thepressureacademy.com/ - Main homepage for The Pressure Academy and its public site entry point.
 - https://thepressureacademy.com/planner - Pressure Planner: TPA-branded public entry route. Bridges to the live Planner runtime currently hosted on Manus at planner.thepressureacademy.com. The full Planner application source is governed separately in 03_PRESSURE_PLANNER_APP/; this URL is the canonical brand surface.
 - https://thepressureacademy.com/privacy-policy.html - Privacy policy covering site forms, Mastery Method booking, scorecard submissions, and portal/session handling.
-- https://thepressureacademy.com/shop/ - Storefront hub: Pressure Tested apparel and academy-grade mats.
-- https://thepressureacademy.com/shop/apparel/ - Pressure Tested apparel line. First drop in development; release-list capture, no live checkout yet.
-- https://thepressureacademy.com/shop/mats/ - Jiu-jitsu mat systems with a floor-size calculator, freight expectations, and quote-based ordering.
-- https://thepressureacademy.com/seminars/ - Athlete-led seminar events. Events are announced only when locked; founding interest list.
+- https://thepressureacademy.com/shop/ - Storefront for pre-order requests. Physical goods are quoted for the requested destination. Prices shown in Australian dollars (AUD).
+- https://thepressureacademy.com/shop/apparel/ - Pressure Tested apparel pre-order requests. Tee AUD 69, crop tee AUD 65, hoodie AUD 129, crop hoodie AUD 109. Standard tee and hoodie photographs show the artwork. The Academy confirms availability and delivery before payment.
+- https://thepressureacademy.com/shop/mats/ - Tatami mat pre-order requests. Each 2 m × 1 m mat covers 2 m² and costs AUD 138. Minimum 10 mats (20 m²), AUD 1,380 before freight.
+- https://thepressureacademy.com/seminars/ - Seminar dates and event updates.
+- https://thepressureacademy.com/seminars/michael-pixley-march-2027/ - The Pressure Academy hosts Michael Pixley in Brisbane, Queensland, Australia, in March 2027. Two seminar days, each capped at 20, AUD 150 per person per day. A separate 90-minute semi-private is AUD 1,000 per group of up to six. Exact dates and venue address to be confirmed. Submit a booking request for a reply about availability.
 - https://thepressureacademy.com/blueprints/ - The Pressure Blueprint digital training systems. Core system in development; waitlist.
 - https://thepressureacademy.com/academy-orders/ - B2B path for academies, clubs, and schools: mat fit-outs, team apparel, scoped quotes.
 - https://thepressureacademy.com/contact/ - Contact and enquiry routing page.

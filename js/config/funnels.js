@@ -14,7 +14,8 @@
  *     "sold_out"  → waitlist capture
  *     "closed"    → archival closed message; hidden from the event board
  * - Numerical scarcity renders ONLY when BOTH `capacity` and `spotsRemaining`
- *   are real numbers maintained by the operator. Either missing = no numbers.
+ *   are real numbers maintained by the operator. A published per-day limit can
+ *   be described as capacity without implying how many places remain.
  * - Any absent field degrades honestly (see seminars/_event/index.html).
  * - Launch procedure: operator-maintained private First Seminar Launch Guide.
  */
@@ -59,6 +60,31 @@ export const seminars = [
     seoTitle: "Seminar updates | The Pressure Academy",
     seoDescription:
       "Get Pressure Academy seminar updates. Event and booking details are released with each announcement. No ticket is reserved and no payment is taken.",
+  },
+  {
+    slug: "michael-pixley-march-2027",
+    detailPath: "/seminars/michael-pixley-march-2027/",
+    status: "announced",
+    title: "Michael Pixley · Two-day seminar",
+    athleteName: "Michael Pixley",
+    dateLabel: "March 2027",
+    host: "The Pressure Academy",
+    city: "Brisbane",
+    region: "Queensland",
+    country: "Australia",
+    timeLabel: null,
+    venueLabel: null,
+    subheadline: "Choose one day, both days or a 90-minute semi-private group session.",
+    currency: "AUD",
+    dayPrice: 150,
+    dayCapacity: 20,
+    groupPrice: 1000,
+    groupCapacity: 6,
+    groupMinutes: 90,
+    spotsRemaining: null,
+    checkoutUrl: null,
+    leadCaptureIntent: "seminar-registration",
+    source: "seminar-michael-pixley-march-2027",
   },
 ];
 

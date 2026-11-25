@@ -1,0 +1,47 @@
+.tatami-intro {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: center;
+}
+.tatami-intro h1 { margin-bottom: 1rem; }
+.tatami-price { font-size: clamp(1.25rem, 2.1vw, 1.65rem); margin-bottom: .75rem; }
+.floor-plan {
+  margin: 0;
+  color: var(--text);
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border: 1px solid var(--line-strong);
+  background-color: var(--panel);
+  background-image: linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 1.25rem 1.25rem;
+}
+.floor-plan-grid { max-width: 21rem; margin: 0 auto; }
+.floor-plan-grid::before {
+  content: '';
+  display: block;
+  aspect-ratio: 5 / 4;
+  border: 1px solid var(--rust-bright);
+  background-color: #2d2926;
+  background-image: linear-gradient(90deg, var(--rust-bright) 1px, transparent 1px),
+    linear-gradient(var(--rust-bright) 1px, transparent 1px);
+  background-size: 20% 100%, 100% 50%;
+}
+.floor-plan figcaption {
+  margin: .7rem 0 0; padding: .3rem .5rem;
+  background: var(--panel); text-align: center;
+}
+.tatami-order-grid { gap: clamp(1.5rem, 5vw, 5rem); }
+.tatami-order-grid .capture-form { gap: 1rem; }
+.tatami-summary { margin: 0; padding: .85rem 1rem; border-left: 3px solid var(--rust-bright); background: var(--bg); }
+.tatami-sizer { border-top: 1px solid var(--line); padding-top: 2rem; }
+.tatami-sizer .capture-form { max-width: 40rem; padding: .75rem 0 1rem; }
+.tatami-sizer .capture-form button { justify-self: start; }
+.tatami-fit { padding-bottom: 1rem; }
+.tatami-fit p { color: var(--muted); }
+.tatami-fit button { text-decoration: underline; text-underline-offset: .25rem; }
+@media (max-width: 700px) {
+  .tatami-intro, .tatami-order-grid { grid-template-columns: minmax(0, 1fr); }
+  .floor-plan { max-width: 24rem; width: 100%; }
+  .floor-plan-grid { max-width: 15rem; }
+}

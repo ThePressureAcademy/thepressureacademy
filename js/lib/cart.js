@@ -6,9 +6,8 @@
  * checkout.provider === "none", the checkout CTA renders an honest gated
  * state — it never pretends payment exists.
  *
- * QA note: all catalogue entries are currently `status: "placeholder"`, so no
- * public "add to cart" path exists yet. The drawer and API are exercised via
- * `window.__tpaCart.add({...})` until the first live product lands.
+ * Pre-order requests go directly to the product or seminar form. Existing
+ * cart entries stay on this device and can still be reviewed or edited.
  */
 
 import { checkout } from "../config/commerce.js";
@@ -86,6 +85,7 @@ function subtotalCents(cart) {
 /* ---------- Drawer UI ---------- */
 
 let drawerEl = null;
+let returnFocus = null;
 
 function drawerMarkup() {
   return `
@@ -98,7 +98,9 @@ function drawerMarkup() {
     <div class="cart-items" data-cart-items></div>
     <div class="cart-foot">
       <div class="cart-subtotal" data-cart-subtotal></div>
-      <button type="button" class="btn btn-block" data-cart-checkout></button>
+      ${checkout.provider === "none"
+        ? '<a class="btn btn-block" href="/shop/">Browse pre-orders</a>'
+        : '<button type="button" class="btn btn-block" data-cart-checkout>Checkout</button>'}
       <p class="cart-note" data-cart-note></p>
     </div>
   </aside>`;
@@ -115,9 +117,11 @@ function renderDrawerContents() {
   if (!cart.items.length) {
     itemsEl.innerHTML = `
       <div class="cart-empty">
-        <p><strong>Nothing under load yet.</strong></p>
-        <p class="muted">First Pressure Tested drop is in development. Join the release list on the apparel page and you will get first access.</p>
-        <a class="btn-ghost" href="/shop/apparel/">Go to apparel</a>
+        <p><strong>Your cart is empty.</strong></p>
+        <p class="muted">Choose what you’re interested in to send a request.</p>
+        <a class="btn-ghost" href="/shop/apparel/#preorder">Request apparel</a>
+        <a class="btn-ghost" href="/shop/mats/#mat-enquiry">Request tatami mats</a>
+        <a class="btn-ghost" href="/seminars/michael-pixley-march-2027/">Request a seminar or group session</a>
       </div>`;
     subEl.textContent = "";
   } else {
@@ -128,7 +132,7 @@ function renderDrawerContents() {
         <div class="cart-line-copy">
           <strong>${escapeHtml(i.name)}</strong>
           <span class="muted">${[i.variant, i.size].filter(Boolean).map(escapeHtml).join(" / ") || ""}</span>
-          <span class="muted">${i.priceCents != null ? formatMoney(i.priceCents) : "Price locks at drop"}</span>
+          <span class="muted">${i.priceCents != null ? formatMoney(i.priceCents) : "Price to be confirmed"}</span>
         </div>
         <div class="cart-line-actions">
           <button type="button" data-qty-minus="${idx}" aria-label="Decrease quantity">&minus;</button>
@@ -141,20 +145,14 @@ function renderDrawerContents() {
       .join("");
     const { known, hasUnknown } = subtotalCents(cart);
     subEl.textContent = hasUnknown
-      ? "Subtotal confirmed at drop"
+      ? "Subtotal to be confirmed"
       : `Subtotal: ${formatMoney(known)}`;
   }
 
-  if (checkout.provider === "none") {
-    btn.textContent = "Checkout opens with the first drop";
-    btn.disabled = true;
-    note.textContent =
-      "No payment provider is connected yet. Nothing here is a purchase, a reservation, or a charge.";
-  } else {
-    btn.textContent = "Checkout";
-    btn.disabled = cart.items.length === 0;
-    note.textContent = "";
-  }
+  if (btn) btn.disabled = cart.items.length === 0;
+  note.textContent = checkout.provider === "none"
+    ? "We’ll confirm availability and any delivery costs before payment."
+    : "";
 }
 
 function renderCount() {
@@ -167,17 +165,21 @@ function renderCount() {
 }
 
 export function openDrawer() {
-  if (!drawerEl) return;
+  if (!drawerEl || !drawerEl.querySelector(".cart-drawer").hidden) return;
+  returnFocus = document.activeElement;
   drawerEl.querySelector(".cart-drawer").hidden = false;
   drawerEl.querySelector(".cart-overlay").hidden = false;
   document.body.classList.add("cart-open");
+  drawerEl.querySelector(".cart-x").focus();
 }
 
 export function closeDrawer() {
-  if (!drawerEl) return;
+  if (!drawerEl || drawerEl.querySelector(".cart-drawer").hidden) return;
   drawerEl.querySelector(".cart-drawer").hidden = true;
   drawerEl.querySelector(".cart-overlay").hidden = true;
   document.body.classList.remove("cart-open");
+  if (returnFocus?.isConnected) returnFocus.focus();
+  returnFocus = null;
 }
 
 function escapeHtml(value) {
@@ -212,7 +214,19 @@ export function initCart() {
   });
 
   document.addEventListener("keydown", (e) => {
+    const drawer = drawerEl.querySelector(".cart-drawer");
+    if (drawer.hidden) return;
     if (e.key === "Escape") closeDrawer();
+    if (e.key !== "Tab") return;
+    const controls = drawer.querySelectorAll("button:not(:disabled), a[href]");
+    const first = controls[0], last = controls[controls.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   document.querySelectorAll("[data-cart-open]").forEach((btn) =>
