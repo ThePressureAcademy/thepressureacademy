@@ -21,7 +21,7 @@ test('the free Core System uses its static preview before the generic Blueprint 
   assert.equal(match(path.slice(0, -1)).dest, path + 'index.html');
   assert.equal(match('/blueprints/another-title/').dest, '/blueprints/_blueprint/index.html');
   assert.match(page, /<section[^>]+id="preview"/);
-  assert.deepEqual([...page.matchAll(/href="([^"]+\.pdf)"/g)].map(m => m[1]), ['/assets/blueprints/pressure-blueprint-preview-v1.pdf']);
+  assert.deepEqual([...page.matchAll(/href="([^"]+\.pdf)"/g)].map(m => m[1]), ['/assets/blueprints/pressure-blueprint-preview-v2.pdf']);
 });
 
 test('native PDF requests post just the email and the governed inbox labels', () => {
