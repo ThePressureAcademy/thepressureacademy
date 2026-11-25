@@ -1,0 +1,43 @@
+.cut-options {
+  border-top: 1px solid #a6a899;
+  margin-block-start: 1rem;
+}
+.cut-options a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  min-height: 46px;
+  border-bottom: 1px solid #a6a899;
+  color: #33372e;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.cut-options strong {
+  color: #773b22;
+  font-size: .97rem;
+  white-space: nowrap;
+}
+.cut-options a:hover, .cut-options a:focus-visible { color: #833b27; }
+.capture-form label.fit-request {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  gap: .7rem;
+  cursor: pointer;
+}
+.capture-form .fit-request input { width: 1.25rem; height: 1.25rem; flex: none; }
+.apparel-request .team-path { margin-block-start: 1rem; }
+.estimate-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.4rem; }
+.estimate-actions > * { min-height: 44px; display: inline-flex; align-items: center; }
+.capture-form .quote-scope {
+  margin: 0;
+  min-width: 0;
+  border: 1px solid var(--line);
+  padding: .9rem;
+}
+.quote-scope legend { padding-inline: .3rem; color: var(--text); font-weight: 700; }
+.quote-scope .form-help { margin-block-start: .6rem; }
+.quote-scope[hidden] { display: none; }
+
+#mat-calc:not([hidden]) + .mat-manual { display: none; }

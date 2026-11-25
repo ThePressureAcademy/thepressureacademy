@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="/assets/css/tpa-apparel-v2.css" />
     <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-shop-train-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-order-options-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -48,7 +50,9 @@
           <div class="nav-links">
             <a href="/shop/" aria-current="location">Shop</a>
             <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/pressure-blueprint-core/">Coach’s PDF</a>
             <a href="/academy-orders/">Academy orders</a>
+            <a href="/mastery-method/">Family learning</a>
             <a href="/contact/">Contact</a>
           </div>
         </nav>
@@ -62,7 +66,9 @@
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
         <a href="/shop/" aria-current="location">Shop</a>
         <a href="/seminars/">Seminars</a>
+        <a href="/blueprints/pressure-blueprint-core/">Coach’s PDF</a>
         <a href="/academy-orders/">Academy orders</a>
+        <a href="/mastery-method/">Family learning</a>
         <a href="/contact/">Contact</a>
         <a href="/#academy-family">Academy family</a>
       </nav>
@@ -109,7 +115,7 @@
             <div class="piece-copy crop-cut" id="crop-tee">
               <h3>Pressure Tested Crop Tee</h3>
               <p class="piece-price">AUD $65 each</p>
-              <p>The cropped cut of the tee. Photo to follow.</p>
+              <p>A shorter hem than the full-length tee pictured above. You can request length and width measurements with your size enquiry.</p>
               <a class="btn-ghost" data-piece="pt-crop-tee" href="#preorder">Request the crop tee</a>
             </div>
           </article>
@@ -140,7 +146,7 @@
             <div class="piece-copy crop-cut" id="crop-hoodie">
               <h3>Pressure Tested Crop Hoodie</h3>
               <p class="piece-price">AUD $109 each</p>
-              <p>The cropped cut of the hoodie. Photo to follow.</p>
+              <p>A shorter hem than the full-length hoodie pictured above. You can request length and width measurements with your size enquiry.</p>
               <a class="btn-ghost" data-piece="pt-crop-hoodie" href="#preorder">Request the crop hoodie</a>
             </div>
           </article>
@@ -157,8 +163,9 @@
             <p class="apparel-terms">You decide after you receive the details. Sending a request is free and does not reserve stock.</p>
             <details id="sizing">
               <summary>Unsure of your size?</summary>
-              <p>Leave the size field blank. You can check the garment measurements before confirming.</p>
+              <p>Tick the measurements option below. We’ll confirm measurements for your preferred cut so you can compare with a piece you already wear. You can leave your size blank.</p>
             </details>
+            <p class="team-path"><a class="text-link" href="/academy-orders/?type=team-apparel#order-enquiry">Request a team apparel quote</a></p>
           </div>
           <form class="capture-form" id="apparel-preorder" data-capture="apparel-drop-list" data-success-message="Your apparel request was sent. We’ll email your size availability, delivery details and final total. No payment was taken." action="https://formspree.io/f/meerjgde" method="POST">
             <input type="hidden" name="intent" value="apparel-drop-list" />
@@ -180,6 +187,7 @@
               <label>Preferred size (optional)<input type="text" name="size" maxlength="60" placeholder="e.g. XL" /></label>
               <label>Quantity<input type="number" name="quantity" inputmode="numeric" min="1" step="1" value="1" required /></label>
             </div>
+            <label class="fit-request"><input type="checkbox" name="measurements_requested" value="yes" />Include garment measurements in my reply</label>
             <label>Delivery country or territory<input type="text" name="country" autocomplete="country-name" maxlength="120" required /></label>
             <div class="field-grid">
               <label>Your name<input type="text" name="name" autocomplete="name" maxlength="160" required /></label>

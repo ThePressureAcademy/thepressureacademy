@@ -90,9 +90,9 @@ let returnFocus = null;
 function drawerMarkup() {
   return `
   <div class="cart-overlay" data-cart-close hidden></div>
-  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-label="Cart" hidden>
+  <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
     <div class="cart-head">
-      <span class="kicker">Cart</span>
+      <span class="kicker" id="cart-title">${checkout.provider === "none" ? "Saved items" : "Cart"}</span>
       <button type="button" class="cart-x" data-cart-close aria-label="Close cart">&times;</button>
     </div>
     <div class="cart-items" data-cart-items></div>
@@ -117,7 +117,7 @@ function renderDrawerContents() {
   if (!cart.items.length) {
     itemsEl.innerHTML = `
       <div class="cart-empty">
-        <p><strong>Your cart is empty.</strong></p>
+        <p><strong>${checkout.provider === "none" ? "No saved items." : "Your cart is empty."}</strong></p>
         <p class="muted">Choose what you’re interested in to send a request.</p>
         <a class="btn-ghost" href="/shop/apparel/#preorder">Request apparel</a>
         <a class="btn-ghost" href="/shop/mats/#mat-enquiry">Request tatami mats</a>
@@ -158,6 +158,13 @@ function renderDrawerContents() {
 function renderCount() {
   const cart = load();
   const count = cart.items.reduce((n, i) => n + i.qty, 0);
+  document.querySelectorAll("[data-cart-open]").forEach((button) => {
+    const requestOnly = checkout.provider === "none";
+    button.hidden = requestOnly && count === 0;
+    button.setAttribute("aria-label", requestOnly ? "Open saved items" : "Open cart");
+    const label = button.querySelector("[data-cart-label]");
+    if (label) label.textContent = requestOnly ? "Saved items" : "Cart";
+  });
   document.querySelectorAll("[data-cart-count]").forEach((el) => {
     el.textContent = count > 0 ? String(count) : "";
     el.classList.toggle("has-items", count > 0);
@@ -178,7 +185,8 @@ export function closeDrawer() {
   drawerEl.querySelector(".cart-drawer").hidden = true;
   drawerEl.querySelector(".cart-overlay").hidden = true;
   document.body.classList.remove("cart-open");
-  if (returnFocus?.isConnected) returnFocus.focus();
+  if (returnFocus?.isConnected && !returnFocus.hidden) returnFocus.focus();
+  else document.querySelector(".site-header .brand-lockup")?.focus();
   returnFocus = null;
 }
 

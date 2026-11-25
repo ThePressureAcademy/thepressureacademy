@@ -173,7 +173,7 @@ export function initMobileNav() {
   const btn = document.querySelector(".menu-button");
   const nav = document.getElementById("mobile-nav");
   if (!btn || !nav) return;
-  const desktop = window.matchMedia("(min-width: 981px)");
+  const desktop = window.matchMedia("(min-width: 1051px)");
   function setOpen(open, returnFocus = false) {
     btn.setAttribute("aria-expanded", String(open));
     btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");

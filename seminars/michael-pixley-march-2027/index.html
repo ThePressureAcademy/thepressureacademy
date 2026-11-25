@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="/assets/css/tpa-pixley-collab-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-shop-train-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-pixley-session-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -48,7 +50,9 @@
           <div class="nav-links">
             <a href="/shop/">Shop</a>
             <a href="/seminars/" aria-current="location">Seminars</a>
+            <a href="/blueprints/pressure-blueprint-core/">Coach’s PDF</a>
             <a href="/academy-orders/">Academy orders</a>
+            <a href="/mastery-method/">Family learning</a>
             <a href="/contact/">Contact</a>
           </div>
         </nav>
@@ -62,7 +66,9 @@
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
         <a href="/shop/">Shop</a>
         <a href="/seminars/" aria-current="location">Seminars</a>
+        <a href="/blueprints/pressure-blueprint-core/">Coach’s PDF</a>
         <a href="/academy-orders/">Academy orders</a>
+        <a href="/mastery-method/">Family learning</a>
         <a href="/contact/">Contact</a>
         <a href="/#academy-family">Academy family</a>
       </nav>
@@ -78,21 +84,38 @@
           <div>
             <p class="kicker">Two-day grappling seminar · March 2027</p>
             <h1>Michael<br /><span>Pixley.</span></h1>
-            <p class="lead">Join the room for a day, come back for both, or bring your own group for 90 minutes with Michael Pixley.</p>
-            <p class="pixley-note"><strong>Hosted by The Pressure Academy</strong><br />Brisbane, Queensland, Australia. Exact dates, times and street address to be confirmed.</p>
-            <div class="hero-actions">
-              <a class="btn" href="#seminar-request">Choose a seminar day</a>
-              <a class="btn-ghost" href="#group-request">Request a semi-private</a>
+            <p class="lead">Train with Pixley in Brisbane, Queensland, Australia. Choose a public seminar day or a 90-minute session for your own group.</p>
+            <p class="pixley-note"><strong>Hosted by The Pressure Academy</strong><br />March 2027. We’ll confirm the exact dates, times and venue address before requesting payment.</p>
+            <div class="hero-actions"><a class="btn" href="#session-options">Compare sessions</a></div>
+            <p class="pixley-coach-record">Pixley won the 2019 NCAA Division II wrestling title at 184 lb and qualified for the 2024 ADCC World Championship at under 99 kg.</p>
+            <div class="pixley-record-links">
+              <a href="https://mckbearcats.com/news/2019/3/9/no-4-mens-wrestling-finishes-third-at-ncaa-wrestling-championships-pixley-wins-individual-title.aspx">McKendree wrestling result</a>
+              <a href="https://adcombat.com/adcc-events/adcc-west-coast-trials-2024-2nd-qualifier/">ADCC trials result</a>
             </div>
           </div>
-          <aside class="pixley-edition seminar-ticket" data-house-watermark>
-            <h2 class="ticket-heading">Session prices</h2>
-            <dl class="pixley-prices">
-              <div><dt>One seminar day</dt><dd>$150 AUD <small>per person</small></dd></div>
-              <div><dt>Both seminar days</dt><dd>$300 AUD <small>per person</small></dd></div>
-              <div><dt>90-minute semi-private</dt><dd>$1,000 AUD <small>for the group</small></dd></div>
+          <aside class="pixley-edition seminar-ticket" id="session-options" aria-labelledby="session-options-title" data-house-watermark>
+            <h2 class="ticket-heading" id="session-options-title">Choose your session.</h2>
+            <dl class="pixley-options">
+              <div>
+                <dt>One seminar day</dt>
+                <dd><strong>A$150 per person</strong><span>Join either public session. Each day is capped at 20.</span>
+                  <div class="pixley-choices"><a href="?session=day-1#seminar-request">Choose day 1</a><a href="?session=day-2#seminar-request">Choose day 2</a></div>
+                </dd>
+              </div>
+              <div>
+                <dt>Both seminar days</dt>
+                <dd><strong>A$300 per person</strong><span>Request the same attendees for both public sessions.</span>
+                  <div class="pixley-choices"><a href="?session=both-days#seminar-request">Choose both days</a></div>
+                </dd>
+              </div>
+              <div>
+                <dt>Semi-private group</dt>
+                <dd><strong>A$1,000 for the group</strong><span>90 minutes for one to six people. One organiser requests the session.</span>
+                  <div class="pixley-choices"><a href="#group-request">Choose semi-private</a></div>
+                </dd>
+              </div>
             </dl>
-            <a class="pixley-kit-link" href="#seminar-apparel">Optional Pixley apparel <span>Tee +$69 · Rashguard +$79 AUD</span></a>
+            <p class="pixley-option-kit">Optional Pressure Academy × Pixley tee <strong>+A$69</strong> or rashguard <strong>+A$79</strong> each, priced separately on either request.</p>
           </aside>
         </div>
       </section>
@@ -102,7 +125,7 @@
             <p class="kicker">Day 1 &amp; Day 2</p>
             <h2 id="seminar-title">Request seminar places.</h2>
             <p class="lead">Each day is capped at 20 people. Choose the days you want and how many people will attend.</p>
-            <p class="pixley-note">We’ll email you the dates and confirm availability before payment. You can choose your Pixley apparel when you pay. Sending this request is free and does not hold a place.</p>
+            <p class="pixley-note">We’ll email you the dates and confirm availability before payment. You can list any apparel you’d like in your request. Sending this request is free and does not hold a place.</p>
           </div>
           <form class="capture-form panel" data-capture="pixley-seminar-request" data-success-message="Your seminar request has been sent. We’ll email you about dates and availability. No place is held and no payment has been taken." action="https://formspree.io/f/meerjgde" method="post" id="pixley-days-form">
             <input type="hidden" name="intent" value="seminar-registration" />
@@ -123,24 +146,27 @@
                 <input name="people" type="number" inputmode="numeric" min="1" max="20" step="1" value="1" required />
               </label>
             </div>
-            <fieldset class="pixley-kit" id="seminar-apparel">
-              <legend>Pressure Academy × Pixley</legend>
-              <p>Add a tee or rashguard to your booking. Leave quantities at zero for training only.</p>
-              <label class="kit-choice">
-                <span><strong>Tee</strong><small>+$69 AUD each</small></span>
-                <span class="kit-qty">Qty<input name="tee_quantity" aria-label="Pixley tee quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
-              </label>
-              <label class="kit-sizes">Preferred tee sizes (optional)
-                <input name="tee_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
-              </label>
-              <label class="kit-choice">
-                <span><strong>Rashguard</strong><small>+$79 AUD each</small></span>
-                <span class="kit-qty">Qty<input name="rashguard_quantity" aria-label="Pixley rashguard quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
-              </label>
-              <label class="kit-sizes">Preferred rashguard sizes (optional)
-                <input name="rashguard_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
-              </label>
-            </fieldset>
+            <details class="pixley-kit-disclosure" id="seminar-apparel">
+              <summary>Optional Pixley apparel <span>Tee +A$69 · Rashguard +A$79</span></summary>
+              <fieldset class="pixley-kit">
+                <legend>Pressure Academy × Pixley</legend>
+                <p>Add a tee or rashguard to your booking. Leave quantities at zero for training only.</p>
+                <label class="kit-choice">
+                  <span><strong>Tee</strong><small>+$69 AUD each</small></span>
+                  <span class="kit-qty">Qty<input name="tee_quantity" aria-label="Pixley tee quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
+                </label>
+                <label class="kit-sizes">Preferred tee sizes (optional)
+                  <input name="tee_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
+                </label>
+                <label class="kit-choice">
+                  <span><strong>Rashguard</strong><small>+$79 AUD each</small></span>
+                  <span class="kit-qty">Qty<input name="rashguard_quantity" aria-label="Pixley rashguard quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
+                </label>
+                <label class="kit-sizes">Preferred rashguard sizes (optional)
+                  <input name="rashguard_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
+                </label>
+              </fieldset>
+            </details>
             <input type="hidden" name="admission_aud" disabled />
             <input type="hidden" name="apparel_aud" disabled />
             <input type="hidden" name="estimated_total_aud" disabled />
@@ -160,8 +186,8 @@
           <div>
             <p class="kicker">90-minute semi-private</p>
             <h2 id="group-title">Bring your group.</h2>
-            <p class="lead">This Brisbane session is $1,000 AUD in total for one group of up to six people. Use one request for the whole group.</p>
-            <p class="pixley-note">We’ll email the organiser to confirm the time and Brisbane venue address before payment. Your group can also choose Pixley apparel at checkout.</p>
+            <p class="lead">This Brisbane session is $1,000 AUD in total for one group of up to six people.</p>
+            <p class="pixley-note">We’ll email the organiser to confirm availability, time and venue before payment. One request covers the whole group. Apparel is optional and priced separately.</p>
           </div>
           <form class="capture-form panel" data-capture="pixley-group-request" data-success-message="Your semi-private request has been sent. We’ll email you about scheduling and availability. No session is held and no payment has been taken." action="https://formspree.io/f/meerjgde" method="post" id="pixley-group-form">
             <input type="hidden" name="intent" value="seminar-registration" />
@@ -180,24 +206,27 @@
                 <option value="6">6 people</option>
               </select>
             </label>
-            <fieldset class="pixley-kit">
-              <legend>Pressure Academy × Pixley</legend>
-              <p>Add a tee or rashguard to your booking. Leave quantities at zero for training only.</p>
-              <label class="kit-choice">
-                <span><strong>Tee</strong><small>+$69 AUD each</small></span>
-                <span class="kit-qty">Qty<input name="tee_quantity" aria-label="Pixley tee quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
-              </label>
-              <label class="kit-sizes">Preferred tee sizes (optional)
-                <input name="tee_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
-              </label>
-              <label class="kit-choice">
-                <span><strong>Rashguard</strong><small>+$79 AUD each</small></span>
-                <span class="kit-qty">Qty<input name="rashguard_quantity" aria-label="Pixley rashguard quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
-              </label>
-              <label class="kit-sizes">Preferred rashguard sizes (optional)
-                <input name="rashguard_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
-              </label>
-            </fieldset>
+            <details class="pixley-kit-disclosure">
+              <summary>Optional Pixley apparel <span>Tee +A$69 · Rashguard +A$79</span></summary>
+              <fieldset class="pixley-kit">
+                <legend>Pressure Academy × Pixley</legend>
+                <p>Add a tee or rashguard to your booking. Leave quantities at zero for training only.</p>
+                <label class="kit-choice">
+                  <span><strong>Tee</strong><small>+$69 AUD each</small></span>
+                  <span class="kit-qty">Qty<input name="tee_quantity" aria-label="Pixley tee quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
+                </label>
+                <label class="kit-sizes">Preferred tee sizes (optional)
+                  <input name="tee_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
+                </label>
+                <label class="kit-choice">
+                  <span><strong>Rashguard</strong><small>+$79 AUD each</small></span>
+                  <span class="kit-qty">Qty<input name="rashguard_quantity" aria-label="Pixley rashguard quantity" type="number" min="0" max="99" step="1" value="0" inputmode="numeric" required /></span>
+                </label>
+                <label class="kit-sizes">Preferred rashguard sizes (optional)
+                  <input name="rashguard_sizes" maxlength="100" placeholder="e.g. 1 medium, 1 large" />
+                </label>
+              </fieldset>
+            </details>
             <input type="hidden" name="admission_aud" disabled />
             <input type="hidden" name="apparel_aud" disabled />
             <input type="hidden" name="estimated_total_aud" disabled />
@@ -212,7 +241,7 @@
           </form>
         </div>
       </section>
-      <div class="container pixley-links"><a class="text-link" href="/contact/">Ask about attending</a><a class="text-link" href="/seminars/#seminar-list">Get future seminar updates</a></div>
+      <div class="container pixley-links"><a class="text-link" href="/contact/">Ask about attending</a><a class="text-link" href="/seminars/#seminar-list">Get future seminar updates</a><a class="text-link" href="/blueprints/pressure-blueprint-core/#preview">Coaching a class? Preview the free Blueprint</a></div>
     </main>
     <footer class="site-footer">
       <div class="footer-grid">
@@ -251,5 +280,6 @@
     </footer>
 
     <script type="module" src="/js/lib/pixley-seminar.js"></script>
+    <script type="module" src="/js/lib/pixley-session-choice.js"></script>
   </body>
 </html>

@@ -39,7 +39,8 @@ Verified current pages:
 - `mastery-method/book/index.html`
   - Uses `fetch(...)` to submit to `xwvwkqqg`
   - Sends `source=mastery-method-book`
-  - Sends fixed `intent=call`
+  - Sends the selected `requested_offer` and its routing label. The Learning Support Call uses `intent=call`, the Mastery Assessment uses `intent=assessment`, and Pathway, targeted-session and general enquiries use `intent=info`.
+  - Native submissions without JavaScript include the selected `requested_offer` with the general `info` routing label.
   - Sends parent/guardian and child-context intake fields
   - Sends `call_goal` as the call-preparation selector
 
