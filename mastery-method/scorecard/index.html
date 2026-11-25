@@ -160,14 +160,16 @@
     .pr-score{text-align:left}
   }
 </style>
+<link rel="stylesheet" href="/assets/css/mm-academy-v1.css">
 </head>
 <body data-section="mastery-method">
+<a class="mm-skip" href="#mm-main">Skip to content</a>
 
-<div class="scorecard">
+<header class="mm-simple-head"><div><a href="/mastery-method/" class="mm-wordmark"><span class="mm-emblem" aria-hidden="true"><img src="/assets/logos/Mastery_Method_Mark.svg" width="64" height="64" alt=""></span><span>Mastery Method<small>by The Pressure Academy</small></span></a></div></header>
+<main id="mm-main" class="scorecard">
 
   <!-- HEADER -->
   <div class="sc-header">
-    <div class="sc-badge">Free Clarity Scorecard</div>
     <h1>The <em>Clarity</em> Scorecard</h1>
     <p>Answer 16 quick questions designed for parents of Year 2-3 children who are bright, capable, and not always consistent on the page.</p>
     <div class="sc-meta">
@@ -189,14 +191,14 @@
   <!-- STEP 0: START -->
   <div class="step active" id="step-start">
     <div style="background:var(--white);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-soft);text-align:center">
-      <p style="font-size:.92rem;color:var(--ink-soft);font-weight:300;line-height:1.75;margin-bottom:8px">You'll answer 4 questions per pillar across:</p>
+      <p style="font-size:.92rem;color:var(--ink-soft);font-weight:300;line-height:1.75;margin-bottom:8px">Answer four questions about each part of your child’s learning.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:20px auto;max-width:360px">
         <div style="padding:12px;border-radius:var(--radius);background:var(--rust-wash);font-size:.82rem;font-weight:500;color:var(--rust)">Thinking</div>
         <div style="padding:12px;border-radius:var(--radius);background:var(--teal-wash);font-size:.82rem;font-weight:500;color:var(--teal-deep)">Communication</div>
         <div style="padding:12px;border-radius:var(--radius);background:var(--amber-wash);font-size:.82rem;font-weight:500;color:#946A20">Learning</div>
         <div style="padding:12px;border-radius:var(--radius);background:var(--violet-wash);font-size:.82rem;font-weight:500;color:var(--violet)">Action</div>
       </div>
-      <p style="font-size:.78rem;color:var(--ink-muted);font-weight:300;margin-bottom:24px">Each question uses a slider (1-10) or multiple choice. Think about the past month of home reading, homework, school tasks, and getting work onto the page.</p>
+      <p style="font-size:.78rem;color:var(--ink-muted);font-weight:300;margin-bottom:24px">Each question uses a slider (1-10) or multiple choice. Think about the past month of home reading, homework, school tasks, and getting work onto the page. Afterward, you can invite your child’s teacher to add their observations.</p>
       <button class="btn-next" onclick="startScorecard()" style="max-width:280px;margin:0 auto;display:block;width:100%">Start the Scorecard</button>
     </div>
   </div>
@@ -207,19 +209,27 @@
   <!-- EMAIL CAPTURE -->
   <div class="step" id="step-email">
     <div class="email-step">
-      <h2>Your results are ready</h2>
+      <h2 id="email-heading" tabindex="-1">Your results are ready</h2>
       <p>Enter your email and we will show your child's scorecard results, including the pillar that needs the most attention.</p>
-      <div class="email-field" style="flex-direction:column;gap:10px">
-        <input type="text" id="nameInput" placeholder="Your first name" style="flex:1;padding:13px 18px;border:1.5px solid rgba(44,44,56,.1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s">
-        <input type="email" id="emailInput" placeholder="your@email.com">
+      <form class="email-field" onsubmit="event.preventDefault(); showResults()" style="flex-direction:column;gap:10px">
+        <label for="nameInput">Your first name (optional)</label>
+        <input type="text" id="nameInput" autocomplete="given-name" maxlength="120" placeholder="Your first name" style="flex:1;padding:13px 18px;border:1.5px solid rgba(44,44,56,.1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s">
+        <label for="emailInput">Your email</label>
+        <input type="email" id="emailInput" autocomplete="email" required maxlength="254" placeholder="your@email.com">
+        <label for="yearLevel">Child’s year level (optional)</label>
         <select id="yearLevel" style="padding:13px 18px;border:1.5px solid rgba(44,44,56,.1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--ink-muted);background:var(--white);outline:none;-webkit-appearance:none;cursor:pointer">
           <option value="">Your child's year level (optional)</option>
           <option value="2">Year 2</option>
           <option value="3">Year 3</option>
           <option value="other">Other / not sure</option>
         </select>
-        <button onclick="showResults()" style="width:100%">See my results</button>
-      </div>
+        <label class="mm-invite-opt" for="teacher-opt-in">
+          <input type="checkbox" id="teacher-opt-in" aria-describedby="teacher-opt-help">
+          <span>Include my child’s teacher in this audit</span>
+        </label>
+        <p id="teacher-opt-help">Optional. You’ll get a private link to send to your teacher. They can add classroom observations for Kirsty. The link contains no names or email addresses. Your answers and scores stay private from the teacher.</p>
+        <button type="submit" id="scorecard-submit">See my results</button>
+      </form>
       <div class="email-privacy">We'll never spam you. Your email is used only to send your results and a short follow-up series about The Mastery Method Framework.</div>
     </div>
   </div>
@@ -227,7 +237,7 @@
   <!-- RESULTS -->
   <div class="results" id="resultsSection">
     <div class="results-header">
-      <h2>Your child's <em>scorecard results</em></h2>
+      <h2 id="results-heading" tabindex="-1">Your child's <em>scorecard results</em></h2>
       <p>Based on your answers, here is where your child looks strongest right now, and where support is likely needed most.</p>
     </div>
 
@@ -265,6 +275,21 @@
       <p id="insightBody"></p>
     </div>
 
+    <div id="audit-save-status" role="status"></div>
+    <div class="sc-submit-error" role="alert" id="scSubmitError"><p id="audit-error-message"></p><button type="button" id="retry-audit">Try again</button></div>
+    <section id="teacher-invite" class="mm-invite-panel" aria-labelledby="teacher-invite-title" hidden>
+      <h3 id="teacher-invite-title">Invite your child’s teacher</h3>
+      <p>Save the link before you close this page. Send it directly to your child’s teacher. Anyone with the link can submit observations for this audit.</p>
+      <label for="teacher-link">Private teacher link</label>
+      <input type="url" id="teacher-link" readonly spellcheck="false" autocomplete="off">
+      <div class="mm-invite-actions">
+        <button type="button" id="copy-teacher-link">Copy link</button>
+        <button type="button" id="share-teacher-link" hidden>Share link</button>
+      </div>
+      <p id="teacher-expires"></p>
+      <p id="teacher-action-status" role="status"></p>
+    </section>
+
     <div class="results-cta">
       <h3>Want to understand this <em>in depth</em>?</h3>
       <p>The Clarity Scorecard gives you a snapshot. A full Mastery Assessment with Kirsty identifies the exact patterns, the root causes, and produces your family's first Teaching Blueprint.</p>
@@ -276,14 +301,14 @@
       <a href="/mastery-method/book">Start with a Learning Support Call</a>
       <div class="reassurance">Free &middot; 15-20 minutes &middot; No pressure &middot; With Kirsty directly</div>
     </div>
-    <div class="sc-submit-error" id="scSubmitError">Your results are shown above, but we couldn't save your details. To make sure Kirsty receives your information, please <a href="mailto:contact@thepressureacademy.com?subject=Clarity%20Scorecard%20results">email her directly</a> or <a href="/mastery-method/book">start a Learning Support Call request</a>.</div>
   </div>
 
   <div class="sc-footer">
-    <p>The Clarity Scorecard by <a href="/mastery-method">Mastery Method</a> &middot; <a href="/mastery-method">Home</a> &middot; <a href="/privacy-policy.html">Privacy Policy</a></p>
+    <a class="mm-house-link" href="/"><span class="mm-house-emblem" aria-hidden="true"><img src="/assets/logos/TPA_House_Mark.svg" width="64" height="64" alt=""></span><span>The Pressure Academy</span></a>
+    <p>The Clarity Scorecard by <a href="/mastery-method">Mastery Method</a> &middot; <a href="/privacy-policy.html">Privacy Policy</a></p>
   </div>
 
-</div>
+</main>
 
 <script>
 (function(){
@@ -398,14 +423,14 @@
       var pillarClass = q.pillar;
       var pillarHeader = '<div class="pillar-header '+pillarClass+'"><div><div class="pillar-label">Pillar '+(getPillarNum(q.pillar))+' of 4</div><div class="pillar-name">'+q.pillarName+'</div></div></div>';
 
-      var questionHTML = '<div class="question"><div class="q-number">Question '+(i+1)+' of 16</div><div class="q-text">'+q.text+'</div>';
+      var questionHTML = '<div class="question"><div class="q-number">Question '+(i+1)+' of 16</div><h2 class="q-text" id="question-'+i+'" tabindex="-1">'+q.text+'</h2>';
 
       if(q.type === 'slider'){
-        questionHTML += '<div class="slider-wrap"><div class="slider-labels"><span>'+q.low+'</span><span>'+q.high+'</span></div><input type="range" min="1" max="10" value="5" id="slider-'+i+'" oninput="updateSlider('+i+')"><div class="slider-value" id="sliderVal-'+i+'">5</div></div>';
+        questionHTML += '<div class="slider-wrap"><div class="slider-labels"><span>'+q.low+'</span><span>'+q.high+'</span></div><input type="range" aria-labelledby="question-'+i+'" min="1" max="10" value="5" id="slider-'+i+'" oninput="updateSlider('+i+')"><div class="slider-value" id="sliderVal-'+i+'">5</div></div>';
       } else {
-        questionHTML += '<div class="choices">';
+        questionHTML += '<div class="choices" role="group" aria-labelledby="question-'+i+'">';
         for(var j=0;j<q.options.length;j++){
-          questionHTML += '<div class="choice" onclick="selectChoice('+i+','+j+','+q.options[j].score+')" id="choice-'+i+'-'+j+'"><span class="choice-radio"><span class="choice-radio-dot"></span></span><span>'+q.options[j].text+'</span></div>';
+          questionHTML += '<button class="choice" type="button" aria-pressed="false" onclick="selectChoice('+i+','+j+','+q.options[j].score+')" id="choice-'+i+'-'+j+'"><span class="choice-radio"><span class="choice-radio-dot"></span></span><span>'+q.options[j].text+'</span></button>';
         }
         questionHTML += '</div>';
       }
@@ -436,6 +461,7 @@
     document.getElementById('step-q-0').classList.add('active');
     document.getElementById('progressWrap').style.display = 'block';
     updateProgress(0);
+    document.getElementById('question-0').focus();
   };
 
   window.goQ = function(n){
@@ -449,14 +475,18 @@
     document.getElementById('step-q-'+n).classList.add('active');
     currentQ = n;
     updateProgress(n);
+    document.getElementById('question-'+n).focus({ preventScroll: true });
     window.scrollTo({top:0,behavior:'smooth'});
   };
 
   window.selectChoice = function(qIdx, choiceIdx, score){
     // Deselect all for this question
     var choices = document.querySelectorAll('#step-q-'+qIdx+' .choice');
-    for(var i=0;i<choices.length;i++) choices[i].classList.remove('selected');
-    document.getElementById('choice-'+qIdx+'-'+choiceIdx).classList.add('selected');
+    for(var i=0;i<choices.length;i++) {
+      var selected = i === choiceIdx;
+      choices[i].classList.toggle('selected', selected);
+      choices[i].setAttribute('aria-pressed', String(selected));
+    }
     answers[qIdx] = score;
   };
 
@@ -474,6 +504,7 @@
     }
     document.getElementById('step-q-'+currentQ).classList.remove('active');
     document.getElementById('step-email').classList.add('active');
+    document.getElementById('email-heading').focus({ preventScroll: true });
     document.getElementById('progressWrap').style.display = 'none';
     window.scrollTo({top:0,behavior:'smooth'});
   };
@@ -488,14 +519,23 @@
 
   //  RESULTS 
   window.showResults = function(){
-    var email = document.getElementById('emailInput').value;
-    if(!email || email.indexOf('@') < 0){
-      document.getElementById('emailInput').style.borderColor = '#D4726A';
+    var submit = document.getElementById('scorecard-submit');
+    if (submit.disabled) return;
+    var emailField = document.getElementById('emailInput');
+    var email = emailField.value.trim();
+    var withTeacher = document.getElementById('teacher-opt-in').checked;
+    if (withTeacher && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailField.setCustomValidity('Enter an email address with a full domain, such as name@example.com.');
+      emailField.reportValidity();
+      emailField.setCustomValidity('');
       return;
     }
+    if (!emailField.reportValidity()) return;
 
+    submit.disabled = true;
     document.getElementById('step-email').classList.remove('active');
     document.getElementById('resultsSection').classList.add('show');
+    document.getElementById('results-heading').focus({ preventScroll: true });
 
     // Calculate pillar scores (each pillar = 4 questions, max 10 each = 40, normalized to 25)
     var pillars = {thinking:[0,1,2,3],communication:[4,5,6,7],learning:[8,9,10,11],action:[12,13,14,15]};
@@ -587,7 +627,7 @@
       timestamp: new Date().toISOString()
     };
 
-    // Submit lead data to Formspree
+    // Keep a snapshot of this audit for confirmation and retry.
     var formData = new FormData();
     formData.append('intent', 'scorecard-lead');
     formData.append('source', 'clarity-scorecard');
@@ -602,25 +642,44 @@
     formData.append('weakest_pillar', leadData.weakestPillar);
     formData.append('clarity_level', leadData.level);
 
-    fetch('https://formspree.io/f/xwvwkqqg', {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(function(response) {
-      if (!response.ok) throw new Error('Submission failed');
-      // Success path only. Pillar scores and level are non-identifying; the
-      // name and email the visitor submitted are deliberately NOT included,
-      // per the no-PII rule in js/lib/events.js.
-      if (window.tpaTrack) window.tpaTrack(window.TPA_EVENTS.MM_SCORECARD_SUBMIT, {
-        intent: 'scorecard-lead',
-        source: 'clarity-scorecard',
-        weakest_pillar: leadData.weakestPillar,
-        clarity_level: leadData.level,
-        total_score: leadData.totalScore
-      });
-    }).catch(function() {
-      document.getElementById('scSubmitError').classList.add('show');
-    });
+    var requestId;
+    var retry = document.getElementById('retry-audit');
+    var errorBox = document.getElementById('scSubmitError');
+    var status = document.getElementById('audit-save-status');
+
+    async function saveAudit() {
+      if (retry.disabled) return;
+      retry.disabled = true;
+      errorBox.classList.remove('show');
+      if (withTeacher) status.textContent = 'Preparing your private teacher link…';
+      try {
+        if (withTeacher) {
+          if (!requestId) requestId = crypto.randomUUID();
+          var invitations = await import('/js/lib/mastery-teacher-invite.js');
+          var invite = await invitations.requestTeacherInvite(formData, requestId);
+          invitations.displayTeacherInvite(invite);
+          status.textContent = 'Your teacher link is ready below.';
+        } else {
+          var response = await fetch('https://formspree.io/f/xwvwkqqg', {
+            method: 'POST', body: formData, headers: { Accept: 'application/json' }
+          });
+          if (!response.ok) throw new Error('Submission failed');
+        }
+        if (window.tpaTrack) window.tpaTrack(window.TPA_EVENTS.MM_SCORECARD_SUBMIT, {
+          intent: 'scorecard-lead', source: 'clarity-scorecard',
+          weakest_pillar: leadData.weakestPillar, clarity_level: leadData.level, total_score: leadData.totalScore
+        });
+      } catch {
+        status.textContent = '';
+        document.getElementById('audit-error-message').textContent = withTeacher
+          ? 'Your scores are available. We couldn’t confirm the private teacher link. Try again with this audit.'
+          : 'Your scores are available. We couldn’t confirm your submission to Kirsty. Please try again.';
+        retry.disabled = false;
+        errorBox.classList.add('show');
+      }
+    }
+    retry.addEventListener('click', saveAudit);
+    saveAudit();
 
     window.scrollTo({top:0,behavior:'smooth'});
   };

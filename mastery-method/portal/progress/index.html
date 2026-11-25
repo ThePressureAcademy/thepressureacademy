@@ -80,6 +80,7 @@
   .timeline-pillar-tag{font-size:.58rem;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:50px;font-weight:500}
   @media print{body{display:none!important}}
 </style>
+<link rel="stylesheet" href="/assets/css/mm-academy-v1.css">
 </head>
 
 <!--
@@ -87,36 +88,23 @@
   This page is only returned by the server when a valid mm_session cookie
   is present. No client-side visibility trick is needed.
 -->
-<body>
+<body class="mm-member">
+<a class="mm-skip" href="#mm-main">Skip to content</a>
 
 <!-- ── PORTAL NAV ── -->
-<nav class="portal-nav" role="navigation" aria-label="Portal navigation">
-  <div class="portal-nav-inner">
-    <a href="/mastery-method" class="portal-brand" aria-label="Mastery Method home">
-      <svg class="portal-mark" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
-        <rect x="22" y="4" width="56" height="7" rx="3.5" fill="#C45B28"/>
-        <rect x="22" y="119" width="56" height="7" rx="3.5" fill="#C45B28"/>
-        <line x1="50" y1="11" x2="50" y2="32" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/>
-        <line x1="50" y1="98" x2="50" y2="119" stroke="#C45B28" stroke-width="5" stroke-linecap="round"/>
-        <path d="M50 32 C56 34,64 38,70 44 C74 48,78 54,80 60 Q82 65,80 70 C78 76,74 82,70 86 C64 92,56 96,50 98 C44 96,36 92,30 86 C26 82,22 76,20 70 Q18 65,20 60 C22 54,26 48,30 44 C36 38,44 34,50 32Z" fill="none" stroke="#C45B28" stroke-width="5"/>
-        <g stroke="#D38F5C" stroke-width="2" stroke-opacity=".55" fill="none"><line x1="50" y1="48" x2="38" y2="58"/><line x1="50" y1="48" x2="62" y2="58"/><line x1="38" y1="58" x2="38" y2="74"/><line x1="62" y1="58" x2="62" y2="74"/><line x1="38" y1="74" x2="50" y2="82"/><line x1="62" y1="74" x2="50" y2="82"/><line x1="50" y1="48" x2="50" y2="65"/></g>
-        <circle cx="50" cy="48" r="4" fill="#C45B28"/><circle cx="38" cy="58" r="3.5" fill="#4A9B8E"/><circle cx="62" cy="58" r="3.5" fill="#E8A838"/><circle cx="50" cy="65" r="4.5" fill="#C45B28"/>
-      </svg>
-      <div class="portal-wm">Mastery Method<span>Member Portal</span></div>
-    </a>
-    <span class="portal-badge">Portal</span>
-    <button class="nav-toggle" onclick="document.querySelector('.portal-nav-links').classList.toggle('open')" aria-label="Open menu">
-      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-    <div class="portal-nav-links">
-      <a href="/mastery-method/portal/dashboard/" class="portal-nav-link">Dashboard</a>
-      <a href="/mastery-method/portal/library/" class="portal-nav-link">Library</a>
-      <a href="/mastery-method/portal/progress/" class="portal-nav-link active">Progress</a>
-      <a href="/mastery-method/portal/account/" class="portal-nav-link">Account</a>
+<nav class="mm-nav mm-portal-nav" aria-label="Family portal">
+  <div class="mm-nav-inner">
+    <a href="/mastery-method/" class="mm-wordmark"><span class="mm-emblem" aria-hidden="true"><img src="/assets/logos/Mastery_Method_Mark.svg" width="64" height="64" alt=""></span><span>Mastery Method<small>Family portal</small></span></a>
+    <div class="mm-nav-links">
+      <a href="/mastery-method/portal/dashboard/">Dashboard</a>
+      <a href="/mastery-method/portal/library/">Library</a>
+      <a href="/mastery-method/portal/progress/" aria-current="page">Progress</a>
+      <a href="/mastery-method/portal/account/">Account</a>
     </div>
-    <button class="portal-nav-exit" onclick="exitPortal()" aria-label="Exit portal">Exit portal</button>
+    <button type="button" class="mm-nav-action mm-nav-exit" onclick="exitPortal()">Exit portal</button>
   </div>
 </nav>
+<main id="mm-main">
 
 <!-- ── HEADER ── -->
 <div class="progress-header">
@@ -319,5 +307,7 @@ function exitPortal(){
 document.addEventListener('DOMContentLoaded', initProgress);
 </script>
 
+</main>
+<footer class="mm-family-footer"><a class="mm-house-link" href="/"><span class="mm-house-emblem" aria-hidden="true"><img src="/assets/logos/TPA_House_Mark.svg" width="64" height="64" alt=""></span><span>The Pressure Academy</span></a></footer>
 </body>
 </html>

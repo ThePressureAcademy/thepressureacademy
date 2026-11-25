@@ -2,11 +2,11 @@
 
 Status: `ACTIVE — GOVERNED REGISTER`
 Date: 26 November 2026
-Rule: every form on a TPA commercial surface posts to the governed Formspree endpoint for the parent site and carries explicit hidden `intent` and `source` fields. Pre-order forms also include `request_type` so submitted requests can be distinguished from older entries using the same inbox rules. Mastery Method forms are a separate governed endpoint (`xwvwkqqg`) and are out of scope here — never merge the two (see CLAUDE.md).
+Rule: every form on a TPA commercial surface posts to the governed Formspree endpoint for the parent site and carries explicit hidden `intent` and `source` fields. Pre-order forms also include `request_type` so submitted requests can be distinguished from older entries using the same inbox rules. Mastery Method forms are a separate governed endpoint (`xwvwkqqg`) and are listed separately below (see CLAUDE.md).
 
 ## Register
 
-All rows below post to `https://formspree.io/f/meerjgde`. Enhanced forms use AJAX and report success after the endpoint accepts the submission. Pre-order forms also support native POST.
+The parent-site rows in this table post to `https://formspree.io/f/meerjgde`. Enhanced forms use AJAX and report success after the endpoint accepts the submission. Pre-order forms also support native POST.
 
 | Page | Form purpose | intent | source | User-facing promise | Risk |
 | --- | --- | --- | --- | --- | --- |
@@ -25,6 +25,17 @@ All rows below post to `https://formspree.io/f/meerjgde`. Enhanced forms use AJA
 | `/academy-orders/` | B2B / bulk enquiry | `academy-order-enquiry` | `academy-orders` | Scoped quote | Low |
 
 The apparel request captures product, preferred size, quantity, destination country and contact details. Current SKUs are `pt-heavy-tee` (AUD 69), `pt-crop-tee` (AUD 65), `pt-hoodie` (AUD 129) and `pt-crop-hoodie` (AUD 109). Use the selected SKU and quantity to calculate the merchandise total when a native submission omits an enhanced total. The mat request captures quantity, freight destination, contact details and mat colour. A custom colour enquiry includes the requested shade. The Pixley requests capture session choice, headcount, tee and rashguard quantities and optional sizes. Admission and apparel are itemised separately. The co-branded tee is AUD 69 and rashguard AUD 79 each. A customer can revise these preferences at hosted checkout after availability is confirmed. A submitted request is free and requires follow-up before a place, item, or delivery can be confirmed.
+
+## Mastery Method homework audit
+
+These forms use the Mastery Method intake at `https://formspree.io/f/xwvwkqqg`.
+
+| Page | Intent | Source | Intake behaviour |
+| --- | --- | --- | --- |
+| `/mastery-method/scorecard/` | `scorecard-lead` | `clarity-scorecard` | Parent-only submission posts directly. Opting into teacher input submits the same results through `/api/mastery-audit`, adds an `audit_ref`, then gives the parent a private link to share. |
+| `/mastery-method/teacher-input/` | `teacher-homework-input` | `mastery-teacher-input` | A valid invitation enables the teacher to submit assigned homework, subject-specific observations and a next step. The API forwards the report with the matching `audit_ref` and a `response_ref`. |
+
+Match the two records by `audit_ref` when reviewing a family’s results. Treat repeated deliveries with the same `response_ref` as one teacher response. The private invitation expires after 14 days and provides no view of the parent’s answers or results.
 
 ## Operator follow-up
 

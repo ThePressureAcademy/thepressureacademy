@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Teacher homework notes | Mastery Method</title>
+  <link rel="icon" href="/assets/logos/Mastery_Method_Mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/mm-academy-v1.css">
+  <link rel="stylesheet" href="/assets/css/mm-teacher-input-v1.css">
+</head>
+<body data-section="mastery-method" class="teacher-page">
+  <header class="mm-simple-head"><div>
+    <a href="/mastery-method/" class="mm-wordmark">
+      <span class="mm-emblem" aria-hidden="true"><img src="/assets/logos/Mastery_Method_Mark.svg" width="64" height="64" alt=""></span>
+      <span>Mastery Method<small>by The Pressure Academy</small></span>
+    </a>
+  </div></header>
+  <main class="teacher-main">
+    <header class="teacher-heading">
+      <h1>Teacher homework notes</h1>
+      <p>Help the family practise at home using the same task and prompts you use in class.</p>
+    </header>
+    <section class="teacher-message" aria-labelledby="access-heading" id="access">
+      <h2 id="access-heading" tabindex="-1">Open your invitation</h2>
+      <p id="access-note">Use the complete teacher link the parent or carer shared with you.</p>
+      <button type="button" id="retry-check" hidden>Check link again</button>
+    </section>
+    <noscript><p>This private form needs JavaScript. Enable it, then reopen the teacher link.</p></noscript>
+    <form id="teacher-notes" method="post" action="/api/mastery-audit" autocomplete="off" hidden>
+      <p class="teacher-privacy">Share only what your school permits. Leave out names, diagnoses, school identifiers and details about other students. <a href="/privacy-policy.html">Privacy policy</a></p>
+      <fieldset>
+        <legend>The homework</legend>
+        <div class="teacher-field">
+          <label for="yearLevel">Which year level is this homework for?</label>
+          <select name="yearLevel" id="yearLevel" required>
+            <option value="">Choose a year level</option>
+            <option value="prep">Prep</option><option value="1">Year 1</option>
+            <option value="2">Year 2</option><option value="3">Year 3</option>
+            <option value="4">Year 4</option><option value="5">Year 5</option><option value="6">Year 6</option>
+          </select>
+        </div>
+        <div class="teacher-field" id="subjects-wrap">
+          <fieldset class="teacher-subjects">
+            <legend>Which areas need support with this homework?</legend>
+            <div id="subjects">
+              <label><input type="checkbox" name="subjects" value="reading">Reading</label>
+              <label><input type="checkbox" name="subjects" value="writing">Writing</label>
+              <label><input type="checkbox" name="subjects" value="maths">Maths</label>
+              <label><input type="checkbox" name="subjects" value="other">Another subject</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="teacher-field" id="other-subject-field" hidden>
+          <label for="otherSubject">Which other subject?</label>
+          <input type="text" id="otherSubject" name="otherSubject" maxlength="80" required disabled>
+        </div>
+        <div class="teacher-field">
+          <label for="homework">What homework have you set?</label>
+          <p id="homework-hint">Give the instruction you would use in class and describe what a finished response looks like.</p>
+          <textarea id="homework" name="homework" maxlength="1500" required rows="4" aria-describedby="homework-hint"></textarea>
+        </div>
+        <div id="subject-notes"></div>
+      </fieldset>
+      <fieldset>
+        <legend>What you see in class</legend>
+        <div class="teacher-field">
+          <label for="independent">What can the student already do independently?</label>
+          <p id="independent-hint">A brief example from the same kind of task is enough.</p>
+          <textarea id="independent" name="independent" maxlength="1500" required rows="3" aria-describedby="independent-hint"></textarea>
+        </div>
+        <div class="teacher-field">
+          <label for="supports">Which prompt or support has helped? <small>Optional</small></label>
+          <textarea id="supports" name="supports" maxlength="1500" rows="2"></textarea>
+        </div>
+        <div class="teacher-field">
+          <label for="nextGoal">What is one useful next step at home?</label>
+          <textarea id="nextGoal" name="nextGoal" maxlength="1500" required rows="2"></textarea>
+        </div>
+      </fieldset>
+      <p id="send-error" class="teacher-error" role="alert" tabindex="-1" hidden></p>
+      <button type="submit" id="send-notes">Send homework notes</button>
+    </form>
+  </main>
+  <script type="module" src="/js/lib/mm-teacher-input.js"></script>
+</body>
+</html>

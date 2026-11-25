@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,238 +10,65 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0A0A0A;
-      --panel: #111111;
-      --text: #FFF8F0;
-      --muted: #CFC5BB;
-      --muted-2: #9E948B;
-      --rust: #C45B28;
-      --rust-light: #D4915C;
-      --gold: #E8A838;
-      --shadow: 0 18px 60px rgba(0,0,0,0.28);
-      --radius: 18px;
-      --max: 860px;
-    }
-
-    * { box-sizing: border-box; }
-    html { color-scheme: dark; }
-    body {
-      margin: 0;
-      font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(196, 91, 40, 0.10), transparent 30%),
-        linear-gradient(180deg, #0A0A0A 0%, #0E0E0E 100%);
-      color: var(--text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
-
-    .shell {
-      background: linear-gradient(180deg, rgba(17,17,17,0.96), rgba(12,12,12,0.96));
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .hero {
-      padding: 34px 28px 26px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      background: linear-gradient(180deg, rgba(196,91,40,0.09), rgba(196,91,40,0.02));
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border: 1px solid rgba(232,168,56,0.20);
-      background: rgba(232,168,56,0.08);
-      border-radius: 999px;
-      color: var(--gold);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      color: var(--text);
-    }
-
-    .lede {
-      margin: 0;
-      max-width: 62ch;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .meta {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      color: var(--muted-2);
-      font-size: 0.92rem;
-    }
-
-    .meta code {
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--rust-light);
-      background: rgba(255,255,255,0.04);
-      padding: 3px 7px;
-      border-radius: 8px;
-    }
-
-    .content {
-      padding: 28px;
-    }
-
-    .note,
-    .contact,
-    .summary {
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      margin: 0 0 24px;
-    }
-
-    .summary ul,
-    .note ul,
-    .contact ul {
-      margin-bottom: 0;
-    }
-
-    h2 {
-      margin: 34px 0 12px;
-      font-size: 1.15rem;
-      line-height: 1.2;
-      color: var(--rust-light);
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .small {
-      font-size: 0.95rem;
-      color: var(--muted-2);
-    }
-
-    ul {
-      margin: 10px 0 16px 20px;
-      padding: 0;
-      color: var(--muted);
-    }
-
-    li { margin-bottom: 8px; }
-    strong { color: var(--text); }
-
-    a {
-      color: var(--rust-light);
-      text-underline-offset: 2px;
-    }
-
-    a:hover { color: var(--text); }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-    }
-
-    .btn-primary {
-      background: var(--rust);
-      color: var(--text);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      background: #d36a36;
-      color: var(--text);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.03);
-      border-color: rgba(255,255,255,0.08);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.16);
-      color: var(--text);
-    }
-
-    .badge {
-      display: inline-block;
-      margin-top: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--gold);
-      background: rgba(232,168,56,0.08);
-      border: 1px solid rgba(232,168,56,0.18);
-      border-radius: 999px;
-      padding: 6px 10px;
-    }
-
-    @media (max-width: 720px) {
-      .hero,
-      .content { padding: 22px 18px; }
-      .wrap { padding: 18px 12px 40px; }
-      h1 { font-size: 2rem; }
-    }
-  </style>
-</head>
-<body>
-  <main class="wrap">
+  <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+  <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
+  <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-secondary-v1.css" />
+  </head>
+<body class="academy-secondary privacy">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+          <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+          <span class="brand-copy">
+            <strong>The Pressure Academy</strong>
+            <span>Built under pressure</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="/shop/">Shop</a>
+            <a href="/seminars/">Seminars</a>
+            <a href="/academy-orders/">Academy orders</a>
+            <a href="/contact/">Contact</a>
+            <a href="/#academy-family">Academy family</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/shop/">Shop</a>
+        <a href="/seminars/">Seminars</a>
+        <a href="/academy-orders/">Academy orders</a>
+        <a href="/contact/">Contact</a>
+        <a href="/#academy-family">Academy family</a>
+      </nav>
+    </header>
+  <main id="main-content" tabindex="-1">
     <section class="shell" aria-labelledby="privacy-title">
-      <header class="hero">
-        <div class="eyebrow">Privacy Policy</div>
+      <header class="page-hero aux-hero" data-house-watermark>
+        <div class="container">
         <h1 id="privacy-title">Privacy Policy</h1>
-        <p class="lede">This policy explains how The Pressure Academy handles personal information through the public website, Mastery Method booking and scorecard flows, and portal access features that are currently implemented in this repository.</p>
+        <p class="lead">This policy explains how The Pressure Academy handles personal information through the public website, Mastery Method booking and scorecard flows, and access to the family portal.</p>
         <div class="meta">
           <span>Last updated: <code>26 November 2026</code></span>
           <span>Applies to: <code>thepressureacademy.com</code></span>
         </div>
+        </div>
       </header>
 
-      <div class="content">
+      <div class="container policy-layout">
+        <nav class="policy-toc" aria-label="Policy topics"><a href="#information">Information collected</a><a href="#providers">Service providers</a><a href="#rights">Your requests</a><a href="#privacy-contact">Privacy contact</a></nav>
+        <div class="policy-content">
         <div class="summary">
           <p><strong>Practical summary.</strong> We collect the information you choose to submit through our forms, the information needed to operate Mastery Method portal access, and basic hosting/security information that is generated when you use the site. We do not sell personal information. We use service providers such as website hosting and form processing to run the site.</p>
-          <span class="badge">Educational support and website operations</span>
         </div>
 
         <div class="note">
@@ -254,25 +81,26 @@
           <li>the public pages of The Pressure Academy website</li>
           <li>product pre-order requests, seminar booking requests, freight quotes and other enquiries</li>
           <li>Mastery Method enquiry and booking forms</li>
-          <li>the Mastery Method scorecard form and scorecard results flow</li>
+          <li>the Mastery Method scorecard, optional teacher input and scorecard results</li>
           <li>Mastery Method portal access and portal session handling</li>
           <li>direct contact with us by email or linked enquiry pathways</li>
         </ul>
 
-        <h2>2. What information we may collect</h2>
+        <h2 id="information">2. What information we may collect</h2>
         <p>The information we collect depends on which part of the site you use.</p>
         <ul>
           <li><strong>TPA public-site lead capture:</strong> contact details and any information you choose to submit through public forms.</li>
           <li><strong>Product and seminar requests.</strong> Depending on your request, we collect your name and email, product choice, colour, preferred sizes and quantities, seminar day or group size, and delivery country, city or postal code. We use these details to respond with availability, pricing or a freight quote.</li>
           <li><strong>Mastery Method booking and enquiry:</strong> parent or guardian name, email address, child first name, child year level, observations, prior support history, learning-difference information supplied by the parent or guardian, and any additional notes you choose to provide.</li>
           <li><strong>Mastery Method scorecard:</strong> your name, email address, optional child year level, scorecard responses, calculated score outputs, pillar-level results, and related follow-up fields submitted with the scorecard.</li>
+          <li><strong>Optional teacher input.</strong> A parent can share a private invitation with a teacher to contribute to the child’s learning audit. The form may prefill the year level the parent supplied. Mastery Method receives the year level, schoolwork details and classroom observations through Formspree and uses an audit reference to connect them to the parent’s scorecard. The teacher cannot view the audit, other parent responses or previous submissions through the invitation.</li>
           <li><strong>Portal access:</strong> invite-token validation, session-cookie data needed to keep the portal session active, and portal progress or activity data stored in the browser on the device you use.</li>
           <li><strong>Contact and support correspondence:</strong> anything you include when you email us or contact us for access, support, or follow-up.</li>
           <li><strong>Technical and hosting information:</strong> basic server, request, browser, and security information generated when the site is served through our hosting providers.</li>
         </ul>
 
         <h2>3. Parent and child information</h2>
-        <p>Mastery Method is presented on this site as an educational support service for families. In practice, the child-related information collected through current website forms is expected to be provided by a <strong>parent or guardian</strong>, not by the child directly.</p>
+        <p>Mastery Method provides educational support for families. Parents and guardians provide information about their child and may choose to invite a teacher to contribute observations about homework and classroom learning.</p>
         <p>If you submit information about a child through the Mastery Method booking form or scorecard flow, you should only provide information you are entitled to provide as that child's parent, guardian, or authorised caregiver.</p>
         <p>Nothing in this privacy policy should be read as a claim that the website provides medical diagnosis, clinical assessment, or regulated health services. The current website and forms are used for educational support enquiries, scorecard delivery, and portal access management.</p>
 
@@ -282,8 +110,8 @@
           <li>respond to enquiries and communicate with you</li>
           <li>prepare requested quotes and follow up on pre-order and seminar enquiries</li>
           <li>review whether Mastery Method is an appropriate fit for your family</li>
-    <li>prepare for a Learning Support Call, Mastery Assessment discussion, or follow-up support conversation</li>
-          <li>deliver scorecard results and related follow-up communications</li>
+          <li>prepare for a Learning Support Call, Mastery Assessment discussion, or follow-up support conversation</li>
+          <li>deliver scorecard results, consider invited teacher input alongside the parent’s responses and follow up with the family</li>
           <li>provide or manage access to the Mastery Method portal</li>
           <li>maintain, secure, and improve the operation of the website and related services</li>
           <li>comply with legal obligations or respond to legitimate safety, fraud, or security issues</li>
@@ -294,7 +122,7 @@
         <ul>
           <li>submit a public-site form or waitlist form</li>
           <li>submit the Mastery Method booking or enquiry form</li>
-          <li>complete the Mastery Method scorecard and request your results</li>
+          <li>complete the Mastery Method scorecard or submit teacher feedback through an invitation shared by a parent</li>
           <li>use an invite link to activate portal access</li>
           <li>access portal pages that rely on session cookies or browser storage</li>
           <li>contact us directly by email or other direct communication channels</li>
@@ -312,7 +140,7 @@
         <p>We use form-processing services to receive website submissions. Where we offer a downloadable resource, send follow-up information, or provide a link after a form submission, we use the contact details you provided to deliver that material and related communication.</p>
         <p>We do not state here that every possible resource, campaign, or follow-up sequence is active at all times. This policy is intended to cover the current form-driven workflows in a truthful way without inventing campaigns or automations that are not verified.</p>
 
-        <h2>8. Service providers and disclosure</h2>
+        <h2 id="providers">8. Service providers and disclosure</h2>
         <p>We may disclose information to service providers that help us operate the website and deliver submissions. These may include:</p>
         <ul>
           <li><strong>website hosting and delivery providers</strong>, including Vercel</li>
@@ -338,13 +166,13 @@
         <p>We keep information for as long as it is reasonably needed for the purpose it was collected, including responding to your enquiry, managing follow-up, supporting Mastery Method operations, maintaining portal access, meeting legal obligations, or handling legitimate operational issues.</p>
         <p>Some data may also remain in your own browser until it is cleared by you or your browser. For example, portal progress data stored locally on your device may persist until site data is removed.</p>
 
-        <h2>13. Access, correction, and deletion</h2>
+        <h2 id="rights">13. Access, correction, and deletion</h2>
         <p>If you want to access, correct, or request deletion of personal information we hold about you, contact us using the details below. We will review the request and respond in a way that is reasonable in the circumstances, subject to legal, technical, and operational constraints.</p>
 
         <h2>14. Changes to this policy</h2>
         <p>We may update this policy from time to time. When we do, we will update the “Last updated” date on this page. If the way the site handles information changes materially, this policy should be updated to match.</p>
 
-        <h2>15. Contact</h2>
+        <h2 id="privacy-contact">15. Contact</h2>
         <div class="contact">
           <p>If you have a privacy question, correction request, or deletion request, contact:</p>
           <ul>
@@ -355,12 +183,57 @@
           <p class="small">If your question relates to Mastery Method, portal access, or information you submitted about your child through a parent or guardian workflow, say that clearly in your message so we can respond appropriately.</p>
         </div>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="/">Return to site</a>
-          <a class="btn btn-secondary" href="/mastery-method/book">Mastery Method contact</a>
+        <div class="hero-actions">
+          <a class="btn" href="/">Return to site</a>
+          <a class="btn-ghost" href="/mastery-method/book">Mastery Method contact</a>
         </div>
+      </div>
       </div>
     </section>
   </main>
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+            <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+            <span class="brand-copy">
+              <strong>The Pressure Academy</strong>
+              <span>Built under pressure</span>
+            </span>
+          </a>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Shop</span>
+          <div class="footer-links">
+            <a href="/shop/apparel/">Pressure Tested apparel</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/academy-orders/">Academy orders</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Train</span>
+          <div class="footer-links">
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/mastery-method">Mastery Method</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Company</span>
+          <div class="footer-links">
+            <a href="/contact/">Contact</a>
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/#academy-family">Academy family</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-micro">
+        <span>&copy; 2026 The Pressure Academy</span>
+      </div>
+    </footer>
+    <script type="module">
+      import { initMobileNav } from "/js/lib/commerce-ui.js";
+      initMobileNav();
+    </script>
 </body>
 </html>

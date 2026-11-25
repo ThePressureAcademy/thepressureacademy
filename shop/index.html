@@ -28,8 +28,10 @@
     <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
     <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
-      <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-cutouts-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-shop-train-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -39,13 +41,11 @@
           <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
           <span class="brand-copy">
             <strong>The Pressure Academy</strong>
-            <span>Built under pressure</span>
           </span>
         </a>
         <nav class="header-nav" aria-label="Primary">
           <div class="nav-links">
-            <a href="/shop/apparel/">Apparel</a>
-            <a href="/shop/mats/">Tatami mats</a>
+            <a href="/shop/" aria-current="page">Shop</a>
             <a href="/seminars/">Seminars</a>
             <a href="/academy-orders/">Academy orders</a>
             <a href="/contact/">Contact</a>
@@ -61,31 +61,37 @@
         </div>
       </div>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
-        <a href="/shop/" aria-current="page">All pre-orders</a>
-        <a href="/shop/apparel/">Apparel</a>
-        <a href="/shop/mats/">Tatami mats</a>
+        <a href="/shop/" aria-current="page">Shop</a>
         <a href="/seminars/">Seminars</a>
         <a href="/academy-orders/">Academy orders</a>
         <a href="/contact/">Contact</a>
-        <a href="/blueprints/">Blueprints</a>
+        <a href="/#academy-family">Academy family</a>
       </nav>
     </header>
 
     <main id="main-content" tabindex="-1">
       <div class="shop-showcase">
-      <header class="collection-heading container">
-        <p class="edition-label">The academy store</p>
-        <h1 class="collection-title">Pre-orders<span>.</span></h1>
-        <p>Choose an item or a session. We’ll confirm the details by email before you pay. All prices are in Australian dollars.</p>
-      </header>
-      <section class="container catalogue" aria-label="Pre-order options">
+        <header class="collection-heading container shop-masthead" data-house-watermark>
+          <h1 class="collection-title">Academy store<span>.</span></h1>
+          <p>Pre-order training apparel and tatami mats. We’ll confirm availability and delivery by email.</p>
+          <nav class="shop-shortcuts" aria-label="Shop categories">
+            <a href="#apparel-collection">Apparel</a>
+            <a href="/shop/mats/">Tatami mats</a>
+            <a href="/seminars/">Seminars</a>
+          </nav>
+        </header>
+        <section class="container catalogue" id="apparel-collection" aria-labelledby="apparel-collection-title">
+          <div class="catalogue-heading">
+            <h2 id="apparel-collection-title" class="line-signature collection-signature"><img src="/assets/logos/Pressure_Tested_Mark.svg" width="72" height="72" alt="" /><span>Pressure Tested</span></h2>
+            <a class="text-link" href="/shop/apparel/">View collection</a>
+          </div>
         <article class="catalogue-item">
           <a class="catalogue-photo" href="/shop/apparel/#tee"><img  src="/assets/media/pt-tee-front-cutout-v2.webp" srcset="/assets/media/pt-tee-front-cutout-sm-v2.webp 540w, /assets/media/pt-tee-front-cutout-v2.webp 1086w" sizes="(max-width: 560px) 90vw, (max-width: 1360px) 45vw, 600px" width="1086" height="1448" alt="Charcoal Pressure Tested tee with cream chest lettering" decoding="async" /></a>
-          <div><p class="edition-label">Pressure Tested apparel</p><h2>Tees</h2><p><strong>AUD $69 tee · $65 crop tee.</strong> See both sides of the full-length tee and request your preferred size.</p><a class="text-link" href="/shop/apparel/#tee">Explore the tees</a></div>
+          <div><h3>Tees</h3><p><strong>AUD $69 tee · $65 crop tee.</strong> See both sides of the full-length tee and request your preferred size.</p><a class="text-link" href="/shop/apparel/#tee">See the tee details</a></div>
         </article>
         <article class="catalogue-item">
           <a class="catalogue-photo" href="/shop/apparel/#hoodie"><img  src="/assets/media/pt-hoodie-back-cutout-v2.webp" srcset="/assets/media/pt-hoodie-back-cutout-sm-v2.webp 540w, /assets/media/pt-hoodie-back-cutout-v2.webp 1086w" sizes="(max-width: 560px) 90vw, (max-width: 1360px) 45vw, 600px" width="1086" height="1448" alt="Rust Pressure Tested hoodie with raised back lettering and tonal artwork" decoding="async" /></a>
-          <div><p class="edition-label">Pressure Tested apparel</p><h2>Hoodies</h2><p><strong>AUD $129 hoodie · $109 crop hoodie.</strong> Take a closer look at the raised lettering on the full-length hoodie.</p><a class="text-link" href="/shop/apparel/#hoodie">Explore the hoodies</a></div>
+          <div><h3>Hoodies</h3><p><strong>AUD $129 hoodie · $109 crop hoodie.</strong> Take a closer look at the raised lettering on the full-length hoodie.</p><a class="text-link" href="/shop/apparel/#hoodie">See the hoodie details</a></div>
         </article>
       </section>
       </div>
@@ -101,45 +107,35 @@
         <div class="footer-col">
           <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
             <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
-            <span class="brand-copy">
-              <strong>The Pressure Academy</strong>
-              <span>Built under pressure</span>
-            </span>
+            <span class="brand-copy"><strong>The Pressure Academy</strong></span>
           </a>
-          <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Plan your life. Train with intent. Turn pressure into progress.
-          </p>
+          <div class="footer-links"><a href="/#academy-family">Meet the Academy family</a></div>
         </div>
         <div class="footer-col">
           <span class="mono">Shop</span>
           <div class="footer-links">
             <a href="/shop/apparel/">Pressure Tested apparel</a>
-            <a href="/shop/mats/">Mats</a>
+            <a href="/shop/mats/">Tatami mats</a>
             <a href="/academy-orders/">Academy orders</a>
           </div>
         </div>
         <div class="footer-col">
-          <span class="mono">Train</span>
+          <span class="mono">Learn</span>
           <div class="footer-links">
             <a href="/seminars/">Seminars</a>
-            <a href="/blueprints/">Blueprints</a>
-            <a href="/planner">Pressure Planner</a>
-            <a href="/mastery-method">Mastery Method</a>
+            <a href="/blueprints/">Pressure Blueprint</a>
+            <a href="/mastery-method/">Mastery Method</a>
           </div>
         </div>
         <div class="footer-col">
-          <span class="mono">Company</span>
+          <span class="mono">Help</span>
           <div class="footer-links">
             <a href="/contact/">Contact</a>
             <a href="/privacy-policy.html">Privacy policy</a>
-            <a href="/">Home</a>
           </div>
         </div>
       </div>
-      <div class="footer-micro">
-        <span>Pressure first. Noise second.</span>
-        <span>&copy; 2026 The Pressure Academy</span>
-      </div>
+      <div class="footer-micro"><span>&copy; 2026 The Pressure Academy</span></div>
     </footer>
 
     <script type="module">

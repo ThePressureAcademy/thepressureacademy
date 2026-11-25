@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
     <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-tatami-v2.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-shop-train-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -39,13 +41,11 @@
           <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
           <span class="brand-copy">
             <strong>The Pressure Academy</strong>
-            <span>Built under pressure</span>
           </span>
         </a>
         <nav class="header-nav" aria-label="Primary">
           <div class="nav-links">
-            <a href="/shop/apparel/">Apparel</a>
-            <a href="/shop/mats/" aria-current="page">Tatami mats</a>
+            <a href="/shop/" aria-current="location">Shop</a>
             <a href="/seminars/">Seminars</a>
             <a href="/academy-orders/">Academy orders</a>
             <a href="/contact/">Contact</a>
@@ -59,22 +59,20 @@
         </div>
       </div>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
-        <a href="/shop/">All pre-orders</a>
-        <a href="/shop/apparel/">Apparel</a>
-        <a href="/shop/mats/" aria-current="page">Tatami mats</a>
+        <a href="/shop/" aria-current="location">Shop</a>
         <a href="/seminars/">Seminars</a>
         <a href="/academy-orders/">Academy orders</a>
         <a href="/contact/">Contact</a>
-        <a href="/blueprints/">Blueprints</a>
+        <a href="/#academy-family">Academy family</a>
       </nav>
     </header>
 
     <main id="main-content" tabindex="-1">
-      <section class="page-hero" aria-labelledby="mat-title">
+      <section class="page-hero mat-masthead" aria-labelledby="mat-title">
         <div class="container tatami-intro">
           <div>
-            <span class="kicker">Mat pre-orders</span>
-            <h1 id="mat-title">Tatami mats</h1>
+            <span class="kicker">The Pressure Academy / Training floors</span>
+            <h1 id="mat-title">Tatami mats<span>.</span></h1>
             <p class="tatami-price"><strong>AUD $138</strong> per 2 × 1 m mat</p>
             <p class="lead">Ten mats cover 20 m². Choose from five colours and add one mat at a time to fit your floor. We’ll quote delivery to your location.</p>
             <div class="hero-actions">
@@ -82,9 +80,9 @@
               <a class="btn-ghost" href="#calculator">Calculate my floor</a>
             </div>
           </div>
-          <figure class="floor-plan">
+          <figure class="floor-plan" data-house-watermark>
             <div class="floor-plan-grid" aria-hidden="true"></div>
-            <figcaption>10 mats laid out in a 5 × 4 m rectangle</figcaption>
+            <figcaption><strong>20 m²</strong><span>10 mats in a 5 × 4 m rectangle</span></figcaption>
           </figure>
         </div>
       </section>
@@ -180,45 +178,35 @@
         <div class="footer-col">
           <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
             <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
-            <span class="brand-copy">
-              <strong>The Pressure Academy</strong>
-              <span>Built under pressure</span>
-            </span>
+            <span class="brand-copy"><strong>The Pressure Academy</strong></span>
           </a>
-          <p class="muted" style="margin-top: 14px; max-width: 30rem">
-            Plan your life. Train with intent. Turn pressure into progress.
-          </p>
+          <div class="footer-links"><a href="/#academy-family">Meet the Academy family</a></div>
         </div>
         <div class="footer-col">
           <span class="mono">Shop</span>
           <div class="footer-links">
             <a href="/shop/apparel/">Pressure Tested apparel</a>
-            <a href="/shop/mats/">Mats</a>
+            <a href="/shop/mats/">Tatami mats</a>
             <a href="/academy-orders/">Academy orders</a>
           </div>
         </div>
         <div class="footer-col">
-          <span class="mono">Train</span>
+          <span class="mono">Learn</span>
           <div class="footer-links">
             <a href="/seminars/">Seminars</a>
-            <a href="/blueprints/">Blueprints</a>
-            <a href="/planner">Pressure Planner</a>
-            <a href="/mastery-method">Mastery Method</a>
+            <a href="/blueprints/">Pressure Blueprint</a>
+            <a href="/mastery-method/">Mastery Method</a>
           </div>
         </div>
         <div class="footer-col">
-          <span class="mono">Company</span>
+          <span class="mono">Help</span>
           <div class="footer-links">
             <a href="/contact/">Contact</a>
             <a href="/privacy-policy.html">Privacy policy</a>
-            <a href="/">Home</a>
           </div>
         </div>
       </div>
-      <div class="footer-micro">
-        <span>Pressure first. Noise second.</span>
-        <span>&copy; 2026 The Pressure Academy</span>
-      </div>
+      <div class="footer-micro"><span>&copy; 2026 The Pressure Academy</span></div>
     </footer>
 
     <script type="module">
