@@ -1,0 +1,35 @@
+.drop-teaser {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
+  align-items: center;
+  margin-top: clamp(1.2rem, 3vw, 2.5rem);
+  border-top: 3px solid #ac6540;
+  background: #20221b;
+  color: #f5f1e7;
+}
+.drop-teaser-copy { padding: clamp(1.2rem, 3.5vw, 3rem); }
+.drop-teaser .kicker { margin-bottom: .65rem; color: #f4ae82; }
+.drop-teaser h2 {
+  margin: 0 0 .75rem;
+  font: 800 clamp(2.35rem, 4.5vw, 4.5rem)/.98 var(--poster-face);
+  text-transform: uppercase;
+}
+.drop-teaser-copy > p:not(.kicker) { max-width: 43ch; margin: 0 0 .65rem; color: #e1dfd4; }
+.drop-teaser-link {
+  display: inline-flex; align-items: center; gap: .65rem; min-height: 44px;
+  color: #ffc7a2; font-weight: 650; text-decoration: underline; text-underline-offset: .25em;
+}
+.drop-teaser-link::after { position: absolute; inset: 0; content: ""; }
+.drop-teaser-link:focus-visible { outline: 3px solid #ffb58b; outline-offset: 4px; }
+.drop-teaser-photo { position: relative; overflow: hidden; width: 100%; aspect-ratio: 348 / 253; pointer-events: none; }
+/* Frame the complete tee panel at x352, y706 on the original 709 × 1536 board. */
+.drop-teaser-photo img {
+  position: absolute; top: 0; left: 0;
+  width: 203.74%; max-width: none; height: auto;
+  transform: translate(-49.65%, -45.96%);
+}
+@media (max-width: 650px) {
+  .drop-teaser { grid-template-columns: 1fr; }
+  .drop-teaser-photo { grid-row: 1; }
+}
