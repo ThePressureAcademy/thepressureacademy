@@ -30,7 +30,7 @@ export function initAcademyQuote(form) {
   for (const link of document.querySelectorAll("[data-quote-for]")) {
     link.addEventListener("click", () => {
       type.value = link.dataset.quoteFor;
-      showScope();
+      type.dispatchEvent(new Event("change"));
       type.focus({ preventScroll: true });
     });
   }

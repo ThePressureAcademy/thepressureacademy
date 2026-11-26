@@ -1,6 +1,7 @@
-import { initMobileNav } from "./commerce-ui.js";
+import { enhanceCaptureForms, initMobileNav } from "./commerce-ui.js";
 
 initMobileNav();
+enhanceCaptureForms();
 
 const reel = document.querySelector(".pt-reel");
 const frames = Array.from(reel.querySelectorAll(".pt-frame"));

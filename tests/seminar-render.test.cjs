@@ -55,6 +55,22 @@ const pixleySlug = 'michael-pixley-march-2027';
 const pixleyPath = '/seminars/' + pixleySlug + '/';
 const pixleyHtml = fs.readFileSync(path.join(root, pixleyPath, 'index.html'), 'utf8');
 
+const pixleyForms = [...pixleyHtml.matchAll(/<form\b[\s\S]*?<\/form>/g)].map(match => match[0]);
+const sessionForms = pixleyForms.filter(form => form.includes('data-session-quote'));
+
+test('Pixley date notification only requests email and identifies the individual event', () => {
+  const alert = pixleyForms.find(form => form.includes('id="pixley-date-alert"'));
+  assert.ok(alert);
+  assert.match(alert, /action="https:\/\/formspree.io\/f\/meerjgde"/);
+  assert.match(alert, /method="post"/);
+  assert.match(alert, /name="intent" value="pixley-date-alert"/);
+  assert.match(alert, /name="source" value="seminar-michael-pixley-march-2027"/);
+  assert.match(alert, /type="email" name="email"[^>]* required/);
+  assert.deepEqual([...alert.matchAll(/<input(?! type="hidden")[^>]*name="([^"]+)"/g)].map(match => match[1]), ['email']);
+  const hub = fs.readFileSync(path.join(root, 'seminars/index.html'), 'utf8');
+  assert.ok(hub.includes('href="' + pixleyPath + '#pixley-date-alert"'));
+});
+
 test('Pixley requests have a crawlable event page and two native submission paths', () => {
   const routes = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'))).routes;
   const route = routes.find(item => new RegExp(item.src).test(pixleyPath));
@@ -64,7 +80,7 @@ test('Pixley requests have a crawlable event page and two native submission path
   assert.equal(generic.dest, '/seminars/_event/index.html');
   assert.match(pixleyHtml, /Hosted by The Pressure Academy/);
   assert.match(pixleyHtml, /Brisbane, Queensland, Australia/);
-  const forms = [...pixleyHtml.matchAll(/<form\b[\s\S]*?<\/form>/g)].map(match => match[0]);
+  const forms = sessionForms;
   assert.equal(forms.length, 2);
   for (const form of forms) {
     assert.match(form, /action="https:\/\/formspree.io\/f\/meerjgde"/);
@@ -135,11 +151,11 @@ test('day and group requests quote admission and both optional garments independ
     assert.equal(output.hidden, true);
   }
   const catalogItems = vm.runInContext('PIXLEY_ADDONS', context);
-  for (const form of pixleyHtml.matchAll(/<form\b[\s\S]*?<\/form>/g)) {
+  for (const form of sessionForms) {
     for (const item of catalogItems) {
-      assert.ok(form[0].includes('+$' + item.priceCents / 100 + ' AUD each'));
-      assert.ok(form[0].includes('name="' + item.id + '_quantity"'));
-      assert.ok(form[0].includes('name="' + item.id + '_sizes"'));
+      assert.ok(form.includes('+$' + item.priceCents / 100 + ' AUD each'));
+      assert.ok(form.includes('name="' + item.id + '_quantity"'));
+      assert.ok(form.includes('name="' + item.id + '_sizes"'));
     }
   }
 });

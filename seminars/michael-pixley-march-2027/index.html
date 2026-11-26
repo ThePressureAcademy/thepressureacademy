@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-shop-train-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-pixley-session-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-pixley-date-alert-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
   </head>
   <body>
@@ -85,8 +86,22 @@
             <p class="kicker">Two-day grappling seminar · March 2027</p>
             <h1>Michael<br /><span>Pixley.</span></h1>
             <p class="lead">Train with Pixley in Brisbane, Queensland, Australia. Choose a public seminar day or a 90-minute session for your own group.</p>
-            <p class="pixley-note"><strong>Hosted by The Pressure Academy</strong><br />March 2027. We’ll confirm the exact dates, times and venue address before requesting payment.</p>
-            <div class="hero-actions"><a class="btn" href="#session-options">Compare sessions</a></div>
+            <p class="pixley-note"><strong>Hosted by The Pressure Academy</strong><br />March 2027. Exact dates, session times and the venue address are still to be confirmed.</p>
+            <form id="pixley-date-alert" class="capture-form pixley-date-alert" data-capture="pixley-date-alert" aria-labelledby="pixley-alert-title"
+              action="https://formspree.io/f/meerjgde" method="post"
+              data-success-message="Your date alert request was sent. We’ll email you when the Brisbane schedule is confirmed.">
+              <input type="hidden" name="intent" value="pixley-date-alert" />
+              <input type="hidden" name="source" value="seminar-michael-pixley-march-2027" />
+              <input type="hidden" name="event" value="Michael Pixley · March 2027" />
+              <h2 id="pixley-alert-title">Get the confirmed dates.</h2>
+              <div class="pixley-alert-fields">
+                <label>Email address<input type="email" name="email" autocomplete="email" required /></label>
+                <button class="btn" type="submit">Email me the dates</button>
+              </div>
+              <p class="form-help">One email when the Brisbane schedule is confirmed. <a href="/privacy-policy.html">Privacy policy</a></p>
+              <div class="form-status" role="status" aria-live="polite"></div>
+            </form>
+            <a class="text-link" href="#session-options">Compare sessions and prices</a>
             <p class="pixley-coach-record">Pixley won the 2019 NCAA Division II wrestling title at 184 lb and qualified for the 2024 ADCC World Championship at under 99 kg.</p>
             <div class="pixley-record-links">
               <a href="https://mckbearcats.com/news/2019/3/9/no-4-mens-wrestling-finishes-third-at-ncaa-wrestling-championships-pixley-wins-individual-title.aspx">McKendree wrestling result</a>
@@ -124,19 +139,19 @@
           <div>
             <p class="kicker">Day 1 &amp; Day 2</p>
             <h2 id="seminar-title">Request seminar places.</h2>
-            <p class="lead">Each day is capped at 20 people. Choose the days you want and how many people will attend.</p>
+            <p class="lead">Each day is capped at 20 people. Select your preferred day or both days. If your choice depends on the schedule, <a class="pixley-inline-link" href="#pixley-date-alert">get the date alert</a>.</p>
             <p class="pixley-note">We’ll email you the dates and confirm availability before payment. You can list any apparel you’d like in your request. Sending this request is free and does not hold a place.</p>
           </div>
-          <form class="capture-form panel" data-capture="pixley-seminar-request" data-success-message="Your seminar request has been sent. We’ll email you about dates and availability. No place is held and no payment has been taken." action="https://formspree.io/f/meerjgde" method="post" id="pixley-days-form">
+          <form class="capture-form panel" data-session-quote data-capture="pixley-seminar-request" data-success-message="Your seminar request has been sent. We’ll email you about dates and availability. No place is held and no payment has been taken." action="https://formspree.io/f/meerjgde" method="post" id="pixley-days-form">
             <input type="hidden" name="intent" value="seminar-registration" />
             <input type="hidden" name="source" value="seminar-michael-pixley-march-2027" />
             <input type="hidden" name="event" value="Michael Pixley · March 2027" />
             <input type="hidden" name="request_type" value="seminar-days" />
             <input type="hidden" name="price_per_person_per_day_aud" value="150" />
             <div class="field-grid">
-              <label>Which days?
+              <label>Preferred days
                 <select name="days" required>
-                  <option value="">Choose your days</option>
+                  <option value="">Choose a preference</option>
                   <option value="Day 1">Day 1 · $150 per person</option>
                   <option value="Day 2">Day 2 · $150 per person</option>
                   <option value="Both days">Both days · $300 per person</option>
@@ -189,7 +204,7 @@
             <p class="lead">This Brisbane session is $1,000 AUD in total for one group of up to six people.</p>
             <p class="pixley-note">We’ll email the organiser to confirm availability, time and venue before payment. One request covers the whole group. Apparel is optional and priced separately.</p>
           </div>
-          <form class="capture-form panel" data-capture="pixley-group-request" data-success-message="Your semi-private request has been sent. We’ll email you about scheduling and availability. No session is held and no payment has been taken." action="https://formspree.io/f/meerjgde" method="post" id="pixley-group-form">
+          <form class="capture-form panel" data-session-quote data-capture="pixley-group-request" data-success-message="Your semi-private request has been sent. We’ll email you about scheduling and availability. No session is held and no payment has been taken." action="https://formspree.io/f/meerjgde" method="post" id="pixley-group-form">
             <input type="hidden" name="intent" value="seminar-registration" />
             <input type="hidden" name="source" value="seminar-michael-pixley-march-2027" />
             <input type="hidden" name="event" value="Michael Pixley · March 2027" />

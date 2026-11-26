@@ -59,7 +59,8 @@ function updateQuote(form) {
 
 initMobileNav();
 track(EVENTS.SEMINAR_VIEWED, { slug: event.slug, status: event.status });
-document.querySelectorAll("form[data-capture]").forEach((form) => {
+const sessionForms = document.querySelectorAll("form[data-session-quote]");
+sessionForms.forEach((form) => {
   form.addEventListener("input", () => updateQuote(form));
   form.addEventListener("change", () => updateQuote(form));
   form.addEventListener("reset", () => queueMicrotask(() => updateQuote(form)));
@@ -69,7 +70,7 @@ document.querySelectorAll("form[data-capture]").forEach((form) => {
   updateQuote(form);
 });
 window.addEventListener("pageshow", () => {
-  document.querySelectorAll("form[data-capture]").forEach(updateQuote);
+  sessionForms.forEach(updateQuote);
 });
 enhanceCaptureForms(document, (form) => {
   track(EVENTS.SEMINAR_INTEREST_SUBMITTED, { slug: event.slug, mode: form.dataset.capture });

@@ -1,3 +1,4 @@
+import { academyPlanLink, chooseSpareColour, orderColourMix } from "./mat-quote-mix.js";
 import { tatamiMat, matGuidance } from "../config/commerce.js";
 
 const dollars = new Intl.NumberFormat("en-AU", {
@@ -24,6 +25,7 @@ export function estimateMatFloor(widthM, lengthM) {
 export function initTatamiPreorders() {
   const form = document.getElementById("mat-request");
   const quantity = form.elements.quantity;
+  const specs = form.elements.request_mat_specifications;
   const otherColour = document.getElementById("other-mat-colour");
   const colourDetails = document.getElementById("mat-colour-details");
   const requestedColour = form.elements.requested_colour;
@@ -70,14 +72,14 @@ export function initTatamiPreorders() {
   for (const colour of tatamiMat.colours) spareColour.add(new Option(colour, colour));
 
   function orderMix() {
-    const mix = { ...attached.colours };
-    const spares = attached.quantity - attached.placed;
-    if (spares) mix[spareColour.value] = (mix[spareColour.value] || 0) + spares;
-    return tatamiMat.colours.filter(colour => mix[colour] > 0)
-      .map(colour => `${mix[colour]} × ${colour}`).join(", ");
+    return orderColourMix(attached.colours, attached.quantity - attached.placed, spareColour.value);
   }
 
   function displayMix() {
+    const code = new URL(attached.planUrl).searchParams.get("plan");
+    const academyLink = academyPlanLink(code, attached.quantity > attached.placed ? spareColour.value : null, specs.checked);
+    document.getElementById("attached-academy").href = academyLink;
+    document.getElementById("designer-academy").href = academyLink;
     document.getElementById("plan-quote-colours").textContent = "Order colours: " + orderMix();
   }
 
@@ -96,8 +98,7 @@ export function initTatamiPreorders() {
     const spares = plan.quantity - plan.placed;
     spareColour.disabled = spareLabel.hidden = spares === 0;
     if (!wasAttached) {
-      spareColour.value = tatamiMat.colours.reduce((best, colour) =>
-        (plan.colours[colour] || 0) > (plan.colours[best] || 0) ? colour : best);
+      spareColour.value = chooseSpareColour(plan.colours);
     }
     if (spares > 0) {
       document.getElementById("plan-extra-title").textContent =
@@ -110,6 +111,8 @@ export function initTatamiPreorders() {
 
   function detachPlan() {
     if (!attached) return;
+    const code = new URL(attached.planUrl).searchParams.get("plan");
+    document.getElementById("designer-academy").href = academyPlanLink(code, null, specs.checked);
     attached = null;
     planQuote.hidden = true;
     spareColour.disabled = true;
@@ -119,6 +122,15 @@ export function initTatamiPreorders() {
     updateColourField();
     updateSubtotal();
   }
+  specs.addEventListener("change", () => {
+    if (attached) {
+      displayMix();
+    } else {
+      const link = document.getElementById("designer-academy");
+      const code = new URL(link.href).searchParams.get("plan");
+      if (code) link.href = academyPlanLink(code, null, specs.checked);
+    }
+  });
   spareColour.addEventListener("change", displayMix);
   document.getElementById("remove-plan").addEventListener("click", () => {
     detachPlan();

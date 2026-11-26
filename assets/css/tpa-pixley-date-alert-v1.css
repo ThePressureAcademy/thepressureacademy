@@ -1,0 +1,17 @@
+.pixley-date-alert {
+  max-width: 34rem;
+  margin: 1.4rem 0 .5rem;
+  border-top: 1px solid var(--line-strong);
+  padding-top: 1.1rem;
+  gap: .6rem;
+}
+.pixley-date-alert h2 { margin: 0; font: 700 clamp(1.4rem, 2.2vw, 1.85rem)/1.15 var(--font-body); }
+.pixley-alert-fields { display: flex; align-items: end; flex-wrap: wrap; gap: .5rem; }
+.pixley-alert-fields label { flex: 1 1 12.25rem; min-width: 0; }
+.pixley-alert-fields input { width: 100%; }
+.pixley-date-alert .form-status:empty { display: none; }
+.pixley-inline-link { text-decoration: underline; text-underline-offset: .18em; }
+@media (max-width: 440px) {
+  .pixley-alert-fields { display: grid; }
+  .pixley-alert-fields .btn { justify-self: start; }
+}
