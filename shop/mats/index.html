@@ -6,14 +6,14 @@
     <title>Tatami Mat Pre-orders | The Pressure Academy</title>
     <meta
       name="description"
-      content="Request 2 × 1 m tatami mats at AUD $138 each. Minimum 10 mats cover 20 m². Calculate your quantity and request a freight quote before payment."
+      content="Request 2 × 1 m tatami mats at AUD $138 each. Lay out a floor in five colours, see your quantities and request a freight quote. Minimum 10 mats."
     />
     <link rel="canonical" href="https://thepressureacademy.com/shop/mats/" />
     <meta property="og:site_name" content="The Pressure Academy" />
     <meta property="og:title" content="Tatami Mat Pre-orders | The Pressure Academy" />
     <meta
       property="og:description"
-      content="Tatami mats at AUD $138 each, from 10 mats. Calculate the mat area and request delivery pricing for your location."
+      content="Tatami mats at AUD $138 each, from 10 mats. Design your floor, try colour patterns and request a freight quote."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thepressureacademy.com/shop/mats/" />
@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-shop-train-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-order-options-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-mat-designer-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -80,16 +81,117 @@
             <span class="kicker">The Pressure Academy / Training floors</span>
             <h1 id="mat-title">Tatami mats<span>.</span></h1>
             <p class="tatami-price"><strong>AUD $138</strong> per 2 × 1 m mat</p>
-            <p class="lead">Ten mats cover 20 m². Choose from five colours and add one mat at a time to fit your floor. We’ll quote delivery to your location.</p>
+            <p class="lead">Plan your training space in five colours. Orders start at 10 mats (20 m²). Freight is quoted for your location.</p>
             <div class="hero-actions">
-              <a class="btn" href="#mat-enquiry">Request a mat pre-order</a>
-              <a class="btn-ghost" href="#calculator">Calculate my floor</a>
+              <a class="btn" id="plan-floor-link" href="#calculator">Estimate my floor</a>
+              <a class="btn-ghost" href="#mat-enquiry">Request a mat pre-order</a>
             </div>
           </div>
-          <figure class="floor-plan" data-house-watermark>
-            <div class="floor-plan-grid" aria-hidden="true"></div>
-            <figcaption><strong>20 m²</strong><span>10 mats in a 5 × 4 m rectangle</span></figcaption>
-          </figure>
+
+        </div>
+      </section>
+
+      <section class="designer-section" id="floor-planner" aria-labelledby="designer-title" hidden>
+        <div class="container">
+          <div class="designer-heading">
+            <h2 id="designer-title">Design your floor<span>.</span></h2>
+            <p>Tap a mat to change its colour, or draw your room. Only need a quantity? <a class="text-link" href="#calculator">Get a quick estimate</a>.</p>
+          </div>
+          <div class="designer-workbench">
+            <details class="designer-settings">
+              <summary>Room size &amp; starting pattern</summary>
+              <div class="designer-settings-inner">
+                <form id="designer-room">
+                  <div class="designer-pair">
+                    <label for="designer-width">Width (m)
+                      <input type="number" id="designer-width" inputmode="decimal" step="0.01" min="1" max="24" value="5" required />
+                    </label>
+                    <label for="designer-length">Length (m)
+                      <input type="number" id="designer-length" inputmode="decimal" step="0.01" min="1" max="24" value="4" required />
+                    </label>
+                  </div>
+                  <button class="designer-button" type="submit">Update room</button>
+                </form>
+                <div class="designer-pattern">
+                  <label for="designer-pattern">Starting pattern</label>
+                  <select id="designer-pattern">
+                    <option value="solid">Solid colour</option>
+                    <option value="border">Border</option>
+                    <option value="checker">Checkerboard</option>
+                    <option value="blank">Empty floor</option>
+                  </select>
+                  <button class="designer-button" type="button" id="designer-apply-pattern">Apply pattern</button>
+                </div>
+                <p>For rooms over 24 m in either direction, use the <a href="#calculator">area estimator</a>.</p>
+              </div>
+            </details>
+
+            <div class="designer-drawing">
+              <div class="designer-sheet">
+                <div class="designer-sheet-tools">
+                  <span class="designer-scale">1 square = 1 m²</span>
+                  <button type="button" id="designer-zoom" aria-pressed="false">Zoom in</button>
+                </div>
+                <div class="designer-axis designer-axis-width" aria-hidden="true"><span id="designer-width-label">5 m</span></div>
+                <div class="designer-paper">
+                  <div class="designer-axis designer-axis-length" aria-hidden="true"><span id="designer-length-label">4 m</span></div>
+                  <div id="designer-board" tabindex="0" role="application" aria-label="Interactive mat floor plan" aria-describedby="designer-hint designer-keyboard designer-live-cell"></div>
+                </div>
+                <span class="designer-sr" id="designer-live-cell" aria-live="polite"></span>
+              </div>
+              <div class="designer-board-caption">
+                <span id="designer-hint">Choose a colour, then tap a mat.</span>
+                <button type="button" id="designer-undo" disabled>Undo</button>
+              </div>
+              <p id="designer-keyboard" class="designer-sr">On the floor plan, use the arrow keys to move. Press Enter or Space to use the selected tool.</p>
+              <p id="designer-status" role="status" aria-live="polite"></p>
+            </div>
+
+            <div class="designer-tools">
+              <fieldset class="designer-palette">
+                <legend>Mat colour</legend>
+                <div class="designer-swatches">
+                  <button type="button" data-mat-colour="Ruby Red" aria-pressed="false"><i class="mat-chip ruby" aria-hidden="true"></i>Ruby Red</button>
+                  <button type="button" data-mat-colour="Matte White" aria-pressed="false"><i class="mat-chip white" aria-hidden="true"></i>Matte White</button>
+                  <button type="button" data-mat-colour="Jet Black" aria-pressed="false"><i class="mat-chip black" aria-hidden="true"></i>Jet Black</button>
+                  <button type="button" data-mat-colour="Rust Orange" aria-pressed="true"><i class="mat-chip orange" aria-hidden="true"></i>Rust Orange</button>
+                  <button type="button" data-mat-colour="Night Grey" aria-pressed="false"><i class="mat-chip grey" aria-hidden="true"></i>Night Grey</button>
+                </div>
+              </fieldset>
+              <fieldset class="designer-mode">
+                <legend>Layout tools</legend>
+                <div class="designer-mode-options">
+                  <button type="button" data-mat-tool="paint" aria-pressed="true">Paint</button>
+                  <button type="button" data-mat-tool="place" aria-pressed="false">Place</button>
+                  <button type="button" data-mat-tool="remove" aria-pressed="false">Remove</button>
+                  <button type="button" data-mat-tool="block" aria-pressed="false">Block</button>
+                </div>
+              </fieldset>
+              <fieldset id="designer-orientation" hidden>
+                <legend>Placement direction</legend>
+                <div class="designer-mode-options">
+                  <button type="button" data-mat-orientation="h" aria-pressed="true">Horizontal</button>
+                  <button type="button" data-mat-orientation="v" aria-pressed="false">Vertical</button>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="designer-estimate">
+            <div class="designer-receipt">
+              <div class="designer-totals">
+                <div><span>On the floor</span><strong id="designer-count">10 mats</strong></div>
+                <div><span>Mat coverage</span><strong id="designer-area">20 m²</strong></div>
+                <div><span>Order before freight</span><strong id="designer-subtotal">AUD $1,380</strong></div>
+              </div>
+              <ul id="designer-breakdown" aria-label="Mats by colour"></ul>
+              <p id="designer-minimum"></p>
+            </div>
+            <div class="designer-enquiry-actions">
+              <button type="button" class="btn" id="designer-use">Use this layout in my enquiry</button>
+              <button type="button" id="designer-share">Copy plan link</button>
+              <label id="designer-share-fallback" hidden>Plan link<input id="designer-share-url" type="url" readonly /></label>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -97,8 +199,8 @@
         <div class="container tatami-sizer">
           <div class="grid-2 tatami-order-grid">
             <div>
-              <h2 id="calc-title">Estimate your floor and mat cost</h2>
-              <p class="muted">Measure the width and length of one rectangular training area. Your estimate allows for the 10-mat minimum. Cuts and obstacles can change how many mats you need.</p>
+              <h2 id="calc-title">Quick area estimate</h2>
+              <p class="muted">Just need a quantity? Enter the width and length of a rectangular room. This estimate uses total area. Cuts and obstacles can change how many mats fit.</p>
               <a class="text-link" href="/academy-orders/?type=mat-fitout#order-enquiry">Ask about a multi-room fit-out</a>
             </div>
             <div>
@@ -131,7 +233,7 @@
             <div>
               <h2 id="order-title">Your mat pre-order</h2>
               <p>Minimum 10 mats · 20 m² · AUD $1,380 before freight.</p>
-              <p class="muted">Choose your mat colour and quantity. We’ll email you about availability, freight and timing before you decide whether to order. No payment is taken here.</p>
+              <p class="muted">Send your floor plan or enter a quantity and colour. We’ll email you about availability, freight and timing before you decide whether to order.</p>
               <p class="muted">Outside Australia? Enter your destination and we’ll check whether delivery is available.</p>
             </div>
             <form class="capture-form" id="mat-request" data-capture="mat-enquiry"
@@ -144,6 +246,18 @@
               <input type="hidden" name="currency" value="AUD" />
               <input type="hidden" name="unit_price" value="138" />
               <input type="hidden" name="calculator_result" id="calc-payload" disabled />
+              <div id="plan-quote" class="tatami-fit" hidden>
+                <h3 id="plan-quote-heading" tabindex="-1">Your floor plan is attached</h3>
+                <p id="plan-quote-summary"></p>
+                <label id="plan-extra-label" hidden><span id="plan-extra-title"></span>
+                  <select id="plan-extra-colour" disabled></select>
+                </label>
+                <p id="plan-quote-colours"></p>
+                <div class="estimate-actions">
+                  <a class="text-link" href="#designer-board">Edit floor plan</a>
+                  <button type="button" class="text-link" id="remove-plan">Enter quantity and colour manually</button>
+                </div>
+              </div>
               <fieldset class="mat-colours" id="mat-colours" aria-describedby="mat-colour-help">
                 <legend>Mat colour</legend>
                 <div class="mat-colour-options">
@@ -224,10 +338,15 @@
       import { initMotion } from "/js/lib/media/motion-controller.js";
       import { tatamiMat } from "/js/config/commerce.js";
       import { initTatamiPreorders } from "/js/lib/tatami-preorders.js";
+      import { initMatDesigner } from "/js/lib/mat-designer-v1.js";
       import { initCart } from "/js/lib/cart.js";
       import { enhanceCaptureForms, trackProductViews, initMobileNav } from "/js/lib/commerce-ui.js";
 
       initTatamiPreorders();
+      initMatDesigner();
+      const designLink = document.getElementById("plan-floor-link");
+      designLink.href = "#floor-planner";
+      designLink.textContent = "Design my floor";
       enhanceCaptureForms();
       initMobileNav();
       initCart();
