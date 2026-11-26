@@ -1,0 +1,199 @@
+.sms-signup-section {
+  --text: #24271f;
+  --muted: #454b3d;
+  --soft: #65665b;
+  --rust-bright: #8d4023;
+  background: var(--paper);
+  color: var(--text);
+  color-scheme: light;
+}
+
+.sms-layout {
+  display: grid;
+  gap: 2rem;
+  padding-block: clamp(2rem, 6vw, 5rem);
+}
+
+.sms-intro {
+  --house-mark-size: clamp(8rem, 28vw, 19rem);
+  --house-mark-right: -1rem;
+  --house-mark-top: -.8rem;
+  --house-mark-opacity: .1;
+  align-self: stretch;
+}
+
+.sms-intro h1,
+.sms-stop-intro h2 {
+  font-family: var(--poster-face);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: .92;
+  letter-spacing: -.012em;
+  margin: 0;
+}
+
+.sms-intro h1 {
+  font-size: clamp(3.25rem, 7.2vw, 5.75rem);
+}
+
+.sms-intro h1 span {
+  display: block;
+  color: var(--rust-bright);
+}
+
+.sms-intro p,
+.sms-stop-intro p {
+  max-width: 38ch;
+  margin: 1rem 0;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+}
+
+.sms-intro > a,
+.sms-form .form-help a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .22em;
+}
+
+.sms-form {
+  min-width: 0;
+  width: 100%;
+  align-self: start;
+  gap: 1.25rem;
+  margin: 0;
+}
+
+.sms-field {
+  display: grid;
+  gap: .4rem;
+}
+
+.sms-field > label,
+#sms-topic-label {
+  font-weight: 650;
+}
+
+.sms-form small {
+  display: block;
+  color: var(--muted);
+  font-size: .875rem;
+  line-height: 1.4;
+}
+
+#sms-topic-native small { margin-top: .4rem; }
+#sms-topic-error:empty, .sms-form .form-status:empty { display: none; }
+
+.sms-signup-section .sms-form :is(input[type="tel"], select),
+#sms-topic-picker {
+  background: #fffdf7;
+  color: var(--text);
+  border: 1px solid #76796c;
+  border-radius: 3px;
+}
+
+.sms-form input[type="tel"] {
+  font-size: 1.075rem;
+  letter-spacing: .02em;
+}
+
+#sms-topics { padding: .25rem; }
+#sms-topics option { padding: .4rem .55rem; }
+#sms-topic-picker summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .75rem 1rem;
+  min-height: 3.15rem;
+  list-style: none;
+  cursor: pointer;
+}
+#sms-topic-picker summary::-webkit-details-marker { display: none; }
+#sms-topic-picker summary::after {
+  content: "";
+  width: .65rem;
+  height: .65rem;
+  margin-inline-end: .125rem;
+  border: solid #454b3d;
+  border-width: 0 2px 2px 0;
+  transform: translateY(-.15rem) rotate(45deg);
+  flex: none;
+}
+#sms-topic-picker[open] summary { border-bottom: 1px solid #c7c8bb; }
+#sms-topic-picker[open] summary::after { transform: translateY(.12rem) rotate(225deg); }
+#sms-topic-options { padding: .2rem .75rem; }
+
+.sms-form label.sms-consent,
+#sms-topic-options label {
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+#sms-topic-options label {
+  min-height: 2.75rem;
+  align-items: center;
+  padding: .5rem .55rem;
+}
+#sms-topic-options [data-suggested="true"] {
+  box-shadow: inset 2px 0 #9a4d2b;
+  background: #f6efe4;
+}
+#sms-topic-options [data-suggested="true"] span { font-weight: 650; }
+
+.sms-form input[type="checkbox"] {
+  appearance: auto;
+  flex: 0 0 1.2rem;
+  inline-size: 1.2rem;
+  block-size: 1.2rem;
+  min-height: 0;
+  padding: 0;
+  margin: .15rem 0 0;
+  accent-color: #854024;
+}
+#sms-topic-options input[type="checkbox"] { margin-block-start: 0; }
+#sms-topic-error { color: #943516; }
+.sms-form .form-status {
+  margin: 0;
+  padding: .1rem 0 .1rem .8rem;
+  border-left: 3px solid currentColor;
+  color: inherit;
+}
+.sms-submit { display: grid; gap: .8rem; }
+.sms-form :is(.btn, .btn-ghost) { width: 100%; }
+.sms-signup-section .btn { background: var(--house-ink); color: var(--paper); }
+.sms-signup-section .btn:hover,
+.sms-signup-section .btn:focus-visible { background: #363d2e; }
+
+.sms-stop-section {
+  background: #242820;
+  color: var(--paper);
+  --muted: #d3d3c7;
+  border-top: 1px solid #45483e;
+}
+.sms-stop-section .sms-layout { padding-block: clamp(2.25rem, 4vw, 3.8rem); gap: 1rem; }
+.sms-stop-intro h2 { font-size: clamp(2rem, 4.6vw, 4rem); }
+.sms-stop-intro p { margin-bottom: 0; }
+.sms-stop-section .sms-form input[type="tel"] { background: #1a1d17; border-color: #949886; }
+.sms-stop-section .btn-ghost { border: 1px solid #989b8e; }
+
+@media (min-width: 760px) {
+  .sms-layout {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    gap: clamp(2.5rem, 7vw, 7rem);
+    max-width: 68rem;
+  }
+  .sms-intro {
+    --house-mark-top: 45%;
+    --house-mark-right: -1rem;
+  }
+  .sms-intro p { max-width: 31ch; margin: 1.4rem 0; }
+  .sms-stop-section .sms-layout { gap: clamp(2.5rem, 7vw, 7rem); }
+}
+
+.sms-stop-intro a { color: var(--paper); text-decoration: underline; text-underline-offset: .22em; }
