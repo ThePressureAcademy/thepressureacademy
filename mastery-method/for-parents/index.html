@@ -279,29 +279,16 @@
     display:grid; gap:10px; text-align:left;
   }
   .bp-preview-item {
-    display:flex; align-items:center; gap:12px;
     padding:12px 16px;
     background:var(--white);
     border-radius:var(--radius);
     box-shadow:var(--shadow-soft);
   }
-  .bp-preview-dot {
-    width:8px; height:8px; border-radius:50%; flex-shrink:0;
-  }
-  .bp-preview-item:nth-child(1) .bp-preview-dot { background:var(--rust); }
-  .bp-preview-item:nth-child(2) .bp-preview-dot { background:var(--teal); }
-  .bp-preview-item:nth-child(3) .bp-preview-dot { background:var(--amber); }
-  .bp-preview-item:nth-child(4) .bp-preview-dot { background:var(--violet); }
-  .bp-preview-item:nth-child(5) .bp-preview-dot { background:var(--rose); }
-  .bp-preview-text {
-    font-size:0.82rem; color:var(--ink-soft); font-weight:400;
-  }
-  .bp-preview-sub {
-    font-size:0.7rem; color:var(--ink-muted); font-weight:300; margin-top:1px;
-  }
+  .bp-preview-text {font-size:1rem;color:var(--ink);font-weight:600}
+  .bp-preview-sub {font-size:1rem;color:var(--ink-soft);line-height:1.55;margin:.25rem 0 0}
   .bp-visual-note {
     margin-top:20px;
-    font-size:0.72rem; color:var(--ink-muted); font-weight:300;
+    font-size:.9rem; color:var(--ink-muted);
     font-style:italic;
   }
 
@@ -595,31 +582,27 @@
         </div>
       </div>
     </div>
-    <div class="blueprint-visual" id="teaching-blueprint">
-      <div class="bp-visual-header">Your Teaching Blueprint</div>
-      <div class="bp-preview">
+    <div class="blueprint-visual" id="teaching-blueprint" role="region" aria-labelledby="sample-year-two">
+      <h3 class="bp-visual-header" id="sample-year-two">Sample Teaching Blueprint · Year 2 writing</h3>
+      <dl class="bp-preview">
         <div class="bp-preview-item">
-          <div class="bp-preview-dot"></div>
-        <div><div class="bp-preview-text">Thinking</div><div class="bp-preview-sub">Breaking down multi-step questions</div></div>
+          <dt class="bp-preview-text">Homework from school</dt>
+          <dd class="bp-preview-sub">Retell a story in three sentences, one each for the beginning, middle and end.</dd>
         </div>
         <div class="bp-preview-item">
-          <div class="bp-preview-dot"></div>
-        <div><div class="bp-preview-text">Communication</div><div class="bp-preview-sub">Structuring written responses</div></div>
+          <dt class="bp-preview-text">Teacher’s observation</dt>
+          <dd class="bp-preview-sub">The child retells the story in order aloud, then waits for an adult to supply the first written sentence.</dd>
         </div>
         <div class="bp-preview-item">
-          <div class="bp-preview-dot"></div>
-        <div><div class="bp-preview-text">Learning</div><div class="bp-preview-sub">Understanding success criteria</div></div>
+          <dt class="bp-preview-text">Five minutes at home</dt>
+          <dd class="bp-preview-sub">Draw three boxes. Ask your child to say one sentence for each box. Invite them to write their first sentence in their own words.</dd>
         </div>
         <div class="bp-preview-item">
-          <div class="bp-preview-dot"></div>
-        <div><div class="bp-preview-text">Action</div><div class="bp-preview-sub">Homework start routine</div></div>
+          <dt class="bp-preview-text">What to notice next time</dt>
+          <dd class="bp-preview-sub">After saying their first sentence aloud, can they begin writing it without an adult supplying the opening words?</dd>
         </div>
-        <div class="bp-preview-item">
-          <div class="bp-preview-dot"></div>
-          <div><div class="bp-preview-text">Home Activity This Week</div><div class="bp-preview-sub">5-minute task breakdown practice</div></div>
-        </div>
-      </div>
-      <div class="bp-visual-note">Preview only — your family's blueprint is personalised</div>
+      </dl>
+      <div class="bp-visual-note">Illustrative example. Your family’s plan reflects your child’s work and any teacher notes you choose to share.</div>
     </div>
   </div>
 </section>

@@ -72,50 +72,17 @@
   .hero-trust span{display:flex;align-items:center;gap:6px}
   .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block}
 
-  /* ── S2: PROBLEM ── */
-  .problem{padding:var(--section-pad) 24px;background:var(--white)}
-  .problem-inner{max-width:var(--max-w);margin:0 auto}
-  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
-  .problem-cards{display:grid;gap:10px}
-  .problem-card{background:var(--cream);border-radius:var(--radius);padding:18px 20px 18px 44px;font-size:.9rem;color:var(--ink-soft);line-height:1.65;position:relative;transition:transform .2s}
-  .problem-card:hover{transform:translateX(4px)}
-  .problem-card::before{content:'';position:absolute;left:20px;top:22px;width:8px;height:8px;border-radius:50%;background:var(--rust-light);opacity:.5}
-  .problem-narrative{font-size:1.02rem;color:var(--ink-soft);line-height:1.85;font-weight:300}
-  .problem-narrative strong{color:var(--ink);font-weight:500}
-  .problem-shift{margin-top:28px;padding:20px 24px;background:var(--teal-wash);border-radius:var(--radius);border-left:3px solid var(--teal);font-size:.92rem;color:var(--teal-deep);line-height:1.7}
-  .problem-shift em{font-style:italic;font-family:'Fraunces',Georgia,serif}
-
-  /* ── S3: WHAT FAMILIES RECEIVE (NEW CENTRE OF GRAVITY) ── */
-  .system{padding:var(--section-pad) 24px}
-  .system-intro{text-align:center;max-width:640px;margin:0 auto 56px}
-  .system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:var(--max-w);margin:0 auto}
-  .sys-card{background:var(--white);border-radius:var(--radius-lg);padding:28px 24px;box-shadow:var(--shadow-soft);transition:all .3s;position:relative;overflow:hidden}
-  .sys-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
-  .sys-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
-  .sys-card:nth-child(1)::after{background:var(--rust)}.sys-card:nth-child(2)::after{background:var(--teal)}.sys-card:nth-child(3)::after{background:var(--amber)}.sys-card:nth-child(4)::after{background:var(--violet)}.sys-card:nth-child(5)::after{background:var(--rose)}.sys-card:nth-child(6)::after{background:var(--rust)}
-  .sys-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--ink-soft)}
-  .sys-icon svg{width:20px;height:20px}
-  .sys-card:nth-child(1) .sys-icon{background:var(--rust-wash)}.sys-card:nth-child(2) .sys-icon{background:var(--teal-wash)}.sys-card:nth-child(3) .sys-icon{background:var(--amber-wash)}.sys-card:nth-child(4) .sys-icon{background:var(--violet-wash)}.sys-card:nth-child(5) .sys-icon{background:var(--rose-wash)}.sys-card:nth-child(6) .sys-icon{background:var(--sage-wash)}
-  .sys-card h3{font-family:'Fraunces',Georgia,serif;font-size:1rem;font-weight:500;margin-bottom:8px}
-  .sys-card p{font-size:.82rem;color:var(--ink-muted);line-height:1.7;font-weight:300}
-  .system-anchor{text-align:center;margin-top:40px}
-  .system-note{font-size:.78rem;color:var(--ink-muted);font-weight:300;margin-top:12px;text-align:center}
-
-/* ── S4: THE FOUR PILLARS (condensed) ── */
-  .pillars{padding:var(--section-pad) 24px;background:var(--white)}
-  .pillars-intro{text-align:center;max-width:640px;margin:0 auto 48px}
-  .pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:var(--max-w);margin:0 auto}
-  .pillar-card{background:var(--cream);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:all .3s;position:relative;overflow:hidden}
-  .pillar-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card)}
-  .pillar-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
-  .pillar-card:nth-child(1)::after{background:var(--rust)}.pillar-card:nth-child(2)::after{background:var(--teal)}.pillar-card:nth-child(3)::after{background:var(--amber)}.pillar-card:nth-child(4)::after{background:var(--violet)}
-  .p-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--ink-soft)}
-  .p-icon svg{width:20px;height:20px}
-  .pillar-card:nth-child(1) .p-icon{background:rgba(196,91,40,.08)}.pillar-card:nth-child(2) .p-icon{background:rgba(74,155,142,.08)}.pillar-card:nth-child(3) .p-icon{background:rgba(232,168,56,.08)}.pillar-card:nth-child(4) .p-icon{background:rgba(139,106,174,.08)}
-  .pillar-card h3{font-family:'Fraunces',Georgia,serif;font-size:.95rem;font-weight:500;margin-bottom:8px}
-  .pillar-card p{font-size:.78rem;color:var(--ink-muted);line-height:1.6;font-weight:300}
-  .pillar-link{display:inline-block;margin-top:12px;font-size:.72rem;font-weight:500;color:var(--rust);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
-  .pillar-link:hover{border-bottom-color:var(--rust)}
+  .mm-home-intro .mm-home-lead, .mm-home-intro .mm-teacher-note {max-width:28rem}
+  .home-example, .home-offers {padding:clamp(2.4rem,6vw,5rem) clamp(1.2rem,5vw,4rem)}
+  .home-example {background:#fffdf8;border-block:1px solid var(--mm-line)}
+  .home-spread {max-width:var(--max-w);margin:auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(1.5rem,6vw,5rem);align-items:start}
+  .home-example h2,.home-offers h2 {font:400 clamp(1.8rem,3.6vw,2.65rem)/1.15 'DM Serif Display',Georgia,serif;max-width:23rem;margin-bottom:.65rem}
+  .home-example p,.home-offers p,.home-spread dd {font-size:1rem;line-height:1.6;color:var(--ink-soft)}
+  .home-spread dl {display:grid;gap:.85rem;margin:0}
+  .home-spread dl>div {padding-block-end:.85rem;border-bottom:1px solid var(--mm-line)}
+  .home-spread dt {font-weight:600;color:var(--teal-deep)}
+  .home-spread .mm-score-link {margin-top:.4rem}
+  @media(max-width:700px){.home-spread{grid-template-columns:1fr}}
 
   /* ── S6: FOUNDER ── */
   .founder{padding:var(--section-pad) 24px;background:var(--white)}
@@ -127,30 +94,6 @@
   .founder-text p{font-size:.93rem;color:var(--ink-soft);line-height:1.8;font-weight:300;margin-bottom:16px}
   .founder-creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
   .founder-cred{font-size:.7rem;font-weight:500;padding:5px 14px;border-radius:50px;background:var(--sage-wash);color:var(--sage-deep)}
-
-  /* ── S7: PROCESS PROOF (replaces fabricated testimonials) ── */
-  .proof{padding:var(--section-pad) 24px}
-  .proof-intro{text-align:center;max-width:580px;margin:0 auto 48px}
-  .proof-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .proof-card{background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-soft);overflow:hidden}
-  .proof-card-header{font-family:'Fraunces',Georgia,serif;font-size:.92rem;font-weight:500;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(44,44,56,.06)}
-  .proof-items{display:grid;gap:8px}
-  .proof-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--cream);border-radius:var(--radius);font-size:.8rem;color:var(--ink-soft);font-weight:300}
-  .proof-item-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-  .proof-card:nth-child(1) .proof-item-dot{background:var(--rust);opacity:.6}
-  .proof-card:nth-child(2) .proof-item-dot{background:var(--teal);opacity:.6}
-  .proof-card:nth-child(3) .proof-item-dot{background:var(--amber);opacity:.6}
-  .proof-note{font-size:.72rem;color:var(--ink-muted);font-style:italic;margin-top:14px;font-weight:300}
-
-  /* ── S8: PARENT CONCERNS ── */
-  .concerns{padding:var(--section-pad) 24px;background:var(--white)}
-  .concerns-inner{max-width:var(--max-w);margin:0 auto}
-  .concerns-intro{max-width:560px;margin-bottom:40px}
-  .concerns-intro p{font-size:1rem;color:var(--ink-muted);line-height:1.8;font-weight:300;margin-top:12px}
-  .concerns-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .concern-card{background:var(--cream);border-radius:var(--radius-lg);padding:24px 28px}
-  .concern-q{font-family:'Fraunces',Georgia,serif;font-size:.95rem;font-weight:500;font-style:italic;color:var(--ink);margin-bottom:10px;line-height:1.45}
-  .concern-a{font-size:.84rem;color:var(--ink-muted);line-height:1.7;font-weight:300}
 
   /* ── S9: FINAL CTA ── */
   .final-cta{padding:var(--section-pad) 24px;background:var(--ink);color:var(--white);text-align:center;position:relative;overflow:hidden}
@@ -173,16 +116,9 @@
   .footer-bottom a{color:var(--ink-muted);text-decoration:none}
 
   @media(max-width:768px){
-    .problem-grid,.founder-inner{grid-template-columns:1fr;gap:32px}.founder-photo{max-width:320px}
-    .system-grid{grid-template-columns:1fr 1fr}
-    .pillars-grid{grid-template-columns:1fr 1fr}
-    .proof-grid,.concerns-grid{grid-template-columns:1fr}
+    .founder-inner{grid-template-columns:1fr;gap:1.25rem}
+    .founder-photo{max-width:16rem}
     .topbar-nav{display:none}
-  }
-  @media(max-width:480px){
-    .system-grid,.pillars-grid{grid-template-columns:1fr}
-    .hero-ctas{flex-direction:column;align-items:center}
-    .hero-trust{flex-direction:column;align-items:center;gap:8px}
   }
 
   /* ══ SHARED NAV ══ */
@@ -262,134 +198,32 @@
   </figure>
 </section>
 
-<!-- S2: PROBLEM -->
-<section class="problem">
-  <div class="problem-inner">
-    <span class="eyebrow" style="color:var(--rust)">Sound familiar?</span>
-    <h2 class="section-heading">You know your child is capable.<br>But something isn't clicking.</h2>
-    <div class="problem-grid">
-      <div class="problem-cards">
-        <div class="problem-card">They can explain things verbally, but freeze when it's time to write it down.</div>
-        <div class="problem-card">Homework feels like a nightly battle — for both of you.</div>
-        <div class="problem-card">You've tried tutoring before, but the progress didn't stick.</div>
-        <div class="problem-card">You're not sure what the school expects — or how to actually help at home.</div>
-        <div class="problem-card">Their confidence is fragile, and one bad result undoes weeks of effort.</div>
-      </div>
-      <div>
-        <p class="problem-narrative">Most parents in this situation are already trying hard. What they're missing is a clear picture of what the school is asking, where their child is getting stuck, and what to do next.</p>
-        <p class="problem-narrative" style="margin-top:16px">That's not a tutoring problem. <strong>It's a clarity problem.</strong></p>
-        <div class="problem-shift">Mastery Method gives your family a way forward: structured support, a teaching blueprint, and practical tools you can actually use at home.</div>
-      </div>
+<section class="home-example" aria-labelledby="homework-heading">
+  <div class="home-spread">
+    <div>
+      <h2 id="homework-heading">From a spoken story to a first sentence</h2>
+      <p>An example from Year 2 writing shows what your child’s teacher can add to the scorecard.</p>
+      <a class="mm-score-link" href="/mastery-method/for-parents/#teaching-blueprint">See the sample Teaching Blueprint</a>
     </div>
+    <dl>
+      <div><dt>The homework</dt><dd>Retell a story in three sentences, one each for the beginning, middle and end.</dd></div>
+      <div><dt>What the teacher notices</dt><dd>The child can retell all three parts aloud. When the pencil comes out, they need help starting their first sentence.</dd></div>
+      <div><dt>What to try at home</dt><dd>Draw three boxes. Ask your child to say one sentence for each box, then write the first sentence in their own words.</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- S3: WHAT FAMILIES RECEIVE (NEW CENTRE OF GRAVITY) -->
-<section class="system" id="system">
-  <div class="system-intro">
-    <span class="eyebrow" style="color:var(--teal)">What families receive</span>
-    <h2 class="section-heading">A learning system, not just a service</h2>
-    <p class="section-sub" style="margin:0 auto">Families get more than session time. They can see what is going on, what to focus on, and how to help at home.</p>
-  </div>
-
-<!-- TIER 1: MASTERY ASSESSMENT -->
-  <div style="max-width:var(--max-w);margin:0 auto">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-      <span class="eyebrow" style="color:var(--rust);margin:0">Starting point</span>
-      <span style="font-size:.65rem;padding:2px 10px;border-radius:50px;background:var(--rust-wash);color:var(--rust);font-weight:500;letter-spacing:.5px">ONE-TIME</span>
+<section class="home-offers" id="system" aria-labelledby="home-support-heading">
+  <div class="home-spread">
+    <div>
+      <h2 id="home-support-heading">What comes after the scorecard?</h2>
+      <p>If you’d like help choosing a next step, request a free 15–20 minute Learning Support Call with Kirsty.</p>
+      <a class="mm-score-link" href="/mastery-method/pricing/">Compare prices and inclusions</a>
     </div>
-    <div class="sys-card" style="border-left:3px solid var(--rust);margin-bottom:48px">
-      <div style="display:flex;gap:20px;align-items:flex-start">
-        <div class="sys-icon" style="background:var(--rust-wash);flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
-        <div>
-      <h3>Mastery Assessment</h3>
-      <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;font-weight:300;margin-top:4px">A structured assessment across The Four Pillars that shows exactly where your child is, where they're getting stuck, and why. Produces your family's first Teaching Blueprint — a personalised guide to what your child needs and how you can help at home.</p>
-        </div>
-      </div>
-    </div>
-
-<!-- TIER 2: MASTERY PATHWAY -->
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-      <span class="eyebrow" style="color:var(--teal);margin:0">Ongoing support</span>
-      <span style="font-size:.65rem;padding:2px 10px;border-radius:50px;background:var(--teal-wash);color:var(--teal-deep);font-weight:500;letter-spacing:.5px">MONTHLY</span>
-    </div>
-    <div class="system-grid" style="margin-bottom:48px">
-      <div class="sys-card">
-        <div class="sys-icon" style="background:var(--teal-wash)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M9 10h6"/></svg></div>
-        <h3>Updated Teaching Blueprint</h3>
-        <p>A monthly guide that shows the current focus, what is changing, and how to help at home.</p>
-      </div>
-      <div class="sys-card">
-        <div class="sys-icon" style="background:var(--amber-wash)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/></svg></div>
-        <h3>Monthly Parent Check-In</h3>
-        <p>A short call with Kirsty to review progress, adjust the blueprint, and answer your questions.</p>
-      </div>
-      <div class="sys-card">
-        <div class="sys-icon" style="background:var(--violet-wash)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg></div>
-        <h3>Weekly Home Activities</h3>
-        <p>One specific focus and one practical activity per week. 5-10 minutes, a few times a week. Designed for real parents with real schedules.</p>
-      </div>
-      <div class="sys-card">
-        <div class="sys-icon" style="background:var(--sage-wash)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 16V10"/><path d="M12 16V8"/><path d="M16 16v-4"/></svg></div>
-        <h3>Parent Resource Library</h3>
-        <p>Clarity guides, year-level curriculum visibility, conversation prompts, and practical strategies for home.</p>
-      </div>
-    </div>
-
-    <!-- TIER 3: TARGETED 1:1 -->
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-      <span class="eyebrow" style="color:var(--ink-muted);margin:0">When needed</span>
-      <span style="font-size:.65rem;padding:2px 10px;border-radius:50px;background:var(--cream-deep);color:var(--ink-muted);font-weight:500;letter-spacing:.5px">ADD-ON</span>
-    </div>
-    <div class="sys-card" style="border-left:3px solid var(--cream-deep);margin-bottom:0">
-      <div style="display:flex;gap:20px;align-items:flex-start">
-        <div class="sys-icon" style="background:var(--cream-deep);flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="9" r="2"/><path d="M21 21v-1.5a3 3 0 0 0-2-2.83"/></svg></div>
-        <div>
-          <h3>Targeted 1:1 Sessions</h3>
-          <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.7;font-weight:300;margin-top:4px">Teacher-led sessions with your child when specific clarity gaps need focused, expert-led support. Strategic and purposeful — booked when needed, not as an ongoing commitment.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="system-anchor">
-  <a href="/mastery-method/book/?offer=support-call#request-details" class="btn-p">Request a free call</a>
-    <div class="system-note">Free, no obligation &middot; 15-20 minutes with Kirsty directly</div>
-  </div>
-</section>
-
-<!-- S4: THE FOUR PILLARS (condensed) -->
-<section class="pillars">
-  <div class="pillars-intro">
-      <span class="eyebrow" style="color:var(--rust)">The Mastery Method Framework</span>
-    <h2 class="section-heading">Four pillars that change how your child learns</h2>
-    <p class="section-sub" style="margin:0 auto">Every child is assessed and supported across four pillars of clarity — the skills beneath the surface that make everything else easier.</p>
-  </div>
-  <div class="pillars-grid">
-    <div class="pillar-card">
-      <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-3 13.33V17h6v-1.67A7 7 0 0 0 12 2Z"/><path d="M10 21h4"/></svg></div>
-        <h3>Thinking</h3>
-      <p>Understanding the real task. Breaking it down. Knowing where to begin.</p>
-      <a href="/mastery-method/clarity#thinking" class="pillar-link">Learn more &rarr;</a>
-    </div>
-    <div class="pillar-card">
-      <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
-        <h3>Communication</h3>
-      <p>Expressing ideas clearly. Turning understanding into confident language.</p>
-      <a href="/mastery-method/clarity#communication" class="pillar-link">Learn more &rarr;</a>
-    </div>
-    <div class="pillar-card">
-      <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-        <h3>Learning</h3>
-      <p>Understanding goals, feedback, and what success looks like.</p>
-      <a href="/mastery-method/clarity#learning" class="pillar-link">Learn more &rarr;</a>
-    </div>
-    <div class="pillar-card">
-      <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-        <h3>Action</h3>
-      <p>Starting tasks, following through, building routines that stick.</p>
-      <a href="/mastery-method/clarity#action" class="pillar-link">Learn more &rarr;</a>
-    </div>
+    <dl>
+      <div><dt>Mastery Assessment · AUD $197 once</dt><dd>Kirsty looks at how your child approaches a task and gives you a written Teaching Blueprint you can use at home.</dd></div>
+      <div><dt>Mastery Pathway · AUD $127 a month</dt><dd>Optional after the assessment. Your family gets an updated Blueprint, a monthly parent check-in and weekly home activities.</dd></div>
+    </dl>
   </div>
 </section>
 
@@ -400,88 +234,9 @@
       <img src="/assets/Kirsty-portrait.jpg" alt="Kirsty — founder of Mastery Method, senior Queensland educator" loading="lazy">
     </div>
     <div class="founder-text">
-      <span class="eyebrow" style="color:var(--rust)">Meet your child's guide</span>
-      <h2>Built by a teacher who wanted families to have something more useful than extra sessions.</h2>
-      <p>Kirsty is a senior Queensland educator with more than 15 years across early childhood and primary. She kept seeing the same children being misunderstood: the child who knew the answer but could not get it onto the page, the one who shut down before starting, the one whose confidence vanished after one correction. She is also a mother, so the parent side of this is not abstract to her.</p>
-      <p>Mastery Method came out of that pattern. Capable children were falling behind because the task itself was not clear enough to them. Parents could see something was off, but they had nothing solid to work from at home.</p>
-      <p>Her work with families is practical. She translates school expectations into something a parent can understand and use without turning home into another classroom.</p>
-      <div class="founder-creds">
-        <span class="founder-cred">Senior Queensland Educator</span>
-        <span class="founder-cred">15+ Years Early Childhood &amp; Primary</span>
-        <span class="founder-cred">Mother</span>
-        <span class="founder-cred">Teacher-Led &amp; Non-Clinical</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- S7: PROCESS PROOF (replaces fabricated testimonials) -->
-<section class="proof">
-  <div class="proof-intro">
-    <span class="eyebrow" style="color:var(--rust)">What support looks like</span>
-    <h2 class="section-heading">Inside the Mastery Pathway</h2>
-    <p class="section-sub" style="margin:0 auto">Here is what families actually get inside the Pathway.</p>
-  </div>
-  <div class="proof-grid">
-    <div class="proof-card">
-      <div class="proof-card-header">Your Teaching Blueprint</div>
-      <div class="proof-items">
-        <div class="proof-item"><div class="proof-item-dot"></div>Thinking — breaking down multi-step questions</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>Communication — structuring written responses</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>Learning — understanding success criteria</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>Action — homework start routine</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>Home activity this week — 5-min task breakdown</div>
-      </div>
-      <div class="proof-note">Personalised to your child &middot; Updated as they progress</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-card-header">Progress Visibility</div>
-      <div class="proof-items">
-        <div class="proof-item"><div class="proof-item-dot"></div>Pillar 1: Thinking — improved task breakdown</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>Pillar 2: Communication — asking clearer questions</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>Pillar 3: Learning — using feedback independently</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>Pillar 4: Action — starting homework without prompting</div>
-      </div>
-      <div class="proof-note">You see what's changing &middot; Not just marks — real skills</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-card-header">Home Support Guidance</div>
-      <div class="proof-items">
-        <div class="proof-item"><div class="proof-item-dot"></div>This week's focus: task initiation</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>Activity: read the question aloud, name the first step</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>Time: 5-10 minutes, 3x this week</div>
-        <div class="proof-item"><div class="proof-item-dot"></div>What to notice: does your child start faster?</div>
-      </div>
-      <div class="proof-note">Practical &middot; Short &middot; Designed for real parents</div>
-    </div>
-  </div>
-</section>
-
-<!-- S8: PARENT CONCERNS -->
-<section class="concerns">
-  <div class="concerns-inner">
-    <div class="concerns-intro">
-      <span class="eyebrow" style="color:var(--rust)">Honest answers</span>
-      <h2 class="section-heading">What parents usually want to know</h2>
-      <p>The real questions, not the polished marketing ones.</p>
-    </div>
-    <div class="concerns-grid">
-      <div class="concern-card">
-        <div class="concern-q">"How is this different from regular tutoring?"</div>
-        <div class="concern-a">Tutoring usually works on content. Mastery Method works on the skills underneath it: how your child reads a task, communicates, plans, and gets started. Parents are part of that work, so it does not disappear between sessions.</div>
-      </div>
-      <div class="concern-card">
-        <div class="concern-q">"I'm not a teacher. Can I really help?"</div>
-        <div class="concern-a">You don't need to be. The teaching blueprint gives you specific, practical guidance — not lesson plans. If you can ask a question and listen to the answer, you can do this.</div>
-      </div>
-      <div class="concern-card">
-        <div class="concern-q">"Isn't this just paying for more sessions?"</div>
-        <div class="concern-a">No. The goal is to make your family stronger, not more dependent. The blueprint and home support mean progress keeps moving between sessions, so support can ease back when it should.</div>
-      </div>
-      <div class="concern-card">
-        <div class="concern-q">"What if my child has a learning difference?"</div>
-        <div class="concern-a">Mastery Method is teacher-led, non-clinical learning support. The Four Pillars are adaptable. If your child already has a diagnosis or learning difference, mention it on your Learning Support Call so the right educational next step can be planned clearly.</div>
-      </div>
+      <h2>Meet Kirsty</h2>
+      <p>Kirsty is a senior Queensland educator and a mother. She has spent more than 15 years teaching in early childhood and primary settings. She started Mastery Method for families who could see their child getting stuck but needed a clearer idea of what to practise at home.</p>
+      <a class="mm-score-link" href="/mastery-method/about/">Read about Kirsty’s teaching experience</a>
     </div>
   </div>
 </section>
@@ -489,11 +244,9 @@
 <!-- S9: FINAL CTA -->
 <section class="final-cta">
   <div class="final-cta-inner">
-    <span class="eyebrow" style="color:var(--rust-light)">Ready to start?</span>
-    <h2>Give your family <em>clarity</em></h2>
-    <p class="sub">The first step is a conversation. No commitment. No pressure. Just a clear understanding of where your child is — and how we can help.</p>
-  <a href="/mastery-method/book/?offer=support-call#request-details" class="btn-p">Request a free call</a>
-    <div class="reassurance">Free &middot; 15-20 minutes &middot; No pressure &middot; With Kirsty directly</div>
+    <h2>Bring one homework question to the call</h2>
+    <p class="sub">Tell Kirsty what your child was asked to do and where they needed a hand. You can suggest a time when you request the call.</p>
+    <a href="/mastery-method/book/?offer=support-call#request-details" class="btn-p">Request a free call</a>
   </div>
 </section>
 

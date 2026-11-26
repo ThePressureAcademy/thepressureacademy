@@ -58,7 +58,7 @@
           </div>
         </nav>
         <div class="header-actions">
-          <a class="btn header-preorder" href="#seminar-request">Request places</a>
+          <a class="btn header-preorder" href="#pixley-date-alert">Get dates</a>
           <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
             <span></span><span></span><span></span>
           </button>
@@ -111,6 +111,12 @@
           </div>
           <aside class="pixley-edition seminar-ticket" id="session-options" aria-labelledby="session-options-title" data-house-watermark>
             <h2 class="ticket-heading" id="session-options-title">Choose your session.</h2>
+            <details class="pixley-kit-disclosure" id="plan-your-visit">
+              <summary>Travel, uniform and experience level</summary>
+              <p><strong>Travelling to Brisbane?</strong> Exact dates, local start and finish times and the street address are pending. <a class="pixley-inline-link" href="#pixley-date-alert">Get the confirmed dates by email</a> before arranging travel.</p>
+              <p><strong>Choosing a day?</strong> The focus of each day, gi or no-gi format, age and experience requirements are still to be confirmed. The collaboration tee and rashguard are optional purchases.</p>
+              <a class="text-link" href="mailto:contact@thepressureacademy.com?subject=Michael%20Pixley%20Brisbane%20seminar%20question">Email the organiser a Pixley question</a>
+            </details>
             <dl class="pixley-options">
               <div>
                 <dt>One seminar day</dt>
@@ -191,6 +197,9 @@
               <label>Your name<input name="name" autocomplete="name" required /></label>
               <label>Your email<input name="email" type="email" autocomplete="email" required /></label>
             </div>
+            <label>Anything you need to know before booking? (optional)
+              <textarea name="attending_question" rows="2" maxlength="600" placeholder="For example, which day would suit someone new to grappling?"></textarea>
+            </label>
             <p class="form-help">We use these details to reply to your request. <a href="/privacy-policy.html">Privacy policy</a></p>
             <button type="submit" class="btn">Send seminar request</button>
             <div class="form-status" role="status" aria-live="polite"></div>
@@ -251,13 +260,16 @@
               <label>Your name<input name="name" autocomplete="name" required /></label>
               <label>Your email<input name="email" type="email" autocomplete="email" required /></label>
             </div>
+            <label>Anything your group needs to know before booking? (optional)
+              <textarea name="attending_question" rows="2" maxlength="600" placeholder="For example, can people with different experience levels train together?"></textarea>
+            </label>
             <p class="form-help">We use these details to reply to your request. <a href="/privacy-policy.html">Privacy policy</a></p>
             <button type="submit" class="btn">Send group request</button>
             <div class="form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
       </section>
-      <div class="container pixley-links"><a class="text-link" href="/contact/">Ask about attending</a><a class="text-link" href="/seminars/#seminar-list">Get future seminar updates</a><a class="text-link" href="/blueprints/pressure-blueprint-core/#preview">Coaching a class? Preview the free Blueprint</a></div>
+      <div class="container pixley-links"><a class="text-link" href="/contact/">Contact The Pressure Academy</a><a class="text-link" href="/seminars/#seminar-list">Get future seminar updates</a><a class="text-link" href="/blueprints/pressure-blueprint-core/#preview">Coaching a class? Preview the free Blueprint</a></div>
     </main>
     <footer class="site-footer">
       <div class="footer-grid">

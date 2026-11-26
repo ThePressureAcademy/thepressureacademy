@@ -112,3 +112,29 @@ test("the three cut-specific flat-garment guides match the Pressure Tested size 
     assert.deepEqual(actual, rows, cut);
   }
 });
+
+test("the fit comparison honours a preferred chart size, then width with length as a tiebreaker", () => {
+  const module = read("js/lib/apparel-fit.js").replace(/^export /gm, "");
+  const compare = vm.runInNewContext(module + "\ncompareGarmentFit");
+  const rows = [
+    { size: "S", width: 53, length: 68 },
+    { size: "M", width: 55, length: 70 },
+    { size: "2XL", width: 64, length: 76 },
+  ];
+  assert.equal(compare(rows, " xxl ", 53, 68).row.size, "2XL");
+  assert.equal(compare(rows, "", 54, 70).row.size, "M");
+  assert.equal(compare(rows, "", 53, 76).row.size, "S");
+  assert.equal(compare(rows, "", null, 75.8).row.size, "2XL");
+  assert.equal(compare(rows, "unlisted", null, null), null);
+});
+
+test("a fit comparison uses only tables belonging to that specific garment", () => {
+  assert.deepEqual([...page.matchAll(/<details class="cut-chart" data-fit-piece="([^"]+)"/g)].map(m => m[1]),
+    ["pt-heavy-tee", "pt-hoodie", "pt-crop-hoodie"]);
+  assert.equal((page.match(/data-measure="width"/g) || []).length, 3);
+  assert.equal((page.match(/data-measure="length"/g) || []).length, 3);
+  const form = page.match(/<form\b[^>]*id="apparel-preorder"[\s\S]*?<\/form>/)[0];
+  for (const name of ["fabric_details_requested", "sample_photo_requested", "exchange_terms_requested"]) {
+    assert.match(form, new RegExp('<input type="checkbox" name="' + name + '" value="yes" />'));
+  }
+});
