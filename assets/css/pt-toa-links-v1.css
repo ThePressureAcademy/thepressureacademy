@@ -1,0 +1,26 @@
+/* The photograph and its caption share one native link to the Toa story. */
+.toa-reel-photo {
+  position: relative;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: .35rem;
+}
+.toa-story-link, .toa-reel-caption {
+  color: #7c3b22;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: .22em;
+}
+.toa-reel-caption { justify-self: center; }
+.toa-story-link {
+  display: inline-block;
+  min-height: 44px;
+  padding-block: .65rem;
+}
+.toa-photo-link:focus-visible::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  outline: 3px solid #7c3b22;
+  box-shadow: inset 0 0 0 2px #fff8ed;
+  pointer-events: none;
+}
