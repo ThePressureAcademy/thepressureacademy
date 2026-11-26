@@ -53,7 +53,7 @@ export const apparel = [
     name: "Pressure Tested Tee",
     status: "preorder-request",
     priceCents: 6900,
-    blurb: "Charcoal tee with cream lettering on the chest and a patterned back print.",
+    blurb: "100% cotton tee in charcoal with cream chest lettering and a patterned back print.",
     image: "/assets/media/pt-tee-back-cutout-v2.webp",
     frontImage: "/assets/media/pt-tee-front-cutout-v2.webp",
   },
@@ -63,7 +63,7 @@ export const apparel = [
     name: "Pressure Tested Crop Tee",
     status: "preorder-request",
     priceCents: 6500,
-    blurb: "Cropped tee. Product photo to follow.",
+    blurb: "100% cotton crop tee. Product photo to follow.",
     image: null,
   },
   {
@@ -72,7 +72,7 @@ export const apparel = [
     name: "Pressure Tested Hoodie",
     status: "preorder-request",
     priceCents: 12900,
-    blurb: "Rust hoodie with raised lettering and a tonal design across the back.",
+    blurb: "100% cotton hoodie in rust with raised lettering and a tonal design across the back.",
     image: "/assets/media/pt-hoodie-back-cutout-v2.webp",
   },
   {
@@ -81,7 +81,7 @@ export const apparel = [
     name: "Pressure Tested Crop Hoodie",
     status: "preorder-request",
     priceCents: 10900,
-    blurb: "Cropped hoodie. Product photo to follow.",
+    blurb: "100% cotton crop hoodie. Product photo to follow.",
     image: null,
   },
 ];

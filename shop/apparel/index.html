@@ -87,7 +87,7 @@
             <div><p class="kicker">Apparel by The Pressure Academy</p><h1>Pressure Tested<span>.</span></h1></div>
           </div>
           <nav class="shop-shortcuts" aria-label="Browse the collection">
-            <a href="#tee">Tees</a><a href="#hoodie">Hoodies</a><a href="#sizing">Fit guide</a><a href="/shop/apparel/drops/#release-alert">Next drop by email</a>
+            <a href="#tee">Tees</a><a href="#hoodie">Hoodies</a><a href="#sizing">Fit guide</a><a href="#fabric-guide">Fabrics</a><a href="/shop/apparel/drops/#release-alert">Next drop by email</a>
           </nav>
         </header>
 
@@ -113,7 +113,7 @@
               <p class="piece-colour">Pictured · Charcoal / Cream</p>
               <h2>Pressure Tested Tee</h2>
               <p class="piece-price">AUD $69 each</p>
-              <p>Block lettering on the chest. A full pattern wraps around the name on the back. The unisex cut has a relaxed, boxy fit.</p>
+              <p>Block lettering on the chest. A full pattern wraps around the name on the back. The unisex tee is 100% cotton with a relaxed, boxy fit.</p>
               <details class="cut-chart" data-fit-piece="pt-heavy-tee">
                 <summary>Size guide · XXS–2XL</summary>
                 <div class="chart-scroll" role="region" aria-label="Unisex tee measurements" tabindex="0">
@@ -138,7 +138,7 @@
             <div class="piece-copy crop-cut" id="crop-tee">
               <h3>Pressure Tested Crop Tee</h3>
               <p class="piece-price">AUD $65 each</p>
-              <p>The crop tee is designed for a boxy fit with a high-hip hem. Its garment measurements and sample photo are pending. The gallery shows the full-length tee.</p>
+              <p>The crop tee is 100% cotton with a boxy fit and a high-hip hem. Its garment measurements and sample photo are pending. The gallery shows the full-length tee.</p>
               <a class="btn-ghost" data-piece="pt-crop-tee" href="#preorder">Request the crop tee</a>
             </div>
           </article>
@@ -167,7 +167,7 @@
               <p class="piece-colour">Pictured · Rust / Tonal</p>
               <h2>Pressure Tested Hoodie</h2>
               <p class="piece-price">AUD $129 each</p>
-              <p>Beneath the raised lettering is the face of a Māori warrior wearing <span lang="mi">moko</span>. The unisex hoodie has a relaxed, oversized fit.</p>
+              <p>Beneath the raised lettering is the face of a Māori warrior wearing <span lang="mi">moko</span>. The unisex hoodie is 100% cotton with a relaxed, oversized fit.</p>
               <a class="toa-story-link" href="/shop/apparel/toa/">Read the <span lang="mi">Toa</span> story</a>
               <details class="cut-chart" data-fit-piece="pt-hoodie">
                 <summary>Size guide · XS–3XL</summary>
@@ -193,7 +193,7 @@
             <div class="piece-copy crop-cut" id="crop-hoodie">
               <h3>Pressure Tested Crop Hoodie</h3>
               <p class="piece-price">AUD $109 each</p>
-              <p>The crop hoodie is designed with a boxy shoulder and a shorter body. Compare its chart with a cropped layer you wear, including the hem band. The gallery shows the full-length hoodie.</p>
+              <p>The crop hoodie is 100% cotton with a boxy shoulder and a shorter body. Compare its chart with a cropped layer you wear, including the hem band. The gallery shows the full-length hoodie.</p>
               <details class="cut-chart" data-fit-piece="pt-crop-hoodie">
                 <summary>Size guide · XXS–2XL</summary>
                 <div class="chart-scroll" role="region" aria-label="Women’s cropped structured hoodie measurements" tabindex="0">
@@ -234,6 +234,15 @@
             <h2 id="request-title">Request a tee or hoodie.</h2>
             <p>We’ll email size availability, a dispatch estimate, delivery charges and the total for your destination before you decide.</p>
             <p class="apparel-terms">You decide after you receive the details. Sending a request is free and does not reserve stock.</p>
+            <section class="apparel-fit-guide" id="fabric-guide" aria-labelledby="fabric-title">
+              <h3 id="fabric-title">Pressure Tested fabrics</h3>
+              <dl>
+                <dt>Tees and hoodies</dt>
+                <dd>100% cotton in both full-length and cropped cuts.</dd>
+                <dt>Rashguards, compression shorts and sports bras</dt>
+                <dd>90% polyester, 10% spandex.</dd>
+              </dl>
+            </section>
             <section class="apparel-fit-guide" id="sizing" aria-labelledby="fit-title">
               <h3 id="fit-title">Measure a piece you wear</h3>
               <p>Lay a tee or hoodie with your preferred fit on a flat surface. Smooth the fabric without stretching it. For a cropped cut, use a garment that ends where you want yours to sit.</p>
@@ -262,7 +271,7 @@
             <input type="hidden" name="unit_price_aud" disabled />
             <input type="hidden" name="subtotal_aud" disabled />
             <label>Which piece?
-              <select id="apparel-product" name="product" required>
+              <select id="apparel-product" name="product" aria-describedby="apparel-material" required>
                 <option value="">Choose a piece</option>
                 <option value="pt-heavy-tee">Tee · AUD $69</option>
                 <option value="pt-crop-tee">Crop tee · AUD $65</option>
@@ -270,6 +279,7 @@
                 <option value="pt-crop-hoodie">Crop hoodie · AUD $109</option>
               </select>
             </label>
+            <p class="form-help" id="apparel-material">All four cuts are 100% cotton.</p>
             <div class="field-grid">
               <label>Preferred size (optional)<input type="text" name="size" list="apparel-chart-sizes" maxlength="60" placeholder="e.g. XL" /></label>
               <label>Quantity<input type="number" name="quantity" inputmode="numeric" min="1" step="1" value="1" required /></label>
@@ -289,7 +299,7 @@
               <fieldset class="apparel-reply-options">
                 <legend>What would you like checked before you pay?</legend>
                 <label class="fit-request"><input type="checkbox" name="measurements_requested" value="yes" />Size measurements for my cut</label>
-                <label class="fit-request"><input type="checkbox" name="fabric_details_requested" value="yes" />Fabric composition and weight</label>
+                <label class="fit-request"><input type="checkbox" name="fabric_details_requested" value="yes" />Fabric weight (grams per square metre)</label>
                 <label class="fit-request"><input type="checkbox" name="sample_photo_requested" value="yes" />Sample photo of my cut, if available</label>
                 <label class="fit-request"><input type="checkbox" name="exchange_terms_requested" value="yes" />Size-exchange terms</label>
               </fieldset>
