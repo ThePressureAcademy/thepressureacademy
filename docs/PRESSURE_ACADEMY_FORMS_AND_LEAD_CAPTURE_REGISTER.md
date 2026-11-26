@@ -17,7 +17,7 @@ The parent-site rows in this table post to `https://formspree.io/f/meerjgde`. En
 | `/shop/mats/#mat-spec-request` | Supplier details before an order (`request_type=tatami-specification`) | `mat-enquiry` | `shop-mats` | Reply with confirmed supplier information for the 2 × 1 m mat. | Only email is required. Read the optional question or deadline in `message`. Keep these separate from freight quotes issued. |
 | `/seminars/` | Future seminar updates | `seminar-interest` | `seminars-index` | Hear about future seminar announcements. | Low |
 | `/seminars/michael-pixley-march-2027/#pixley-date-alert` | Confirmed Brisbane dates | `pixley-date-alert` | `seminar-michael-pixley-march-2027` | One email when the Brisbane schedule is confirmed. | Deduplicate by email within this event and honour cancellations. |
-| `/seminars/michael-pixley-march-2027/#seminar-request` | Seminar places (`request_type=seminar-days`) | `seminar-registration` | `seminar-michael-pixley-march-2027` | Request Day 1, Day 2 or both, AUD 150 per person per day. | Check availability against each day’s cap of 20 before confirming. |
+| `/seminars/michael-pixley-march-2027/#seminar-request` | Seminar places (`request_type=seminar-days`) | `seminar-registration` | `seminar-michael-pixley-march-2027` | Request Wrestling for Jiu Jitsu, Front Headlock or both. AUD 150 per person for one seminar or AUD 300 for both. | Check availability against each selected seminar’s cap of 20 before confirming. |
 | `/seminars/michael-pixley-march-2027/#group-request` | Semi-private session (`request_type=semi-private-group`) | `seminar-registration` | `seminar-michael-pixley-march-2027` | Request one 90-minute group session at AUD 1,000 total. | Check availability and group size (1–6) before confirming. |
 | `/seminars/[slug]` (status `interest`) | Per-event interest | `seminar-interest` (or config `leadCaptureIntent`) | config `source`, default `seminar-<slug>` | "No payment is taken on this page yet." | Low |
 | `/seminars/[slug]` (status `announced` / `open` without valid checkout) | Ticket updates | `seminar-registration` | config `source` / `seminar-<slug>` | Event updates. Joining does not reserve a ticket. | Low |
@@ -45,11 +45,11 @@ Match the two records by `audit_ref` when reviewing a family’s results. Treat 
 
 ## Operator follow-up
 
-Use the existing `intent` and `source` labels. Within those labels use `request_type` to distinguish pre-orders from past interest forms and to separate day places from semi-private groups. Keep both days’ availability separately. Confirm the selected product or session, availability, payable total and any fulfilment details with the customer before taking payment.
+Use the existing `intent` and `source` labels. Within those labels use `request_type` to distinguish pre-orders from past interest forms and to separate public seminar places from semi-private groups. Track availability for Wrestling for Jiu Jitsu and Front Headlock separately. Confirm the selected product or session, availability, payable total and any fulfilment details with the customer before taking payment.
 
 - For mat and club quotes, read `quote_needed_by` separately from the buyer’s delivery timing. When a club indicates `kit_branding` or `request_kit_approvals`, include available artwork, placement and sample approval steps and costs in its quote.
 - For apparel, use the optional `delivery_postcode`, `measurements_requested`, `fabric_details_requested`, `sample_photo_requested` and `exchange_terms_requested` fields to send information specific to the chosen cut and destination before confirmation.
-- For Pixley, answer the optional `attending_question` on the day or group request. Update both the event page and date alerts once the organiser confirms the schedule. Keep expressions of interest, paid day places, group bookings and apparel quantities separate.
+- For Pixley, answer the optional `attending_question` on the seminar or group request. Update both the event page and date alerts once the organiser confirms the schedule. Keep expressions of interest, paid seminar places, group bookings and apparel quantities separate.
 
 ### Clothing release email
 
