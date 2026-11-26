@@ -1,0 +1,25 @@
+.apparel-delivery { padding-block: .4rem; border-block-end: 1px solid var(--line); }
+.apparel-delivery summary, .fit-comparison summary { min-height: 44px; padding-block: .65rem; cursor: pointer; }
+.apparel-delivery a, .apparel-fit-result button { color: inherit; text-decoration: underline; text-underline-offset: .2em; }
+.apparel-fit-result {
+  padding: .75rem .9rem;
+  border-inline-start: 3px solid var(--rust-bright);
+  background: rgba(255, 255, 255, .05);
+}
+.apparel-fit-result p { margin: 0; }
+.apparel-fit-result button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: .3rem 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+.apparel-fit-result[hidden], .apparel-fit-result button[hidden] { display: none; }
+.apparel-reply-options { min-width: 0; margin: .8rem 0; padding: 0; border: 0; }
+.apparel-reply-options legend { padding: 0; margin: 0 0 .25rem; font-weight: 650; }
+.apparel-reply-options .fit-request { align-items: center; min-height: 44px; margin: 0; }
+.apparel-reply-options .fit-request input[type="checkbox"] { min-height: 0; padding: 0; }

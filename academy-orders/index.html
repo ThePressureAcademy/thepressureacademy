@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-order-options-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-academy-floor-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-mat-specs-v1.css" />
   </head>
   <body class="academy-secondary orders">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -123,12 +124,12 @@
       <section class="section-tight">
         <div class="container">
           <div class="panel">
-            <h2>From enquiry to delivery</h2>
+            <h2>What your club approves</h2>
             <div class="grid-4">
-              <div><span class="step-num">1</span><h3>Scope</h3><p class="muted">You send the room, the team, the timeline.</p></div>
-              <div><span class="step-num">2</span><h3>Spec</h3><p class="muted">We come back with a floor plan or kit list and open questions.</p></div>
-              <div><span class="step-num">3</span><h3>Quote</h3><p class="muted">Review the quoted goods and freight costs for your destination.</p></div>
-              <div><span class="step-num">4</span><h3>Delivery</h3><p class="muted">We confirm available delivery options and timing with you.</p></div>
+              <div><span class="step-num">1</span><h3>Send your brief</h3><p class="muted">Attach a floor plan or list the team garments and approximate quantities. Include the town and any approval deadline.</p></div>
+              <div><span class="step-num">2</span><h3>Check the details</h3><p class="muted">Review mat colours and quantities or the proposed kit list. For club branding, ask which artwork, placement or sample approvals are available for your run.</p></div>
+              <div><span class="step-num">3</span><h3>Review the quote</h3><p class="muted">Check goods, freight, delivery estimates and any extra branding or sample costs. Request changes if the quote doesn’t suit your club.</p></div>
+              <div><span class="step-num">4</span><h3>Confirm your order</h3><p class="muted">Reply to accept when your club is ready. The Academy confirms the agreed order and delivery arrangements with you.</p></div>
             </div>
           </div>
         </div>
@@ -183,18 +184,27 @@
                   </div>
                   <p class="form-help" id="club-manual-floor">2 m² per mat. Minimum order 10 mats. <a data-open-floor href="/shop/mats/">Design your floor</a> or <a href="/shop/mats/#calculator">estimate by area</a>.</p>
                   <noscript><p class="form-help">Enter your dimensions and mat count here. If you have a floor-plan link, paste it into the requirements field below.</p></noscript>
-                  <label class="fit-request"><input type="checkbox" name="request_mat_specifications" value="Thickness, core, backing, warranty terms and estimated dispatch" /> Include mat thickness, core, backing, warranty terms and estimated dispatch in my quote</label>
+                  <label class="fit-request"><input type="checkbox" name="request_mat_specifications" value="Thickness, core material and density, backing, installation, warranty terms and estimated dispatch" /> Include supplier specifications, installation and warranty details in my quote</label>
                 </fieldset>
                 <fieldset class="quote-scope" id="kit-scope"><legend>Team kit details</legend>
                   <div class="field-grid">
                     <label>Garments, if known<input name="garments" type="text" maxlength="120" placeholder="e.g. tees and hoodies" /></label>
                     <label>Estimated pieces, if known<input name="apparel_quantity" type="number" min="1" step="1" inputmode="numeric" /></label>
                   </div>
+                  <label>Branding preference (optional)
+                    <select name="kit_branding">
+                      <option value="">Choose if known</option>
+                      <option value="pressure-tested">Standard Pressure Tested kit</option>
+                      <option value="club-branding">Explore adding our club mark</option>
+                    </select>
+                  </label>
+                  <label class="fit-request"><input type="checkbox" name="request_kit_approvals" value="Artwork, logo placement, sample availability and costs" /> Include artwork, logo placement and sample options in the quote</label>
                 </fieldset>
                 <div class="field-grid">
                   <label>Delivery town and country<input name="destination" type="text" maxlength="160" placeholder="e.g. Brisbane, Australia" required /></label>
-                  <label>Preferred timing (optional)<input name="timing" type="text" maxlength="100" placeholder="e.g. before our club opens" /></label>
+                  <label>Preferred delivery timing (optional)<input name="timing" type="text" maxlength="100" placeholder="e.g. before our club opens" /></label>
                 </div>
+                <label>Quote needed by (optional)<input type="date" name="quote_needed_by" /></label>
                 <label>Academy, club or school<input type="text" name="organisation" autocomplete="organization" required /></label>
                 <div class="field-grid">
                   <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
