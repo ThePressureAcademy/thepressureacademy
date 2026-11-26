@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text updates | The Pressure Academy</title>
+    <meta
+      name="description"
+      content="Request texts from The Pressure Academy about academy news, grappling seminars, Pressure Tested clothing or Mastery Method family learning. Choose your topics or stop all texts here."
+    />
+    <link rel="canonical" href="https://thepressureacademy.com/text-updates/" />
+    <meta property="og:site_name" content="The Pressure Academy" />
+    <meta property="og:title" content="Text updates | The Pressure Academy" />
+    <meta property="og:description" content="Choose the Academy updates you want on your phone, from seminar announcements to Pressure Tested clothing releases." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thepressureacademy.com/text-updates/" />
+    <meta property="og:image" content="https://thepressureacademy.com/assets/social/TPA_OG_1200x630.png" />
+    <link rel="icon" href="/assets/logos/TPA_House_Favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/tpa-commerce.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-motion.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/tpa-identity-v2.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-presale-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-secondary-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-text-updates-v1.css" />
+  </head>
+  <body class="academy-secondary text-updates">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+          <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+          <span class="brand-copy">
+            <strong>The Pressure Academy</strong>
+            <span>Built under pressure</span>
+          </span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+          <div class="nav-links">
+            <a href="/shop/">Shop</a>
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/pressure-blueprint-core/">Coach’s PDF</a>
+            <a href="/academy-orders/">Academy orders</a>
+            <a href="/mastery-method/">Family learning</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </nav>
+        <div class="header-actions">
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/shop/">Shop</a>
+        <a href="/seminars/">Seminars</a>
+        <a href="/blueprints/pressure-blueprint-core/">Coach’s PDF</a>
+        <a href="/academy-orders/">Academy orders</a>
+        <a href="/mastery-method/">Family learning</a>
+        <a href="/contact/">Contact</a>
+        <a href="/#academy-family">Academy family</a>
+      </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="sms-signup-section" aria-labelledby="signup-title">
+        <div class="sms-layout container">
+          <div class="sms-intro" data-house-watermark>
+            <h1 id="signup-title">Academy <span>text updates</span></h1>
+            <p>Pick what lands on your phone. A seminar text can link to booking, a clothing alert to the latest Pressure Tested drop.</p>
+            <a href="#stop">Already signed up? Stop all texts</a>
+          </div>
+
+          <form id="sms-signup" class="capture-form sms-form" aria-label="Sign up for text updates"
+            data-capture="sms-topic-signup" data-success-message="We received your text signup request and topic choices."
+            action="https://formspree.io/f/meerjgde" method="POST">
+            <input type="hidden" name="intent" value="sms-topic-signup" />
+            <input type="hidden" name="source" value="text-updates" />
+            <input type="hidden" name="consent_version" value="2026-11-26-v1" />
+            <input type="hidden" name="consent_text" value="I agree to receive marketing texts from The Pressure Academy about the topics I selected." />
+
+            <div class="sms-field">
+              <label for="sms-mobile">Mobile number</label>
+              <input type="tel" id="sms-mobile" name="mobile" inputmode="tel" autocomplete="tel"
+                pattern="[\s\(\)\.\-]*(?:0[\s\(\)\.\-]*4(?:[\s\(\)\.\-]*[0-9]){8}|\+[\s\(\)\.\-]*(?:6[\s\(\)\.\-]*1[\s\(\)\.\-]*(?:0[\s\(\)\.\-]*)?4(?:[\s\(\)\.\-]*[0-9]){8}|(?!6[\s\(\)\.\-]*1)[1-9](?:[\s\(\)\.\-]*[0-9]){7,14}))[\s\(\)\.\-]*"
+                title="Use an Australian mobile such as 0412 345 678 or include the international country code starting with +."
+                maxlength="32" placeholder="0412 345 678" aria-describedby="sms-mobile-help" required />
+              <small id="sms-mobile-help">Outside Australia? Start with + and your country code.</small>
+            </div>
+
+            <div class="sms-field">
+              <span id="sms-topic-label">What do you want to hear about?</span>
+              <div id="sms-topic-native">
+                <select id="sms-topics" name="topics" multiple size="4" required aria-labelledby="sms-topic-label" aria-describedby="sms-topic-help">
+                  <option value="academy">Pressure Academy news</option>
+                  <option value="seminars">Grappling seminars</option>
+                  <option value="clothing">Pressure Tested clothing</option>
+                  <option value="family">Mastery Method family learning</option>
+                </select>
+                <small id="sms-topic-help">Choose one or more topics. On a computer, hold Ctrl or Command to select several.</small>
+              </div>
+              <details id="sms-topic-picker" hidden>
+                <summary><span id="sms-topic-summary">Choose topics</span></summary>
+                <div id="sms-topic-options" role="group" aria-labelledby="sms-topic-label"></div>
+              </details>
+              <small id="sms-topic-error" aria-live="polite"></small>
+            </div>
+
+            <label class="sms-consent" for="sms-consent">
+              <input type="checkbox" name="sms_consent" id="sms-consent" value="yes" required />
+              <span>I agree to receive marketing texts from The Pressure Academy about the topics I selected.</span>
+            </label>
+            <div class="sms-submit">
+              <button class="btn" type="submit">Sign up for texts</button>
+              <p class="form-help">To update your choices, submit the same number with every topic you want to keep. You can <a href="#stop">stop all texts</a> at any time. <a href="/privacy-policy.html">Privacy policy</a></p>
+            </div>
+            <p class="form-status" aria-live="polite" aria-atomic="true"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="stop" class="sms-stop-section" aria-labelledby="stop-title">
+        <div class="sms-layout container">
+          <div class="sms-stop-intro">
+            <h2 id="stop-title">Stop all texts</h2>
+            <p>Enter the mobile number you signed up with to withdraw from every Pressure Academy text topic.</p>
+            <p>Already stopped? <a href="/contact/">Contact the Academy to restart texts</a>.</p>
+          </div>
+          <form id="sms-stop" class="capture-form sms-form" aria-labelledby="stop-title"
+            data-capture="sms-stop-all" data-success-message="We received your request to stop all Pressure Academy marketing texts for this number."
+            action="https://formspree.io/f/meerjgde" method="POST">
+            <input type="hidden" name="intent" value="sms-stop-all" />
+            <input type="hidden" name="source" value="text-updates" />
+            <div class="sms-field">
+              <label for="stop-mobile">Mobile number</label>
+              <input type="tel" id="stop-mobile" name="mobile" inputmode="tel" autocomplete="tel"
+                pattern="[\s\(\)\.\-]*(?:0[\s\(\)\.\-]*4(?:[\s\(\)\.\-]*[0-9]){8}|\+[\s\(\)\.\-]*(?:6[\s\(\)\.\-]*1[\s\(\)\.\-]*(?:0[\s\(\)\.\-]*)?4(?:[\s\(\)\.\-]*[0-9]){8}|(?!6[\s\(\)\.\-]*1)[1-9](?:[\s\(\)\.\-]*[0-9]){7,14}))[\s\(\)\.\-]*"
+                title="Use an Australian mobile such as 0412 345 678 or include the international country code starting with +."
+                maxlength="32" placeholder="0412 345 678" aria-describedby="stop-mobile-help" required />
+              <small id="stop-mobile-help">Outside Australia? Start with + and your country code.</small>
+            </div>
+            <button class="btn-ghost" type="submit">Request to stop all texts</button>
+            <p class="form-status" aria-live="polite" aria-atomic="true"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand-lockup" href="/" aria-label="The Pressure Academy home">
+            <span class="brand-mark"><img src="/assets/logos/TPA_House_Mark.svg" alt="" /></span>
+            <span class="brand-copy">
+              <strong>The Pressure Academy</strong>
+              <span>Built under pressure</span>
+            </span>
+          </a>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Shop</span>
+          <div class="footer-links">
+            <a href="/shop/apparel/">Pressure Tested apparel</a>
+            <a href="/shop/mats/">Mats</a>
+            <a href="/academy-orders/">Academy orders</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Train</span>
+          <div class="footer-links">
+            <a href="/seminars/">Seminars</a>
+            <a href="/blueprints/">Blueprints</a>
+            <a href="/mastery-method/">Mastery Method</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <span class="mono">Company</span>
+          <div class="footer-links">
+            <a href="/contact/">Contact</a>
+            <a href="/text-updates/" aria-current="page">Text updates</a>
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/#academy-family">Academy family</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-micro">
+        <span>&copy; 2026 The Pressure Academy</span>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { initMotion } from "/js/lib/media/motion-controller.js";
+      import { initCart } from "/js/lib/cart.js";
+      import { enhanceCaptureForms, initMobileNav } from "/js/lib/commerce-ui.js";
+      import { initTextUpdates } from "/js/lib/text-updates.js";
+
+      initMobileNav();
+      initTextUpdates();
+      initCart();
+      enhanceCaptureForms();
+
+      // Visual Performance Layer: route intensity + media governance.
+      initMotion();
+    </script>
+  </body>
+</html>

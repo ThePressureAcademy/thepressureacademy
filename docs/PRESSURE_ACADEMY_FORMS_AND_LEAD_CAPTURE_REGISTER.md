@@ -12,7 +12,7 @@ The parent-site rows in this table post to `https://formspree.io/f/meerjgde`. En
 | --- | --- | --- | --- | --- | --- |
 | `/` | Founding-round intake | `founding-intake` | `home-join` | Reply from a person, no drip spam | Old Formspree triage rules keyed on `planner-access` will not match (flagged in QA report §8.4 of the architecture pass) |
 | `/shop/apparel/` | Apparel pre-order request (`request_type=apparel-preorder`) | `apparel-drop-list` | `shop-apparel` | Request the chosen size and quantity at the displayed AUD unit price. Availability, delivery and the total are confirmed before payment. | Low |
-| `/shop/apparel/drops/#release-alert` | Next Pressure Tested release | `pressure-tested-release-alert` | `apparel-lookbook` | One email when the next release opens. | Deduplicate by email within this release and honour cancellations. |
+| `/#next-drop`, `/shop/apparel/drops/#release-alert` | Next Pressure Tested release | `pressure-tested-release-alert` | `home-apparel` or `apparel-lookbook` | One email when this release opens. Visitors may also opt into future clothing releases. | Deduplicate across both entry points and check cancellations before each send. |
 | `/shop/mats/` | Tatami pre-order and freight quote (`request_type=tatami-preorder`) | `mat-enquiry` | `shop-mats` | AUD 138 per 2 × 1 m mat. Minimum ten. Freight and availability confirmed before payment. | Low |
 | `/seminars/` | Future seminar updates | `seminar-interest` | `seminars-index` | Hear about future seminar announcements. | Low |
 | `/seminars/michael-pixley-march-2027/#pixley-date-alert` | Confirmed Brisbane dates | `pixley-date-alert` | `seminar-michael-pixley-march-2027` | One email when the Brisbane schedule is confirmed. | Deduplicate by email within this event and honour cancellations. |
@@ -25,6 +25,8 @@ The parent-site rows in this table post to `https://formspree.io/f/meerjgde`. En
 | `/blueprints/[slug]` (other unreleased titles) | Release waitlist | `blueprint-waitlist` | `blueprint-<slug>` | One email at release | Low |
 | `/campaigns/[slug]` | Campaign capture | from campaign config | from campaign config | Per campaign copy | Campaign entries must define both fields |
 | `/contact/` | General enquiry | `contact` | `contact-page` | Reply from a person | Low |
+| `/text-updates/` | Choose or replace SMS topics | `sms-topic-signup` | `text-updates` | Text updates from The Pressure Academy about the selected topics. | Use the explicit consent record and honour all suppressions before sending. |
+| `/text-updates/#stop` | Stop all Academy SMS topics | `sms-stop-all` | `text-updates` | Request an opt-out using just the mobile number. | Apply to every SMS topic and retain suppression when importing new records. |
 | `/academy-orders/` | B2B / bulk enquiry | `academy-order-enquiry` | `academy-orders` | Scoped quote | Low |
 
 The apparel request captures product, preferred size, quantity, destination country and contact details. Current SKUs are `pt-heavy-tee` (AUD 69), `pt-crop-tee` (AUD 65), `pt-hoodie` (AUD 129) and `pt-crop-hoodie` (AUD 109). Use the selected SKU and quantity to calculate the merchandise total when a native submission omits an enhanced total. The mat request captures quantity, freight destination, contact details and mat colour. A custom colour enquiry includes the requested shade. The Pixley requests capture session choice, headcount, tee and rashguard quantities and optional sizes. Admission and apparel are itemised separately. The co-branded tee is AUD 69 and rashguard AUD 79 each. A customer can revise these preferences at hosted checkout after availability is confirmed. A submitted request is free and requires follow-up before a place, item, or delivery can be confirmed.
@@ -43,6 +45,22 @@ Match the two records by `audit_ref` when reviewing a family’s results. Treat 
 ## Operator follow-up
 
 Use the existing `intent` and `source` labels. Within those labels use `request_type` to distinguish pre-orders from past interest forms and to separate day places from semi-private groups. Keep both days’ availability separately. Confirm the selected product or session, availability, payable total and any fulfilment details with the customer before taking payment.
+
+### Clothing release email
+
+Use one list for the next drop across both sources. A request covers that launch only. Keep a recipient for later launches only when the form receipt also records `future_clothing_emails=yes` with `email_consent_version=pt-releases-2026-11-26-v1`. That checkbox reads “Also email me about future Pressure Tested clothing releases.” Previous release requests, purchases, Pixley alerts and SMS selections grant no ongoing email permission.
+
+Generate the launch list with `node scripts/release-email-roster.mjs /private/parent-form.json /private/release-control.json`. Use all parent Formspree receipts, including their processor timestamps. The private control file must contain `windowStart` (inclusive) and `windowEnd` (exclusive) with explicit time zones, and two arrays of email addresses: `suppressed` for opt-outs, cancellations and bounces, and `alreadySent` for the current launch’s sent or in-flight messages. Use an empty array when there are none. Set the start to the opening of this drop’s signup period, preserving earlier explicit recurring subscribers. Keep customer lists out of the repository and refresh the controls before every run.
+
+For an actual launch, link to the collection shoppers can buy and identify The Pressure Academy. Use a monitored reply-to address and include a visible unsubscribe option in each email. Process opt-outs across both sources and the sending platform before the next send. Record confirmed, deduplicated paid orders and their contribution after fulfilment, refunds and sending costs. For subscribers who chose both channels, compare email alone with email plus one timely text for the same release; keep order revenue counted once.
+
+### Topic-based SMS
+
+The parent intake captures a mobile, chosen topics, explicit consent and its wording version; use the processor receipt time as the date of consent. A family-learning selection concerns general Mastery Method updates from The Pressure Academy. Keep child information and education enquiries in their existing intake.
+
+Use a complete private non-spam Formspree submissions JSON export including processor `_date` fields. Keep the export and all output outside this repository. Run `node scripts/sms-roster.mjs /private/parent-form.json clothing` to get the current numbers for one topic. The other topics are `academy`, `seminars` and `family`. Use `stopped` to retrieve all stop requests. A newer valid selection replaces earlier topics. A stop request takes precedence even over a later unverified web signup.
+
+Before a campaign, reconcile the current list with provider and inbox opt-outs, retain suppression history, and resolve any request to restart directly with the number holder. Use an Academy sender with monitored contact details and a working unsubscribe mechanism. The website accepts preferences without an SMS sending provider. For each send use one relevant offer link, such as the specific Pixley event or a released clothing collection, plus the separate unsubscribe link at `https://thepressureacademy.com/text-updates/#stop`.
 
 ## Change discipline
 

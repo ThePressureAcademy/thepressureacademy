@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
     <link rel="stylesheet" href="/assets/css/pt-first-look-v1.css" />
     <link rel="stylesheet" href="/assets/css/pt-fit-release-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-release-email-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -66,6 +67,7 @@
         <header class="pt-intro">
           <p class="pt-signature"><img src="/assets/logos/Pressure_Tested_Mark.svg" width="40" height="40" alt="" />Pressure Tested</p>
           <h1>Look <span>closer<span class="pt-period">.</span></span></h1>
+          <a class="pt-shop-link" href="#release-alert">Next drop by email</a>
         </header>
         <div class="pt-reel" tabindex="0" role="region" aria-label="Pressure Tested photographs" aria-roledescription="carousel">
             <figure class="pt-frame" id="view-a" tabindex="-1">
@@ -188,9 +190,13 @@
         <form class="capture-form" id="next-release-form" data-capture="pressure-tested-release-alert" data-success-message="Your request was received. We’ll email you when the next Pressure Tested release opens." action="https://formspree.io/f/meerjgde" method="POST">
           <input type="hidden" name="intent" value="pressure-tested-release-alert" />
           <input type="hidden" name="source" value="apparel-lookbook" />
-          <label>Email address<input type="email" name="email" autocomplete="email" maxlength="254" required /></label>
+          <input type="hidden" name="email_consent_version" value="pt-releases-2026-11-26-v1" />
+          <label>Email address<input type="email" name="email" autocomplete="email" maxlength="254" required aria-describedby="pt-release-promise" /></label>
+          <p class="form-help" id="pt-release-promise">One email when the next Pressure Tested release opens.</p>
+          <label class="release-email-consent"><input type="checkbox" name="future_clothing_emails" value="yes" /><span>Also email me about future Pressure Tested clothing releases.</span></label>
           <button type="submit" class="btn">Email me at release</button>
-          <p class="form-help">One email when the next Pressure Tested release opens. <a href="/privacy-policy.html">Privacy policy</a></p>
+          <p class="form-help">Reply to a release email to stop. <a href="/privacy-policy.html">Privacy policy</a></p>
+          <p class="form-help"><a href="/text-updates/?topic=clothing">Choose Pressure Tested clothing text updates</a></p>
           <div class="form-status" role="status" aria-live="polite"></div>
         </form>
       </section>

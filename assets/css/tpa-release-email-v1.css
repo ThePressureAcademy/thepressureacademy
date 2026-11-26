@@ -1,0 +1,48 @@
+.home-release {
+  width: min(100%, 31rem);
+  margin-top: .65rem;
+}
+.home-release summary {
+  width: fit-content;
+  padding-block: .6rem;
+  min-height: 44px;
+  color: #773b21;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: .22em;
+  cursor: pointer;
+}
+.home-release form {
+  --text: #20241c;
+  --rust-bright: #934522;
+  --line-strong: #7b7c70;
+  display: grid;
+  gap: .55rem;
+  padding-block: .45rem .75rem;
+}
+.home-release input[type="email"] { min-width: 0; background: #fffdf8; }
+.home-release button { border: 0; justify-self: start; cursor: pointer; }
+.home-release small { color: #46493f; font-size: .86rem; }
+.home-release small a, .house-text-choice a { text-decoration: underline; text-underline-offset: .2em; }
+.home-release :is(summary, button):focus-visible { outline: 3px solid #934522; outline-offset: 2px; }
+.home-release .form-status { color: #3d4637; }
+.home-release .form-status:empty { display: none; }
+.capture-form .release-email-consent {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+.pt-release .capture-form { grid-template-columns: minmax(0, 1fr); }
+.pt-release .capture-form .btn { justify-self: start; }
+.capture-form .release-email-consent input[type="checkbox"] {
+  flex: 0 0 1.15rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  appearance: auto;
+  accent-color: #954820;
+}

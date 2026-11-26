@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-home-editorial-v3.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-release-email-v1.css" />
   </head>
   <body class="academy-home">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -93,6 +94,7 @@
         <a href="/academy-orders/">Academy orders</a>
         <a href="/mastery-method/">Family learning</a>
         <a href="/contact/">Contact</a>
+        <a href="/text-updates/">Choose text updates</a>
         <a href="#academy-family">Our brands</a>
       </nav>
     </header>
@@ -130,6 +132,20 @@
               <a class="opening-shop" href="/shop/apparel/">Shop apparel <span aria-hidden="true">→</span></a>
               <a class="opening-glimpse" href="/shop/mats/#floor-planner">Design a mat floor</a>
             </div>
+            <details class="home-release" id="next-drop">
+              <summary>Email me when the next clothing drop opens</summary>
+              <form class="capture-form" id="home-release-form" data-capture="pressure-tested-release-alert" data-success-message="Request received. We’ll email you when the next Pressure Tested drop opens." action="https://formspree.io/f/meerjgde" method="POST">
+                <input type="hidden" name="intent" value="pressure-tested-release-alert" />
+                <input type="hidden" name="source" value="home-apparel" />
+                <input type="hidden" name="email_consent_version" value="pt-releases-2026-11-26-v1" />
+                <label for="home-release-email">Email address</label>
+                <input type="email" id="home-release-email" name="email" autocomplete="email" maxlength="254" required />
+                <label class="release-email-consent"><input type="checkbox" name="future_clothing_emails" value="yes" /> <span>Also email me about future Pressure Tested clothing releases.</span></label>
+                <button class="opening-shop" type="submit">Email me at release</button>
+                <small>One email for this drop unless you choose future releases. Reply to any release email to stop. <a href="/privacy-policy.html">Privacy policy</a></small>
+                <div class="form-status" role="status" aria-live="polite"></div>
+              </form>
+            </details>
           </div>
         </div>
       </section>
@@ -206,6 +222,7 @@
             </li>
           </ul>
           <p class="house-lab" id="academytalon"><strong>AcademyTalon</strong> is in founder testing for attendance, grading and competition preparation.</p>
+          <p class="house-text-choice">Prefer a text when a place opens or a collection drops? <a href="/text-updates/">Choose my text topics</a></p>
         </div>
       </section>
 
@@ -288,6 +305,7 @@
           <span class="mono">Company</span>
           <div class="footer-links">
             <a href="/contact/">Contact</a>
+            <a href="/text-updates/">Text updates</a>
             <a href="/privacy-policy.html">Privacy policy</a>
           </div>
         </div>
