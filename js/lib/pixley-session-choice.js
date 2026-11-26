@@ -1,15 +1,12 @@
-const selectedDay = new Map([
-  ["day-1", "Day 1"],
-  ["day-2", "Day 2"],
-  ["both-days", "Both days"],
-]);
+import { findPixleySeminar } from "../config/pixley-collab.mjs";
+
 const form = document.getElementById("pixley-days-form");
 const select = form.elements.namedItem("days");
 
 function applyLinkedChoice(url) {
-  const day = selectedDay.get(url.searchParams.get("session"));
-  if (url.hash !== "#seminar-request" || !day) return;
-  select.value = day;
+  const seminar = findPixleySeminar(url.searchParams.get("session"));
+  if (url.hash !== "#seminar-request" || !seminar) return;
+  select.value = seminar.label;
   select.dispatchEvent(new Event("change", { bubbles: true }));
 }
 
@@ -30,7 +27,7 @@ document.querySelectorAll('.pixley-choices a[href^="?session="]').forEach(link =
 select.addEventListener("change", () => {
   const url = new URL(location.href);
   if (url.hash !== "#seminar-request" || !url.searchParams.has("session")) return;
-  const choice = [...selectedDay].find(([, day]) => day === select.value)?.[0];
+  const choice = findPixleySeminar(select.value)?.slug;
   if (choice === url.searchParams.get("session")) return;
   if (choice) url.searchParams.set("session", choice);
   else url.searchParams.delete("session");

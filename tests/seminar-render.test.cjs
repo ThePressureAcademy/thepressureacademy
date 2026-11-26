@@ -95,7 +95,7 @@ test('Pixley requests have a crawlable event page and two native submission path
   assert.deepEqual([...forms[1].matchAll(/<option value="(\d+)"/g)].map(m => +m[1]), [1, 2, 3, 4, 5, 6]);
 });
 
-test('day and group requests quote admission and both optional garments independently', () => {
+test('named seminar and group requests quote admission and both optional garments independently', () => {
   const catalog = fs.readFileSync(path.join(root, 'js/config/pixley-collab.mjs'), 'utf8').replace(/^export /gm, '');
   const elements = Object.fromEntries([
     'request_type', 'people', 'days', 'group_size', 'tee_quantity', 'rashguard_quantity',
@@ -117,8 +117,8 @@ test('day and group requests quote admission and both optional garments independ
   const update = () => vm.runInContext('updateQuote(form)', context);
   elements.request_type.value = 'seminar-days';
   for (const [day, people, tees, rashguards, admission, total] of [
-    ['Day 1', 1, 0, 0, 150, 150], ['Day 1', 1, 1, 0, 150, 219], ['Day 2', 1, 0, 1, 150, 229],
-    ['Both days', 1, 1, 1, 300, 448], ['Both days', 2, 2, 1, 600, 817], ['Day 2', 20, 0, 0, 3000, 3000],
+    ['Wrestling for Jiu Jitsu', 1, 0, 0, 150, 150], ['Day 1', 1, 1, 0, 150, 219], ['Front Headlock', 1, 0, 1, 150, 229],
+    ['Both seminars', 1, 1, 1, 300, 448], ['Both days', 2, 2, 1, 600, 817], ['Day 2', 20, 0, 0, 3000, 3000],
   ]) {
     elements.days.value = day;
     elements.people.valueAsNumber = people;
@@ -126,6 +126,7 @@ test('day and group requests quote admission and both optional garments independ
     elements.rashguard_quantity.valueAsNumber = rashguards;
     update();
     assert.equal(output.hidden, false);
+    assert.doesNotMatch(output.rows[0].label, /Day [12]|Both days/);
     assert.equal(elements.admission_aud.value, admission.toFixed(2));
     assert.equal(elements.apparel_aud.value, (total - admission).toFixed(2));
     assert.equal(elements.estimated_total_aud.value, total.toFixed(2));

@@ -45,8 +45,11 @@ async function harness({ pages = [], prices = priceRows, merchant = "acct_Academ
 }
 
 test("Stripe Checkout charges the chosen admission once and offers two independently removable additions", async () => {
-  for (const [session, people, expectedCents, quantity] of [
-    ["day1", 1, 15000, 1], ["day2", 20, 15000, 20], ["both", 2, 30000, 2], ["group", 6, 100000, 1],
+  for (const [session, id, label, people, expectedCents, quantity] of [
+    ["day1", "day1", "Wrestling for Jiu Jitsu", 1, 15000, 1],
+    ["Front Headlock", "day2", "Front Headlock", 20, 15000, 20],
+    ["both-seminars", "both", "Both seminars", 2, 30000, 2],
+    ["group", "group", "90-minute semi-private group", 6, 100000, 1],
   ]) {
     const { run, posts } = await harness();
     assert.equal(await run({ ...input, session, people }), checkoutUrl);
@@ -58,7 +61,8 @@ test("Stripe Checkout charges the chosen admission once and offers two independe
     assert.equal(body.get("client_reference_id"), reference);
     assert.equal(body.get("customer_email"), input.email);
     assert.equal(body.get("metadata[people]"), String(people));
-    assert.equal(body.get("metadata[session]"), session);
+    assert.equal(body.get("metadata[session]"), id);
+    assert.ok(body.get("line_items[0][price_data][product_data][name]").endsWith(label));
     assert.equal(body.has("line_items[1][quantity]"), false);
     assert.equal(body.has("payment_method_types[]"), false);
     assert.equal(body.get("custom_fields[0][optional]"), "true");
@@ -96,11 +100,11 @@ test("missing or differently priced collaboration SKU prevents a checkout", asyn
   }
 });
 
-test("late retry recovers an existing unpaid session, even beyond the first page of history", async () => {
+test("a named seminar retry recovers its original unpaid day booking, even beyond the first page of history", async () => {
   const h = await harness({
     pages: [{ data: [{ id: "cs_other" }], has_more: true }, { data: [previousSession], has_more: false }],
   });
-  assert.equal(await h.run(), checkoutUrl);
+  assert.equal(await h.run({ ...input, session: "Wrestling for Jiu Jitsu" }), checkoutUrl);
   assert.equal(h.posts.length, 0);
   assert.equal(h.paths.includes("/v1/prices"), false);
 });

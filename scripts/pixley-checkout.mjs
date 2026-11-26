@@ -4,27 +4,21 @@
  */
 import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
-import { PIXLEY_ADDONS, PIXLEY_SESSIONS } from "../js/config/pixley-collab.mjs";
+import { PIXLEY_ADDONS, PIXLEY_SESSIONS, findPixleySeminar } from "../js/config/pixley-collab.mjs";
 import { loadPixleyStripePrices } from "./lib/pixley-stripe-prices.mjs";
 
 const slug = "michael-pixley-march-2027";
 const page = "https://thepressureacademy.com/seminars/" + slug + "/";
-const sessionLabels = Object.freeze({
-  day1: "Day 1",
-  day2: "Day 2",
-  both: "Both days",
-  group: "90-minute semi-private group",
-});
-
 const help = `Use a Pressure Academy merchant key (PIXLEY_STRIPE_SECRET_KEY) and its separately
 configured account ID (PIXLEY_STRIPE_ACCOUNT_ID). The key needs account, Price
 and Checkout Session read access and Checkout Session write access.
 
 After confirming available places, pipe one JSON booking on standard input:
   node scripts/pixley-checkout.mjs < confirmed-booking.json
-  {"bookingRef":"BRIS-001","session":"day1","people":1,"email":"buyer@example.com"}
+  {"bookingRef":"BRIS-001","session":"wrestling-for-jiu-jitsu","people":1,"email":"buyer@example.com"}
 
-Use day1, day2, both, or group. Keep the same bookingRef for every retry.
+Use wrestling-for-jiu-jitsu, front-headlock, both-seminars, or group.
+Keep the same bookingRef for every retry.
 With live credentials add --live. The output is a private URL for this buyer.
 Sessions expire after 24 hours. To renew an expired link, confirm availability
 again and reissue with the original bookingRef. Payment status and purchased
@@ -35,7 +29,10 @@ function validateBooking(input) {
   if (typeof bookingRef !== "string" || !/^[A-Za-z0-9_-]{1,80}$/.test(bookingRef)) {
     throw new Error("Supply a stable bookingRef of 1–80 letters, numbers, hyphens or underscores.");
   }
-  if (!Object.hasOwn(sessionLabels, session)) throw new Error("Choose day1, day2, both, or group.");
+  const seminar = findPixleySeminar(session);
+  if (session !== "group" && !seminar) {
+    throw new Error("Choose Wrestling for Jiu Jitsu, Front Headlock, both seminars, or group.");
+  }
   const cap = session === "group" ? PIXLEY_SESSIONS.groupCapacity : PIXLEY_SESSIONS.dayCapacity;
   if (!Number.isInteger(people) || people < 1 || people > cap) {
     throw new Error(`People for this session must be an integer from 1 to ${cap}.`);
@@ -43,14 +40,15 @@ function validateBooking(input) {
   if (typeof email !== "string" || email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     throw new Error("Supply the booking organiser’s email.");
   }
-  return { bookingRef: bookingRef.toUpperCase(), session, people, email: email.toLowerCase() };
+  return { bookingRef: bookingRef.toUpperCase(), session: seminar?.id ?? "group", people, email: email.toLowerCase() };
 }
 
 function checkoutBody(booking, reference, prices) {
   const { people, session, email } = booking;
   const group = session === "group";
+  const seminar = findPixleySeminar(session);
   const unitCents = group ? PIXLEY_SESSIONS.groupPriceCents
-    : PIXLEY_SESSIONS.dayPriceCents * (session === "both" ? 2 : 1);
+    : PIXLEY_SESSIONS.dayPriceCents * seminar.count;
   const params = new URLSearchParams({
     mode: "payment",
     integration_identifier: "pixley_seminar_kzevhmrq",
@@ -60,7 +58,7 @@ function checkoutBody(booking, reference, prices) {
     success_url: page + "#payment-return",
     cancel_url: page + (group ? "#group-request" : "#seminar-request"),
     "line_items[0][price_data][currency]": "aud",
-    "line_items[0][price_data][product_data][name]": "Michael Pixley · Brisbane, March 2027 · " + sessionLabels[session],
+    "line_items[0][price_data][product_data][name]": "Michael Pixley · Brisbane, March 2027 · " + (group ? "90-minute semi-private group" : seminar.label),
     "line_items[0][price_data][unit_amount]": String(unitCents),
     "line_items[0][quantity]": String(group ? 1 : people),
     "custom_fields[0][key]": "merch_sizes",
