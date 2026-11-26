@@ -67,3 +67,48 @@ test("selection, quantity and reset update both the displayed subtotal and the r
   assert.equal(elements.subtotal_aud.disabled, true);
   assert.equal(elements.unit_price_aud.value, "");
 });
+
+test("size enquiries accept reference-garment measurements for any selected cut without making them mandatory", () => {
+  const form = page.match(/<form\b[^>]*id="apparel-preorder"[\s\S]*?<\/form>/)[0];
+  for (const name of ["reference_chest_width_cm", "reference_body_length_cm"]) {
+    const input = form.match(new RegExp('<input[^>]*name="' + name + '"[^>]*>'))[0];
+    assert.match(input, /type="number"/);
+    assert.match(input, /min="0\.1"/);
+    assert.doesNotMatch(input, /\brequired\b/);
+  }
+  assert.match(form, /name="measurements_requested" value="yes"/);
+});
+
+test("the lookbook accepts a separately identified email-only release notification", () => {
+  const lookbook = read("shop/apparel/drops/index.html");
+  const form = lookbook.match(/<form\b[^>]*id="next-release-form"[\s\S]*?<\/form>/)[0];
+  assert.match(form, /action="https:\/\/formspree.io\/f\/meerjgde" method="POST"/);
+  assert.match(form, /name="intent" value="pressure-tested-release-alert"/);
+  assert.match(form, /name="source" value="apparel-lookbook"/);
+  assert.match(form, /type="email" name="email"[^>]*required/);
+  assert.doesNotMatch(form, /name="(?:quantity|product|size|name)"/);
+  assert.ok(lookbook.indexOf(form) > lookbook.indexOf('id="view-l"'));
+});
+
+test("the three cut-specific flat-garment guides match the Pressure Tested size references", () => {
+  const expected = {
+    "tee": [
+      "XXS 49 64 45 20", "XS 51 66 47 21", "S 53 68 49 22", "M 55 70 51 23",
+      "L 58 72 53 24", "XL 61 74 55 25", "2XL 64 76 57 26",
+    ],
+    "hoodie": [
+      "XS 57 66 52 58", "S 59 68 54 59", "M 61 70 56 60", "L 63 72 58 61",
+      "XL 66 74 60 62", "2XL 69 76 62 63", "3XL 72 78 64 64",
+    ],
+    "crop-hoodie": [
+      "XXS 4–6 50 51 48 55", "XS 6–8 52 53 50 56", "S 8–10 54 55 52 57", "M 10–12 56 57 54 58",
+      "L 12–14 59 59 56 59", "XL 14–16 62 61 58 60", "2XL 16–18 65 63 60 61",
+    ],
+  };
+  for (const [cut, rows] of Object.entries(expected)) {
+    const body = page.match(new RegExp('<table id="' + cut + '-size-chart">[\\s\\S]*?<tbody>([\\s\\S]*?)</tbody>'))[1];
+    const actual = [...body.matchAll(/<tr>(.*?)<\/tr>/g)].map(([, row]) =>
+      [...row.matchAll(/<(?:th scope="row"|td)>(.*?)<\/(?:th|td)>/g)].map(([, cell]) => cell).join(" "));
+    assert.deepEqual(actual, rows, cut);
+  }
+});

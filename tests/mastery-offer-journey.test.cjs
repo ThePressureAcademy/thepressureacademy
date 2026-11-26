@@ -24,3 +24,15 @@ test("each published support option has an offer-specific route and matching int
   assert.ok(booking.includes('action="https://formspree.io/f/xwvwkqqg" method="post"'));
   assert.ok(booking.includes('name="requested_offer"'));
 });
+
+test("families can see the scorecard email requirement and the assessment sample before committing", () => {
+  const start = page("scorecard").split('onclick="startScorecard()"')[0];
+  assert.match(start, /enter your email to see your results/i);
+  const sample = '/mastery-method/for-parents/#teaching-blueprint';
+  assert.ok(page("for-parents").includes('id="teaching-blueprint"'));
+  for (const source of ["pricing", "programs"]) {
+    const assessment = page(source).split('href="/mastery-method/book/?offer=assessment#request-details"')[0].split("$197").at(-1);
+    assert.ok(assessment.includes('href="' + sample + '"'));
+    assert.match(assessment, /homework/);
+  }
+});

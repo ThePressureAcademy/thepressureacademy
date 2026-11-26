@@ -117,18 +117,6 @@
   .pillar-link{display:inline-block;margin-top:12px;font-size:.72rem;font-weight:500;color:var(--rust);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
   .pillar-link:hover{border-bottom-color:var(--rust)}
 
-  /* ── S5: HOW FAMILIES BEGIN ── */
-  .begin{padding:var(--section-pad) 24px}
-  .begin-intro{text-align:center;max-width:600px;margin:0 auto 56px}
-  .steps{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);position:relative}
-  .steps::before{content:'';position:absolute;top:36px;left:16.6%;right:16.6%;height:2px;background:linear-gradient(90deg,var(--rust),var(--teal),var(--amber));opacity:.2}
-  .step{text-align:center;padding:0 20px;position:relative;z-index:1}
-  .step-num{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'DM Serif Display',Georgia,serif;font-size:1.6rem;color:var(--white)}
-  .step:nth-child(1) .step-num{background:var(--rust)}.step:nth-child(2) .step-num{background:var(--teal)}.step:nth-child(3) .step-num{background:var(--amber)}
-  .step h3{font-family:'Fraunces',Georgia,serif;font-size:1.1rem;font-weight:500;margin-bottom:8px}
-  .step p{font-size:.86rem;color:var(--ink-muted);line-height:1.7;font-weight:300}
-  .step-detail{margin-top:10px;font-size:.74rem;color:var(--ink-muted);font-style:italic;font-family:'Fraunces',Georgia,serif;opacity:.6}
-
   /* ── S6: FOUNDER ── */
   .founder{padding:var(--section-pad) 24px;background:var(--white)}
   .founder-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:center}
@@ -188,8 +176,6 @@
     .problem-grid,.founder-inner{grid-template-columns:1fr;gap:32px}.founder-photo{max-width:320px}
     .system-grid{grid-template-columns:1fr 1fr}
     .pillars-grid{grid-template-columns:1fr 1fr}
-    .steps{grid-template-columns:1fr;gap:36px}
-    .steps::before{display:none}
     .proof-grid,.concerns-grid{grid-template-columns:1fr}
     .topbar-nav{display:none}
   }
@@ -269,7 +255,7 @@
       <a class="btn-p" href="/mastery-method/scorecard/" aria-describedby="teacher-option">Take the free Clarity Scorecard</a>
       <a class="mm-score-link" href="/mastery-method/book/?offer=support-call#request-details">Request a call with Kirsty</a>
     </div>
-    <p class="mm-teacher-note" id="teacher-option">16 questions, about three minutes. After your results, you can invite your child’s teacher to share the homework they’ve set.</p>
+    <p class="mm-teacher-note" id="teacher-option">16 questions, about three minutes. Enter your email to see your results. You can invite your child’s teacher to share the homework they’ve set.</p>
   </div>
   <figure class="mm-home-photo">
     <img src="/assets/media/mastery-method-home-learning-v1.jpg" width="1600" height="914" fetchpriority="high" alt="Letter cards, pencils and an open notebook on a table">
@@ -367,7 +353,7 @@
   </div>
 
   <div class="system-anchor">
-  <a href="/mastery-method/book" class="btn-p">Start with a Learning Support Call</a>
+  <a href="/mastery-method/book/?offer=support-call#request-details" class="btn-p">Request a free call</a>
     <div class="system-note">Free, no obligation &middot; 15-20 minutes with Kirsty directly</div>
   </div>
 </section>
@@ -403,35 +389,6 @@
         <h3>Action</h3>
       <p>Starting tasks, following through, building routines that stick.</p>
       <a href="/mastery-method/clarity#action" class="pillar-link">Learn more &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- S5: HOW FAMILIES BEGIN -->
-<section class="begin">
-  <div class="begin-intro">
-    <span class="eyebrow" style="color:var(--rust)">How families begin</span>
-    <h2 class="section-heading">Three steps to clarity</h2>
-    <p class="section-sub" style="margin:0 auto">No pressure, no commitment upfront. Just a clear process to understand where your child is — and what support would actually help.</p>
-  </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h3>Learning Support Call</h3>
-      <p>A free conversation to understand your child's situation, your concerns, and whether Mastery Method is the right fit for your family.</p>
-      <div class="step-detail">15-20 minutes &middot; Free &middot; No obligation</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h3>Mastery Assessment</h3>
-      <p>A structured assessment across The Four Pillars. We identify exactly where your child gets stuck — and why — so every next step is targeted.</p>
-      <div class="step-detail">Detailed report provided to parents</div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h3>Your Mastery Pathway</h3>
-      <p>Monthly blueprint updates, weekly home activities, a parent check-in call with Kirsty, and access to the resource library — designed to build your family's confidence, not your dependence.</p>
-      <div class="step-detail">Monthly guided support &middot; Targeted 1:1 available as add-on</div>
     </div>
   </div>
 </section>
@@ -535,7 +492,7 @@
     <span class="eyebrow" style="color:var(--rust-light)">Ready to start?</span>
     <h2>Give your family <em>clarity</em></h2>
     <p class="sub">The first step is a conversation. No commitment. No pressure. Just a clear understanding of where your child is — and how we can help.</p>
-  <a href="/mastery-method/book" class="btn-p">Start with a Learning Support Call</a>
+  <a href="/mastery-method/book/?offer=support-call#request-details" class="btn-p">Request a free call</a>
     <div class="reassurance">Free &middot; 15-20 minutes &middot; No pressure &middot; With Kirsty directly</div>
   </div>
 </section>
@@ -547,7 +504,7 @@
 <footer class="site-footer"><div class="footer-inner">
   <div class="footer-brand-col"><div class="footer-brand">Mastery Method</div><div class="footer-tagline">Structured support for unstructured minds.</div><div class="footer-note">A clarity-led learning system for families.</div></div>
 <div class="footer-col"><h4>Learn</h4><a href="/mastery-method/clarity">The Mastery Method Framework</a><a href="/mastery-method/for-parents">For Parents</a><a href="/mastery-method/about">About</a><a href="/mastery-method/resources">Resources</a></div>
-<div class="footer-col"><h4>Get Started</h4><a href="/mastery-method/programs">Programs</a><a href="/mastery-method/pricing">Pricing</a><a href="/mastery-method/book">Start with a Learning Support Call</a></div>
+<div class="footer-col"><h4>Get Started</h4><a href="/mastery-method/programs">Programs</a><a href="/mastery-method/pricing">Pricing</a><a href="/mastery-method/book/?offer=support-call#request-details">Request a free call</a></div>
   <div class="footer-col"><h4>Connect</h4><a href="/mastery-method/book/?offer=general#request-details">Contact Kirsty</a><a href="/mastery-method">Home</a></div>
 </div><div class="footer-bottom"><a class="mm-house-link" href="/"><span class="mm-house-emblem" aria-hidden="true"><img src="/assets/logos/TPA_House_Mark.svg" width="64" height="64" alt=""></span><span>The Pressure Academy</span></a><span>&copy; 2026 Mastery Method</span><span>Queensland, Australia</span></div><div class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a></div></footer>
 </body>

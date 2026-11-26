@@ -1,0 +1,19 @@
+#designer-academy { min-height: 2.75rem; color: #ffc59f; }
+.club-floor-review { margin-bottom: .9rem; padding: .9rem 1rem; border-left: .2rem solid var(--rust-bright); background: var(--bg); }
+.club-floor-review h3 { margin-bottom: .45rem; }
+.club-floor-review p { margin-block: .45rem; }
+#club-floor-editor { width: min(72rem, 96vw); max-width: 96vw; height: min(54rem, 94dvh); max-height: 94dvh; padding: 0; border: 1px solid var(--line-strong); background: #1c211c; color: var(--text); }
+#club-floor-editor[open] { display: flex; flex-direction: column; }
+#club-floor-editor::backdrop { background: #090b09cc; }
+.club-editor-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .5rem 1rem; border-bottom: 1px solid #50584b; }
+.club-editor-header h2 { font-size: 1.25rem; margin: 0; }
+#club-editor-frame { flex: 1; min-height: 0; border: none; background: #1c211c; }
+body:has(#club-floor-editor[open]) { overflow: hidden; }
+.club-editor-mode > :not(main), .club-editor-mode main > :not(#floor-planner),
+.club-editor-mode #designer-share, .club-editor-mode .designer-heading,
+.club-editor-mode .designer-settings-inner p { display: none; }
+.club-editor-mode #floor-planner { border: 0; padding-top: 1rem; }
+.mat-spec-details { margin-top: 1.1rem; border-top: 1px solid #50584b; }
+.mat-spec-details summary { cursor: pointer; padding-block: .7rem; font-weight: 600; }
+.mat-spec-details p { max-width: 75ch; color: #d7dccf; }
+.club-editor-mode .mat-spec-details, .club-editor-mode .designer-heading a { display: none; }

@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-secondary-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-order-options-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
+    <link rel="stylesheet" href="/assets/css/tpa-academy-floor-v1.css" />
   </head>
   <body class="academy-secondary orders">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -82,7 +83,7 @@
           </p>
           <div class="hero-actions">
             <a class="btn" href="#order-enquiry">Start an order enquiry</a>
-            <a class="btn-ghost" href="/shop/mats/#calculator">Size a floor first</a>
+            <a class="btn-ghost" data-open-floor href="/shop/mats/">Plan a floor first</a>
           </div>
         </div>
       </section>
@@ -162,12 +163,27 @@
                     <option value="other">Other enquiry</option>
                   </select>
                 </label>
+                <p class="form-help" id="floor-link-status" role="status" hidden></p>
                 <fieldset class="quote-scope" id="floor-scope"><legend>Floor details</legend>
+                  <div class="club-floor-review" id="club-floor-review" hidden>
+                    <h3 id="club-floor-title" tabindex="-1">Your floor plan</h3>
+                    <p id="club-plan-summary"></p>
+                    <label id="club-spare-field" hidden><span id="club-spare-label"></span>
+                      <select id="club-spare-colour"></select>
+                    </label>
+                    <p id="club-order-mix"></p>
+                    <div class="estimate-actions">
+                      <a class="text-link" data-open-floor href="/shop/mats/">Edit floor plan</a>
+                      <button class="text-link" type="button" id="club-remove-plan">Remove floor plan</button>
+                    </div>
+                  </div>
                   <div class="field-grid">
                     <label>Room size, if known<input name="floor_dimensions" type="text" maxlength="120" placeholder="e.g. 8 × 6 m" /></label>
                     <label>Estimated mats, if known<input name="mat_quantity" type="number" min="1" step="1" inputmode="numeric" /></label>
                   </div>
-                  <p class="form-help">2 m² per mat. Minimum order 10 mats. <a href="/shop/mats/#calculator">Estimate a floor</a></p>
+                  <p class="form-help" id="club-manual-floor">2 m² per mat. Minimum order 10 mats. <a data-open-floor href="/shop/mats/">Design your floor</a> or <a href="/shop/mats/#calculator">estimate by area</a>.</p>
+                  <noscript><p class="form-help">Enter your dimensions and mat count here. If you have a floor-plan link, paste it into the requirements field below.</p></noscript>
+                  <label class="fit-request"><input type="checkbox" name="request_mat_specifications" value="Thickness, core, backing, warranty terms and estimated dispatch" /> Include mat thickness, core, backing, warranty terms and estimated dispatch in my quote</label>
                 </fieldset>
                 <fieldset class="quote-scope" id="kit-scope"><legend>Team kit details</legend>
                   <div class="field-grid">
@@ -193,6 +209,13 @@
           </div>
         </div>
       </section>
+      <dialog id="club-floor-editor" aria-labelledby="club-editor-title">
+        <div class="club-editor-header">
+          <h2 id="club-editor-title">Edit your academy floor</h2>
+          <button class="btn-ghost" type="button" id="club-editor-close">Close</button>
+        </div>
+        <iframe id="club-editor-frame" title="Interactive academy mat designer"></iframe>
+      </dialog>
     </main>
 
     <footer class="site-footer">
@@ -239,11 +262,14 @@
     <script type="module">
       import { initCart } from "/js/lib/cart.js";
       import { enhanceCaptureForms, initMobileNav } from "/js/lib/commerce-ui.js";
+      import { initAcademyFloor } from "/js/lib/academy-floor-plan.js";
       import { initAcademyQuote } from "/js/lib/academy-quote.js";
       import { initMotion } from "/js/lib/media/motion-controller.js";
       initMobileNav();
       initCart();
-      initAcademyQuote(document.getElementById("club-quote"));
+      const quote = document.getElementById("club-quote");
+      initAcademyQuote(quote);
+      initAcademyFloor(quote);
       enhanceCaptureForms();
       // Scroll reveal + media governance: shared motion controller.
       initMotion();

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/assets/css/tpa-house-v1.css" />
     <link rel="stylesheet" href="/assets/css/tpa-customer-paths-v1.css" />
     <link rel="stylesheet" href="/assets/css/pt-first-look-v1.css" />
+    <link rel="stylesheet" href="/assets/css/pt-fit-release-v1.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -182,6 +183,17 @@
         <p class="pt-status" role="status" aria-atomic="true"></p>
         <a class="pt-shop-link" href="/shop/apparel/#range">Shop current apparel <span aria-hidden="true">→</span></a>
       </div>
+      <section class="pt-release" id="release-alert" aria-labelledby="release-title">
+        <h2 id="release-title">Hear when the next release opens.</h2>
+        <form class="capture-form" id="next-release-form" data-capture="pressure-tested-release-alert" data-success-message="Your request was received. We’ll email you when the next Pressure Tested release opens." action="https://formspree.io/f/meerjgde" method="POST">
+          <input type="hidden" name="intent" value="pressure-tested-release-alert" />
+          <input type="hidden" name="source" value="apparel-lookbook" />
+          <label>Email address<input type="email" name="email" autocomplete="email" maxlength="254" required /></label>
+          <button type="submit" class="btn">Email me at release</button>
+          <p class="form-help">One email when the next Pressure Tested release opens. <a href="/privacy-policy.html">Privacy policy</a></p>
+          <div class="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </section>
     </main>
 
     <footer class="site-footer">

@@ -1,3 +1,4 @@
+import { academyPlanLink } from './mat-quote-mix.js';
 import { tatamiMat } from '../config/commerce.js';
 import { createLayout, applyPattern, editLayout, cellAt, summarizeLayout, serializeLayout, encodeLayout, decodeLayout } from './mat-layout-v1.js';
 
@@ -29,7 +30,7 @@ function renderFloor(svg, layout) {
     `<g data-design-cursor visibility="hidden" pointer-events="none"><rect x=".035" y=".035" width=".93" height=".93" fill="none" stroke="#151515" stroke-width=".075"/><rect x=".06" y=".06" width=".88" height=".88" fill="none" stroke="#ffb77d" stroke-width=".05" stroke-dasharray=".16 .055"/></g>`;
 }
 
-export function initMatDesigner() {
+export function initMatDesigner({ clubEditor = false } = {}) {
   const root = document.getElementById('floor-planner');
   if (!root) return;
   const get = id => root.querySelector(`#designer-${id}`);
@@ -127,6 +128,8 @@ export function initMatDesigner() {
     }
     get('undo').disabled = !history.length;
     get('use').disabled = !placed;
+    get('academy').hidden = !placed || clubEditor;
+    if (placed && !clubEditor) get('academy').href = academyPlanLink(encodeLayout(layout), null, document.getElementById('mat-request').elements.request_mat_specifications.checked);
     if (eventName) {
       const summary = `${layout.widthM} × ${layout.lengthM} m room. ${placed} mats laid (${number.format(areaM2)} m²). ${byColour.join(', ')}. ${minimum}${orderQuantity} mats requested, AUD ${money.format(subtotalCents / 100)} before freight. ${number.format(uncoveredAreaM2)} m² open, ${blockedAreaM2} m² blocked.`;
       document.dispatchEvent(new CustomEvent(eventName, { detail: { quantity: orderQuantity, placed, colours, width: layout.widthM, length: layout.lengthM, layout: serializeLayout(layout), planUrl: planUrl(), summary } }));
@@ -282,7 +285,15 @@ export function initMatDesigner() {
       status.textContent = 'Select and copy this plan link.';
     }
   });
-  get('use').addEventListener('click', () => reportPlan('tatami:use-layout'));
+  if (clubEditor) {
+    get('use').textContent = 'Attach this floor to my academy quote';
+    get('use').addEventListener('click', () => parent.postMessage({ action: 'academy-floor-apply', code: encodeLayout(layout) }, location.origin));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') parent.postMessage({ action: 'academy-floor-close' }, location.origin);
+    });
+  } else {
+    get('use').addEventListener('click', () => reportPlan('tatami:use-layout'));
+  }
   width.value = layout.widthM;
   length.value = layout.lengthM;
   patternInput.value = pattern;
