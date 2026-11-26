@@ -61,3 +61,8 @@
 .cut-chart p { margin: .3rem 0 .85rem; font-size: .91rem; }
 .fit-chart-links { display: flex; flex-wrap: wrap; gap: 0 1rem; }
 .fit-chart-links a { min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: .2em; }
+.cut-chart td { white-space: nowrap; }
+@media (max-width: 400px) {
+  .cut-chart table { font-size: .875rem; }
+  .cut-chart :is(th,td) { padding-inline: .13rem; }
+}
