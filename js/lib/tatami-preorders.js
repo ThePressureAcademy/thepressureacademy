@@ -37,14 +37,22 @@ export function initTatamiPreorders() {
   const detail = document.getElementById("calc-detail");
   const useCount = document.getElementById("use-count");
   const clubQuote = document.getElementById("use-academy-estimate");
+  const manualColours = document.getElementById("mat-colours");
+  const planQuote = document.getElementById("plan-quote");
+  const spareLabel = document.getElementById("plan-extra-label");
+  const spareColour = document.getElementById("plan-extra-colour");
+  const quantityHelp = document.getElementById("quantity-help");
   let estimatedCount = null;
+  let attached = null;
+  let manualQuantity = quantity.value;
 
   function updateColourField() {
-    colourDetails.hidden = !otherColour.checked;
-    requestedColour.disabled = !otherColour.checked;
-    requestedColour.required = otherColour.checked;
+    const needsDetail = !attached && otherColour.checked;
+    colourDetails.hidden = !needsDetail;
+    requestedColour.disabled = !needsDetail;
+    requestedColour.required = needsDetail;
   }
-  document.getElementById("mat-colours").addEventListener("change", updateColourField);
+  manualColours.addEventListener("change", updateColourField);
   updateColourField();
 
   function updateSubtotal() {
@@ -59,14 +67,90 @@ export function initTatamiPreorders() {
     payload.disabled = true;
     updateSubtotal();
   });
+  for (const colour of tatamiMat.colours) spareColour.add(new Option(colour, colour));
+
+  function orderMix() {
+    const mix = { ...attached.colours };
+    const spares = attached.quantity - attached.placed;
+    if (spares) mix[spareColour.value] = (mix[spareColour.value] || 0) + spares;
+    return tatamiMat.colours.filter(colour => mix[colour] > 0)
+      .map(colour => `${mix[colour]} × ${colour}`).join(", ");
+  }
+
+  function displayMix() {
+    document.getElementById("plan-quote-colours").textContent = "Order colours: " + orderMix();
+  }
+
+  function attachPlan(plan, moveFocus) {
+    const wasAttached = Boolean(attached);
+    if (!wasAttached) manualQuantity = quantity.value;
+    attached = plan;
+    payload.disabled = true;
+    manualColours.disabled = manualColours.hidden = true;
+    updateColourField();
+    quantity.readOnly = true;
+    quantityHelp.hidden = true;
+    quantity.value = plan.quantity;
+    planQuote.hidden = false;
+    document.getElementById("plan-quote-summary").textContent = plan.summary;
+    const spares = plan.quantity - plan.placed;
+    spareColour.disabled = spareLabel.hidden = spares === 0;
+    if (!wasAttached) {
+      spareColour.value = tatamiMat.colours.reduce((best, colour) =>
+        (plan.colours[colour] || 0) > (plan.colours[best] || 0) ? colour : best);
+    }
+    if (spares > 0) {
+      document.getElementById("plan-extra-title").textContent =
+        `Colour for ${spares === 1 ? "1 extra mat" : spares + " extra mats"} to meet the minimum order`;
+    }
+    displayMix();
+    updateSubtotal();
+    if (moveFocus) document.getElementById("plan-quote-heading").focus();
+  }
+
+  function detachPlan() {
+    if (!attached) return;
+    attached = null;
+    planQuote.hidden = true;
+    spareColour.disabled = true;
+    manualColours.disabled = manualColours.hidden = false;
+    quantityHelp.hidden = quantity.readOnly = false;
+    quantity.value = manualQuantity;
+    updateColourField();
+    updateSubtotal();
+  }
+  spareColour.addEventListener("change", displayMix);
+  document.getElementById("remove-plan").addEventListener("click", () => {
+    detachPlan();
+    (manualColours.querySelector("input:checked") || manualColours.querySelector("input")).focus();
+  });
+  document.addEventListener("tatami:use-layout", event => {
+    if (event.detail.placed > 0) attachPlan(event.detail, true);
+  });
+  document.addEventListener("tatami:layout-changed", event => {
+    if (!attached) return;
+    if (event.detail.placed > 0) attachPlan(event.detail, false);
+    else detachPlan();
+  });
   form.addEventListener("formdata", event => {
     const subtotal = matSubtotal(quantity.valueAsNumber);
     if (subtotal) {
       event.formData.set("mat_subtotal", String(subtotal.cents / 100));
       event.formData.set("coverage_m2", String(subtotal.area));
     }
+    if (attached) {
+      const orderColours = tatamiMat.colours.filter(colour => attached.colours[colour] > 0 ||
+        (!spareColour.disabled && spareColour.value === colour));
+      event.formData.set("mat_colour", orderColours.length === 1 ? orderColours[0] : "Mixed floor plan");
+      event.formData.set("mat_colour_quantities", orderMix());
+      event.formData.set("floor_plan_summary", attached.summary);
+      event.formData.set("floor_plan", attached.layout);
+      event.formData.set("view_floor_plan", attached.planUrl);
+    }
   });
   form.addEventListener("reset", () => queueMicrotask(() => {
+    detachPlan();
+    quantity.value = quantity.defaultValue;
     payload.disabled = true;
     updateColourField();
     updateSubtotal();
@@ -115,6 +199,7 @@ export function initTatamiPreorders() {
   });
   useCount.addEventListener("click", () => {
     if (estimatedCount === null) return;
+    detachPlan();
     quantity.value = estimatedCount;
     updateSubtotal();
     payload.value = `${width.value} m × ${length.value} m; ${detail.textContent}`;
