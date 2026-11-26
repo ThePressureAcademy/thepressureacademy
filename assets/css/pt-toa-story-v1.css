@@ -1,0 +1,74 @@
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('/assets/fonts/barlow-condensed-extrabold-latin-v1.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+
+#main-content {
+  background: #f5f2e9;
+  color: #22251f;
+}
+
+.toa-story {
+  width: min(91%, 76rem);
+  margin-inline: auto;
+  padding-block: clamp(2rem, 5vw, 5rem);
+  display: grid;
+  grid-template-columns: 1.06fr 1fr;
+  grid-template-areas: 'image heading' 'image copy';
+  grid-template-rows: auto auto;
+  column-gap: clamp(2rem, 5vw, 5.5rem);
+  align-content: center;
+}
+
+.toa-heading { grid-area: heading; align-self: end; }
+.toa-byline { display: flex; align-items: center; gap: .5rem; margin: 0; font-weight: 650; }
+.toa-byline img { width: 2.4rem; height: 2.4rem; }
+.toa-heading h1 {
+  color: #27241e;
+  font: 800 clamp(5rem, 9vw, 9rem)/.9 'Barlow Condensed', sans-serif;
+  margin: .28em 0 .12em;
+  letter-spacing: -.035em;
+}
+.toa-meaning { font-size: clamp(1.3rem, 2.3vw, 1.95rem); margin: 0; color: #734027; }
+.toa-portrait {
+  grid-area: image;
+  align-self: stretch;
+  position: relative;
+  overflow: hidden;
+  min-height: 31rem;
+  background: #8c5547;
+}
+.toa-portrait img {
+  position: absolute;
+  width: 157%;
+  max-width: none;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-53%, -64%);
+}
+.toa-copy { grid-area: copy; align-self: start; }
+.toa-copy p { max-width: 43ch; font-size: clamp(1.03rem, 1.45vw, 1.2rem); color: #393c33; line-height: 1.55; margin: 1.15em 0; }
+.toa-shop {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1em;
+  min-height: 46px;
+  padding: .55em 1.1em;
+  margin-top: .25rem;
+  background: #21251e;
+  color: #fff8ed;
+  font-weight: 650;
+}
+.toa-shop:hover, .toa-shop:focus-visible { background: #724127; color: #fff; }
+.toa-source { display: table; margin-top: .7rem; padding-block: .65rem; color: #60412d; text-decoration: underline; text-underline-offset: .22em; }
+.toa-story a:focus-visible { outline: 3px solid #8c411d; outline-offset: 3px; }
+
+@media (max-width: 680px) {
+  .toa-story { grid-template-columns: 1fr; grid-template-areas: 'heading' 'image' 'copy'; }
+  .toa-heading h1 { margin-top: .13em; }
+  .toa-portrait { aspect-ratio: 1.45; min-height: 0; margin-top: 1.25rem; }
+  .toa-portrait img { width: 143%; transform: translate(-53%, -66%); }
+}

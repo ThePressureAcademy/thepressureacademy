@@ -17,7 +17,7 @@ function syncControls() {
   const index = currentIndex();
   if (index === activeIndex) return;
   for (const [position, frame] of frames.entries()) {
-    for (const link of frame.querySelectorAll("[data-step]")) {
+    for (const link of frame.querySelectorAll("a[href]")) {
       link.tabIndex = position === index ? 0 : -1;
     }
   }
@@ -63,7 +63,9 @@ reel.addEventListener("keydown", (event) => {
   };
   if (!Object.hasOwn(destinations, event.key)) return;
   event.preventDefault();
-  navigate(frames[destinations[event.key]], event.target.closest("[data-step]")?.dataset.step);
+  const step = event.target.closest("[data-step]")?.dataset.step;
+  if (!step) reel.focus({ preventScroll: true });
+  navigate(frames[destinations[event.key]], step);
 });
 
 reel.addEventListener("scroll", () => {
